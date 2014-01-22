@@ -11,11 +11,15 @@
     "marked": "~0.1.9",
     "request": "~2.33.0",
     "jade": "~1.1.5",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "bluebird": "*"
+  },
+  "devDependencies": {
+    "servedir": "*"
   },
   "scripts": {
-    "build": "node build.js",
-    "start": "open index.html"
+    "build": "node build.js && echo 'built index.html'",
+    "start": "servedir"
   },
   "author": "Henrik Joreteg",
   "license": "MIT"
