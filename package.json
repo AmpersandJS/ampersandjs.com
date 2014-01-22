@@ -13,6 +13,10 @@
     "jade": "~1.1.5",
     "async": "~0.2.9"
   },
+  "scripts": {
+    "build": "node build.js",
+    "start": "open index.html"
+  },
   "author": "Henrik Joreteg",
   "license": "MIT"
 }
