@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="css/&amp;yet-highlight.css">
+    <title>Human JavaScript Docs</title>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-44685415-1', 'humanjavascript.com');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="warning"><strong>WARNING: </strong>
+        <p>these docs are incomplete and still being written. <a href="http://github.com/henrikjoreteg/humanjs">help make them better</a></p>
+      </div>
+      <div id="slider"></div>
+    </nav>
+    <main>
+      <h1 class="humanjs">HumanJS</h1>
+      <h2>Quick Start</h2>
+      <ol>
+        <li><a href="http://nodejs.org/">install node.js</a></li>
+        <li>install humanjs
+          <p><code>$ npm install humanjs -g</code></p>
+        </li>
+        <li>run ``humanjs`` to create your new app folder, build your project scaffolding, and run your app.
+          <p><code>$ humanjs</code></p>
+        </li>
+        <li>open your browser to: <code>http://localhost:3000</code></li>
+        <li>that's it!</li>
+      </ol>
+      <h3>What's included?</h3>
+      <ul>
+        <li>Well-architected shell of a single page app to serve as a starting point for your app.</li>
+        <li>A solution for using jade templates and templatizer to pre-compile client templates.</li>
+        <li>A fully functional development environment that will watch for changes. You just modify and refresh (without manual build steps).</li>
+        <li>Changing one flag in your config puts it in production mode which builds and serves minfied, uniquely named, and permanently cachable static files.</li>
+        <li>A clientside routing system using HTML5 pushState.</li>
+        <li>A main layout template is rendered by the main view that includes a page container where page views are rendered as the user navigates to different URLs in the app.</li>
+        <li>An example of rendering a collection of models in a container.</li>
+        <li>A mock REST API to demonstrate how you might talk to an API to fetch data.</li>
+        <li>A solution for declaritive binding of model properties to views, that is <em>completely</em> decoupled from the template engine. See human-view below for more details.</li>
+        <li>A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team enviroments where you need somewhere to reference what is being stored on your models. See human-model for more detail.</li>
+      </ul>
+      <h2>Introduction</h2>
+      <p>There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at <a href="http://andyet.com">&yet</a> we've surmised that the ideal seems to lie somewhere in the middle. </p>
+      <p>Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see <a href="http://www.faqs.org/docs/artu/ch01s06.html">Unix philosophy</a>).</p>
+      <p>That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to <em>most</em> apps. So we need an opinionated starting point.</p>
+      <p>That's how HumanJS was born. Some of it simply uses <a href="http://backbonejs.org">Backbone.js</a> as is.</p>
+      <p>It's not really a framework, it's a bag of pre-assembled little tools that you're free to rip apart and add to. </p>
+      <h3>Goals</h3>
+      <ul>
+        <li>Readability</li>
+        <li>Flexibility</li>
+        <li>Minimal magic</li>
+        <li>100% client rendered</li>
+        <li>Use node.js to simplify develpment</li>
+        <li>App can be served as static content by any server (node.js not required in production)</li>
+        <li>Should requrie minimal framework-level knowledge (knowing javascript well gets you 95% there)</li>
+        <li>Easy to collaborate on:
+          <ul>
+            <li>Clear file structure where everything has a logical place.</li>
+            <li>Proper seperation of concerns</li>
+          </ul>
+        </li>
+        <li>Provide an opinionated starting point</li>
+        <li>Use npm + browserify for package management but still play nicely with non-common JS libraries.</li>
+      </ul>
+      <h3>downloads</h3>
+      <ol>
+        <li>humanjs (scaffolding / docs) <a href="https://github.com/henrikjoreteg/humanjs">github</a> <a href="https://npmjs.org/package/humanjs">npm</a></li>
+        <li>human-model <a href="https://github.com/henrikjoreteg/human-model">github</a> <a href="https://npmjs.org/package/human-model">npm</a></li>
+        <li>human-view <a href="https://github.com/henrikjoreteg/human-view">github</a> <a href="https://npmjs.org/package/human-view">npm</a></li>
+        <li>backbone.js <a href="https://github.com/jashkenas/backbone">github</a> <a href="https://npmjs.org/package/backbone">npm</a></li>
+      </ol>
+      <h2 data-nav="The Book">Human JavaScript book</h2>
+      <p>A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here <a href="http://humanjavascript.com">is available for $29</a>.</p>
+      <p><a href="http://humanjavascript.com"><img src="images/human-javascript.png" width="200" alt="human javascript ebook"></a></p>
+      <div class="includes"><h1>human-view</h1>
+<p>A set of common helpers and conventions for using as a base view for backbone applications.
+
+
+
+</p>
+<p>It adds: 
+
+</p>
+<ol>
+<li>Simple declarative property/template bindings without needing to include a template engine that does it for you. Which keeps your code with your code, you template as a simple function that returns an HTML string and your payload light.</li>
+<li>A pattern for easily including the view&apos;s base element into render. Rather than having to specify tag type and attributes in javascript in the view definition you can just include that in your template like everything else.</li>
+<li>A way to render a collection of models within an element in the view, each with their own view, preserving order, and doing proper cleanup when the main view is removed.</li>
+</ol>
+<h2>Install</h2>
+<pre><code>npm install human-view</code></pre>
+<h2>Usage</h2>
+<h3>Basics</h3>
+<p>Nothing special is required, just use <code>HumanView</code> in the same way as you would Backbone.View:
+
+</p>
+<pre><code class="javascript">var MyView = HumanView.extend({
+    initialize: function () { ... }, 
+    render: function () { ... }
+});</code></pre>
+<h3>Declarative Bindings</h3>
+<pre><code class="javascript">var MyView = HumanView.extend({
+    // set a `template` property of your view. This can either be
+    // a function that returns an HTML string or just a string if 
+    // no logic is required.
+    template: myTemplateFunction, 
+    textBindings: {
+        // the model property: the css selector
+        name: &apos;li a&apos; 
+    },
+    render: function () {
+        // method for rendering the view&apos;s template and binding all
+        // the model properties as described by `textBindings` above.
+        // You can also bind other attributes, and if you&apos;re using
+        // human-model, you can bind derived properties too.
+        this.renderAndBind({what: &apos;some context object for the template&apos;});
+    }
+});</code></pre>
+<h4>Binding types:</h4>
+<div class="signature"><ul>
+<li><code>classBindings</code>: Maintains a class on the element according to the following rules:<ol>
+<li><strong>If the bound property is a boolean</strong>: the name of the property will be used as the name of the class. The class will be on the element when true, and removed when the propety is false.</li>
+<li><strong>If the property is a string</strong>: the current value of the property will be used as the class name. When the property value changes the previous class will be removed and be replaced by the current value. No other classes on that element will be disturbed.</li>
+</ol>
+</li>
+<li><code>textBindings</code>: Maintains the current value of the property as the text content of the element specified by the selector.</li>
+<li><code>htmlBindings</code>: Just like <code>textBindings</code> except html is not escaped.</li>
+<li><code>srcBindings</code>: Binds to the <code>src</code> attribute (useful for avatars, etc).</li>
+<li><code>hrefBindings</code>: Binds to the <code>href</code> attribute.</li>
+<li><code>inputBindings</code>: Binds to the <code>input</code> value.</li>
+<li><code>attributeBindings</code>: Lets you create other arbitrary attributes bindings. For example, this would bind the model&apos;s <code>id</code> attribute to the <code>data-id</code> attribute of the span element:</li>
+</div></ul>
+<pre><code class="javascript">var View = HumanView.extend({
+    template: &apos;&lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;&apos;,
+    attributeBindings: {
+        // &lt;model_property&gt;: [ &apos;&lt;css-selector&gt;&apos;, &apos;&lt;attribute-name&gt;&apos;]
+        id: [&apos;span&apos;, &apos;data-thing&apos;]
+    }
+});</code></pre>
+<h3>handling subviews</h3>
+<p>Often you want to render some other subview within a view. The trouble is that when you remove the parent view, you also want to remove all the subviews.
+
+</p>
+<p>HumanView has two convenience method for handling this that&apos;s also used by <code>renderCollection</code> to do cleanup.
+
+</p>
+<p>It looks like this:
+
+</p>
+<pre><code class="javascript">var HumanView = require(&apos;human-view&apos;);
+
+// This can be *anything* with a `remove` method
+// and an `el` property... such as another human-view
+// instance.
+// But you could very easily write other little custom views
+// that followed the same conventions. Such as custom dialogs, etc.
+var SubView = require(&apos;./my-sub-view&apos;);
+
+module.exports = HumanView.extend({
+    render: function () {
+        // this takes a view instance and either an element, or element selector 
+        // to draw the view into.
+        this.renderSubview(new Subview(), &apos;.someElementSelector&apos;);
+
+        // There&apos;s an even lower level api that `renderSubview` usees
+        // that will do nothing other than call `remove` on it when
+        // the parent view is removed.
+        this.registerSubview(new Subview());
+    }
+})</code></pre>
+<p><strong>registerSubview also, stores a reference to the parent view on the subview as <code>.parent</code></strong>
+
+</p>
+<h3>rendering collections</h3>
+<p>HumanView includes a <code>renderCollection</code> method that works as follows:
+
+</p>
+<pre><code class="javascript">// some view for individual items in the collection
+var ItemView = HumanView.extend({ ... });
+
+// the main view
+var MainView = HumanView.extend({
+    template: &apos;&lt;section class=&quot;page&quot;&gt;&lt;ul class=&quot;itemContainer&quot;&gt;&lt;/ul&gt;&lt;/section&gt;&apos;,
+    render: function (opts) {
+        // render our template as usual
+        this.renderAndBind();
+
+        // call renderCollection with these arguments:
+        // 1. collection
+        // 2. which view to use for each item in the list
+        // 3. which element within this view to use as the container
+        // 4. options object (not required):
+        //      {
+        //          // function used to determine if model should be included
+        //          filter: function (model) {},
+        //          // boolean to specify reverse rendering order
+        //          reverse: false,
+        //          // view options object (just gets passed to item view&apos;s `initialize` method)
+        //          viewOptions: {}
+        //      }
+        this.renderCollection(this.collection, ItemView, this.$(&apos;.itemContainer&apos;)[0], opts);
+        return this;
+    }  
+})</code></pre>
+<p>That will maintain this collection within that container element. Including proper handling of add, remove, sort, reset, etc. You can optionally specify a filter function or choose to reverse the collection when rendering.
+
+</p>
+<p>Also, when the parent view gets <code>.remove()</code>&apos;ed any event handlers registered by the individual item views will be properly removed as well. 
+
+</p>
+<p>Each item view will only be <code>.render()</code>&apos;ed once (unless you change that within the item view itself).
+
+</p>
+<h2>Other Methods</h2>
+<p><code>getByRole</code> - Shortcut for fetching elements by their &quot;role&quot; attribute. This is for convenience and also to encourage the use of the <code>role</code> attribute for grabbing elements from the view. Using roles to select elements in your view makes it much less likely that designers and JS devs accidentally break eachother&apos;s code. For example doing stuff like <code>&lt;nav role=&quot;people-list&quot;&gt;</code> makes it very clear what that element will be populated with while also making your app more accessible.
+
+</p>
+<h2>Changelog</h2>
+<div class="signature"><ul>
+<li>1.6.0 <a href="https://github.com/HenrikJoreteg/human-view/compare/v1.5.0...v1.6.0">diff</a> - Adding <code>getByRole</code> method</li>
+<li>1.5.0 - Adding bower.json, adding missing dev dependencies, other small bugfixes.</li>
+<li>1.4.1 - Removing elements without using jQuery&apos;s <code>.empty()</code> in renderCollection. (fixes: <a href="https://github.com/HenrikJoreteg/human-view/issues/13">https://github.com/HenrikJoreteg/human-view/issues/13</a>)</li>
+<li>1.4.0 - Adding <code>parent</code> reference to subviews registered via registerSubview</li>
+</div></ul>
+</div>
+      <div class="includes"><h1>human-model</h1>
+<p>Human Models are meant to work as a drop-in replacement for Backbone models. In fact, it&apos;s extensively tested against the unit tests from Backbone (open test/index.html to run). 
+
+</p>
+<p>However, Human Models are far more restrictive and structured. They force you to specify properties (at at minimum their types) for things you want it to store.
+
+
+</p>
+<h2>Module sytems/loaders/managers</h2>
+<p>Thanks to @svnlto, HumanModel uses UMD so it works as CommonJS (node + browserify), AMD, and as a standalone script tag.
+
+</p>
+<h2>Installing</h2>
+<p>via npm:
+
+</p>
+<pre><code>npm install human-model</code></pre>
+<p>via bower: 
+
+</p>
+<pre><code>bower install human-model</code></pre>
+<h2>Why do this?</h2>
+<p>Backbone models have a lot of flexibility in that you don&apos;t have to define what you&apos;re wanting to store ahead of time. 
+
+</p>
+<p>The only challenge with that is that for more complex applications is actually becomes quite difficult to remember what properties are available to you.
+
+</p>
+<p>Using human models means they&apos;re much more self-documenting and help catch bugs. Someone new to the project can read the models and have a pretty good idea of how the app is put together.
+
+</p>
+<p>It also uses&apos;s ES5&apos;s fancy <code>Object.defineProperty</code> to treat model attributes as if they were properties.
+
+</p>
+<p>That means with Human Model you can set an attribute like this: <code>user.name = &apos;henrik&apos;</code> and still get a <code>change:name</code> event fired. 
+
+</p>
+<p>Obviously, this restriction also means that this won&apos;t work in browsers that don&apos;t support that. You can check specific browser support here: <a href="http://kangax.github.io/es5-compat-table/">http://kangax.github.io/es5-compat-table/</a>
+
+
+</p>
+<h2>Key Differences from Backbone</h2>
+<p>Everything Backbone does with Collections should Just Work™ with HumanModel as long as you specify a HumanModel constructor as a collection&apos;s <code>model</code> property.
+
+</p>
+<p><strong>important</strong>: One key point to understand is that unlike backbone. You&apos;re actually passing an object definition that describes the Model, not just methods to attach to its prototype. For example, you&apos;ll notice we call <code>HumanModel.define()</code> instead of <code>Backbone.Model.extend()</code>. This is to make the distinction clear.
+
+</p>
+<p>Besides that and the obvious differences, any behavior that doesn&apos;t match Backbone should be considered a bug.
+
+
+</p>
+<h3>Explicit model definitions</h3>
+<p>Schema definitions take an attribute called <code>props</code> to defined properties.
+
+</p>
+<p>Property names can be defined two different ways, either an array with <code>[type, required, default]</code>,
+or an object: <code>{ type: &apos;string&apos;, required: true, default: &apos;&apos; , allowNull: false}</code>
+
+</p>
+<p>types can be: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code>, or <code>date</code>
+required: true, false (optional)
+default: any (optional)
+setOnce: true, false (optional)
+test: function (optional)
+allowNull: true, false (optional)
+values: <code>[&apos;some&apos;, &apos;valid&apos;, &apos;values&apos;]</code>(optional) 
+
+</p>
+<p>Note that when defining with an array <code>type</code>, <code>required</code>, and <code>default</code>
+are the only property attributes you can set.
+
+</p>
+<p>If <code>required</code> is true, the attribute will always have a value even if it is not explicitly set or is cleared.  If a default is given, that will be used.  If no default is given a default for its data type will be used (e.g. &apos;&apos; for string, {} for object)
+
+</p>
+<p>If a <code>default</code> is given, the attribute will default to that value when the model is instantiated.
+
+</p>
+<p>If <code>setOnce</code> is true, the attribute will throw an error if anything tries to set its value more than once.
+
+</p>
+<p>If <code>values</code> is provided, you can only set that property to a value in the list. You can use this in combination with <code>type</code> to check both, or just use <code>values</code> and <code>default</code> by themselves. This is handy for <code>enum</code>-type stuff. For example:
+
+</p>
+<pre><code class="js">props: {
+    alignment: {
+        values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],
+        default: &apos;middle&apos;
+    }
+}</code></pre>
+<p>If given, <code>test</code> should be a function that expects the new value (and optionally the new type) of the attribute.  It should return an error message on failure, and false on success
+
+</p>
+<pre><code class="js">props: {
+    firstName: [&apos;string&apos;, true, &apos;Jim&apos;]
+    lastName: {
+        type: &apos;string&apos;, 
+        required: false, 
+        default: &apos;Bob&apos; 
+    }
+}</code></pre>
+<h3>A sample model with comments</h3>
+<pre><code class="js">var Person = HumanModel.define({
+    // every human model should have a type
+    type: &apos;member&apos;,
+    init: function () {
+        // main initialization function
+    },
+    // props are for properties that exist on the server
+    props: {
+        id: {
+            type: &apos;number&apos;,
+            setOnce: true
+        },
+        firstName: [&apos;string&apos;, true],
+        lastName: [&apos;string&apos;, true],
+        created: [&apos;date&apos;],
+        email: [&apos;string&apos;, true],
+        username: [&apos;string&apos;, true],
+        lastLogin: [&apos;date&apos;],
+        largePicUrl: [&apos;string&apos;],
+        department: {
+            type: &apos;number&apos;,
+            // you can optionally provide your own test function
+            test: function (val) {
+                if (val &gt; 20) {
+                    return &quot;Invalid department&quot;;
+                }
+            }
+        },
+        alignment: {
+            // you can also specify a list of valid values
+            values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],
+            default: &apos;middle&apos;
+        }
+    },
+    // derived properties and their dependencies. If any dependency changes
+    // that will also trigger a &apos;change&apos; event on the derived property so
+    // we know to re-render the template
+    derived: {
+        // fullName is 
+        fullName: {
+            // you can optionally define the properties this derived property
+            // depends on. That way if the underlying properties change you can
+            // listen for changes directly on the derived property.
+            deps: [&apos;firstName&apos;, &apos;lastName&apos;],
+            fn: function () {
+                return this.firstName + &apos; &apos; + this.lastName;
+            }
+        }
+    },
+    // Session properties are browser state for a model
+    // these trigger &apos;change&apos; events when set, but are not
+    // included when serializing or saving to server.
+    session: {
+        selectedTasks: [&apos;array&apos;, true, []],
+        lastPage: [&apos;string&apos;, true, &apos;tasks&apos;],
+        unread: [&apos;boolean&apos;, true, false],
+        active: [&apos;boolean&apos;, true, false]
+    },
+    // child collections that will be initted. They will
+    // be created at as a property of the same name as the
+    // key. The child collection will also be given a reference
+    // to its parent.
+    collections: {
+        // messages: Messages
+    },
+    otherMethods: function (cb) {
+        // of course you can tack on whatever other methods you want
+    }
+});</code></pre>
+<h3>Going hardcore &quot;strict&quot; definition</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode">Strict mode</a> in JS is pretty great and is fairly well supported in modern browsers.
+
+</p>
+<p>If you want to be <em>really</em> hardcore about not letting you set properties that aren&apos;t defined, you can specify <code>seal: true</code> when defining your model.
+
+</p>
+<pre><code class="js">// enable strict mode
+&quot;use strict&quot;;
+
+var MySuperStrictModel = HumanModel.define({
+    // set this to true
+    seal: true,
+    // also throw errors for properties not defined
+    // when set via `set`.
+    extraProperties: &apos;reject&apos;,
+    // normal properties
+    props: {
+        name: &apos;string&apos;
+    }
+});
+
+// create an instance of this model
+var model = new MySuperStrictModel();
+
+// setting defined properties works like usual
+model.name = &apos;something&apos;;
+
+// BUT, setting a property that doesn&apos;t exist
+// will throw an error because the object is sealed.
+model.something = &apos;something else&apos;; // KABOOM!</code></pre>
+<h3>Setting model attributes</h3>
+<pre><code class="js">// backbone:
+user.set(&apos;firstName&apos;, &apos;billy bob&apos;);
+
+// human:
+user.firstName = &apos;billy bob&apos;;
+
+// p.s. you can still do it the other way in human (so you can still pass otions)
+user.set(&apos;firstName&apos;, &apos;billy bob&apos;, {silent: true})</code></pre>
+<h3>Getting model attributes</h3>
+<pre><code class="js">// backbone:
+user.get(&apos;firstName&apos;);
+
+// human
+user.firstName;</code></pre>
+<h2>The Registry</h2>
+<p>HumanModel also inits a global registery for storing all initted models. It&apos;s designed to be used for looking up models based on their type, id and optional namespace.
+
+</p>
+<p>It&apos;s purpose is finding/updating models when we get updates pushed to us from the server. This is very important for buildling realtime apps.
+
+</p>
+<p>TODO: needs more docs on the registry.
+
+</p>
+<h2>Tests</h2>
+<p>An extensive suite of tests can be run by opening <code>test/index.html</code> in a browser. In order to ensure compatibility with backbone to the extent possible I started with all the tests from Backbone 1.0.0 and modified them to use HumanModel.
+
+</p>
+<h2>Caveats</h2>
+<div class="signature"><ul>
+<li>Since backbone does an <code>instanceof</code> check when adding initted models to a collection, HumanModel monkey patches the <code>_prepareModel</code> collection method to check against HumanModel instead.</li>
+<li>Still needs better docs. Probably a full docs site.</li>
+</div></ul>
+<h2>Authors</h2>
+<p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a> with contributions from:
+
+</p>
+<ul>
+<li><a href="http://twitter.com/beausorensen">@beausorensen</a></li>
+<li><a href="https://twitter.com/lancestout">@LanceStout</a></li>
+<li><a href="https://twitter.com/philip_roberts">@philip_roberts</a></li>
+<li><a href="https://twitter.com/svenlito">@svenlito</a></li>
+</ul>
+<h2>Changelog</h2>
+<div class="signature"><ul>
+<li>2.6.0 - Cached, derived properties only fire change events now if new derived value is different from cache, instead of blindly firing change events if dependent properties changed.</li>
+<li>2.5.0 - UMD support by @swenlito</li>
+<li>2.4.0 - Added <code>toggle</code> method for boolean properties and properties with <code>values</code></li>
+<li>2.3.0 - Added <code>values</code> to property definition</li>
+<li>2.2.0 - Added test parameter to property definitions</li>
+<li>2.1.0 - Added allowNull parameter to property definitions</li>
+<li>2.0.0 - Minor, but incompatible fix that remove <code>toServer</code> getter in lieu of adding <code>serialize</code> method that can be overridden.</li>
+<li>1.4.0 - Find/fix performance bottleneck. Significantly faster to instantiate larger numbers of models now.</li>
+<li>1.3.0 - Fix bug where session props were included in <code>.save()</code></li>
+<li>1.2.0 - Make it possible to overwrite or extend data types.</li>
+<li>1.0.0 - Switching from <code>extend()</code> to <code>define()</code> pattern for building a model definition.</li>
+</div></ul>
+<h2>License</h2>
+<p>MIT
+</p>
+</div>
+      <h2>Examples</h2>
+      <h3>And Bang</h3>
+      <p>And Bang helps same-page-ify your team with shared tasks and chat. </p>
+      <p>Many of the tools and approaches of human javascript were extracted from And Bang.</p><a href="http://andbang.com"><img src="https://i.cloudup.com/p3kLPyMYDw-2000x2000.png" width="400" class="exampleImage"></a>
+      <h3>Talky</h3>
+      <p>Talky is truly simple video chat and screen sharing app for groups.</p>
+      <p>Powered by WebRTC and built on human javascript.</p><a href="https://talky.io"><img src="https://i.cloudup.com/0c5WD7hIUb-2000x2000.png" width="400" class="exampleImage"></a>
+      <h3>The resources app</h3>
+      <p>Quick module search of curated modules. The source for this app is <a href="https://github.com/henrikjoreteg/humanjs-resources">available on github</a>.</p><a href="http://resources.humanjavascript.com"><img src="https://i.cloudup.com/XhYHvX7FA5-2000x2000.png" width="400" class="exampleImage"></a>
+      <h3>Otalk</h3>
+      <p>Otalk is an open source chat client powered XMPP, stanza.io, and WebRTC. You can think of it as an open source alternative to Skype.</p><a href="https://otalk.im"><img src="https://i.cloudup.com/u0xhQors8G-2000x2000.png" width="400" class="exampleImage"></a>
+      <h2>Contributors</h2>
+      <p>Human JavaScript is the combined efforts of lots of people and since all these projects are open source there are simply too many contributors to list. </p>
+      <p>The project is sponsored by <a href="http://andyet.com">&yet</a>.</p>
+      <p>The core contributor team consists of:</p>
+      <ul>
+        <li><a href="http://twitter.com/henrikjoreteg">Henrik Joreteg</a></li>
+        <li><a href="http://twitter.com/lukekarrys">Luke Karrys</a></li>
+        <li><a href="http://twitter.com/lancestout">Lance Stout</a></li>
+        <li><a href="http://twitter.com/philip_roberts">Philip Roberts</a></li>
+        <li><a href="http://twitter.com/_crossdiver">Isaac Lewis</a></li>
+        <li><a href="http://twitter.com/wraithgar">Michael (Gar) Garvin</a></li>
+      </ul>
+      <p>If you have benefitted from these tools, please consider <a href="http://humanjavascript.com">buying the book</a> or <a href="http://andyet.com">hiring &yet</a> to help with your next development project.</p>
+    </main>
+  </body>
+  <script src="js/highlight.pack.js"></script>
+  <script src="js/slugger.js"></script>
+  <script src="js/setup.js"></script>
+  <script src="http://static.andyet.com/tag.js"></script>
+</html>
