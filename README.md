@@ -1,5 +1,7 @@
 # Documentation site for Human JavaScript
 
+This isn't what powers docs.humanjavascript.com yet, but it will be soon.
+
 Uses same doc parsing process as what builds nodejs.org docs. It's markdown with a bit more structured data for things like documenting events and method signatures.
 
 ## How to build
@@ -37,4 +39,4 @@ Running this build will remove anything between `<!-- starthide -->` and `<!-- e
 
 ## Credit
 
-<3 to @legastero, @latent_flip and node docs for the sweet structured markdown format/parsiing.
+<3 to [@lancestout](https://twitter.com/lancestout), [@latent_flip](https://twitter.com/philip_roberts) and node docs for the sweet structured markdown format/parsiing.
