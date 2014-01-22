@@ -1,17 +1,18 @@
 // init code highlighting
-Array.prototype.forEach.call(document.querySelectorAll('pre'), function (node) {
-  hljs.highlightBlock(node);
+Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
+  var codeEl = pre.firstChild;
+  codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['html', 'javascript', 'bash', 'json']).value;
 });
 
 // grab all our h* tags
-var hTags = document.querySelector('main').querySelectorAll('h2, h3, h4, h5');
+var hTags = document.querySelector('main').querySelectorAll('h1, h2, h3, h4, h5');
 
 var nav = document.querySelector('nav');
 var levels = [];
 
 Array.prototype.forEach.call(hTags, function (h) {
   var a = document.createElement('a');
-  var index = Number(h.tagName.charAt(1)) - 2;
+  var index = Number(h.tagName.charAt(1)) - 1;
   var label = h.textContent.replace(/<[^>]*>/g, '').replace(/\([^\)]*\)/g, '').trim();
 
   levels[index] = slugger(h.dataset.nav || label);

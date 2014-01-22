@@ -68,6 +68,10 @@ main pre {
   -border-radius: 3px;
   border-radius: 3px;
 }
+main pre code {
+  color: inherit;
+  background-color: inherit;
+}
 main .exampleImage {
   border: 1px solid #808080;
   margin-left: 50px;
@@ -117,20 +121,23 @@ nav a {
   display: block;
   margin: 0 15px;
 }
-nav a.h2 {
+nav a.h1 {
   color: #000;
   font-weight: bold;
   text-decoration: none;
   margin: 5px 15px;
 }
-nav a.h3 {
+nav a.h2 {
   margin-left: 25px;
 }
-nav a.h4 {
+nav a.h3 {
   margin-left: 35px;
 }
-nav a.h5 {
+nav a.h4 {
   margin-left: 45px;
+}
+nav a.h5 {
+  margin-left: 55px;
 }
 nav a:hover {
   text-decoration: underline;

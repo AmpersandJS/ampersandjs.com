@@ -24,7 +24,7 @@ jadeTemplate = jadeTemplate.replace(/(?:@gendoc) (.*)$/gim, function (line, matc
         html: '',
         json: ''
     });
-    return 'div.includes!= globals.modules["' + label + '"]';
+    return 'div.include!= globals.modules["' + label + '"]';
 });
 
 async.forEach(includes, function (repo, cb) {
