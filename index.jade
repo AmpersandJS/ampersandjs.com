@@ -22,7 +22,39 @@ html
       main
         h1.humanjs HumanJS
 
-        h2 Quick Start
+        h1 Introduction
+
+        p There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at <a href="http://andyet.com">&yet</a> we've surmised that the ideal seems to lie somewhere in the middle.
+
+        p Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see <a href="http://www.faqs.org/docs/artu/ch01s06.html">Unix philosophy</a>).
+
+        p That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to <em>most</em> apps. So we need an opinionated starting point.
+
+        p Enter HumanJS. It's not a framework per se, it's a bag of pre-assembled little tools that you're free to rip apart and add to with the following goals in mind.
+
+        h2 Goals
+
+        ul
+          li Provides an opinionated starting point for an app
+          li Easy to get up and running
+          li Minimal framework-specific knowledge required (knowing JavaScript well gets you 95% there)
+          li Minimal magic
+          li Solve the develpment workflow problems out of the box:
+            ul
+              li Unminified and re-built automatically in develpment
+              li Minfied, cached for production use
+              li Switching between the two with a single config flag
+          li Use node.js to simplify develpment
+          li 100% client rendered
+          li Readability
+          li App can be served as static content by any server (node.js not required in production)
+          li Easy to collaborate on:
+            ul 
+              li Clear file structure where everything has a logical place
+              li Proper seperation of concerns
+          li Use npm + browserify for package management but still play nicely with non-common JS libraries.
+
+        h1 Quick Start Guide
 
         ol
           li <a href="http://nodejs.org/">install node.js</a>
@@ -36,7 +68,7 @@ html
 
           li that's it!
 
-        h3 What's included?
+        h2 What's included?
 
         ul
           li Well-architected shell of a single page app to serve as a starting point for your app.
@@ -48,48 +80,8 @@ html
           li An example of rendering a collection of models in a container.
           li A mock REST API to demonstrate how you might talk to an API to fetch data.
           li A solution for declaritive binding of model properties to views, that is <em>completely</em> decoupled from the template engine. See human-view below for more details.
-          li A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team enviroments where you need somewhere to reference what is being stored on your models. See human-model for more detail.
-
-
-        h2 Introduction
-
-        p There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at <a href="http://andyet.com">&yet</a> we've surmised that the ideal seems to lie somewhere in the middle. 
-
-        p Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see <a href="http://www.faqs.org/docs/artu/ch01s06.html">Unix philosophy</a>).
-
-        p That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to <em>most</em> apps. So we need an opinionated starting point.
-
-        p That's how HumanJS was born. Some of it simply uses <a href="http://backbonejs.org">Backbone.js</a> as is.
-
-        p It's not really a framework, it's a bag of pre-assembled little tools that you're free to rip apart and add to. 
-
-        h3 Goals
-
-        ul
-            li Readability
-            li Flexibility
-            li Minimal magic
-            li 100% client rendered
-            li Use node.js to simplify develpment
-            li App can be served as static content by any server (node.js not required in production)
-            li Should requrie minimal framework-level knowledge (knowing javascript well gets you 95% there)
-            li Easy to collaborate on:
-              ul 
-                li Clear file structure where everything has a logical place.
-                li Proper seperation of concerns
-            li Provide an opinionated starting point
-            li Use npm + browserify for package management but still play nicely with non-common JS libraries.
-        
-
-        h3 downloads
-
-        ol
-          li humanjs (scaffolding / docs) <a href="https://github.com/henrikjoreteg/humanjs">github</a> <a href="https://npmjs.org/package/humanjs">npm</a>
-          li human-model <a href="https://github.com/henrikjoreteg/human-model">github</a> <a href="https://npmjs.org/package/human-model">npm</a>
-          li human-view <a href="https://github.com/henrikjoreteg/human-view">github</a> <a href="https://npmjs.org/package/human-view">npm</a>
-          li backbone.js <a href="https://github.com/jashkenas/backbone">github</a> <a href="https://npmjs.org/package/backbone">npm</a>
-
-        h2(data-nav= "The Book") Human JavaScript book
+          li A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team enviroments where you need somewhere to reference what is being stored on your models. See human-model for more detail. 
+        h1(data-nav= "The Book") Human JavaScript book
 
         p A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here <a href="http://humanjavascript.com">is available for $29</a>.
 
@@ -100,7 +92,7 @@ html
         //- included modules
         @gendoc human-view ../human-view/README.md
         
-        @gendoc human-model https://raw2.github.com/henrikjoreteg/human-model/master/README.md
+        @gendoc human-model ../human-model/README.md
 
         h1 Examples
 

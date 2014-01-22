@@ -22,7 +22,37 @@
     </nav>
     <main>
       <h1 class="humanjs">HumanJS</h1>
-      <h2>Quick Start</h2>
+      <h1>Introduction</h1>
+      <p>There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at <a href="http://andyet.com">&yet</a> we've surmised that the ideal seems to lie somewhere in the middle.</p>
+      <p>Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see <a href="http://www.faqs.org/docs/artu/ch01s06.html">Unix philosophy</a>).</p>
+      <p>That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to <em>most</em> apps. So we need an opinionated starting point.</p>
+      <p>Enter HumanJS. It's not a framework per se, it's a bag of pre-assembled little tools that you're free to rip apart and add to with the following goals in mind.</p>
+      <h2>Goals</h2>
+      <ul>
+        <li>Provides an opinionated starting point for an app</li>
+        <li>Easy to get up and running</li>
+        <li>Minimal framework-specific knowledge required (knowing JavaScript well gets you 95% there)</li>
+        <li>Minimal magic</li>
+        <li>Solve the develpment workflow problems out of the box:
+          <ul>
+            <li>Unminified and re-built automatically in develpment</li>
+            <li>Minfied, cached for production use</li>
+            <li>Switching between the two with a single config flag</li>
+          </ul>
+        </li>
+        <li>Use node.js to simplify develpment</li>
+        <li>100% client rendered</li>
+        <li>Readability</li>
+        <li>App can be served as static content by any server (node.js not required in production)</li>
+        <li>Easy to collaborate on:
+          <ul>
+            <li>Clear file structure where everything has a logical place</li>
+            <li>Proper seperation of concerns</li>
+          </ul>
+        </li>
+        <li>Use npm + browserify for package management but still play nicely with non-common JS libraries.</li>
+      </ul>
+      <h1>Quick Start Guide</h1>
       <ol>
         <li><a href="http://nodejs.org/">install node.js</a></li>
         <li>install humanjs
@@ -34,7 +64,7 @@
         <li>open your browser to: <code>http://localhost:3000</code></li>
         <li>that's it!</li>
       </ol>
-      <h3>What's included?</h3>
+      <h2>What's included?</h2>
       <ul>
         <li>Well-architected shell of a single page app to serve as a starting point for your app.</li>
         <li>A solution for using jade templates and templatizer to pre-compile client templates.</li>
@@ -45,40 +75,9 @@
         <li>An example of rendering a collection of models in a container.</li>
         <li>A mock REST API to demonstrate how you might talk to an API to fetch data.</li>
         <li>A solution for declaritive binding of model properties to views, that is <em>completely</em> decoupled from the template engine. See human-view below for more details.</li>
-        <li>A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team enviroments where you need somewhere to reference what is being stored on your models. See human-model for more detail.</li>
+        <li>A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team enviroments where you need somewhere to reference what is being stored on your models. See human-model for more detail. </li>
       </ul>
-      <h2>Introduction</h2>
-      <p>There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at <a href="http://andyet.com">&yet</a> we've surmised that the ideal seems to lie somewhere in the middle. </p>
-      <p>Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see <a href="http://www.faqs.org/docs/artu/ch01s06.html">Unix philosophy</a>).</p>
-      <p>That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to <em>most</em> apps. So we need an opinionated starting point.</p>
-      <p>That's how HumanJS was born. Some of it simply uses <a href="http://backbonejs.org">Backbone.js</a> as is.</p>
-      <p>It's not really a framework, it's a bag of pre-assembled little tools that you're free to rip apart and add to. </p>
-      <h3>Goals</h3>
-      <ul>
-        <li>Readability</li>
-        <li>Flexibility</li>
-        <li>Minimal magic</li>
-        <li>100% client rendered</li>
-        <li>Use node.js to simplify develpment</li>
-        <li>App can be served as static content by any server (node.js not required in production)</li>
-        <li>Should requrie minimal framework-level knowledge (knowing javascript well gets you 95% there)</li>
-        <li>Easy to collaborate on:
-          <ul>
-            <li>Clear file structure where everything has a logical place.</li>
-            <li>Proper seperation of concerns</li>
-          </ul>
-        </li>
-        <li>Provide an opinionated starting point</li>
-        <li>Use npm + browserify for package management but still play nicely with non-common JS libraries.</li>
-      </ul>
-      <h3>downloads</h3>
-      <ol>
-        <li>humanjs (scaffolding / docs) <a href="https://github.com/henrikjoreteg/humanjs">github</a> <a href="https://npmjs.org/package/humanjs">npm</a></li>
-        <li>human-model <a href="https://github.com/henrikjoreteg/human-model">github</a> <a href="https://npmjs.org/package/human-model">npm</a></li>
-        <li>human-view <a href="https://github.com/henrikjoreteg/human-view">github</a> <a href="https://npmjs.org/package/human-view">npm</a></li>
-        <li>backbone.js <a href="https://github.com/jashkenas/backbone">github</a> <a href="https://npmjs.org/package/backbone">npm</a></li>
-      </ol>
-      <h2 data-nav="The Book">Human JavaScript book</h2>
+      <h1 data-nav="The Book">Human JavaScript book</h1>
       <p>A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here <a href="http://humanjavascript.com">is available for $29</a>.</p>
       <p><a href="http://humanjavascript.com"><img src="static/images/human-javascript.png" width="200" alt="human javascript ebook"></a></p>
       <div class="include"><h1>human-view</h1>
@@ -232,15 +231,10 @@ var MainView = HumanView.extend({
 </div></ul>
 </div>
       <div class="include"><h1>human-model</h1>
-<p>Human Models are meant to work as a drop-in replacement for Backbone models. In fact, it&apos;s extensively tested against the unit tests from Backbone (open test/index.html to run). 
+<p>Human Models are meant to work as a drop-in replacement for Backbone models. In fact, Backbone&apos;s test suite was adapted and used to test Human Model (run with <code>npm test</code>).
 
 </p>
 <p>However, Human Models are far more restrictive and structured. They force you to specify properties (at at minimum their types) for things you want it to store.
-
-
-</p>
-<h2>Module sytems/loaders/managers</h2>
-<p>Thanks to @svnlto, HumanModel uses UMD so it works as CommonJS (node + browserify), AMD, and as a standalone script tag.
 
 </p>
 <h2>Installing</h2>
@@ -252,7 +246,41 @@ var MainView = HumanView.extend({
 
 </p>
 <pre><code>bower install human-model</code></pre>
-<h2>Why do this?</h2>
+<h2>Module sytems/loaders/managers</h2>
+<p>Thanks to @svnlto, HumanModel uses UMD so it works as CommonJS (node + browserify), AMD, and as a standalone script tag.
+
+</p>
+<h2>Philosophy</h2>
+<p>Models are the core of you app because they are responsible for storing all the application&apos;s state. Very likely if you&apos;re looking at the DOM to determine the state of application that state information that you should consider storing as a property on a model instead.
+
+</p>
+<p>Since models play such a central role in a single-page app they should really serve as documentation for how the app is structured. We want to be able to look at code for a Model and know exactly what type of properties we can expect it to have. This is hugely important for enabling teams to work on the same app together.
+
+</p>
+<h3>Types of state</h3>
+<p>Take for instance a <code>selected</code> property on a model. That&apos;s likely something you would use to represent current UI state for the current browser session but not something you&apos;d want to save back to the API when calling a model&apos;s .save() method. So there really are two types of state. It&apos;s challenging to make that type of distinction with Backbone.
+
+</p>
+<p>HumanModel supports three types of state that will get stored on a model: 
+
+</p>
+<ul>
+<li><strong>properties</strong>: State that comes from (and will be sent back to) our API and represents the data persisted on the server.</li>
+<li><strong>session properties</strong>: State that represents current browser session state. </li>
+<li><strong>derived properties</strong>: These are read-only psuedo properties that are usually derived from properties or session properties. These are generally created for convenince or as a means to let you cache a computed result (read more below).</li>
+</ul>
+<p>In human model you have to classify all your properties as either <code>prop</code> or a <code>session</code>. That includes declaring your <code>id</code> property. How HumanModel handles properties that you have not pre-defined is determined by its <code>extraProperties</code> setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.
+
+</p>
+<p>In human model you have to classify all your properties as either prop or a session. That includes declaring your id property. How HumanModel handles properties that you have not pre-defined is determined by its extraProperties setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.
+
+</p>
+<h3>Handling model relationships</h3>
+<p>From our experience, derived properties work really well for handling relationships between models. Let&apos;s say you&apos;ve got a model representing people and model representing a group of people. Often your API for fetching people would include something like a groupID as a property for each person you retrieve.
+
+
+</p>
+<h3>Why do this?</h3>
 <p>Backbone models have a lot of flexibility in that you don&apos;t have to define what you&apos;re wanting to store ahead of time. 
 
 </p>
@@ -270,9 +298,8 @@ var MainView = HumanView.extend({
 </p>
 <p>Obviously, this restriction also means that this won&apos;t work in browsers that don&apos;t support that. You can check specific browser support here: <a href="http://kangax.github.io/es5-compat-table/">http://kangax.github.io/es5-compat-table/</a>
 
-
 </p>
-<h2>Key Differences from Backbone</h2>
+<h3>Key Differences from Backbone</h3>
 <p>Everything Backbone does with Collections should Just Work™ with HumanModel as long as you specify a HumanModel constructor as a collection&apos;s <code>model</code> property.
 
 </p>
@@ -283,7 +310,7 @@ var MainView = HumanView.extend({
 
 
 </p>
-<h3>Explicit model definitions</h3>
+<h2>Explicit model definitions</h2>
 <p>Schema definitions take an attribute called <code>props</code> to defined properties.
 
 </p>
@@ -333,7 +360,7 @@ are the only property attributes you can set.
         default: &apos;Bob&apos; 
     }
 }</code></pre>
-<h3>A sample model with comments</h3>
+<h2>A sample model with comments</h2>
 <pre><code class="js">var Person = HumanModel.define({
     // every human model should have a type
     type: &apos;member&apos;,
@@ -403,7 +430,7 @@ are the only property attributes you can set.
         // of course you can tack on whatever other methods you want
     }
 });</code></pre>
-<h3>Going hardcore &quot;strict&quot; definition</h3>
+<h2>Going hardcore &quot;strict&quot; definition</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode">Strict mode</a> in JS is pretty great and is fairly well supported in modern browsers.
 
 </p>
@@ -434,7 +461,7 @@ model.name = &apos;something&apos;;
 // BUT, setting a property that doesn&apos;t exist
 // will throw an error because the object is sealed.
 model.something = &apos;something else&apos;; // KABOOM!</code></pre>
-<h3>Setting model attributes</h3>
+<h2>Setting model attributes</h2>
 <pre><code class="js">// backbone:
 user.set(&apos;firstName&apos;, &apos;billy bob&apos;);
 
@@ -443,7 +470,7 @@ user.firstName = &apos;billy bob&apos;;
 
 // p.s. you can still do it the other way in human (so you can still pass otions)
 user.set(&apos;firstName&apos;, &apos;billy bob&apos;, {silent: true})</code></pre>
-<h3>Getting model attributes</h3>
+<h2>Getting model attributes</h2>
 <pre><code class="js">// backbone:
 user.get(&apos;firstName&apos;);
 
@@ -468,6 +495,47 @@ user.firstName;</code></pre>
 <li>Since backbone does an <code>instanceof</code> check when adding initted models to a collection, HumanModel monkey patches the <code>_prepareModel</code> collection method to check against HumanModel instead.</li>
 <li>Still needs better docs. Probably a full docs site.</li>
 </div></ul>
+<h2>Module API Reference</h2>
+<p>The module exports the following
+
+</p>
+<h3>method: HumanModel.define(modelDefinition)</h3>
+<p>This is the main method you&apos;ll use to define your models. It returns a custom Class object that can be used to create instances of your custom model.
+
+</p>
+<pre><code>var HumanModel = require(&apos;human-model&apos;);
+
+module.exports = HumanModel.define({ ... });</code></pre>
+<ul>
+<li><code>modelDefinition</code> {Object} An object containing your entire model definition</li>
+<li>Returns: {Constructor} A custom constructor for generating instances of the model you defined.</li>
+</ul>
+<h3>property: HumanModel.registry</h3>
+<p>An instance of the global model registry.
+
+</p>
+<h3>property: HumanModel.Registry</h3>
+<p>The Registry constructor is exported in case you want to define your own registry.
+
+</p>
+<h3>property: HumanModel.dataTypes</h3>
+<p>The dataTypes
+
+</p>
+<h3>Class: HumanModel</h3>
+<h4>gendoc(filePath, pkgInfo, format, [template])</h4>
+<ul>
+<li><code>filePath</code> {String} The file path of the file being transformed (for finding includes).</li>
+<li><code>pkgInfo</code>  {Object} A description of the project, such as <code>package.json</code>.<ul>
+<li><code>name</code>    {String} The name of the project.</li>
+<li><code>version</code> {String} The current version of the project.</li>
+</ul>
+</li>
+<li><code>format</code>   {String} Either <code>html</code> or <code>json</code>.</li>
+<li><code>template</code> {String} The template string to use for the final HTML rendering.</li>
+<li>Return: {Promise String}</li>
+</ul>
+<h3>Class: Registry</h3>
 <h2>Authors</h2>
 <p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a> with contributions from:
 

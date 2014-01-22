@@ -1,7 +1,7 @@
 // init code highlighting
 Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
   var codeEl = pre.firstChild;
-  codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['html', 'javascript', 'bash', 'json']).value;
+  codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['javascript']).value;
 });
 
 // grab all our h* tags
@@ -23,7 +23,7 @@ Array.prototype.forEach.call(hTags, function (h) {
   h.onclick = function () {
     location.hash = this.id;
   };
-  a.innerHTML = h.dataset && h.dataset.nav || label;
+  a.innerHTML = (h.dataset && h.dataset.nav || label).toLowerCase();
   a.classList.add(h.tagName.toLowerCase());
   nav.appendChild(a);
 });

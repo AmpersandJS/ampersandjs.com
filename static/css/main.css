@@ -48,17 +48,21 @@ main a {
 main a:visited {
   color: #56bceb;
 }
-main h2 {
+main h1 {
   font-size: 30px;
   margin-top: 40px;
+  margin-left: 0px;
   padding-bottom: 10px;
   border-bottom: 2px solid #808080;
 }
-main h2 a {
+main h1 a {
   text-decoration: none;
 }
-main h2 small {
+main h1 small {
   font-size: 14px;
+}
+main h1.humanjs {
+  border: none;
 }
 main pre {
   -moz-border-radius: 3px;
@@ -77,6 +81,7 @@ main .exampleImage {
   margin-left: 50px;
 }
 main p,
+main h2,
 main h3,
 main h4,
 main h5,
@@ -314,12 +319,6 @@ footer div {
   width: 750px;
   margin: 0 auto;
   position: relative;
-}
-footer h2,
-footer p {
-  width: 450px;
-  margin-right: 300px;
-  text-align: left;
 }
 footer p {
   font-size: 18px;
