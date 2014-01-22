@@ -231,7 +231,271 @@ var MainView = HumanView.extend({
 <li>1.4.0 - Adding <code>parent</code> reference to subviews registered via registerSubview</li>
 </div></ul>
 </div>
-      <div class="includes"></div>
+      <div class="includes"><h1>human-model</h1>
+<p>Human Models are meant to work as a drop-in replacement for Backbone models. In fact, it&apos;s extensively tested against the unit tests from Backbone (open test/index.html to run). 
+
+</p>
+<p>However, Human Models are far more restrictive and structured. They force you to specify properties (at at minimum their types) for things you want it to store.
+
+
+</p>
+<h2>Module sytems/loaders/managers</h2>
+<p>Thanks to @svnlto, HumanModel uses UMD so it works as CommonJS (node + browserify), AMD, and as a standalone script tag.
+
+</p>
+<h2>Installing</h2>
+<p>via npm:
+
+</p>
+<pre><code>npm install human-model</code></pre>
+<p>via bower: 
+
+</p>
+<pre><code>bower install human-model</code></pre>
+<h2>Why do this?</h2>
+<p>Backbone models have a lot of flexibility in that you don&apos;t have to define what you&apos;re wanting to store ahead of time. 
+
+</p>
+<p>The only challenge with that is that for more complex applications is actually becomes quite difficult to remember what properties are available to you.
+
+</p>
+<p>Using human models means they&apos;re much more self-documenting and help catch bugs. Someone new to the project can read the models and have a pretty good idea of how the app is put together.
+
+</p>
+<p>It also uses&apos;s ES5&apos;s fancy <code>Object.defineProperty</code> to treat model attributes as if they were properties.
+
+</p>
+<p>That means with Human Model you can set an attribute like this: <code>user.name = &apos;henrik&apos;</code> and still get a <code>change:name</code> event fired. 
+
+</p>
+<p>Obviously, this restriction also means that this won&apos;t work in browsers that don&apos;t support that. You can check specific browser support here: <a href="http://kangax.github.io/es5-compat-table/">http://kangax.github.io/es5-compat-table/</a>
+
+
+</p>
+<h2>Key Differences from Backbone</h2>
+<p>Everything Backbone does with Collections should Just Work™ with HumanModel as long as you specify a HumanModel constructor as a collection&apos;s <code>model</code> property.
+
+</p>
+<p><strong>important</strong>: One key point to understand is that unlike backbone. You&apos;re actually passing an object definition that describes the Model, not just methods to attach to its prototype. For example, you&apos;ll notice we call <code>HumanModel.define()</code> instead of <code>Backbone.Model.extend()</code>. This is to make the distinction clear.
+
+</p>
+<p>Besides that and the obvious differences, any behavior that doesn&apos;t match Backbone should be considered a bug.
+
+
+</p>
+<h3>Explicit model definitions</h3>
+<p>Schema definitions take an attribute called <code>props</code> to defined properties.
+
+</p>
+<p>Property names can be defined two different ways, either an array with <code>[type, required, default]</code>,
+or an object: <code>{ type: &apos;string&apos;, required: true, default: &apos;&apos; , allowNull: false}</code>
+
+</p>
+<p>types can be: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code>, or <code>date</code>
+required: true, false (optional)
+default: any (optional)
+setOnce: true, false (optional)
+test: function (optional)
+allowNull: true, false (optional)
+values: <code>[&apos;some&apos;, &apos;valid&apos;, &apos;values&apos;]</code>(optional) 
+
+</p>
+<p>Note that when defining with an array <code>type</code>, <code>required</code>, and <code>default</code>
+are the only property attributes you can set.
+
+</p>
+<p>If <code>required</code> is true, the attribute will always have a value even if it is not explicitly set or is cleared.  If a default is given, that will be used.  If no default is given a default for its data type will be used (e.g. &apos;&apos; for string, {} for object)
+
+</p>
+<p>If a <code>default</code> is given, the attribute will default to that value when the model is instantiated.
+
+</p>
+<p>If <code>setOnce</code> is true, the attribute will throw an error if anything tries to set its value more than once.
+
+</p>
+<p>If <code>values</code> is provided, you can only set that property to a value in the list. You can use this in combination with <code>type</code> to check both, or just use <code>values</code> and <code>default</code> by themselves. This is handy for <code>enum</code>-type stuff. For example:
+
+</p>
+<pre><code class="js">props: {
+    alignment: {
+        values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],
+        default: &apos;middle&apos;
+    }
+}</code></pre>
+<p>If given, <code>test</code> should be a function that expects the new value (and optionally the new type) of the attribute.  It should return an error message on failure, and false on success
+
+</p>
+<pre><code class="js">props: {
+    firstName: [&apos;string&apos;, true, &apos;Jim&apos;]
+    lastName: {
+        type: &apos;string&apos;, 
+        required: false, 
+        default: &apos;Bob&apos; 
+    }
+}</code></pre>
+<h3>A sample model with comments</h3>
+<pre><code class="js">var Person = HumanModel.define({
+    // every human model should have a type
+    type: &apos;member&apos;,
+    init: function () {
+        // main initialization function
+    },
+    // props are for properties that exist on the server
+    props: {
+        id: {
+            type: &apos;number&apos;,
+            setOnce: true
+        },
+        firstName: [&apos;string&apos;, true],
+        lastName: [&apos;string&apos;, true],
+        created: [&apos;date&apos;],
+        email: [&apos;string&apos;, true],
+        username: [&apos;string&apos;, true],
+        lastLogin: [&apos;date&apos;],
+        largePicUrl: [&apos;string&apos;],
+        department: {
+            type: &apos;number&apos;,
+            // you can optionally provide your own test function
+            test: function (val) {
+                if (val &gt; 20) {
+                    return &quot;Invalid department&quot;;
+                }
+            }
+        },
+        alignment: {
+            // you can also specify a list of valid values
+            values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],
+            default: &apos;middle&apos;
+        }
+    },
+    // derived properties and their dependencies. If any dependency changes
+    // that will also trigger a &apos;change&apos; event on the derived property so
+    // we know to re-render the template
+    derived: {
+        // fullName is 
+        fullName: {
+            // you can optionally define the properties this derived property
+            // depends on. That way if the underlying properties change you can
+            // listen for changes directly on the derived property.
+            deps: [&apos;firstName&apos;, &apos;lastName&apos;],
+            fn: function () {
+                return this.firstName + &apos; &apos; + this.lastName;
+            }
+        }
+    },
+    // Session properties are browser state for a model
+    // these trigger &apos;change&apos; events when set, but are not
+    // included when serializing or saving to server.
+    session: {
+        selectedTasks: [&apos;array&apos;, true, []],
+        lastPage: [&apos;string&apos;, true, &apos;tasks&apos;],
+        unread: [&apos;boolean&apos;, true, false],
+        active: [&apos;boolean&apos;, true, false]
+    },
+    // child collections that will be initted. They will
+    // be created at as a property of the same name as the
+    // key. The child collection will also be given a reference
+    // to its parent.
+    collections: {
+        // messages: Messages
+    },
+    otherMethods: function (cb) {
+        // of course you can tack on whatever other methods you want
+    }
+});</code></pre>
+<h3>Going hardcore &quot;strict&quot; definition</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode">Strict mode</a> in JS is pretty great and is fairly well supported in modern browsers.
+
+</p>
+<p>If you want to be <em>really</em> hardcore about not letting you set properties that aren&apos;t defined, you can specify <code>seal: true</code> when defining your model.
+
+</p>
+<pre><code class="js">// enable strict mode
+&quot;use strict&quot;;
+
+var MySuperStrictModel = HumanModel.define({
+    // set this to true
+    seal: true,
+    // also throw errors for properties not defined
+    // when set via `set`.
+    extraProperties: &apos;reject&apos;,
+    // normal properties
+    props: {
+        name: &apos;string&apos;
+    }
+});
+
+// create an instance of this model
+var model = new MySuperStrictModel();
+
+// setting defined properties works like usual
+model.name = &apos;something&apos;;
+
+// BUT, setting a property that doesn&apos;t exist
+// will throw an error because the object is sealed.
+model.something = &apos;something else&apos;; // KABOOM!</code></pre>
+<h3>Setting model attributes</h3>
+<pre><code class="js">// backbone:
+user.set(&apos;firstName&apos;, &apos;billy bob&apos;);
+
+// human:
+user.firstName = &apos;billy bob&apos;;
+
+// p.s. you can still do it the other way in human (so you can still pass otions)
+user.set(&apos;firstName&apos;, &apos;billy bob&apos;, {silent: true})</code></pre>
+<h3>Getting model attributes</h3>
+<pre><code class="js">// backbone:
+user.get(&apos;firstName&apos;);
+
+// human
+user.firstName;</code></pre>
+<h2>The Registry</h2>
+<p>HumanModel also inits a global registery for storing all initted models. It&apos;s designed to be used for looking up models based on their type, id and optional namespace.
+
+</p>
+<p>It&apos;s purpose is finding/updating models when we get updates pushed to us from the server. This is very important for buildling realtime apps.
+
+</p>
+<p>TODO: needs more docs on the registry.
+
+</p>
+<h2>Tests</h2>
+<p>An extensive suite of tests can be run by opening <code>test/index.html</code> in a browser. In order to ensure compatibility with backbone to the extent possible I started with all the tests from Backbone 1.0.0 and modified them to use HumanModel.
+
+</p>
+<h2>Caveats</h2>
+<div class="signature"><ul>
+<li>Since backbone does an <code>instanceof</code> check when adding initted models to a collection, HumanModel monkey patches the <code>_prepareModel</code> collection method to check against HumanModel instead.</li>
+<li>Still needs better docs. Probably a full docs site.</li>
+</div></ul>
+<h2>Authors</h2>
+<p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a> with contributions from:
+
+</p>
+<ul>
+<li><a href="http://twitter.com/beausorensen">@beausorensen</a></li>
+<li><a href="https://twitter.com/lancestout">@LanceStout</a></li>
+<li><a href="https://twitter.com/philip_roberts">@philip_roberts</a></li>
+<li><a href="https://twitter.com/svenlito">@svenlito</a></li>
+</ul>
+<h2>Changelog</h2>
+<div class="signature"><ul>
+<li>2.6.0 - Cached, derived properties only fire change events now if new derived value is different from cache, instead of blindly firing change events if dependent properties changed.</li>
+<li>2.5.0 - UMD support by @swenlito</li>
+<li>2.4.0 - Added <code>toggle</code> method for boolean properties and properties with <code>values</code></li>
+<li>2.3.0 - Added <code>values</code> to property definition</li>
+<li>2.2.0 - Added test parameter to property definitions</li>
+<li>2.1.0 - Added allowNull parameter to property definitions</li>
+<li>2.0.0 - Minor, but incompatible fix that remove <code>toServer</code> getter in lieu of adding <code>serialize</code> method that can be overridden.</li>
+<li>1.4.0 - Find/fix performance bottleneck. Significantly faster to instantiate larger numbers of models now.</li>
+<li>1.3.0 - Fix bug where session props were included in <code>.save()</code></li>
+<li>1.2.0 - Make it possible to overwrite or extend data types.</li>
+<li>1.0.0 - Switching from <code>extend()</code> to <code>define()</code> pattern for building a model definition.</li>
+</div></ul>
+<h2>License</h2>
+<p>MIT
+</p>
+</div>
       <h2>Examples</h2>
       <h3>And Bang</h3>
       <p>And Bang helps same-page-ify your team with shared tasks and chat. </p>

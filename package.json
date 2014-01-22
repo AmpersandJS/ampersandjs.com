@@ -12,7 +12,8 @@
     "request": "~2.33.0",
     "jade": "~1.1.5",
     "async": "~0.2.9",
-    "bluebird": "*"
+    "bluebird": "*",
+    "rimraf": ""
   },
   "devDependencies": {
     "servedir": "*"
