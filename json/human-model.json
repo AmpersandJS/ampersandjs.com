@@ -5,7 +5,7 @@
     {
       "textRaw": "human-model",
       "name": "human-model",
-      "desc": "<p>Human Models are meant to work as a drop-in replacement for Backbone models. In fact, Backbone&apos;s test suite was adapted and used to test Human Model (run with <code>npm test</code>).\n\n</p>\n<p>However, Human Models are far more restrictive and structured. They force you to specify properties (at at minimum their types) for things you want it to store.\n\n</p>\n",
+      "desc": "<p>HumanModel helps you create observable models for your apps. Most commonly in clientside frameworks, your models are what hold data fetched from your API. But really, it&apos;s all about having a way to separate concerns. Your models should be your authoritive &quot;source of truth&quot; when it comes to all state held in your application.\n\n</p>\n<p>Backbone provides observable models, but Human Model takes this a step further by forcing you to explicitly define what the model is going to store so that the model code can end up being self-documenting in that you can now simply look at the model code and see what they&apos;re expected to store.\n\n</p>\n<p>This is hugely important for enabling teams to work on the same app together. There&apos;s also a few extra goodies, like direct accessors (not having to use <code>.set()</code> and <code>.get()</code>), and intelligently evented dervied properties.\n\n</p>\n",
       "modules": [
         {
           "textRaw": "Installing",
@@ -22,41 +22,32 @@
           "displayName": "Module sytems/loaders/managers"
         },
         {
-          "textRaw": "Philosophy",
-          "name": "philosophy",
-          "desc": "<p>Models are the core of you app because they are responsible for storing all the application&apos;s state. Very likely if you&apos;re looking at the DOM to determine the state of application that state information that you should consider storing as a property on a model instead.\n\n</p>\n<p>Since models play such a central role in a single-page app they should really serve as documentation for how the app is structured. We want to be able to look at code for a Model and know exactly what type of properties we can expect it to have. This is hugely important for enabling teams to work on the same app together.\n\n</p>\n",
-          "modules": [
-            {
-              "textRaw": "Types of state",
-              "name": "types_of_state",
-              "desc": "<p>Take for instance a <code>selected</code> property on a model. That&apos;s likely something you would use to represent current UI state for the current browser session but not something you&apos;d want to save back to the API when calling a model&apos;s .save() method. So there really are two types of state. It&apos;s challenging to make that type of distinction with Backbone.\n\n</p>\n<p>HumanModel supports three types of state that will get stored on a model: \n\n</p>\n<ul>\n<li><strong>properties</strong>: State that comes from (and will be sent back to) our API and represents the data persisted on the server.</li>\n<li><strong>session properties</strong>: State that represents current browser session state. </li>\n<li><strong>derived properties</strong>: These are read-only psuedo properties that are usually derived from properties or session properties. These are generally created for convenince or as a means to let you cache a computed result (read more below).</li>\n</ul>\n<p>In human model you have to classify all your properties as either <code>prop</code> or a <code>session</code>. That includes declaring your <code>id</code> property. How HumanModel handles properties that you have not pre-defined is determined by its <code>extraProperties</code> setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.\n\n</p>\n<p>In human model you have to classify all your properties as either prop or a session. That includes declaring your id property. How HumanModel handles properties that you have not pre-defined is determined by its extraProperties setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.\n\n</p>\n",
-              "type": "module",
-              "displayName": "Types of state"
-            },
-            {
-              "textRaw": "Handling model relationships",
-              "name": "handling_model_relationships",
-              "desc": "<p>From our experience, derived properties work really well for handling relationships between models. Let&apos;s say you&apos;ve got a model representing people and model representing a group of people. Often your API for fetching people would include something like a groupID as a property for each person you retrieve.\n\n\n</p>\n",
-              "type": "module",
-              "displayName": "Handling model relationships"
-            },
-            {
-              "textRaw": "Why do this?",
-              "name": "why_do_this?",
-              "desc": "<p>Backbone models have a lot of flexibility in that you don&apos;t have to define what you&apos;re wanting to store ahead of time. \n\n</p>\n<p>The only challenge with that is that for more complex applications is actually becomes quite difficult to remember what properties are available to you.\n\n</p>\n<p>Using human models means they&apos;re much more self-documenting and help catch bugs. Someone new to the project can read the models and have a pretty good idea of how the app is put together.\n\n</p>\n<p>It also uses&apos;s ES5&apos;s fancy <code>Object.defineProperty</code> to treat model attributes as if they were properties.\n\n</p>\n<p>That means with Human Model you can set an attribute like this: <code>user.name = &apos;henrik&apos;</code> and still get a <code>change:name</code> event fired. \n\n</p>\n<p>Obviously, this restriction also means that this won&apos;t work in browsers that don&apos;t support that. You can check specific browser support here: <a href=\"http://kangax.github.io/es5-compat-table/\">http://kangax.github.io/es5-compat-table/</a>\n\n</p>\n",
-              "type": "module",
-              "displayName": "Why do this?"
-            },
-            {
-              "textRaw": "Key Differences from Backbone",
-              "name": "key_differences_from_backbone",
-              "desc": "<p>Everything Backbone does with Collections should Just Work™ with HumanModel as long as you specify a HumanModel constructor as a collection&apos;s <code>model</code> property.\n\n</p>\n<p><strong>important</strong>: One key point to understand is that unlike backbone. You&apos;re actually passing an object definition that describes the Model, not just methods to attach to its prototype. For example, you&apos;ll notice we call <code>HumanModel.define()</code> instead of <code>Backbone.Model.extend()</code>. This is to make the distinction clear.\n\n</p>\n<p>Besides that and the obvious differences, any behavior that doesn&apos;t match Backbone should be considered a bug.\n\n\n</p>\n",
-              "type": "module",
-              "displayName": "Key Differences from Backbone"
-            }
-          ],
+          "textRaw": "Types of state",
+          "name": "types_of_state",
+          "desc": "<p>Take for instance a <code>selected</code> property on a model. That&apos;s likely something you would use to represent current UI state for the current browser session but not something you&apos;d want to save back to the API when calling a model&apos;s .save() method. So there really are two types of state. It&apos;s challenging to make that type of distinction with Backbone.\n\n</p>\n<p>HumanModel supports three types of state that will get stored on a model: \n\n</p>\n<ul>\n<li><strong>properties</strong>: State that comes from (and will be sent back to) our API and represents the data persisted on the server.</li>\n<li><strong>session properties</strong>: State that represents current browser session state. </li>\n<li><strong>derived properties</strong>: These are read-only psuedo properties that are usually derived from properties or session properties. These are generally created for convenince or as a means to let you cache a computed result (read more below).</li>\n</ul>\n<p>In human model you have to classify all your properties as either <code>prop</code> or a <code>session</code>. That includes declaring your <code>id</code> property. How HumanModel handles properties that you have not pre-defined is determined by its <code>extraProperties</code> setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.\n\n</p>\n<p>In human model you have to classify all your properties as either prop or a session. That includes declaring your id property. How HumanModel handles properties that you have not pre-defined is determined by its extraProperties setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.\n\n</p>\n",
           "type": "module",
-          "displayName": "Philosophy"
+          "displayName": "Types of state"
+        },
+        {
+          "textRaw": "Handling model relationships",
+          "name": "handling_model_relationships",
+          "desc": "<p>From our experience, derived properties work really well for handling relationships between models. Let&apos;s say you&apos;ve got a model representing people and model representing a group of people. Often your API for fetching people would include something like a groupID as a property for each person you retrieve.\n\n\n</p>\n",
+          "type": "module",
+          "displayName": "Handling model relationships"
+        },
+        {
+          "textRaw": "Why do this?",
+          "name": "why_do_this?",
+          "desc": "<p>Backbone models have a lot of flexibility in that you don&apos;t have to define what you&apos;re wanting to store ahead of time. \n\n</p>\n<p>The only challenge with that is that for more complex applications is actually becomes quite difficult to remember what properties are available to you.\n\n</p>\n<p>Using human models means they&apos;re much more self-documenting and help catch bugs. Someone new to the project can read the models and have a pretty good idea of how the app is put together.\n\n</p>\n<p>It also uses&apos;s ES5&apos;s fancy <code>Object.defineProperty</code> to treat model attributes as if they were properties.\n\n</p>\n<p>That means with Human Model you can set an attribute like this: <code>user.name = &apos;henrik&apos;</code> and still get a <code>change:name</code> event fired. \n\n</p>\n<p>Obviously, this restriction also means that this won&apos;t work in browsers that don&apos;t support that. You can check specific browser support here: <a href=\"http://kangax.github.io/es5-compat-table/\">http://kangax.github.io/es5-compat-table/</a>\n\n</p>\n",
+          "type": "module",
+          "displayName": "Why do this?"
+        },
+        {
+          "textRaw": "Key Differences from Backbone",
+          "name": "key_differences_from_backbone",
+          "desc": "<p>Everything Backbone does with Collections should Just Work™ with HumanModel as long as you specify a HumanModel constructor as a collection&apos;s <code>model</code> property.\n\n</p>\n<p><strong>important</strong>: One key point to understand is that unlike backbone. You&apos;re actually passing an object definition that describes the Model, not just methods to attach to its prototype. For example, you&apos;ll notice we call <code>HumanModel.define()</code> instead of <code>Backbone.Model.extend()</code>. This is to make the distinction clear.\n\n</p>\n<p>Besides that and the obvious differences, any behavior that doesn&apos;t match Backbone should be considered a bug.\n\n\n</p>\n",
+          "type": "module",
+          "displayName": "Key Differences from Backbone"
         },
         {
           "textRaw": "Explicit model definitions",
@@ -68,7 +59,7 @@
         {
           "textRaw": "A sample model with comments",
           "name": "a_sample_model_with_comments",
-          "desc": "<pre><code class=\"js\">var Person = HumanModel.define({\n    // every human model should have a type\n    type: &apos;member&apos;,\n    init: function () {\n        // main initialization function\n    },\n    // props are for properties that exist on the server\n    props: {\n        id: {\n            type: &apos;number&apos;,\n            setOnce: true\n        },\n        firstName: [&apos;string&apos;, true],\n        lastName: [&apos;string&apos;, true],\n        created: [&apos;date&apos;],\n        email: [&apos;string&apos;, true],\n        username: [&apos;string&apos;, true],\n        lastLogin: [&apos;date&apos;],\n        largePicUrl: [&apos;string&apos;],\n        department: {\n            type: &apos;number&apos;,\n            // you can optionally provide your own test function\n            test: function (val) {\n                if (val &gt; 20) {\n                    return &quot;Invalid department&quot;;\n                }\n            }\n        },\n        alignment: {\n            // you can also specify a list of valid values\n            values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],\n            default: &apos;middle&apos;\n        }\n    },\n    // derived properties and their dependencies. If any dependency changes\n    // that will also trigger a &apos;change&apos; event on the derived property so\n    // we know to re-render the template\n    derived: {\n        // fullName is \n        fullName: {\n            // you can optionally define the properties this derived property\n            // depends on. That way if the underlying properties change you can\n            // listen for changes directly on the derived property.\n            deps: [&apos;firstName&apos;, &apos;lastName&apos;],\n            fn: function () {\n                return this.firstName + &apos; &apos; + this.lastName;\n            }\n        }\n    },\n    // Session properties are browser state for a model\n    // these trigger &apos;change&apos; events when set, but are not\n    // included when serializing or saving to server.\n    session: {\n        selectedTasks: [&apos;array&apos;, true, []],\n        lastPage: [&apos;string&apos;, true, &apos;tasks&apos;],\n        unread: [&apos;boolean&apos;, true, false],\n        active: [&apos;boolean&apos;, true, false]\n    },\n    // child collections that will be initted. They will\n    // be created at as a property of the same name as the\n    // key. The child collection will also be given a reference\n    // to its parent.\n    collections: {\n        // messages: Messages\n    },\n    otherMethods: function (cb) {\n        // of course you can tack on whatever other methods you want\n    }\n});</code></pre>\n",
+          "desc": "<pre><code class=\"js\">var Person = HumanModel.define({\n    // every human model should have a type\n    type: &apos;member&apos;,\n    initialize: function () {\n        // main initialization function\n    },\n    // props are for properties that exist on the server\n    props: {\n        id: {\n            type: &apos;number&apos;,\n            setOnce: true\n        },\n        firstName: [&apos;string&apos;, true],\n        lastName: [&apos;string&apos;, true],\n        created: [&apos;date&apos;],\n        email: [&apos;string&apos;, true],\n        username: [&apos;string&apos;, true],\n        lastLogin: [&apos;date&apos;],\n        largePicUrl: [&apos;string&apos;],\n        department: {\n            type: &apos;number&apos;,\n            // you can optionally provide your own test function\n            test: function (val) {\n                if (val &gt; 20) {\n                    return &quot;Invalid department&quot;;\n                }\n            }\n        },\n        alignment: {\n            // you can also specify a list of valid values\n            values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],\n            default: &apos;middle&apos;\n        }\n    },\n    // derived properties and their dependencies. If any dependency changes\n    // that will also trigger a &apos;change&apos; event on the derived property so\n    // we know to re-render the template\n    derived: {\n        // fullName is \n        fullName: {\n            // you can optionally define the properties this derived property\n            // depends on. That way if the underlying properties change you can\n            // listen for changes directly on the derived property.\n            deps: [&apos;firstName&apos;, &apos;lastName&apos;],\n            fn: function () {\n                return this.firstName + &apos; &apos; + this.lastName;\n            }\n        }\n    },\n    // Session properties are browser state for a model\n    // these trigger &apos;change&apos; events when set, but are not\n    // included when serializing or saving to server.\n    session: {\n        selectedTasks: [&apos;array&apos;, true, []],\n        lastPage: [&apos;string&apos;, true, &apos;tasks&apos;],\n        unread: [&apos;boolean&apos;, true, false],\n        active: [&apos;boolean&apos;, true, false]\n    },\n    // child collections that will be initted. They will\n    // be created at as a property of the same name as the\n    // key. The child collection will also be given a reference\n    // to its parent.\n    collections: {\n        messages: Messages\n    },\n    otherMethods: function (cb) {\n        // of course you can tack on whatever other methods you want\n    }\n});</code></pre>\n",
           "type": "module",
           "displayName": "A sample model with comments"
         },
@@ -82,7 +73,7 @@
         {
           "textRaw": "Setting model attributes",
           "name": "setting_model_attributes",
-          "desc": "<pre><code class=\"js\">// backbone:\nuser.set(&apos;firstName&apos;, &apos;billy bob&apos;);\n\n// human:\nuser.firstName = &apos;billy bob&apos;;\n\n// p.s. you can still do it the other way in human (so you can still pass otions)\nuser.set(&apos;firstName&apos;, &apos;billy bob&apos;, {silent: true})</code></pre>\n",
+          "desc": "<pre><code class=\"js\">// backbone:\nuser.set(&apos;firstName&apos;, &apos;billy bob&apos;);\n\n// human:\nuser.firstName = &apos;billy bob&apos;;\n\n// p.s. you can still do it the other way in human (so you can still pass options)\nuser.set(&apos;firstName&apos;, &apos;billy bob&apos;, {silent: true})</code></pre>\n",
           "type": "module",
           "displayName": "Setting model attributes"
         },
@@ -94,13 +85,6 @@
           "displayName": "Getting model attributes"
         },
         {
-          "textRaw": "The Registry",
-          "name": "the_registry",
-          "desc": "<p>HumanModel also inits a global registery for storing all initted models. It&apos;s designed to be used for looking up models based on their type, id and optional namespace.\n\n</p>\n<p>It&apos;s purpose is finding/updating models when we get updates pushed to us from the server. This is very important for buildling realtime apps.\n\n</p>\n<p>TODO: needs more docs on the registry.\n\n</p>\n",
-          "type": "module",
-          "displayName": "The Registry"
-        },
-        {
           "textRaw": "Tests",
           "name": "tests",
           "desc": "<p>An extensive suite of tests can be run by opening <code>test/index.html</code> in a browser. In order to ensure compatibility with backbone to the extent possible I started with all the tests from Backbone 1.0.0 and modified them to use HumanModel.\n\n</p>\n",
@@ -110,256 +94,53 @@
         {
           "textRaw": "Caveats",
           "name": "Caveats",
-          "desc": "<p>The module exports the following\n\n</p>\n",
-          "methods": [
-            {
-              "textRaw": "method: HumanModel.define(modelDefinition)",
-              "type": "method",
-              "name": "define",
-              "desc": "<p>This is the main method you&apos;ll use to define your models. It returns a custom Class object that can be used to create instances of your custom model.\n\n</p>\n<pre><code>var HumanModel = require(&apos;human-model&apos;);\n\nmodule.exports = HumanModel.define({ ... });</code></pre>\n<ul>\n<li><code>modelDefinition</code> {Object} An object containing your entire model definition</li>\n<li>Returns: {Constructor} A custom constructor for generating instances of the model you defined.</li>\n</ul>\n",
-              "signatures": [
-                {
-                  "params": [
-                    {
-                      "name": "modelDefinition"
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": [
-            {
-              "textRaw": "property: HumanModel.registry",
-              "name": "registry",
-              "desc": "<p>An instance of the global model registry.\n\n</p>\n"
-            },
-            {
-              "textRaw": "property: HumanModel.Registry",
-              "name": "Registry",
-              "desc": "<p>The Registry constructor is exported in case you want to define your own registry.\n\n</p>\n"
-            },
-            {
-              "textRaw": "property: HumanModel.dataTypes",
-              "name": "dataTypes",
-              "desc": "<p>The dataTypes\n\n</p>\n"
-            }
-          ],
-          "classes": [
-            {
-              "textRaw": "Class: HumanModel",
-              "type": "class",
-              "name": "HumanModel",
-              "methods": [
-                {
-                  "textRaw": "gendoc(filePath, pkgInfo, format, [template])",
-                  "type": "method",
-                  "name": "gendoc",
-                  "signatures": [
-                    {
-                      "return": {
-                        "textRaw": "Return: {Promise String} ",
-                        "name": "return",
-                        "type": "Promise String"
-                      },
-                      "params": [
-                        {
-                          "textRaw": "`filePath` {String} The file path of the file being transformed (for finding includes). ",
-                          "name": "filePath",
-                          "type": "String",
-                          "desc": "The file path of the file being transformed (for finding includes)."
-                        },
-                        {
-                          "textRaw": "`pkgInfo`  {Object} A description of the project, such as `package.json`. ",
-                          "options": [
-                            {
-                              "textRaw": "`name`    {String} The name of the project. ",
-                              "name": "name",
-                              "type": "String",
-                              "desc": "The name of the project."
-                            },
-                            {
-                              "textRaw": "`version` {String} The current version of the project. ",
-                              "name": "version",
-                              "type": "String",
-                              "desc": "The current version of the project."
-                            }
-                          ],
-                          "name": "pkgInfo",
-                          "type": "Object",
-                          "desc": "A description of the project, such as `package.json`."
-                        },
-                        {
-                          "textRaw": "`format`   {String} Either `html` or `json`. ",
-                          "name": "format",
-                          "type": "String",
-                          "desc": "Either `html` or `json`."
-                        },
-                        {
-                          "textRaw": "`template` {String} The template string to use for the final HTML rendering. ",
-                          "name": "template",
-                          "type": "String",
-                          "desc": "The template string to use for the final HTML rendering.",
-                          "optional": true
-                        }
-                      ]
-                    },
-                    {
-                      "params": [
-                        {
-                          "name": "filePath"
-                        },
-                        {
-                          "name": "pkgInfo"
-                        },
-                        {
-                          "name": "format"
-                        },
-                        {
-                          "name": "template",
-                          "optional": true
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "textRaw": "Class: Registry",
-              "type": "class",
-              "name": "Registry"
-            }
-          ],
+          "desc": "<p>HumanModel also inits a global registry for storing all initted models. It&apos;s designed to be used for looking up models based on their type, id and optional namespace.\n\n</p>\n<p>It&apos;s purpose is finding/updating models when we get updates pushed to us from the server. This is very important for buildling realtime apps.\n\n</p>\n<p>TODO: needs more docs on the registry.\n\n\n</p>\n",
           "type": "module",
-          "displayName": "Module API Reference"
+          "displayName": "The Registry"
         },
         {
-          "textRaw": "Module API Reference",
-          "name": "module_api_reference",
-          "desc": "<p>The module exports the following\n\n</p>\n",
-          "methods": [
+          "textRaw": "The Registry",
+          "name": "the_registry",
+          "desc": "<p>HumanModel also inits a global registry for storing all initted models. It&apos;s designed to be used for looking up models based on their type, id and optional namespace.\n\n</p>\n<p>It&apos;s purpose is finding/updating models when we get updates pushed to us from the server. This is very important for buildling realtime apps.\n\n</p>\n<p>TODO: needs more docs on the registry.\n\n\n</p>\n",
+          "type": "module",
+          "displayName": "The Registry"
+        },
+        {
+          "textRaw": "Module: HumanModel",
+          "name": "module:_humanmodel",
+          "desc": "<p>The module exports the following functions and properties.\n\n</p>\n",
+          "modules": [
             {
-              "textRaw": "method: HumanModel.define(modelDefinition)",
-              "type": "method",
-              "name": "define",
-              "desc": "<p>This is the main method you&apos;ll use to define your models. It returns a custom Class object that can be used to create instances of your custom model.\n\n</p>\n<pre><code>var HumanModel = require(&apos;human-model&apos;);\n\nmodule.exports = HumanModel.define({ ... });</code></pre>\n<ul>\n<li><code>modelDefinition</code> {Object} An object containing your entire model definition</li>\n<li>Returns: {Constructor} A custom constructor for generating instances of the model you defined.</li>\n</ul>\n",
-              "signatures": [
-                {
-                  "params": [
-                    {
-                      "name": "modelDefinition"
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": [
-            {
-              "textRaw": "property: HumanModel.registry",
-              "name": "registry",
-              "desc": "<p>An instance of the global model registry.\n\n</p>\n"
+              "textRaw": ".define(modelDefinition)",
+              "name": ".define(modeldefinition)",
+              "desc": "<p><code>define</code> is the main method you&apos;ll use to create model definitions. It returns a custom constructor that can be used to create instances of your custom model.\n\n</p>\n<p>As an example imagine two modules <code>app.js</code> and <code>UserModel.js</code>.\n\n</p>\n<p>The contents of <code>UserModel.js</code> defines a model:\n\n</p>\n<pre><code class=\"js\">var HumanModel = require(&apos;human-model&apos;);\n\n// define a model\nvar UserModel = HumanModel.define({\n    props: {\n        name: &apos;string&apos;\n    }\n});\n\nvar user = new User({name: &apos;henrik&apos;});\n\nconsole.log(user.name); // logs out &apos;henrik&apos;</code></pre>\n",
+              "type": "module",
+              "displayName": ".define(modelDefinition)"
             },
             {
-              "textRaw": "property: HumanModel.Registry",
-              "name": "Registry",
-              "desc": "<p>The Registry constructor is exported in case you want to define your own registry.\n\n</p>\n"
+              "textRaw": ".registry",
+              "name": ".registry",
+              "desc": "<p>An instance of the global model registry.\n\n</p>\n",
+              "type": "module",
+              "displayName": ".registry"
             },
             {
-              "textRaw": "property: HumanModel.dataTypes",
-              "name": "dataTypes",
-              "desc": "<p>The dataTypes\n\n</p>\n"
-            }
-          ],
-          "classes": [
-            {
-              "textRaw": "Class: HumanModel",
-              "type": "class",
-              "name": "HumanModel",
-              "methods": [
-                {
-                  "textRaw": "gendoc(filePath, pkgInfo, format, [template])",
-                  "type": "method",
-                  "name": "gendoc",
-                  "signatures": [
-                    {
-                      "return": {
-                        "textRaw": "Return: {Promise String} ",
-                        "name": "return",
-                        "type": "Promise String"
-                      },
-                      "params": [
-                        {
-                          "textRaw": "`filePath` {String} The file path of the file being transformed (for finding includes). ",
-                          "name": "filePath",
-                          "type": "String",
-                          "desc": "The file path of the file being transformed (for finding includes)."
-                        },
-                        {
-                          "textRaw": "`pkgInfo`  {Object} A description of the project, such as `package.json`. ",
-                          "options": [
-                            {
-                              "textRaw": "`name`    {String} The name of the project. ",
-                              "name": "name",
-                              "type": "String",
-                              "desc": "The name of the project."
-                            },
-                            {
-                              "textRaw": "`version` {String} The current version of the project. ",
-                              "name": "version",
-                              "type": "String",
-                              "desc": "The current version of the project."
-                            }
-                          ],
-                          "name": "pkgInfo",
-                          "type": "Object",
-                          "desc": "A description of the project, such as `package.json`."
-                        },
-                        {
-                          "textRaw": "`format`   {String} Either `html` or `json`. ",
-                          "name": "format",
-                          "type": "String",
-                          "desc": "Either `html` or `json`."
-                        },
-                        {
-                          "textRaw": "`template` {String} The template string to use for the final HTML rendering. ",
-                          "name": "template",
-                          "type": "String",
-                          "desc": "The template string to use for the final HTML rendering.",
-                          "optional": true
-                        }
-                      ]
-                    },
-                    {
-                      "params": [
-                        {
-                          "name": "filePath"
-                        },
-                        {
-                          "name": "pkgInfo"
-                        },
-                        {
-                          "name": "format"
-                        },
-                        {
-                          "name": "template",
-                          "optional": true
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "textRaw": ".Registry",
+              "name": ".registry",
+              "desc": "<p>The Registry constructor is exported in case you want to define your own registry.\n\n</p>\n",
+              "type": "module",
+              "displayName": ".Registry"
             },
             {
-              "textRaw": "Class: Registry",
-              "type": "class",
-              "name": "Registry"
+              "textRaw": ".dataTypes",
+              "name": ".datatypes",
+              "desc": "<p>The dataTypes\n\n\n</p>\n",
+              "type": "module",
+              "displayName": ".dataTypes"
             }
           ],
           "type": "module",
-          "displayName": "Module API Reference"
+          "displayName": "Module: HumanModel"
         },
         {
           "textRaw": "Authors",

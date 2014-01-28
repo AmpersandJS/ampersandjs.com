@@ -5,7 +5,7 @@ Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
 });
 
 // grab all our h* tags
-var hTags = document.querySelector('main').querySelectorAll('h1, h2, h3, h4, h5');
+var hTags = document.querySelector('main').querySelectorAll('h1, h2, h3');
 
 var nav = document.querySelector('nav');
 var levels = [];
