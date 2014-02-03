@@ -668,6 +668,46 @@ var MainView = HumanView.extend({
 <li>1.4.0 - Adding <code>parent</code> reference to subviews registered via registerSubview</li>
 </div></ul>
 </div>
+      <h1>router</h1>
+      <p>HumanJS just uses Backbone's router so just <a href="http://backbonejs.org/#Router">see backbone's router docs for more info</a>.</p>
+      <h1 data-nav="moonboots">moonboots <small><a href="https://github.com/henrikjoreteg/moonboots">github.com/henrikjoreteg/moonboots</a></small></h1>
+      <p>Moonboots is a tool to help you intelligently deal with different goals of serving JS during development and in production.</p>
+      <p>In development we explicitly don't want to cache or minify our JS and CSS files while working. We want to organize our modules in a way that makes the most sense for us as we're building the app.</p>
+      <p>In production, we want to use the exact same source code structure to generate a single minified, uniquely named file for the JS and the CSS so we can tell the browser to cache those permanently. If we do our job correctly when serving those files, our main application code will be downloaded once per revision of the app.</p>
+      <p>Moonboots aims to solve this problem. You structure your entire application in the same way that you would in node with Common JS modules requiring each other. It uses browserify under the hood to do all that magic. But then you just configure your client application like so: </p>
+      <h2>moonboots + express.js</h2>
+      <p>The full documentation for moonboots is <a href="https://github.com/henrikjoreteg/moonboots#readme">available in the moonboots repo</a>. </p>
+      <p>For a preview, here's how we'd configure a clientside moonboots app to be served by express:</p>
+      <pre><code class="js">var express = require('express'),
+    Moonboots = require('moonboots'),
+    app = express();
+    
+// configure our app
+var clientApp = new Moonboots({
+    main: __dirname + '/sample/app/app.js',
+    developmentMode: false,
+    libraries: [
+        __dirname + '/sample/libraries/jquery.js'
+    ],
+    stylesheets: [
+        __dirname + '/styles.css'
+    ],
+    server: app
+});
+
+// We also just need to specify the routes at which we want to serve this clientside app.
+// This is important for supporting "deep linking" into a single page app. The server
+// has to know what urls to let the browser app handle.
+app.get('*', clientApp.html());
+
+// start listening for http requests
+app.listen(3000);
+</code></pre>
+      <h2>moonboots + hapi</h2>
+      <p>If you're using hapi, there's <a href="https://github.com/wraithgar/moonboots-hapi">a version of moonboots that is structured as a hapi plugin</a>. </p>
+      <h1>Finding modules</h1>
+      <p>There's a site containing a curated list of npm-installable modules with a quick filter box: <a href="http://resources.humanjavascript.com">humanjs-resources</a> that should help you find things you may need. </p>
+      <p>Also, there are lots of modules you can find via <a href="http://browserify.org/search">browserify's module search</a>.</p>
       <h1>Examples</h1>
       <h2>And Bang</h2>
       <p>And Bang helps same-page-ify your team with shared tasks and chat. </p>
