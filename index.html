@@ -587,11 +587,21 @@ var MainView = HumanView.extend({
 <h3>.renderSubview(viewInstance, containerEl)</h3>
 <div class="signature"><ul>
 <li>viewInstance <span class="type">Object</span> Any object with a <code>.remove()</code>, <code>.render()</code> and an <code>.el</code> property that is the DOM element for that view. Typically this is just an instantiated view. </li>
-<li>containerEl <span class="type">Element | String</span> This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed human view runs <code>this.$(&quot;YOUR STRING&quot;)</code> to try to grab the element that should contain the sub view.</li>
+<li>containerEl <span class="type">Element | String | jQueryElement</span> This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed human view runs <code>this.$(&quot;YOUR STRING&quot;)</code> to try to grab the element that should contain the sub view.</li>
 </div></ul>
 <p>This method is just sugar for the common use case of instantiating a view and putting in an element within the parent.
 
 </p>
+<p>It will:
+
+</p>
+<ol>
+<li>fetch your container (if you gave it a selector string)</li>
+<li>register your subview so it gets cleaned up if parent is removed and so <code>view.parent</code> will be available when your subview&apos;s <code>render</code> method gets called</li>
+<li>call the subview&apos;s <code>render()</code> method</li>
+<li>append it to the container</li>
+<li>return the subview</li>
+</ol>
 <h4>Example:</h4>
 <pre><code class="js">var view = HumanView.extend({
     template: &apos;&lt;li&gt;&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;/li&gt;&apos;,
@@ -662,6 +672,7 @@ var MainView = HumanView.extend({
 });</code></pre>
 <h2>Changelog</h2>
 <div class="signature"><ul>
+<li>1.6.1 <a href="https://github.com/HenrikJoreteg/human-view/compare/v1.6.0...v1.6.1">diff</a> - Make sure renderSubview registers the subview first, so it has a <code>.parent</code> before it calls <code>.render()</code> on the subview.</li>
 <li>1.6.0 <a href="https://github.com/HenrikJoreteg/human-view/compare/v1.5.0...v1.6.0">diff</a> - Adding <code>getByRole</code> method</li>
 <li>1.5.0 - Adding bower.json, adding missing dev dependencies, other small bugfixes.</li>
 <li>1.4.1 - Removing elements without using jQuery&apos;s <code>.empty()</code> in renderCollection. (fixes: <a href="https://github.com/HenrikJoreteg/human-view/issues/13">https://github.com/HenrikJoreteg/human-view/issues/13</a>)</li>
