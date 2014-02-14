@@ -1,0 +1,124 @@
+{
+  "source": "human-view",
+  "version": "",
+  "modules": [
+    {
+      "textRaw": "human-view",
+      "name": "human-view",
+      "desc": "<p>A set of common helpers and conventions for using as a base view for humanjs / backbone applications.\n\n\n\n</p>\n<p>It adds: \n\n</p>\n<ol>\n<li>Simple declarative property/template bindings without needing to include a template engine that does it for you. Which keeps your code with your code and your template as a simple function that returns an HTML string, and your payload light.</li>\n<li>A pattern for easily including the view&apos;s base element into render. Rather than having to specify tag type and attributes in javascript in the view definition you can just include that in your template like everything else.</li>\n<li>A way to render a collection of models within an element in the view, each with their own view, preserving order, and doing proper cleanup when the main view is removed.</li>\n<li>A simple way to render sub-views that get cleaned up when the parent view is removed.</li>\n</ol>\n",
+      "modules": [
+        {
+          "textRaw": "Install",
+          "name": "install",
+          "desc": "<pre><code>npm install human-view</code></pre>\n",
+          "type": "module",
+          "displayName": "Install"
+        },
+        {
+          "textRaw": "Usage",
+          "name": "usage",
+          "modules": [
+            {
+              "textRaw": "Basics",
+              "name": "basics",
+              "desc": "<p>Nothing special is required, just use <code>HumanView</code> in the same way as you would Backbone.View:\n\n</p>\n<pre><code class=\"javascript\">var MyView = HumanView.extend({\n    initialize: function () { ... }, \n    render: function () { ... }\n});</code></pre>\n",
+              "type": "module",
+              "displayName": "Basics"
+            },
+            {
+              "textRaw": "Declarative Bindings",
+              "name": "declarative_bindings",
+              "desc": "<pre><code class=\"javascript\">var MyView = HumanView.extend({\n    // set a `template` property of your view. This can either be\n    // a function that returns an HTML string or just a string if \n    // no logic is required.\n    template: myTemplateFunction, \n    textBindings: {\n        // the model property: the css selector\n        name: &apos;li a&apos; \n    },\n    render: function () {\n        // method for rendering the view&apos;s template and binding all\n        // the model properties as described by `textBindings` above.\n        // You can also bind other attributes, and if you&apos;re using\n        // human-model, you can bind derived properties too.\n        this.renderAndBind({what: &apos;some context object for the template&apos;});\n    }\n});</code></pre>\n",
+              "modules": [
+                {
+                  "textRaw": "Binding types:",
+                  "name": "binding_types:",
+                  "desc": "<pre><code class=\"javascript\">var View = HumanView.extend({\n    template: &apos;&lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;&apos;,\n    attributeBindings: {\n        // &lt;model_property&gt;: [ &apos;&lt;css-selector&gt;&apos;, &apos;&lt;attribute-name&gt;&apos;]\n        id: [&apos;span&apos;, &apos;data-thing&apos;]\n    }\n});</code></pre>\n",
+                  "type": "module",
+                  "displayName": "Binding types:"
+                }
+              ],
+              "type": "module",
+              "displayName": "Declarative Bindings"
+            },
+            {
+              "textRaw": "handling subviews",
+              "name": "handling_subviews",
+              "desc": "<p>Often you want to render some other subview within a view. The trouble is that when you remove the parent view, you also want to remove all the subviews.\n\n</p>\n<p>HumanView has two convenience method for handling this that&apos;s also used by <code>renderCollection</code> to do cleanup.\n\n</p>\n<p>It looks like this:\n\n</p>\n<pre><code class=\"javascript\">var HumanView = require(&apos;human-view&apos;);\n\n// This can be *anything* with a `remove` method\n// and an `el` property... such as another human-view\n// instance.\n// But you could very easily write other little custom views\n// that followed the same conventions. Such as custom dialogs, etc.\nvar SubView = require(&apos;./my-sub-view&apos;);\n\nmodule.exports = HumanView.extend({\n    render: function () {\n        // this takes a view instance and either an element, or element selector \n        // to draw the view into.\n        this.renderSubview(new Subview(), &apos;.someElementSelector&apos;);\n\n        // There&apos;s an even lower level api that `renderSubview` usees\n        // that will do nothing other than call `remove` on it when\n        // the parent view is removed.\n        this.registerSubview(new Subview());\n    }\n})</code></pre>\n<p><strong>registerSubview also, stores a reference to the parent view on the subview as <code>.parent</code></strong>\n\n\n</p>\n",
+              "type": "module",
+              "displayName": "handling subviews"
+            }
+          ],
+          "type": "module",
+          "displayName": "Usage"
+        },
+        {
+          "textRaw": "API Reference",
+          "name": "api_reference",
+          "desc": "<p>Note that we&apos;re simply extending Backbone.View here, so all the methods/properties here still exist: <a href=\"http://backbonejs.org/#View\">http://backbonejs.org/#View</a>\n\n</p>\n",
+          "modules": [
+            {
+              "textRaw": ".template",
+              "name": ".template",
+              "desc": "<p>The <code>.template</code> is a property for the view prototype. It should either be a string of HTML or a function that returns a string of HTML. It isn&apos;t required, but it is used as a default for calling <code>renderAndBind</code> and <code>renderWithTemplate</code>.\n\n</p>\n<p>The important thing to note is that the <em>HTML should not have more than one root element</em>. This is because the view code assumes that it has one and only one root element that becomes the <code>.el</code> property of the instantiated view.\n\n</p>\n",
+              "type": "module",
+              "displayName": ".template"
+            },
+            {
+              "textRaw": ".renderCollection(collection, ItemView, containerEl, [viewOptions])",
+              "name": ".rendercollection(collection,_itemview,_containerel,_[viewoptions])",
+              "desc": "<p>This method will maintain this collection within that container element. Including proper handling of add, remove, sort, reset, etc. \n\n</p>\n<p>Also, when the parent view gets <code>.remove()</code>&apos;ed any event handlers registered by the individual item views will be properly removed as well. \n\n</p>\n<p>Each item view will only be <code>.render()</code>&apos;ed once (unless you change that within the item view itself).\n\n</p>\n<h4>Example:</h4>\n<pre><code class=\"javascript\">// some view for individual items in the collection\nvar ItemView = HumanView.extend({ ... });\n\n// the main view\nvar MainView = HumanView.extend({\n    template: &apos;&lt;section class=&quot;page&quot;&gt;&lt;ul class=&quot;itemContainer&quot;&gt;&lt;/ul&gt;&lt;/section&gt;&apos;,\n    render: function (opts) {\n        // render our template as usual\n        this.renderAndBind();\n\n        // call renderCollection with these arguments:\n        // 1. collection\n        // 2. which view to use for each item in the list\n        // 3. which element within this view to use as the container\n        // 4. options object (not required):\n        //      {\n        //          // function used to determine if model should be included\n        //          filter: function (model) {},\n        //          // boolean to specify reverse rendering order\n        //          reverse: false,\n        //          // view options object (just gets passed to item view&apos;s `initialize` method)\n        //          viewOptions: {}\n        //      }\n        this.renderCollection(this.collection, ItemView, this.$(&apos;.itemContainer&apos;)[0], opts);\n        return this;\n    }  \n})</code></pre>\n",
+              "type": "module",
+              "displayName": ".renderCollection(collection, ItemView, containerEl, [viewOptions])"
+            },
+            {
+              "textRaw": ".registerSubview(viewInstance)",
+              "name": ".registerSubview(viewInstance)",
+              "desc": "<p>This method is just sugar for the common use case of instantiating a view and putting in an element within the parent.\n\n</p>\n<p>It will:\n\n</p>\n<ol>\n<li>fetch your container (if you gave it a selector string)</li>\n<li>register your subview so it gets cleaned up if parent is removed and so <code>view.parent</code> will be available when your subview&apos;s <code>render</code> method gets called</li>\n<li>call the subview&apos;s <code>render()</code> method</li>\n<li>append it to the container</li>\n<li>return the subview</li>\n</ol>\n<h4>Example:</h4>\n<pre><code class=\"js\">var view = HumanView.extend({\n    template: &apos;&lt;li&gt;&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;/li&gt;&apos;,\n    render: function () {\n        this.renderAndBind();\n\n        ...\n\n        var model = this.model;\n        this.renderSubview(new SubView({\n            model: model\n        }), &apos;.container&apos;);\n\n        ... \n\n    } \n});</code></pre>\n",
+              "type": "module",
+              "displayName": ".renderSubview(viewInstance, containerEl)"
+            },
+            {
+              "textRaw": ".renderSubview(viewInstance, containerEl)",
+              "name": ".rendersubview(viewinstance,_containerel)",
+              "desc": "<p>This method is just sugar for the common use case of instantiating a view and putting in an element within the parent.\n\n</p>\n<p>It will:\n\n</p>\n<ol>\n<li>fetch your container (if you gave it a selector string)</li>\n<li>register your subview so it gets cleaned up if parent is removed and so <code>view.parent</code> will be available when your subview&apos;s <code>render</code> method gets called</li>\n<li>call the subview&apos;s <code>render()</code> method</li>\n<li>append it to the container</li>\n<li>return the subview</li>\n</ol>\n<h4>Example:</h4>\n<pre><code class=\"js\">var view = HumanView.extend({\n    template: &apos;&lt;li&gt;&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;/li&gt;&apos;,\n    render: function () {\n        this.renderAndBind();\n\n        ...\n\n        var model = this.model;\n        this.renderSubview(new SubView({\n            model: model\n        }), &apos;.container&apos;);\n\n        ... \n\n    } \n});</code></pre>\n",
+              "type": "module",
+              "displayName": ".renderSubview(viewInstance, containerEl)"
+            },
+            {
+              "textRaw": ".renderAndBind([context], [template])",
+              "name": ".renderandbind([context],_[template])",
+              "desc": "<p>This is shortcut for the default rendering you&apos;re going to do in most every render method, which is: use the template property of the view to replace <code>this.el</code> of the view and re-register all handlers from the event hash and any other binding as described above.\n\n</p>\n<h4>Example:</h4>\n<pre><code class=\"js\">var view = HumanView.extend({\n    template: &apos;&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;&apos;,\n    textBindings: {\n        &apos;name&apos;: &apos;a&apos;\n    },\n    events: {\n        &apos;click a&apos;: &apos;handleLinkClick&apos;\n    },\n    render: function () {\n        // this does everything\n        // 1. renders template\n        // 2. registers delegated click handler\n        // 3. inserts and binds the &apos;name&apos; property\n        //    of the view&apos;s `this.model` to the &lt;a&gt; tag.\n        this.renderAndBind();\n    }\n});</code></pre>\n",
+              "type": "module",
+              "displayName": ".renderAndBind([context], [template])"
+            },
+            {
+              "textRaw": ".renderWithTemplate([context], [template])",
+              "name": ".renderwithtemplate([context],_[template])",
+              "desc": "<p>This is shortcut for doing everything we need to do to render and fully replace current root element with the template that our view is wanting to render. In typical backbone view approaches you never replace the root element. But from our experience, it&apos;s nice to see the <em>entire</em> html structure represented by that view in the template code. Otherwise you end up with a lot of wrapper elements in your DOM tree.\n\n</p>\n",
+              "type": "module",
+              "displayName": ".renderWithTemplate([context], [template])"
+            },
+            {
+              "textRaw": ".getByRole(name)",
+              "name": ".getbyrole(name)",
+              "desc": "<p>This is for convenience and also to encourage the use of the <code>role</code> attribute for grabbing elements from the view. Using roles to select elements in your view makes it much less likely that designers and JS devs accidentally break each other&apos;s code. This will work even if the <code>role</code> attribute is on the view&apos;s root <code>el</code>.\n\n</p>\n<h4>Example:</h4>\n<pre><code class=\"js\">var view = HumanView.extend({\n    template: &apos;&lt;li&gt;&lt;img role=&quot;avatar&quot; src=&quot;/user.png&quot;/&gt;&lt;/li&gt;&apos;,\n    render: function () {\n        this.renderAndBind();\n\n        // cache an element for easy reference by other methods\n        this.imgEl = this.getByRole(&apos;avatar&apos;);\n    } \n});</code></pre>\n",
+              "type": "module",
+              "displayName": ".getByRole(name)"
+            }
+          ],
+          "type": "module",
+          "displayName": "API Reference"
+        },
+        {
+          "textRaw": "Changelog",
+          "name": "changelog",
+          "type": "module",
+          "displayName": "Changelog"
+        }
+      ],
+      "type": "module",
+      "displayName": "human-view"
+    }
+  ]
+}

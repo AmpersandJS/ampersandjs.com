@@ -27,6 +27,9 @@ npm start
 open index.html
 ```
 
+**Important**
+Remember to check out [human-view](https://github.com/henrikjoreteg/human-view) and [human-model](https://github.com/henrikjoreteg/human-model) repositories and place them in the same directory as docs.humanjavascript.com to be able to build.
+
 ## Why?
 
 Then you can just include readme files from projects into a doc site. That way the official docs are kept with their code, but can still be aggregated into a nice doc site.
