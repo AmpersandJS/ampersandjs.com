@@ -9,7 +9,7 @@ html {
   font-size: 100%;
 }
 body {
-  font: 1em/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 1em/1.65 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #4d5659;
   background-color: #fff;
   text-rendering: optimizeLegibility;
@@ -209,6 +209,7 @@ a.button.button-secondary .button-disabled {
 code {
   font-family: Menlo, Monaco, Consolas, monospace;
   text-rendering: optimizeLegibility;
+  font-size: 0.875em;
   -webkit-font-smoothing: antialiased;
   overflow-x: scroll;
 }
