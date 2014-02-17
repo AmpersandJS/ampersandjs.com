@@ -60,6 +60,7 @@ async.forEach(includes, function (repo, cb) {
         globals: templateGlobals,
         pretty: true
     }, function (err, html) {
+        if (err) throw err;
         fs.writeFileSync(__dirname + '/index.html', html, 'utf8');
     });
 
