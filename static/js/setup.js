@@ -31,7 +31,7 @@ Array.prototype.forEach.call(hTags, function (h) {
 // grab all our nav a tags
 var aTags = document.querySelector('nav').querySelectorAll('a');
 
-var slider = document.getElementById('slider');
+var slider = document.getElementById('navigation');
 
 function markActive(selected) {
   var id = selected && selected.id;

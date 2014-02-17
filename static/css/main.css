@@ -103,6 +103,13 @@ ul.unstyled li {
 ol li {
   list-style-type: decimal;
 }
+.container {
+  position: relative;
+  margin-top: 100px;
+}
+main {
+  margin-left: 300px;
+}
 button {
   border: none;
 }
@@ -298,6 +305,7 @@ header {
   background: #fff;
   border-bottom: 1px solid #e6eaed;
   box-shadow: 0 1px 10px #f2f4f6;
+  z-index: 10;
 }
 header .logo {
   margin: 0;
@@ -311,4 +319,46 @@ header .logo {
 header .button-secondary {
   float: right;
   margin-top: 30px;
+}
+nav {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  padding: 0 40px;
+}
+nav a:not(.button) {
+  display: block;
+  text-transform: capitalize;
+  font-size: 0.875em;
+}
+nav .h1,
+nav .h2 {
+  margin-top: 5px;
+  font-weight: bold;
+}
+nav .h1 {
+  color: #000;
+}
+nav .h2 {
+  color: #4d5659;
+}
+nav a:not(.h1):not(.h2):not(.button) {
+  color: #828c8f;
+}
+.panel {
+  margin: 30px 0;
+  border: 1px solid #e6eaed;
+  border-radius: 3px;
+  padding: 10px;
+  background: #fdfdfd;
+}
+.panel h4 {
+  margin: 0;
+}
+.panel .button-small {
+  width: 100%;
+}
+.panel p {
+  font-size: 0.875em;
 }

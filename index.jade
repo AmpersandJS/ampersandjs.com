@@ -28,248 +28,248 @@ html(lang="en")
 
       a(href="http://humanjavascript.com/", title="Buy Human Javascript book", class="button button-secondary") Buy Human Javascript Book
 
-    nav(role="navigation")
+    .container
 
-      .warning
-        h3 Warning
-        p These docs are incomplete and still being written.
-        a(href="http://github.com/henrikjoreteg/humanjs") Help make them better
+      nav(role="navigation")
 
-      #slider
+        .panel
+          h4 Warning
+          p These docs are incomplete and still being written.
+          a(href="http://github.com/henrikjoreteg/humanjs", class="button button-secondary button-small") Help make them better
 
-    main(role="main")
+        #navigation
 
-      h1.humanjs HumanJS
+      main(role="main")
 
-      section
+        section
 
-        h2 Introduction
-        p 
-          | There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at 
-          a(href="http://andyet.com") &amp;yet 
-          | we've surmised that the ideal seems to lie somewhere in the middle.
+          h2 Introduction
+          p 
+            | There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at 
+            a(href="http://andyet.com") &amp;yet 
+            | we've surmised that the ideal seems to lie somewhere in the middle.
 
-        p 
-          | Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see 
-          a(href="http://www.faqs.org/docs/artu/ch01s06.html") Unix philosophy
-          | ).
+          p 
+            | Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see 
+            a(href="http://www.faqs.org/docs/artu/ch01s06.html") Unix philosophy
+            | ).
 
-        p 
-          | That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to 
-          em most  
-          | apps. So we need an opinionated starting point.
+          p 
+            | That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to 
+            em most  
+            | apps. So we need an opinionated starting point.
 
-        p Enter HumanJS. It's not a framework per se, it's a bag of pre-assembled little tools that you're free to rip apart and add to with the following goals in mind.
+          p Enter HumanJS. It's not a framework per se, it's a bag of pre-assembled little tools that you're free to rip apart and add to with the following goals in mind.
 
-        h3 Goals
+          h3 Goals
 
-        ul
-          li Provides an opinionated starting point for an app
-          li Easy to get up and running
-          li Minimal framework-specific knowledge required (knowing JavaScript well gets you 95% there)
-          li Minimal magic
-          li Solve the develpment workflow problems out of the box:
-            ul
-              li Unminified and re-built automatically in develpment
-              li Minfied, cached for production use
-              li Switching between the two with a single config flag
-          li Use node.js to simplify develpment
-          li 100% client rendered
-          li Readability
-          li App can be served as static content by any server (node.js not required in production)
-          li Easy to collaborate on:
-            ul 
-              li Clear file structure where everything has a logical place
-              li Proper seperation of concerns
-          li Use npm + browserify for package management but still play nicely with non-common JS libraries.
+          ul
+            li Provides an opinionated starting point for an app
+            li Easy to get up and running
+            li Minimal framework-specific knowledge required (knowing JavaScript well gets you 95% there)
+            li Minimal magic
+            li Solve the develpment workflow problems out of the box:
+              ul
+                li Unminified and re-built automatically in develpment
+                li Minfied, cached for production use
+                li Switching between the two with a single config flag
+            li Use node.js to simplify develpment
+            li 100% client rendered
+            li Readability
+            li App can be served as static content by any server (node.js not required in production)
+            li Easy to collaborate on:
+              ul 
+                li Clear file structure where everything has a logical place
+                li Proper seperation of concerns
+            li Use npm + browserify for package management but still play nicely with non-common JS libraries.
 
-      section
+        section
 
-        h2 Quick Start Guide
+          h2 Quick Start Guide
 
-        ol
-          li
-            a(href="http://nodejs.org/") install node.js
-          li install humanjs
-            p
-              code $ npm install humanjs -g
-          li run ``humanjs`` to create your new app folder, build your project scaffolding, and run your app.
-            p
-              code $ humanjs
-          li 
-            | open your browser to: 
-            code http://localhost:3000
+          ol
+            li
+              a(href="http://nodejs.org/") install node.js
+            li install humanjs
+              p
+                code $ npm install humanjs -g
+            li run ``humanjs`` to create your new app folder, build your project scaffolding, and run your app.
+              p
+                code $ humanjs
+            li 
+              | open your browser to: 
+              code http://localhost:3000
 
-          li that's it!
+            li that's it!
 
-        h3 What's included?
+          h3 What's included?
 
-        ul
-          li Well-architected shell of a single page app to serve as a starting point for your app.
-          li A solution for using jade templates and templatizer to pre-compile client templates.
-          li A fully functional development environment that will watch for changes. You just modify and refresh (without manual build steps).
-          li Changing one flag in your config puts it in production mode which builds and serves minfied, uniquely named, and permanently cachable static files.
-          li A clientside routing system using HTML5 pushState.
-          li A main layout template is rendered by the main view that includes a page container where page views are rendered as the user navigates to different URLs in the app.
-          li An example of rendering a collection of models in a container.
-          li A mock REST API to demonstrate how you might talk to an API to fetch data.
-          li 
-            | A solution for declaritive binding of model properties to views, that is 
-            em completely 
-            | decoupled from the template engine. See human-view below for more details.
-          li A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team enviroments where you need somewhere to reference what is being stored on your models. See human-model for more detail. 
+          ul
+            li Well-architected shell of a single page app to serve as a starting point for your app.
+            li A solution for using jade templates and templatizer to pre-compile client templates.
+            li A fully functional development environment that will watch for changes. You just modify and refresh (without manual build steps).
+            li Changing one flag in your config puts it in production mode which builds and serves minfied, uniquely named, and permanently cachable static files.
+            li A clientside routing system using HTML5 pushState.
+            li A main layout template is rendered by the main view that includes a page container where page views are rendered as the user navigates to different URLs in the app.
+            li An example of rendering a collection of models in a container.
+            li A mock REST API to demonstrate how you might talk to an API to fetch data.
+            li 
+              | A solution for declaritive binding of model properties to views, that is 
+              em completely 
+              | decoupled from the template engine. See human-view below for more details.
+            li A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team enviroments where you need somewhere to reference what is being stored on your models. See human-model for more detail. 
 
-      section
+        section
 
-        h2(data-nav= "The Book") Human JavaScript book
+          h2(data-nav= "The Book") Human JavaScript book
 
-        p 
-          | A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here 
-          a(href="http://humanjavascript.com") is available for $39
-          | .
+          p 
+            | A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here 
+            a(href="http://humanjavascript.com") is available for $39
+            | .
 
-        p 
-          a(href="http://humanjavascript.com")
-            img(src="static/images/human-javascript.png", width="200", alt="human javascript ebook")
+          p 
+            a(href="http://humanjavascript.com")
+              img(src="static/images/human-javascript.png", width="200", alt="human javascript ebook")
 
-        //- included modules
-        @gendoc human-model ../human-model/README.md
-        @gendoc human-view ../human-view/README.md
+          //- included modules
+          @gendoc human-model ../human-model/README.md
+          @gendoc human-view ../human-view/README.md
 
-      section
+        section
 
-        h2 Router
-        p 
-          | HumanJS just uses Backbone's router so just 
-          a(href="http://backbonejs.org/#Router") see Backbone's router docs for more info
-          | .
+          h2 Router
+          p 
+            | HumanJS just uses Backbone's router so just 
+            a(href="http://backbonejs.org/#Router") see Backbone's router docs for more info
+            | .
 
-      section
+        section
 
-        h2(data-nav="moonbots")
-          a(href="https://github.com/henrikjoreteg/moonboots") Moonbots
+          h2(data-nav="moonbots")
+            a(href="https://github.com/henrikjoreteg/moonboots") Moonbots
 
-        p Moonboots is a tool to help you intelligently deal with different goals of serving JS during development and in production.
-        p In development we explicitly don't want to cache or minify our JS and CSS files while working. We want to organize our modules in a way that makes the most sense for us as we're building the app.
-        p In production, we want to use the exact same source code structure to generate a single minified, uniquely named file for the JS and the CSS so we can tell the browser to cache those permanently. If we do our job correctly when serving those files, our main application code will be downloaded once per revision of the app.
-        p Moonboots aims to solve this problem. You structure your entire application in the same way that you would in node with Common JS modules requiring each other. It uses browserify under the hood to do all that magic. But then you just configure your client application like so: 
+          p Moonboots is a tool to help you intelligently deal with different goals of serving JS during development and in production.
+          p In development we explicitly don't want to cache or minify our JS and CSS files while working. We want to organize our modules in a way that makes the most sense for us as we're building the app.
+          p In production, we want to use the exact same source code structure to generate a single minified, uniquely named file for the JS and the CSS so we can tell the browser to cache those permanently. If we do our job correctly when serving those files, our main application code will be downloaded once per revision of the app.
+          p Moonboots aims to solve this problem. You structure your entire application in the same way that you would in node with Common JS modules requiring each other. It uses browserify under the hood to do all that magic. But then you just configure your client application like so: 
 
-        h3 Moonboots and Express.js
+          h3 Moonboots and Express.js
 
-        p 
-          | The full documentation for moonboots is 
-          a(href="https://github.com/henrikjoreteg/moonboots#readme") available in the Moonboots repo
-          | .
+          p 
+            | The full documentation for moonboots is 
+            a(href="https://github.com/henrikjoreteg/moonboots#readme") available in the Moonboots repo
+            | .
 
-        p For a preview, here's how we'd configure a clientside moonboots app to be served by Express:
+          p For a preview, here's how we'd configure a clientside moonboots app to be served by Express:
 
-        pre
-          code.js.
-            var express = require('express'),
-                Moonboots = require('moonboots'),
-                app = express();
+          pre
+            code.js.
+              var express = require('express'),
+                  Moonboots = require('moonboots'),
+                  app = express();
 
-            // configure our app
-            var clientApp = new Moonboots({
-                main: __dirname + '/sample/app/app.js',
-                developmentMode: false,
-                libraries: [
-                    __dirname + '/sample/libraries/jquery.js'
-                ],
-                stylesheets: [
-                    __dirname + '/styles.css'
-                ],
-                server: app
-            });
+              // configure our app
+              var clientApp = new Moonboots({
+                  main: __dirname + '/sample/app/app.js',
+                  developmentMode: false,
+                  libraries: [
+                      __dirname + '/sample/libraries/jquery.js'
+                  ],
+                  stylesheets: [
+                      __dirname + '/styles.css'
+                  ],
+                  server: app
+              });
 
-            // We also just need to specify the routes at which we want to serve this clientside app.
-            // This is important for supporting "deep linking" into a single page app. The server
-            // has to know what urls to let the browser app handle.
-            app.get('*', clientApp.html());
+              // We also just need to specify the routes at which we want to serve this clientside app.
+              // This is important for supporting "deep linking" into a single page app. The server
+              // has to know what urls to let the browser app handle.
+              app.get('*', clientApp.html());
 
-            // start listening for http requests
-            app.listen(3000);
-        
-        h3 Moonboots and Hapi
-        p 
-          | If you're using hapi, there's 
-          a(href="https://github.com/wraithgar/moonboots-hapi") a version of Moonboots that is structured as a Hapi plugin
-          | .
-
-      section
-
-        h2 Finding modules
-        p 
-          | There's a site containing a curated list of npm-installable modules with a quick filter box:  
-          a(href="http://resources.humanjavascript.com") humanjs-resources
-          |  that should help you find things you may need. 
-        p 
-          | Also, there are lots of modules you can find via 
-          a(href="http://browserify.org/search") browserify's module search
-          | .
-
-      section
-
-        h2 Examples
-
-        h3 And Bang
-        p And Bang helps same-page-ify your team with shared tasks and chat. 
-        p Many of the tools and approaches of human javascript were extracted from And Bang.
-        a(href="http://andbang.com")
-          img.exampleImage(src="https://i.cloudup.com/p3kLPyMYDw-2000x2000.png", width="400")
-
-        h3 Talky
-        p Talky is truly simple video chat and screen sharing app for groups.
-        p Powered by WebRTC and built on Human Javascript.
-
-        a(href="https://talky.io")
-          img.exampleImage(src="https://i.cloudup.com/0c5WD7hIUb-2000x2000.png", width="400")
-
-        h3 The Resources App
-        p 
-          | Quick module search of curated modules. The source for this app is 
-          a(href="https://github.com/henrikjoreteg/humanjs-resources") available on Github
-          | .
-
-        a(href="http://resources.humanjavascript.com")
-          img.exampleImage(src="https://i.cloudup.com/XhYHvX7FA5-2000x2000.png", width="400")
-
-        h3 Otalk
-        p Otalk is an open source chat client powered XMPP, stanza.io, and WebRTC. You can think of it as an open source alternative to Skype.
-
-        a(href="https://otalk.im")
-          img.exampleImage(src="https://i.cloudup.com/u0xhQors8G-2000x2000.png", width="400")
-
-      section
-
-        h2 Contributors
-        p Human JavaScript is the combined efforts of lots of people and since all these projects are open source there are simply too many contributors to list. 
-        p 
-          | The project is sponsored by 
-          a(href="http://andyet.com") &amp;yet
-          | .
-        p The core contributor team consists of:
-
-        ul
-          li 
-            a(href="http://twitter.com/henrikjoreteg") Henrik Joreteg
-          li 
-            a(href="http://twitter.com/lukekarrys") Luke Karrys
-          li 
-            a(href="http://twitter.com/lancestout") Lance Stout
-          li 
-            a(href="http://twitter.com/philip_roberts") Philip Roberts
-          li 
-            a(href="http://twitter.com/_crossdiver") Isaac Lewis
-          li 
-            a(href="http://twitter.com/wraithgar") Michael (Gar) Garvin
+              // start listening for http requests
+              app.listen(3000);
           
-        p 
-          | If you have benefitted from these tools, please consider 
-          a(href="http://humanjavascript.com") buying the book 
-          |  or  
-          a(href="http://andyet.com") hiring &amp;yet
-          |  to help with your next development project.
+          h3 Moonboots and Hapi
+          p 
+            | If you're using hapi, there's 
+            a(href="https://github.com/wraithgar/moonboots-hapi") a version of Moonboots that is structured as a Hapi plugin
+            | .
+
+        section
+
+          h2 Finding modules
+          p 
+            | There's a site containing a curated list of npm-installable modules with a quick filter box:  
+            a(href="http://resources.humanjavascript.com") humanjs-resources
+            |  that should help you find things you may need. 
+          p 
+            | Also, there are lots of modules you can find via 
+            a(href="http://browserify.org/search") browserify's module search
+            | .
+
+        section
+
+          h2 Examples
+
+          h3 And Bang
+          p And Bang helps same-page-ify your team with shared tasks and chat. 
+          p Many of the tools and approaches of human javascript were extracted from And Bang.
+          a(href="http://andbang.com")
+            img.exampleImage(src="https://i.cloudup.com/p3kLPyMYDw-2000x2000.png", width="400")
+
+          h3 Talky
+          p Talky is truly simple video chat and screen sharing app for groups.
+          p Powered by WebRTC and built on Human Javascript.
+
+          a(href="https://talky.io")
+            img.exampleImage(src="https://i.cloudup.com/0c5WD7hIUb-2000x2000.png", width="400")
+
+          h3 The Resources App
+          p 
+            | Quick module search of curated modules. The source for this app is 
+            a(href="https://github.com/henrikjoreteg/humanjs-resources") available on Github
+            | .
+
+          a(href="http://resources.humanjavascript.com")
+            img.exampleImage(src="https://i.cloudup.com/XhYHvX7FA5-2000x2000.png", width="400")
+
+          h3 Otalk
+          p Otalk is an open source chat client powered XMPP, stanza.io, and WebRTC. You can think of it as an open source alternative to Skype.
+
+          a(href="https://otalk.im")
+            img.exampleImage(src="https://i.cloudup.com/u0xhQors8G-2000x2000.png", width="400")
+
+        section
+
+          h2 Contributors
+          p Human JavaScript is the combined efforts of lots of people and since all these projects are open source there are simply too many contributors to list. 
+          p 
+            | The project is sponsored by 
+            a(href="http://andyet.com") &amp;yet
+            | .
+          p The core contributor team consists of:
+
+          ul
+            li 
+              a(href="http://twitter.com/henrikjoreteg") Henrik Joreteg
+            li 
+              a(href="http://twitter.com/lukekarrys") Luke Karrys
+            li 
+              a(href="http://twitter.com/lancestout") Lance Stout
+            li 
+              a(href="http://twitter.com/philip_roberts") Philip Roberts
+            li 
+              a(href="http://twitter.com/_crossdiver") Isaac Lewis
+            li 
+              a(href="http://twitter.com/wraithgar") Michael (Gar) Garvin
+            
+          p 
+            | If you have benefitted from these tools, please consider 
+            a(href="http://humanjavascript.com") buying the book 
+            |  or  
+            a(href="http://andyet.com") hiring &amp;yet
+            |  to help with your next development project.
 
     script(src="static/js/highlight.pack.js")
     script(src="static/js/slugger.js")
