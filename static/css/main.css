@@ -103,6 +103,89 @@ ul.unstyled li {
 ol li {
   list-style-type: decimal;
 }
+button {
+  border: none;
+}
+.button,
+a.button {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 6px 15px;
+  font-size: 1em;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.5;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  background-color: #e1edf1;
+  color: #003546;
+}
+.button:hover,
+a.button:hover {
+  background-color: #b8d6df;
+}
+.button:disabled,
+a.button:disabled,
+.button.button-disabled,
+a.button.button-disabled {
+  cursor: not-allowed;
+  color: #85b8c7;
+  background-color: #e1edf1;
+}
+.button:focus,
+a.button:focus {
+  outline: none;
+}
+.button.button-small,
+a.button.button-small {
+  padding: 3px 8px;
+  font-size: 0.875em;
+}
+.button.button-large,
+a.button.button-large {
+  padding: 10px 20px;
+  font-size: 1.125em;
+}
+.button.button-primary,
+a.button.button-primary,
+.button.button-secondary,
+a.button.button-secondary,
+.button.button-primary:hover,
+a.button.button-primary:hover,
+.button.button-secondary:hover,
+a.button.button-secondary:hover {
+  color: #fff;
+}
+.button.button-primary,
+a.button.button-primary {
+  background-color: #ec008c;
+}
+.button.button-primary:hover,
+a.button.button-primary:hover {
+  background-color: #d4007e;
+}
+.button.button-primary:disabled,
+a.button.button-primary:disabled,
+.button.button-primary .button-disabled,
+a.button.button-primary .button-disabled {
+  background-color: #fec1d1;
+}
+.button.button-secondary,
+a.button.button-secondary {
+  background-color: #12acef;
+}
+.button.button-secondary:hover,
+a.button.button-secondary:hover {
+  background-color: #0f9bd9;
+}
+.button.button-secondary:disabled,
+a.button.button-secondary:disabled,
+.button.button-secondary .button-disabled,
+a.button.button-secondary .button-disabled {
+  background-color: #88d5f7;
+}
 code {
   font-family: Menlo, Monaco, Consolas, monospace;
   text-rendering: optimizeLegibility;
@@ -205,4 +288,27 @@ pre code {
 }
 .diff .change {
   background: #f18902;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0 50px;
+  height: 100px;
+  background: #fff;
+  border-bottom: 1px solid #e6eaed;
+  box-shadow: 0 1px 10px #f2f4f6;
+}
+header .logo {
+  margin: 0;
+  min-width: 250px;
+  float: left;
+  background: url("../images/humanjs.svg") center center no-repeat;
+  background-size: contain;
+  line-height: 100px;
+  text-indent: -100%;
+}
+header .button-secondary {
+  float: right;
+  margin-top: 30px;
 }
