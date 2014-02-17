@@ -12,15 +12,17 @@ nav
     text-transform: capitalize
     font-size: $font-size-small
 
-  .h1, .h2
-    margin-top: 5px
-    font-weight: bold
-   
-  .h1
-    color: black
+    &:hover
+      text-decoration: underline
 
-  .h2
-    color: $gray-dark
+    &.active
+      color: $blue
+
+  .h1, .h2
+    margin: 5px 0
+    font-weight: bold
+    color: black
 
   a:not(.h1):not(.h2):not(.button)
     color: $gray
+    padding-left: 10px

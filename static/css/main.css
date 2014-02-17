@@ -108,7 +108,20 @@ ol li {
   margin-top: 100px;
 }
 main {
+  padding: 30px 0 50px 20px;
   margin-left: 300px;
+  max-width: 900px;
+}
+main h2:first-of-type {
+  margin-top: 0;
+}
+main section {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e6eaed;
+}
+main section p:last-of-type {
+  margin-bottom: 0;
 }
 button {
   border: none;
@@ -332,25 +345,27 @@ nav a:not(.button) {
   text-transform: capitalize;
   font-size: 0.875em;
 }
+nav a:not(.button):hover {
+  text-decoration: underline;
+}
+nav a:not(.button).active {
+  color: #12acef;
+}
 nav .h1,
 nav .h2 {
-  margin-top: 5px;
+  margin: 5px 0;
   font-weight: bold;
-}
-nav .h1 {
   color: #000;
-}
-nav .h2 {
-  color: #4d5659;
 }
 nav a:not(.h1):not(.h2):not(.button) {
   color: #828c8f;
+  padding-left: 10px;
 }
 .panel {
   margin: 30px 0;
   border: 1px solid #e6eaed;
   border-radius: 3px;
-  padding: 10px;
+  padding: 15px;
   background: #fdfdfd;
 }
 .panel h4 {
