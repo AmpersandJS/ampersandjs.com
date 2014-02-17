@@ -120,8 +120,19 @@ main section {
   margin-bottom: 30px;
   border-bottom: 1px solid #e6eaed;
 }
+main section:last-of-type {
+  border: none;
+}
 main section p:last-of-type {
   margin-bottom: 0;
+}
+main section .image-wrapper {
+  display: block;
+  margin: 20px auto;
+}
+main section .image-wrapper:not(.humanjs) img {
+  border: 1px solid #e6eaed;
+  border-radius: 3px;
 }
 button {
   border: none;

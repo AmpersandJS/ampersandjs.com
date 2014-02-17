@@ -116,5 +116,17 @@ main
     margin-bottom: 30px
     border-bottom: 1px solid $gray-lighter
 
+    &:last-of-type
+      border: none
+
     p:last-of-type
       margin-bottom: 0
+
+    .image-wrapper
+      display: block
+      margin: 20px auto
+
+      &:not(.humanjs)
+        img
+          border: 1px solid $gray-lighter
+          border-radius: 3px
