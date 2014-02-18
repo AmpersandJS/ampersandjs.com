@@ -122,6 +122,8 @@ main section {
 }
 main section:last-of-type {
   border: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 main section p:last-of-type {
   margin-bottom: 0;
@@ -144,6 +146,12 @@ main section .image-wrapper:not(.humanjs) img {
   main h3,
   main code {
     word-break: break-all;
+  }
+  main h2 {
+    font-size: 1.375em;
+  }
+  main h1 {
+    font-size: 1.75em;
   }
   .image-wrapper {
     text-align: center;
@@ -247,20 +255,23 @@ code {
   font-size: 0.8125em;
   color: #000;
   background: #f5f7f8;
+  white-space: pre-wrap;
 }
 pre {
   max-width: 100%;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 pre code {
   display: block;
   padding: 20px;
   line-height: 1.5;
+  white-space: nowrap;
 }
 pre code {
   color: #272b2d;
   background: #fdfdfd;
   border: 1px solid #e6eaed;
+  word-wrap: pre;
 }
 .comment,
 .template_comment,
@@ -330,11 +341,6 @@ pre code {
 .diff .change {
   background: #f18902;
 }
-@media screen and (max-width: 650px) {
-  code {
-    white-space: initial;
-  }
-}
 header {
   position: fixed;
   top: 0;
@@ -369,11 +375,12 @@ header .button-secondary {
   }
 }
 nav {
-  position: absolute;
-  top: 0;
-  height: 100%;
+  position: fixed;
+  top: 100px;
   width: 300px;
-  padding: 0 40px;
+  height: 100%;
+  padding: 0 40px 150px 40px;
+  overflow-y: scroll;
 }
 nav a:not(.button) {
   display: block;

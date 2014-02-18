@@ -14,15 +14,17 @@ code
   font-size: .8125em
   color: black
   background: lighten($gray-lighter, 60%)
+  white-space: pre-wrap
 
 pre
   max-width: 100%
-  overflow: hidden
+  overflow-x: scroll
 
   code
     display: block
     padding: 20px
     line-height: 1.5
+    white-space: nowrap
 
 // &yet light
 
@@ -31,6 +33,7 @@ pre
     color: $gray-darker
     background: lighten($gray-lighter, 90%)
     border: 1px solid $gray-lighter
+    word-wrap: pre
 
 .comment,
 .template_comment,
@@ -66,7 +69,7 @@ pre
 .diff .change
   background: $orange
 
-@media screen and (max-width: 650px)
+// @media screen and (max-width: 650px)
   
-  code
-    white-space: initial
+//   code
+//     white-space: initial
