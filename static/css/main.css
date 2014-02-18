@@ -134,6 +134,24 @@ main section .image-wrapper:not(.humanjs) img {
   border: 1px solid #e6eaed;
   border-radius: 3px;
 }
+@media screen and (max-width: 650px) {
+  main {
+    margin-left: 0;
+    padding: 40px 25px;
+  }
+  main h1,
+  main h2,
+  main h3,
+  main code {
+    word-break: break-all;
+  }
+  .image-wrapper {
+    text-align: center;
+  }
+  .image-wrapper img {
+    max-width: 100%;
+  }
+}
 button {
   border: none;
 }
@@ -312,6 +330,11 @@ pre code {
 .diff .change {
   background: #f18902;
 }
+@media screen and (max-width: 650px) {
+  code {
+    white-space: initial;
+  }
+}
 header {
   position: fixed;
   top: 0;
@@ -335,6 +358,15 @@ header .logo {
 header .button-secondary {
   float: right;
   margin-top: 30px;
+}
+@media screen and (max-width: 650px) {
+  header .button-secondary {
+    display: none;
+  }
+  header .logo {
+    float: none;
+    margin: 0 auto;
+  }
 }
 nav {
   position: absolute;
@@ -369,7 +401,12 @@ nav a:not(.h1):not(.h2):not(.button) {
   width: 3px;
   height: 20px;
   position: absolute;
-  margin-left: -8px;
+  margin-left: -10px;
+}
+@media screen and (max-width: 650px) {
+  nav {
+    display: none;
+  }
 }
 .panel {
   margin: 30px 0;
