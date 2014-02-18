@@ -1,9 +1,3 @@
-// init code highlighting
-Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
-  var codeEl = pre.firstChild;
-  codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['javascript']).value;
-});
-
 // grab all our h* tags
 var hTags = document.querySelector('main').querySelectorAll('h2, h3');
 
@@ -71,3 +65,10 @@ function selectCurrent() {
 }
 
 selectCurrent();
+
+
+// init code highlighting
+Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
+  var codeEl = pre.firstChild;
+  codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['javascript']).value;
+});
