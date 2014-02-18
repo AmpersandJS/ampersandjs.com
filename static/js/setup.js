@@ -5,7 +5,7 @@ Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
 });
 
 // grab all our h* tags
-var hTags = document.querySelector('main').querySelectorAll('h1, h2, h3');
+var hTags = document.querySelector('main').querySelectorAll('h2, h3');
 
 var nav = document.querySelector('nav');
 var levels = [];
@@ -22,6 +22,7 @@ Array.prototype.forEach.call(hTags, function (h) {
   a.href = '#' + h.id;
   h.onclick = function () {
     location.hash = this.id;
+    return false;
   };
   a.innerHTML = (h.dataset && h.dataset.nav || label).toLowerCase();
   a.classList.add(h.tagName.toLowerCase());
