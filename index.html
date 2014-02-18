@@ -93,7 +93,7 @@
           <h2 data-nav="The Book">Human JavaScript book</h2>
           <p>A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here <a href="http://humanjavascript.com">is available for $39</a>.</p>
           <p><a href="http://humanjavascript.com" class="image-wrapper humanjs"><img src="static/images/human-javascript.png" width="200" alt="human javascript ebook"></a></p>
-          <div class="include"><h1>human-model</h1>
+          <div class="include"><h2>human-model</h2>
 <p>HumanModel helps you create observable models for your apps. Most commonly in clientside frameworks, your models are what hold data fetched from your API. But really, it&apos;s all about having a way to separate concerns. Your models should be your authoritive &quot;source of truth&quot; when it comes to all state held in your application.
 
 </p>
@@ -103,7 +103,7 @@
 <p>This is hugely important for enabling teams to work on the same app together. There&apos;s also a few extra goodies, like direct accessors (not having to use <code>.set()</code> and <code>.get()</code>), and intelligently evented dervied properties.
 
 </p>
-<h2>Installing</h2>
+<h3>Installing</h3>
 <p>via npm:
 
 </p>
@@ -112,11 +112,11 @@
 
 </p>
 <pre><code>bower install human-model</code></pre>
-<h2>Module sytems/loaders/managers</h2>
+<h3>Module sytems/loaders/managers</h3>
 <p>Thanks to @svnlto, HumanModel uses UMD so it works as CommonJS (node + browserify), AMD, and as a standalone script tag.
 
 </p>
-<h2>Types of state</h2>
+<h3>Types of state</h3>
 <p>Take for instance a <code>selected</code> property on a model. That&apos;s likely something you would use to represent current UI state for the current browser session but not something you&apos;d want to save back to the API when calling a model&apos;s .save() method. So there really are two types of state. It&apos;s challenging to make that type of distinction with Backbone.
 
 </p>
@@ -134,12 +134,12 @@
 <p>In human model you have to classify all your properties as either prop or a session. That includes declaring your id property. How HumanModel handles properties that you have not pre-defined is determined by its extraProperties setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.
 
 </p>
-<h2>Handling model relationships</h2>
+<h3>Handling model relationships</h3>
 <p>From our experience, derived properties work really well for handling relationships between models. Let&apos;s say you&apos;ve got a model representing people and model representing a group of people. Often your API for fetching people would include something like a groupID as a property for each person you retrieve.
 
 
 </p>
-<h2>Why do this?</h2>
+<h3>Why do this?</h3>
 <p>Backbone models have a lot of flexibility in that you don&apos;t have to define what you&apos;re wanting to store ahead of time. 
 
 </p>
@@ -158,7 +158,7 @@
 <p>Obviously, this restriction also means that this won&apos;t work in browsers that don&apos;t support that. You can check specific browser support here: <a href="http://kangax.github.io/es5-compat-table/">http://kangax.github.io/es5-compat-table/</a>
 
 </p>
-<h2>Key Differences from Backbone</h2>
+<h3>Key Differences from Backbone</h3>
 <p>Everything Backbone does with Collections should Just Work™ with HumanModel as long as you specify a HumanModel constructor as a collection&apos;s <code>model</code> property.
 
 </p>
@@ -169,7 +169,7 @@
 
 
 </p>
-<h2>Explicit model definitions</h2>
+<h3>Explicit model definitions</h3>
 <p>Schema definitions take an attribute called <code>props</code> to defined properties.
 
 </p>
@@ -219,7 +219,7 @@ are the only property attributes you can set.
         default: &apos;Bob&apos; 
     }
 }</code></pre>
-<h2>A sample model with comments</h2>
+<h3>A sample model with comments</h3>
 <pre><code class="js">var Person = HumanModel.define({
     // every human model should have a type
     type: &apos;member&apos;,
@@ -289,7 +289,7 @@ are the only property attributes you can set.
         // of course you can tack on whatever other methods you want
     }
 });</code></pre>
-<h2>Going hardcore &quot;strict&quot; definition</h2>
+<h3>Going hardcore &quot;strict&quot; definition</h3>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode">Strict mode</a> in JS is pretty great and is fairly well supported in modern browsers.
 
 </p>
@@ -320,7 +320,7 @@ model.name = &apos;something&apos;;
 // BUT, setting a property that doesn&apos;t exist
 // will throw an error because the object is sealed.
 model.something = &apos;something else&apos;; // KABOOM!</code></pre>
-<h2>Setting model attributes</h2>
+<h3>Setting model attributes</h3>
 <pre><code class="js">// backbone:
 user.set(&apos;firstName&apos;, &apos;billy bob&apos;);
 
@@ -329,22 +329,22 @@ user.firstName = &apos;billy bob&apos;;
 
 // p.s. you can still do it the other way in human (so you can still pass options)
 user.set(&apos;firstName&apos;, &apos;billy bob&apos;, {silent: true})</code></pre>
-<h2>Getting model attributes</h2>
+<h3>Getting model attributes</h3>
 <pre><code class="js">// backbone:
 user.get(&apos;firstName&apos;);
 
 // human
 user.firstName;</code></pre>
-<h2>Tests</h2>
+<h3>Tests</h3>
 <p>An extensive suite of tests can be run by opening <code>test/index.html</code> in a browser. In order to ensure compatibility with backbone to the extent possible I started with all the tests from Backbone 1.0.0 and modified them to use HumanModel.
 
 </p>
-<h2>Caveats</h2>
+<h3>Caveats</h3>
 <div class="signature"><ul>
 <li>Since backbone does an <code>instanceof</code> check when adding initted models to a collection, HumanModel monkey patches the <code>_prepareModel</code> collection method to check against HumanModel instead.</li>
 <li>Still needs better docs. Probably a full docs site.</li>
 </div></ul>
-<h2>The Registry</h2>
+<h3>The Registry</h3>
 <p>HumanModel also inits a global registry for storing all initted models. It&apos;s designed to be used for looking up models based on their type, id and optional namespace.
 
 </p>
@@ -355,11 +355,11 @@ user.firstName;</code></pre>
 
 
 </p>
-<h2>Module: HumanModel</h2>
+<h3>Module: HumanModel</h3>
 <p>The module exports the following functions and properties.
 
 </p>
-<h3>.define(modelDefinition)</h3>
+<h4>.define(modelDefinition)</h4>
 <div class="signature"><ul>
 <li>Returns: <span class="type">Constructor</span> A custom constructor for generating instances of the model you defined.</li>
 <li><code>modelDefinition</code> <span class="type">Object</span> An object containing your entire model definition<ul>
@@ -399,20 +399,20 @@ var UserModel = HumanModel.define({
 var user = new User({name: &apos;henrik&apos;});
 
 console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
-<h3>.registry</h3>
+<h4>.registry</h4>
 <p>An instance of the global model registry.
 
 </p>
-<h3>.Registry</h3>
+<h4>.Registry</h4>
 <p>The Registry constructor is exported in case you want to define your own registry.
 
 </p>
-<h3>.dataTypes</h3>
+<h4>.dataTypes</h4>
 <p>The dataTypes
 
 
 </p>
-<h2>Authors</h2>
+<h3>Authors</h3>
 <p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a> with contributions from:
 
 </p>
@@ -422,7 +422,7 @@ console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
 <li><a href="https://twitter.com/philip_roberts">@philip_roberts</a></li>
 <li><a href="https://twitter.com/svenlito">@svenlito</a></li>
 </ul>
-<h2>Changelog</h2>
+<h3>Changelog</h3>
 <div class="signature"><ul>
 <li>2.6.0 - Cached, derived properties only fire change events now if new derived value is different from cache, instead of blindly firing change events if dependent properties changed.</li>
 <li>2.5.0 - UMD support by @swenlito</li>
@@ -436,11 +436,11 @@ console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
 <li>1.2.0 - Make it possible to overwrite or extend data types.</li>
 <li>1.0.0 - Switching from <code>extend()</code> to <code>define()</code> pattern for building a model definition.</li>
 </div></ul>
-<h2>License</h2>
+<h3>License</h3>
 <p>MIT
 </p>
 </div>
-          <div class="include"><h1>human-view</h1>
+          <div class="include"><h2>human-view</h2>
 <p>A set of common helpers and conventions for using as a base view for humanjs / backbone applications.
 
 
@@ -455,10 +455,10 @@ console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
 <li>A way to render a collection of models within an element in the view, each with their own view, preserving order, and doing proper cleanup when the main view is removed.</li>
 <li>A simple way to render sub-views that get cleaned up when the parent view is removed.</li>
 </ol>
-<h2>Install</h2>
+<h3>Install</h3>
 <pre><code>npm install human-view</code></pre>
-<h2>Usage</h2>
-<h3>Basics</h3>
+<h3>Usage</h3>
+<h4>Basics</h4>
 <p>Nothing special is required, just use <code>HumanView</code> in the same way as you would Backbone.View:
 
 </p>
@@ -466,7 +466,7 @@ console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
     initialize: function () { ... }, 
     render: function () { ... }
 });</code></pre>
-<h3>Declarative Bindings</h3>
+<h4>Declarative Bindings</h4>
 <pre><code class="javascript">var MyView = HumanView.extend({
     // set a `template` property of your view. This can either be
     // a function that returns an HTML string or just a string if 
@@ -484,7 +484,7 @@ console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
         this.renderAndBind({what: &apos;some context object for the template&apos;});
     }
 });</code></pre>
-<h4>Binding types:</h4>
+<h5>Binding types:</h5>
 <div class="signature"><ul>
 <li><code>classBindings</code>: Maintains a class on the element according to the following rules:<ol>
 <li><strong>If the bound property is a boolean</strong>: the name of the property will be used as the name of the class. The class will be on the element when true, and removed when the propety is false.</li>
@@ -505,7 +505,7 @@ console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
         id: [&apos;span&apos;, &apos;data-thing&apos;]
     }
 });</code></pre>
-<h3>handling subviews</h3>
+<h4>handling subviews</h4>
 <p>Often you want to render some other subview within a view. The trouble is that when you remove the parent view, you also want to remove all the subviews.
 
 </p>
@@ -540,18 +540,18 @@ module.exports = HumanView.extend({
 
 
 </p>
-<h2>API Reference</h2>
+<h3>API Reference</h3>
 <p>Note that we&apos;re simply extending Backbone.View here, so all the methods/properties here still exist: <a href="http://backbonejs.org/#View">http://backbonejs.org/#View</a>
 
 </p>
-<h3>.template</h3>
+<h4>.template</h4>
 <p>The <code>.template</code> is a property for the view prototype. It should either be a string of HTML or a function that returns a string of HTML. It isn&apos;t required, but it is used as a default for calling <code>renderAndBind</code> and <code>renderWithTemplate</code>.
 
 </p>
 <p>The important thing to note is that the <em>HTML should not have more than one root element</em>. This is because the view code assumes that it has one and only one root element that becomes the <code>.el</code> property of the instantiated view.
 
 </p>
-<h3>.renderCollection(collection, ItemView, containerEl, [viewOptions])</h3>
+<h4>.renderCollection(collection, ItemView, containerEl, [viewOptions])</h4>
 <div class="signature"><ul>
 <li><code>collection</code> <span class="type">Backbone Collection</span> The instantiated collection we wish to render.</li>
 <li><code>itemViewClass</code> <span class="type">View Constructor</span> The view constructor that will be instantiated for each model in the collection. This view will be instantiated with a reference to the model and collection and the item view&apos;s <code>render</code> method will be called with an object containing a reference to the containerElement as follows: <code>.render({containerEl: &lt;&lt; element &gt;&gt;})</code>.</li>
@@ -572,7 +572,7 @@ module.exports = HumanView.extend({
 <p>Each item view will only be <code>.render()</code>&apos;ed once (unless you change that within the item view itself).
 
 </p>
-<h4>Example:</h4>
+<h5>Example:</h5>
 <pre><code class="javascript">// some view for individual items in the collection
 var ItemView = HumanView.extend({ ... });
 
@@ -600,11 +600,11 @@ var MainView = HumanView.extend({
         return this;
     }  
 })</code></pre>
-<h3>.registerSubview(viewInstance)</h3>
+<h4>.registerSubview(viewInstance)</h4>
 <div class="signature"><ul>
 <li>viewInstance <span class="type">Object</span> Any object with a &quot;remove&quot; method, typically an instantiated view. But doesn&apos;t have to be, it can be anything with a remove method. The remove method doesn&apos;t have to actually remove itself from the DOM (since the parent view is being removed anyway), it is generally just used for unregistering any handler that it set up.</li>
 </div></ul>
-<h3>.renderSubview(viewInstance, containerEl)</h3>
+<h4>.renderSubview(viewInstance, containerEl)</h4>
 <div class="signature"><ul>
 <li>viewInstance <span class="type">Object</span> Any object with a <code>.remove()</code>, <code>.render()</code> and an <code>.el</code> property that is the DOM element for that view. Typically this is just an instantiated view. </li>
 <li>containerEl <span class="type">Element | String | jQueryElement</span> This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed human view runs <code>this.$(&quot;YOUR STRING&quot;)</code> to try to grab the element that should contain the sub view.</li>
@@ -622,7 +622,7 @@ var MainView = HumanView.extend({
 <li>append it to the container</li>
 <li>return the subview</li>
 </ol>
-<h4>Example:</h4>
+<h5>Example:</h5>
 <pre><code class="js">var view = HumanView.extend({
     template: &apos;&lt;li&gt;&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;/li&gt;&apos;,
     render: function () {
@@ -639,7 +639,7 @@ var MainView = HumanView.extend({
 
     } 
 });</code></pre>
-<h3>.renderAndBind([context], [template])</h3>
+<h4>.renderAndBind([context], [template])</h4>
 <div class="signature"><ul>
 <li><code>context</code> <span class="type">Object | null</span> [optional] The context that will be passed to the template function, usually <code>{model: this.model}</code>.</li>
 <li><code>template</code> <span class="type">Function | String</span> [optional] A function that returns HTML or a string of HTML.</li>
@@ -647,7 +647,7 @@ var MainView = HumanView.extend({
 <p>This is shortcut for the default rendering you&apos;re going to do in most every render method, which is: use the template property of the view to replace <code>this.el</code> of the view and re-register all handlers from the event hash and any other binding as described above.
 
 </p>
-<h4>Example:</h4>
+<h5>Example:</h5>
 <pre><code class="js">var view = HumanView.extend({
     template: &apos;&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;&apos;,
     textBindings: {
@@ -665,7 +665,7 @@ var MainView = HumanView.extend({
         this.renderAndBind();
     }
 });</code></pre>
-<h3>.renderWithTemplate([context], [template])</h3>
+<h4>.renderWithTemplate([context], [template])</h4>
 <div class="signature"><ul>
 <li><code>context</code> <span class="type">Object | null</span> The context object that will be passed to the template function if it&apos;s a function.</li>
 <li><code>template</code> <span class="type">Function | String</span> [optional] template function that returns a string of HTML or a string of HTML. If it&apos;s not passed, it will default to the <code>template</code> property in the view.</li>
@@ -673,14 +673,14 @@ var MainView = HumanView.extend({
 <p>This is shortcut for doing everything we need to do to render and fully replace current root element with the template that our view is wanting to render. In typical backbone view approaches you never replace the root element. But from our experience, it&apos;s nice to see the <em>entire</em> html structure represented by that view in the template code. Otherwise you end up with a lot of wrapper elements in your DOM tree.
 
 </p>
-<h3>.getByRole(name)</h3>
+<h4>.getByRole(name)</h4>
 <div class="signature"><ul>
 <li><code>name</code> <span class="type">String</span> The name of the &apos;role&apos; attribute we&apos;re searching for.</li>
 </div></ul>
 <p>This is for convenience and also to encourage the use of the <code>role</code> attribute for grabbing elements from the view. Using roles to select elements in your view makes it much less likely that designers and JS devs accidentally break each other&apos;s code. This will work even if the <code>role</code> attribute is on the view&apos;s root <code>el</code>.
 
 </p>
-<h4>Example:</h4>
+<h5>Example:</h5>
 <pre><code class="js">var view = HumanView.extend({
     template: &apos;&lt;li&gt;&lt;img role=&quot;avatar&quot; src=&quot;/user.png&quot;/&gt;&lt;/li&gt;&apos;,
     render: function () {
@@ -690,7 +690,7 @@ var MainView = HumanView.extend({
         this.imgEl = this.getByRole(&apos;avatar&apos;);
     } 
 });</code></pre>
-<h2>Changelog</h2>
+<h3>Changelog</h3>
 <div class="signature"><ul>
 <li>1.6.3 <a href="https://github.com/HenrikJoreteg/human-view/compare/v1.6.2...v1.6.3">diff</a> - Move throw statment for too many root elements inside non <code>&lt;body&gt;</code> case.</li>
 <li>1.6.2 <a href="https://github.com/HenrikJoreteg/human-view/compare/v1.6.1...v1.6.2">diff</a> - Make <code>getByRole</code> work even if <code>role</code> attribute is on the root element. Throws an error if your view template contains more than one root element.</li>

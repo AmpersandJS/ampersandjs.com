@@ -43,13 +43,18 @@ async.forEach(includes, function (repo, cb) {
     }
 }, function () {
     var hiddenRE = /(<\!\-\-+ *starthide *\-\-+>)([.\s\S\n]*?)(<\!\-\-+ *endhide *\-\-+>)/gim;
+    var headings = /^(#+)[A-Za-z0-9_ ]/gim;
     var readmes = {};
 
     includes = includes.map(function (include) {
         // strip out hidden stuff
-        var cleaned = include.html.replace(hiddenRE, '');
-        include.html = generateHtml(cleaned);
+        var cleaned = include.html.replace(hiddenRE, '')
         include.json = generateJSON(cleaned, include.label, {version: ''});
+        // indent headings one extra step so we don't have h1s
+        cleaned = cleaned.replace(headings, function (match, group) {
+            return '#' + match;
+        });
+        include.html = generateHtml(cleaned);
         readmes[include.label] = include.html;
         return include;
     });

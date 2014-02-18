@@ -41,7 +41,10 @@ function markActive(selected) {
     Array.prototype.forEach.call(aTags, function (a) {
       if (a.hash.slice(1) === id) {
         found = a;
+        a.classList.add('active');
         slider.style.top = a.offsetTop + 'px';
+      } else {
+        a.classList.remove('active');
       }
     });
   }
