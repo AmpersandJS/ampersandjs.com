@@ -363,7 +363,7 @@ header .logo {
   background: url("../images/humanjs.svg") center center no-repeat;
   background-size: contain;
   line-height: 100px;
-  text-indent: -100%;
+  text-indent: -9999px;
 }
 header .button-secondary {
   float: right;
