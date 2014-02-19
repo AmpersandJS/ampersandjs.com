@@ -13,7 +13,7 @@ code
   padding: .154em .308em
   font-size: .8125em
   color: black
-  background: lighten($gray-lighter, 60%)
+  background: lighten($gray-lighter, 40%)
   white-space: pre-wrap
 
 pre
@@ -30,46 +30,40 @@ pre
 
 pre
   code
-    color: $gray-darker
-    background: lighten($gray-lighter, 90%)
+    background: lighten($gray-lighter, 80%)
     border: 1px solid $gray-lighter
     word-wrap: pre
 
-.comment,
-.template_comment,
-.diff .header,
-.javadoc
-  color: darken($gray-light, 40%)
+  .comment,
+  .template_comment,
+  .diff .header,
+  .javadoc
+    color: darken($gray-light, 20%)
 
-.keyword, .css .rule .keyword, .at_rule, .winutils, .javascript .title,
-.nginx .title, .subst, .request, .status
-  color: $blue
+  .keyword, .css .rule .keyword, .at_rule, .winutils, .javascript .title,
+  .nginx .title, .subst, .request, .status
+    color: $blue
 
-.string, .tag .value, .phpdoc, .tex .formula
-  color: darken($pink, 10%)
+  .string, .tag .value, .phpdoc, .tex .formula
+    color: darken($pink, 10%)
 
-.title, .coffeescript .params, .scss .preprocessor
-  color: lighten($blue-saturated-lighter, 30%)
-  font-weight: bold
+  .title, .coffeescript .params, .scss .preprocessor
+    color: lighten($blue-saturated-lighter, 30%)
+    font-weight: bold
 
-.class .title, .haskell .type, .vhdl .literal, .tex .command,
-.tag, .tag .title, .rules .property, .django .tag .keyword,
-.built_in, .lisp .title, .clojure .built_in
-  color: $gray
+  .class .title, .haskell .type, .vhdl .literal, .tex .command,
+  .tag, .tag .title, .rules .property, .django .tag .keyword,
+  .built_in, .lisp .title, .clojure .built_in
+    color: $gray
 
-.attribute, .variable, .lisp .body, .preprocessor, .pragma, .pi, .doctype, .shebang, .cdata
-  color: lighten($gray, 10%)
+  .attribute, .variable, .lisp .body, .preprocessor, .pragma, .pi, .doctype, .shebang, .cdata
+    color: lighten($gray, 10%)
 
-.regexp, .addition
-  color: $green
+  .regexp, .addition
+    color: $green
 
-.symbol, .ruby .symbol .string, .lisp .keyword, .tex .special, .prompt, .deletion
-  color: darken($pink, 30%)
+  .symbol, .ruby .symbol .string, .lisp .keyword, .tex .special, .prompt, .deletion
+    color: darken($pink, 30%)
 
-.diff .change
-  background: $orange
-
-// @media screen and (max-width: 650px)
-  
-//   code
-//     white-space: initial
+  .diff .change
+    background: $orange

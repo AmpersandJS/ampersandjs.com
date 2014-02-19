@@ -258,7 +258,7 @@ code {
   padding: 0.154em 0.308em;
   font-size: 0.8125em;
   color: #000;
-  background: #f5f7f8;
+  background: #f0f2f4;
   white-space: pre-wrap;
 }
 pre {
@@ -272,77 +272,76 @@ pre code {
   white-space: pre;
 }
 pre code {
-  color: #272b2d;
-  background: #fdfdfd;
+  background: #fafbfb;
   border: 1px solid #e6eaed;
   word-wrap: pre;
 }
-.comment,
-.template_comment,
-.diff .header,
-.javadoc {
-  color: #67777c;
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #8e9ca1;
 }
-.keyword,
-.css .rule .keyword,
-.at_rule,
-.winutils,
-.javascript .title,
-.nginx .title,
-.subst,
-.request,
-.status {
+pre .keyword,
+pre .css .rule .keyword,
+pre .at_rule,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
   color: #12acef;
 }
-.string,
-.tag .value,
-.phpdoc,
-.tex .formula {
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
   color: #d4007e;
 }
-.title,
-.coffeescript .params,
-.scss .preprocessor {
+pre .title,
+pre .coffeescript .params,
+pre .scss .preprocessor {
   color: #71adbe;
   font-weight: bold;
 }
-.class .title,
-.haskell .type,
-.vhdl .literal,
-.tex .command,
-.tag,
-.tag .title,
-.rules .property,
-.django .tag .keyword,
-.built_in,
-.lisp .title,
-.clojure .built_in {
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command,
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword,
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
   color: #828c8f;
 }
-.attribute,
-.variable,
-.lisp .body,
-.preprocessor,
-.pragma,
-.pi,
-.doctype,
-.shebang,
-.cdata {
+pre .attribute,
+pre .variable,
+pre .lisp .body,
+pre .preprocessor,
+pre .pragma,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
   color: #8f989a;
 }
-.regexp,
-.addition {
+pre .regexp,
+pre .addition {
   color: #43bb6e;
 }
-.symbol,
-.ruby .symbol .string,
-.lisp .keyword,
-.tex .special,
-.prompt,
-.deletion {
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt,
+pre .deletion {
   color: #a50062;
 }
-.diff .change {
+pre .diff .change {
   background: #f18902;
 }
 header {
