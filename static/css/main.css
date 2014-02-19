@@ -116,13 +116,13 @@ main {
   margin-left: 300px;
   max-width: 800px;
 }
-main h2:first-of-type {
-  margin-top: 0;
-}
 main section {
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid #e6eaed;
+}
+main section:first-of-type h2 {
+  margin-top: 0;
 }
 main section:last-of-type {
   border: none;
@@ -279,7 +279,8 @@ pre code {
 pre .comment,
 pre .template_comment,
 pre .diff .header,
-pre .javadoc {
+pre .javadoc,
+pre .type {
   color: #8e9ca1;
 }
 pre .keyword,
