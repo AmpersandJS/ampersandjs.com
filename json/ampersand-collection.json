@@ -1,0 +1,29 @@
+{
+  "source": "ampersand-collection",
+  "version": "",
+  "modules": [
+    {
+      "textRaw": "ampersand-collection",
+      "name": "ampersand-collection",
+      "desc": "<p>A way to store/manage objects or models.\n\n</p>\n<p>Unlike other tools this makes no assumptions about how it&apos;s going to be used or what type of models it is going to contain. This makes it a very flexible/useful tool for modeling all kinds of stuff. \n\n</p>\n<p>It does not require underscore or jQuery, but instead makes it easy to extend with those methods if you&apos;d like.\n\n\n\n</p>\n",
+      "modules": [
+        {
+          "textRaw": "install",
+          "name": "install",
+          "desc": "<pre><code>npm i ampersand-collection</code></pre>\n",
+          "type": "module",
+          "displayName": "install"
+        },
+        {
+          "textRaw": "massive flexibility",
+          "name": "massive_flexibility",
+          "desc": "<p>The collection is a fairly low-level tool, in that it&apos;s useful for any time you want to be able to store JS objects in an array. \n\n</p>\n<p>In many ways it&apos;s simply an observable array of objects.\n\n</p>\n<p>It emits <code>add</code>, <code>remove</code> events and makes it possible to merge in a set of objects into an existing collection and emit change events appropriately.\n\n</p>\n<p>If you extend it with a <code>.model</code> property that contains a constructor, the collection will ensure that objects that don&apos;t match that constructor are instantiated before being added to the collection.\n\n</p>\n<p>For example:\n\n</p>\n<pre><code class=\"js\">var Collection = require(&apos;ampersand-collection&apos;);\n\n\n// can just store plain objects\nvar basicCollection = new Collection([\n    {name: &apos;larry&apos;},\n    {name: &apos;curly&apos;},\n    {name: &apos;moe&apos;}\n]);</code></pre>\n<pre><code class=\"js\">var Collection = require(&apos;ampersand-collection&apos;);\nvar restMixin = require(&apos;ampersand-rest-mixin&apos;);\nvar underscoreMixin = require(&apos;ampersand-underscore-mixin&apos;);\n\n\n// or we can extend it with underscore and REST methods\n// to turn it into something similar to a Backbone Collection\nvar RestfulCollection = Collection.extend(underscoreMixin, restMixin, {\n    url: &apos;/mystuff&apos; \n});\n\nvar collection = new RestfulCollection();\n\n// does ajax request\ncollection.fetch();</code></pre>\n",
+          "type": "module",
+          "displayName": "massive flexibility"
+        }
+      ],
+      "type": "module",
+      "displayName": "ampersand-collection"
+    }
+  ]
+}

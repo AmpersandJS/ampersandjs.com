@@ -1,6 +1,7 @@
 var fs = require('fs');
 var request = require('request');
 var jade = require('jade');
+var marked = require('marked');
 var async = require('async');
 var generateHtml = require('./lib/html');
 var generateJSON = require('./lib/json');
@@ -8,6 +9,9 @@ var rmrf = require('rimraf');
 var templateGlobals = {};
 var jadeTemplate = fs.readFileSync(__dirname + '/index.jade', 'utf8');
 var includes = [];
+var intro = marked(fs.readFileSync(__dirname + '/intro.md', 'utf8'));
+
+console.log("INTRO", intro.length);
 
 // dump json folder
 rmrf.sync(__dirname + '/json');
@@ -59,11 +63,15 @@ async.forEach(includes, function (repo, cb) {
         return include;
     });
 
+    //console.log(intro);
+
     templateGlobals.modules = readmes;
+    templateGlobals.intro = intro;
 
     jade.render(jadeTemplate, {
         globals: templateGlobals,
-        pretty: true
+        pretty: true,
+        filename: __dirname + '/index.jade'
     }, function (err, html) {
         if (err) throw err;
         fs.writeFileSync(__dirname + '/index.html', html, 'utf8');

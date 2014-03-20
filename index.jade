@@ -5,13 +5,13 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="description", content="Human Javascript, Javascript, HumanJS, Node.js, Apps, HTML5")
+    meta(name="description", content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5")
     meta(name="author", content="Henrik Joreteg, Luke Karrys, Lance Stout, Philip Roberts, Isaac Lewis, Michael (Gar) Garvin")
 
     link(rel="stylesheet", href="static/css/plugins/normalize.css")
     link(rel="stylesheet", href="static/css/main.css")
 
-    title Human JavaScript Documentation 
+    title Ampersand.js Documentation 
 
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -24,7 +24,7 @@ html(lang="en")
   body
 
     header(role="banner", class="cf")
-      h1.logo HumanJS
+      h1.logo Ampesand.js
 
       a(href="http://humanjavascript.com/", title="Buy Human Javascript book", class="button button-secondary") Buy Human Javascript Book
 
@@ -35,53 +35,14 @@ html(lang="en")
         .panel
           h4 Warning
           p These docs are incomplete and still being written.
-          a(href="http://github.com/henrikjoreteg/humanjs", class="button button-secondary button-small") Help make them better
+          a(href="http://github.com/ampersandjs/docs.ampersandjs.com", class="button button-secondary button-small") Help make them better
 
         #slider
 
       main(role="main")
 
-        section
+        section!= globals.intro
 
-          h2 Introduction
-          p 
-            | There are lots of toolkits for building single page apps or "Native HTML5 Apps" if you will. It seems they're either too generic and unopinionated or too tightly coupled or require a lot of knowledge and understanding of the framework. After having built lots of single page apps with various tools at 
-            a(href="http://andyet.com") &amp;yet 
-            | we've surmised that the ideal seems to lie somewhere in the middle.
-
-          p 
-            | Ultimately we'd like something that is comprised of lots of independent little tools that each to one thing (see 
-            a(href="http://www.faqs.org/docs/artu/ch01s06.html") Unix philosophy
-            | ).
-
-          p 
-            | That said, starting with a group of completely unassembled little pieces is inefficient because there are lots of patterns common to 
-            em most  
-            | apps. So we need an opinionated starting point.
-
-          p Enter HumanJS. It's not a framework per se, it's a bag of pre-assembled little tools that you're free to rip apart and add to with the following goals in mind.
-
-          h3 Goals
-
-          ul
-            li Provides an opinionated starting point for an app
-            li Easy to get up and running
-            li Minimal framework-specific knowledge required (knowing JavaScript well gets you 95% there)
-            li Minimal magic
-            li Solve the develpment workflow problems out of the box:
-              ul
-                li Unminified and re-built automatically in develpment
-                li Minfied, cached for production use
-                li Switching between the two with a single config flag
-            li Use node.js to simplify develpment
-            li 100% client rendered
-            li Readability
-            li App can be served as static content by any server (node.js not required in production)
-            li Easy to collaborate on:
-              ul 
-                li Clear file structure where everything has a logical place
-                li Proper seperation of concerns
-            li Use npm + browserify for package management but still play nicely with non-common JS libraries.
 
         section
 
@@ -91,14 +52,14 @@ html(lang="en")
             li
               a(href="http://nodejs.org/") install node.js
             li 
-              | install humanjs &mdash; 
-              code $ npm install humanjs -g
+              | install ampersand &mdash; 
+              code $ npm install ampersand -g
             li 
               | run 
-              code humanjs
+              code ampersand
               |  to create your new app folder, build your project scaffolding, and run your app.
               pre
-                code $ humanjs
+                code $ ampersand
             li 
               | open your browser to: 
               code http://localhost:3000
@@ -136,16 +97,15 @@ html(lang="en")
               img(src="static/images/human-javascript.png", width="200", alt="human javascript ebook")
 
           //- included modules
-          @gendoc human-model ../human-model/README.md
-          @gendoc human-view ../human-view/README.md
+          @gendoc ampersand-model ../ampersand-model/README.md
+          @gendoc ampersand-state ../ampersand-state/README.md
+          @gendoc ampersand-collection ../ampersand-collection/README.md
+          @gendoc ampersand-rest-collection ../ampersand-rest-collection/README.md
+          @gendoc ampersand-sync ../ampersand-sync/README.md
+          @gendoc ampersand-view ../ampersand-view/README.md
+          @gendoc ampersand-router ../ampersand-router/README.md
+          @gendoc ampersand-registry ../ampersand-registry/README.md
 
-        section
-
-          h2 Router
-          p 
-            | HumanJS just uses Backbone's router so just 
-            a(href="http://backbonejs.org/#Router") see Backbone's router docs for more info
-            | .
 
         section
 
@@ -203,7 +163,7 @@ html(lang="en")
           h2 Finding modules
           p 
             | There's a site containing a curated list of npm-installable modules with a quick filter box:  
-            a(href="http://resources.humanjavascript.com") humanjs-resources
+            a(href="http://tools.ampersandjs.com") humanjs-resources
             |  that should help you find things you may need. 
           p 
             | Also, there are lots of modules you can find via 
@@ -245,7 +205,7 @@ html(lang="en")
         section
 
           h2 Contributors
-          p Human JavaScript is the combined efforts of lots of people and since all these projects are open source there are simply too many contributors to list. 
+          p Ampersand.js is the combined efforts of lots of people and since all these projects are open source there are simply too many contributors to list. 
           p 
             | The project is sponsored by 
             a(href="http://andyet.com") &amp;yet

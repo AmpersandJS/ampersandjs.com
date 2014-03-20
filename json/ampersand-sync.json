@@ -1,0 +1,22 @@
+{
+  "source": "ampersand-sync",
+  "version": "",
+  "modules": [
+    {
+      "textRaw": "ampersand-sync",
+      "name": "ampersand-sync",
+      "desc": "<p>Standalone, modern-browser-only version of Backbone.Sync as Common JS module.\n\n</p>\n<p>You probably won&apos;t use this directly, but it is used by ampersand-model and ampersand-rest-collection to provide the REST functionality.\n\n\n\n</p>\n",
+      "modules": [
+        {
+          "textRaw": "install",
+          "name": "install",
+          "desc": "<pre><code>npm install ampersand-sync</code></pre>\n",
+          "type": "module",
+          "displayName": "install"
+        }
+      ],
+      "type": "module",
+      "displayName": "ampersand-sync"
+    }
+  ]
+}
