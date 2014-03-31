@@ -574,6 +574,11 @@ console.log(user.name); // logs out &apos;henrik&apos;</code></pre>
 
 
 </p>
+<h3>browser support</h3>
+<p><a href="https://ci.testling.com/ampersandjs/ampersand-state"><img src="https://ci.testling.com/ampersandjs/ampersand-state.png" alt="browser support">
+</a>
+
+</p>
 <h3>install</h3>
 <pre><code>npm install ampersand-state</code></pre>
 <h3>In pursuit of the ultimate observable JS object.</h3>
@@ -805,16 +810,17 @@ var awesome = new AwesomePerson({
 // and it will have the methods in the original
 awesome.sayHi(); // returns &apos;hi, henrik&apos;
 
-// *BUT* it doesn&apos;t maintain the prototype chain
-// so instanceof checks will fail up the chain
+// it also maintains the prototype chain
+// so instanceof checks will work up the chain
 
 // so this is true
 awesome instanceof AwesomePerson; // true;
 
-// but this is false
-awesome instanceof Person; // false</code></pre>
+// and so is this
+awesome instanceof Person; // true</code></pre>
 <h3>Changelog</h3>
 <div class="signature"><ul>
+<li>0.1.0 - lots of cleanup, grabbing tests from human-model, now maintains the prototype chain so <code>instanceof</code> checks pass no matter how many times it&apos;s been extended.</li>
 <li>0.0.2 - improved doc</li>
 <li>0.0.1 - initial publish</li>
 </div></ul>
@@ -829,6 +835,11 @@ awesome instanceof Person; // false</code></pre>
 <p>It does not require underscore or jQuery, but instead makes it easy to extend with those methods if you&apos;d like.
 
 
+
+</p>
+<h3>browser support</h3>
+<p><a href="https://ci.testling.com/ampersandjs/ampersand-collection"><img src="https://ci.testling.com/ampersandjs/ampersand-collection.png" alt="browser support">
+</a>
 
 </p>
 <h3>install</h3>
@@ -939,6 +950,11 @@ c.each(function (model) {
 <li>A way to render a collection of models within an element in the view, each with their own view, preserving order, and doing proper cleanup when the main view is removed.</li>
 <li>A simple way to render sub-views that get cleaned up when the parent view is removed.</li>
 </ol>
+<h3>Browser support</h3>
+<p><a href="https://ci.testling.com/ampersandjs/ampersand-view"><img src="https://ci.testling.com/ampersandjs/ampersand-view.png" alt="browser support">
+</a>
+
+</p>
 <h3>Install</h3>
 <pre><code>npm install ampersand-view</code></pre>
 <h3>Usage</h3>
@@ -1281,6 +1297,10 @@ module.exports = Router.extend({
 </p>
 <h3>install</h3>
 <pre><code>npm install ampersand-registry</code></pre>
+<h3>browser support</h3>
+<p><a href="https://ci.testling.com/AmpersandJS/ampersand-registry"><img src="https://ci.testling.com/AmpersandJS/ampersand-registry.png" alt="testling badge"></a>
+
+</p>
 <h3>example</h3>
 <pre><code class="javascript">var Registry = require(&apos;ampersand-registry&apos;);
 var Model = require(&apos;ampersand-model&apos;);

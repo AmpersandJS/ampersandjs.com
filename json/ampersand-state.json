@@ -8,6 +8,13 @@
       "desc": "<p>An observable, extensible state object with derived watchable properties.\n\n</p>\n<p>Ampersand-state serves as a base object for <a href=\"http://github.com/ampersandjs/ampersand-model\">ampersand-model</a> but is useful any time you want to track complex state.\n\n</p>\n<p><a href=\"https://github.com/ampersandjs/ampersand-model\">ampersand-model</a> extends ampersand-state to include assumptions that you&apos;d want if you&apos;re using models to model date from a REST API. But by itself ampersand-state is useful for anytime you want something to model state, that fires events for changes and lets you define and listen to derived properties.\n\n\n\n</p>\n",
       "modules": [
         {
+          "textRaw": "browser support",
+          "name": "browser_support",
+          "desc": "<p><a href=\"https://ci.testling.com/ampersandjs/ampersand-state\"><img src=\"https://ci.testling.com/ampersandjs/ampersand-state.png\" alt=\"browser support\">\n</a>\n\n</p>\n",
+          "type": "module",
+          "displayName": "browser support"
+        },
+        {
           "textRaw": "install",
           "name": "install",
           "desc": "<pre><code>npm install ampersand-state</code></pre>\n",
@@ -66,7 +73,7 @@
         {
           "textRaw": "State can be extended as many times as you want",
           "name": "state_can_be_extended_as_many_times_as_you_want",
-          "desc": "<p>Each state object you define will have and <code>extend</code> method on the constructor.\n\n</p>\n<p>That means you can extend as much as you want and the definitions will get merged.\n\n</p>\n<pre><code class=\"js\">var Person = State.extend({\n    props: {\n        name: &apos;string&apos;\n    },\n    sayHi: function () {\n        return &apos;hi, &apos; + this.name;\n    }\n});\n\nvar AwesomePerson = Person.extend({\n    props: {\n        awesomeness: &apos;number&apos;\n    }\n});\n\n// Now awesome person will have both awesomeness and name properties\nvar awesome = new AwesomePerson({\n    name: &apos;henrik&apos;,\n    awesomeness: 8\n});\n\n// and it will have the methods in the original\nawesome.sayHi(); // returns &apos;hi, henrik&apos;\n\n// *BUT* it doesn&apos;t maintain the prototype chain\n// so instanceof checks will fail up the chain\n\n// so this is true\nawesome instanceof AwesomePerson; // true;\n\n// but this is false\nawesome instanceof Person; // false</code></pre>\n",
+          "desc": "<p>Each state object you define will have and <code>extend</code> method on the constructor.\n\n</p>\n<p>That means you can extend as much as you want and the definitions will get merged.\n\n</p>\n<pre><code class=\"js\">var Person = State.extend({\n    props: {\n        name: &apos;string&apos;\n    },\n    sayHi: function () {\n        return &apos;hi, &apos; + this.name;\n    }\n});\n\nvar AwesomePerson = Person.extend({\n    props: {\n        awesomeness: &apos;number&apos;\n    }\n});\n\n// Now awesome person will have both awesomeness and name properties\nvar awesome = new AwesomePerson({\n    name: &apos;henrik&apos;,\n    awesomeness: 8\n});\n\n// and it will have the methods in the original\nawesome.sayHi(); // returns &apos;hi, henrik&apos;\n\n// it also maintains the prototype chain\n// so instanceof checks will work up the chain\n\n// so this is true\nawesome instanceof AwesomePerson; // true;\n\n// and so is this\nawesome instanceof Person; // true</code></pre>\n",
           "type": "module",
           "displayName": "State can be extended as many times as you want"
         },

@@ -8,6 +8,13 @@
       "desc": "<p>A way to store/manage objects or models.\n\n</p>\n<p>Unlike other tools this makes no assumptions about how it&apos;s going to be used or what type of models it is going to contain. This makes it a very flexible/useful tool for modeling all kinds of stuff. \n\n</p>\n<p>It does not require underscore or jQuery, but instead makes it easy to extend with those methods if you&apos;d like.\n\n\n\n</p>\n",
       "modules": [
         {
+          "textRaw": "browser support",
+          "name": "browser_support",
+          "desc": "<p><a href=\"https://ci.testling.com/ampersandjs/ampersand-collection\"><img src=\"https://ci.testling.com/ampersandjs/ampersand-collection.png\" alt=\"browser support\">\n</a>\n\n</p>\n",
+          "type": "module",
+          "displayName": "browser support"
+        },
+        {
           "textRaw": "install",
           "name": "install",
           "desc": "<pre><code>npm i ampersand-collection</code></pre>\n",

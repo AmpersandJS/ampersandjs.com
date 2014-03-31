@@ -8,6 +8,13 @@
       "desc": "<p>A set of common helpers and conventions for using as a base view for ampersand.js apps.\n\n</p>\n<p>What does it do?\n\n</p>\n<ol>\n<li>Gives you a proven pattern for managing/binding the contents of an element.</li>\n<li>Simple declarative property/template bindings without needing to include a template engine that does it for you. This keeps your logic out of your templates and lets you use a string of HTML as a fully dynamic template or just a simple function that returns an HTML string.</li>\n<li>The view&apos;s base element is replaced (or created) during a render. So, rather than having to specify tag type and attributes in javascript in the view definition you can just include that in your template like everything else.</li>\n<li>A way to render a collection of models within an element in the view, each with their own view, preserving order, and doing proper cleanup when the main view is removed.</li>\n<li>A simple way to render sub-views that get cleaned up when the parent view is removed.</li>\n</ol>\n",
       "modules": [
         {
+          "textRaw": "Browser support",
+          "name": "browser_support",
+          "desc": "<p><a href=\"https://ci.testling.com/ampersandjs/ampersand-view\"><img src=\"https://ci.testling.com/ampersandjs/ampersand-view.png\" alt=\"browser support\">\n</a>\n\n</p>\n",
+          "type": "module",
+          "displayName": "Browser support"
+        },
+        {
           "textRaw": "Install",
           "name": "install",
           "desc": "<pre><code>npm install ampersand-view</code></pre>\n",
