@@ -1,6 +1,4 @@
-# Documentation site for Human JavaScript
-
-This isn't what powers docs.humanjavascript.com yet, but it will be soon.
+# Documentation site for ampersand.js
 
 Uses same doc parsing process as what builds nodejs.org docs. It's markdown with a bit more structured data for things like documenting events and method signatures.
 
@@ -11,9 +9,9 @@ Make edits to `index.jade` file.
 You can include/parse/process modules by adding lines that look like this to the jade file:
 
 ```
-@gendoc human-view ../human-view/README.md
+@gendoc ampersand-view ../ampersand-view/README.md
         
-@gendoc human-model https://raw2.github.com/henrikjoreteg/human-model/master/README.md
+@gendoc ampersand-model https://raw.githubusercontent.com/AmpersandJS/ampersand-model/master/README.md
 ```
 The first is whatever label you want to give it for the module (used to generate the JSON doc file, etc). 
 
@@ -28,7 +26,16 @@ open index.html
 ```
 
 **Important**
-Remember to check out [human-view](https://github.com/henrikjoreteg/human-view) and [human-model](https://github.com/henrikjoreteg/human-model) repositories and place them in the same directory as docs.humanjavascript.com to be able to build.
+To build this site, you will need the following repositories and place them in the same directory as ampersandjs.com to be able to build:
+
+- [ampersand-model](https://github.com/AmpersandJS/ampersand-model)
+- [ampersand-state](https://github.com/AmpersandJS/ampersand-state)
+- [ampersand-collection](https://github.com/AmpersandJS/ampersand-collection)
+- [ampersand-rest-collection](https://github.com/AmpersandJS/ampersand-rest-collection)
+- [ampersand-sync](https://github.com/AmpersandJS/ampersand-sync)
+- [ampersand-view](https://github.com/AmpersandJS/ampersand-view)
+- [ampersand-router](https://github.com/AmpersandJS/ampersand-router)
+- [ampersand-registry](https://github.com/AmpersandJS/ampersand-registry)
 
 ## Why?
 
