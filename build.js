@@ -52,7 +52,7 @@ async.forEach(includes, function (repo, cb) {
 
     includes = includes.map(function (include) {
         // strip out hidden stuff
-        var cleaned = include.html.replace(hiddenRE, '')
+        var cleaned = include.html.replace(hiddenRE, '');
         include.json = generateJSON(cleaned, include.label, {version: ''});
         // indent headings one extra step so we don't have h1s
         cleaned = cleaned.replace(headings, function (match, group) {
