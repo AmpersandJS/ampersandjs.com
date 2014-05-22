@@ -162,6 +162,6 @@ We’d encourage you to get involved.
 
 For simplicity all the "core" stuff is on github as its own organization: [https://github.com/ampersandjs](https://github.com/ampersandjs).
 
-Send pull requests, file issues, and tell us that we’re crazy on twitter: [@HenrikJoreteg](http://twitter.com/henrikjoreteg), [@lukekarrys](http://twitter.com/lukekarrys), [@philip_roberts](https://twitter.com/philip_roberts), [@wraithgar](http://twitter.com/wraithgar), (@aaronmccall)[https://twitter.com/aaronmccall]. 
+Send pull requests, file issues, and tell us that we’re crazy on twitter: [@HenrikJoreteg](http://twitter.com/henrikjoreteg), [@lukekarrys](http://twitter.com/lukekarrys), [@philip_roberts](https://twitter.com/philip_roberts), [@wraithgar](http://twitter.com/wraithgar), [@aaronmccall](https://twitter.com/aaronmccall). 
 
 For more cool stuff, follow the whole [@andyet](http://twitter.com/andyet) team and stay tuned for more info on our upcoming JS training: [JS For Teams](http://jsforteams.com/).
