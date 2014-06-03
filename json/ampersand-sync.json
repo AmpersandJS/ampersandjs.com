@@ -5,14 +5,28 @@
     {
       "textRaw": "ampersand-sync",
       "name": "ampersand-sync",
-      "desc": "<p>Standalone, modern-browser-only version of Backbone.Sync as Common JS module.\n\n</p>\n<p>You probably won&apos;t use this directly, but it is used by ampersand-model and ampersand-rest-collection to provide the REST functionality.\n\n\n\n</p>\n",
+      "desc": "<p>Standalone, modern-browser-only version of Backbone.Sync as Common JS module.\n\n</p>\n<p>You probably won&apos;t use this directly, but it is used by ampersand-model and ampersand-rest-collection to provide the REST functionality.\n\n</p>\n",
       "modules": [
+        {
+          "textRaw": "browser support",
+          "name": "browser_support",
+          "desc": "<p><a href=\"https://ci.testling.com/AmpersandJS/ampersand-sync\"><img src=\"https://ci.testling.com/AmpersandJS/ampersand-sync.png\" alt=\"testling badge\"></a>\n\n\n\n</p>\n",
+          "type": "module",
+          "displayName": "browser support"
+        },
         {
           "textRaw": "install",
           "name": "install",
           "desc": "<pre><code>npm install ampersand-sync</code></pre>\n",
           "type": "module",
           "displayName": "install"
+        },
+        {
+          "textRaw": "running the tests",
+          "name": "running_the_tests",
+          "desc": "<pre><code>npm test</code></pre>\n<p>Tests are written in <a href=\"https://github.com/substack/tape\">tape</a> and since they require a browser environment it gets run in a headless browser using phantomjs via <a href=\"https://github.com/juliangruber/tape-run\">tape-run</a>. Make sure you have phantomjs installed for this to work. \n\n</p>\n<p>You can also run <code>npm start</code> then open a browser.\n\n\n</p>\n",
+          "type": "module",
+          "displayName": "running the tests"
         }
       ],
       "type": "module",

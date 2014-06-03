@@ -5,8 +5,15 @@
     {
       "textRaw": "ampersand-rest-collection",
       "name": "ampersand-rest-collection",
-      "desc": "<p>Extends ampersand-collection with REST and Underscore mixins.\n\n</p>\n<p>This makes ampersand-collection work and act a lot like Backbone.Collection, if you&apos;re planning on hitting a REST-ful API this is probably what you want to use.\n\n\n\n</p>\n",
+      "desc": "<p>Extends ampersand-collection with REST and Underscore mixins.\n\n</p>\n<p>This makes ampersand-collection work and act a lot like Backbone.Collection, if you&apos;re planning on hitting a REST-ful API this is probably what you want to use.\n\n</p>\n",
       "modules": [
+        {
+          "textRaw": "browser support",
+          "name": "browser_support",
+          "desc": "<p><a href=\"https://ci.testling.com/AmpersandJS/ampersand-rest-collection\"><img src=\"https://ci.testling.com/AmpersandJS/ampersand-rest-collection.png\" alt=\"testling badge\"></a>\n\n\n\n</p>\n",
+          "type": "module",
+          "displayName": "browser support"
+        },
         {
           "textRaw": "install",
           "name": "install",

@@ -15,6 +15,13 @@
           "displayName": "Installing"
         },
         {
+          "textRaw": "Browser compatibility",
+          "name": "browser_compatibility",
+          "desc": "<p><a href=\"https://ci.testling.com/ampersandjs/ampersand-model\"><img src=\"https://ci.testling.com/ampersandjs/ampersand-model.png\" alt=\"testling badge\"></a>\n\n\n</p>\n",
+          "type": "module",
+          "displayName": "Browser compatibility"
+        },
+        {
           "textRaw": "Types of state",
           "name": "types_of_state",
           "desc": "<p>Take for instance a <code>selected</code> property on a model. That&apos;s likely something you would use to represent current UI state for the current browser session but not something you&apos;d want to save back to the API when calling a model&apos;s .save() method. So there really are two types of state. It&apos;s challenging to make that type of distinction with Backbone.\n\n</p>\n<p>ampersand-model supports three types of state that will get stored on a model: \n\n</p>\n<ul>\n<li><strong>properties</strong>: State that comes from (and will be sent back to) our API and represents the data persisted on the server.</li>\n<li><strong>session properties</strong>: State that represents current browser session state. </li>\n<li><strong>derived properties</strong>: These are read-only psuedo properties that are usually derived from properties or session properties. These are generally created for convenince or as a means to let you cache a computed result (read more below).</li>\n</ul>\n<p>In ampersand model you have to classify all your properties as either <code>prop</code> or a <code>session</code>. That includes declaring your <code>id</code> property. How ampersand-model handles properties that you have not pre-defined is determined by its <code>extraProperties</code> setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.\n\n\n</p>\n",
@@ -45,14 +52,14 @@
         {
           "textRaw": "A sample model with comments",
           "name": "a_sample_model_with_comments",
-          "desc": "<pre><code class=\"js\">var Person = AmpersandModel.define({\n    // every ampersand model should have a type\n    type: &apos;member&apos;,\n    initialize: function () {\n        // main initialization function\n    },\n    // props are for properties that exist on the server\n    props: {\n        id: {\n            type: &apos;number&apos;,\n            setOnce: true\n        },\n        firstName: [&apos;string&apos;, true],\n        lastName: [&apos;string&apos;, true],\n        created: [&apos;date&apos;],\n        email: [&apos;string&apos;, true],\n        username: [&apos;string&apos;, true],\n        lastLogin: [&apos;date&apos;],\n        largePicUrl: [&apos;string&apos;],\n        department: {\n            type: &apos;number&apos;,\n            // you can optionally provide your own test function\n            test: function (val) {\n                if (val &gt; 20) {\n                    return &quot;Invalid department&quot;;\n                }\n            }\n        },\n        alignment: {\n            // you can also specify a list of valid values\n            values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],\n            default: &apos;middle&apos;\n        }\n    },\n    // derived properties and their dependencies. If any dependency changes\n    // that will also trigger a &apos;change&apos; event on the derived property so\n    // we know to re-render the template\n    derived: {\n        // fullName is \n        fullName: {\n            // you can optionally define the properties this derived property\n            // depends on. That way if the underlying properties change you can\n            // listen for changes directly on the derived property.\n            deps: [&apos;firstName&apos;, &apos;lastName&apos;],\n            fn: function () {\n                return this.firstName + &apos; &apos; + this.lastName;\n            }\n        }\n    },\n    // Session properties are browser state for a model\n    // these trigger &apos;change&apos; events when set, but are not\n    // included when serializing or saving to server.\n    session: {\n        selectedTasks: [&apos;array&apos;, true, []],\n        lastPage: [&apos;string&apos;, true, &apos;tasks&apos;],\n        unread: [&apos;boolean&apos;, true, false],\n        active: [&apos;boolean&apos;, true, false]\n    },\n    // child collections that will be initted. They will\n    // be created at as a property of the same name as the\n    // key. The child collection will also be given a reference\n    // to its parent.\n    collections: {\n        messages: Messages\n    },\n    otherMethods: function (cb) {\n        // of course you can tack on whatever other methods you want\n    }\n});</code></pre>\n",
+          "desc": "<pre><code class=\"js\">var Person = AmpersandModel.extend({\n    // every ampersand model should have a type\n    type: &apos;member&apos;,\n    initialize: function () {\n        // main initialization function\n    },\n    // props are for properties that exist on the server\n    props: {\n        id: {\n            type: &apos;number&apos;,\n            setOnce: true\n        },\n        firstName: [&apos;string&apos;, true],\n        lastName: [&apos;string&apos;, true],\n        created: [&apos;date&apos;],\n        email: [&apos;string&apos;, true],\n        username: [&apos;string&apos;, true],\n        lastLogin: [&apos;date&apos;],\n        largePicUrl: [&apos;string&apos;],\n        department: {\n            type: &apos;number&apos;,\n            // you can optionally provide your own test function\n            test: function (val) {\n                if (val &gt; 20) {\n                    return &quot;Invalid department&quot;;\n                }\n            }\n        },\n        alignment: {\n            // you can also specify a list of valid values\n            values: [&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;],\n            default: &apos;middle&apos;\n        }\n    },\n    // derived properties and their dependencies. If any dependency changes\n    // that will also trigger a &apos;change&apos; event on the derived property so\n    // we know to re-render the template\n    derived: {\n        // fullName is \n        fullName: {\n            // you can optionally define the properties this derived property\n            // depends on. That way if the underlying properties change you can\n            // listen for changes directly on the derived property.\n            deps: [&apos;firstName&apos;, &apos;lastName&apos;],\n            fn: function () {\n                return this.firstName + &apos; &apos; + this.lastName;\n            }\n        }\n    },\n    // Session properties are browser state for a model\n    // these trigger &apos;change&apos; events when set, but are not\n    // included when serializing or saving to server.\n    session: {\n        selectedTasks: [&apos;array&apos;, true, []],\n        lastPage: [&apos;string&apos;, true, &apos;tasks&apos;],\n        unread: [&apos;boolean&apos;, true, false],\n        active: [&apos;boolean&apos;, true, false]\n    },\n    // child collections that will be initted. They will\n    // be created at as a property of the same name as the\n    // key. The child collection will also be given a reference\n    // to its parent.\n    collections: {\n        messages: Messages\n    },\n    otherMethods: function (cb) {\n        // of course you can tack on whatever other methods you want\n    }\n});</code></pre>\n",
           "type": "module",
           "displayName": "A sample model with comments"
         },
         {
           "textRaw": "Going hardcore \"strict\" definition",
           "name": "going_hardcore_\"strict\"_definition",
-          "desc": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode\">Strict mode</a> in JS is pretty great and is fairly well supported in modern browsers.\n\n</p>\n<p>If you want to be <em>really</em> hardcore about not letting you set properties that aren&apos;t defined, you can specify <code>seal: true</code> when defining your model.\n\n</p>\n<pre><code class=\"js\">// enable strict mode\n&quot;use strict&quot;;\n\nvar MySuperStrictModel = AmpersandModel.define({\n    // set this to true\n    seal: true,\n    // also throw errors for properties not defined\n    // when set via `set`.\n    extraProperties: &apos;reject&apos;,\n    // normal properties\n    props: {\n        name: &apos;string&apos;\n    }\n});\n\n// create an instance of this model\nvar model = new MySuperStrictModel();\n\n// setting defined properties works like usual\nmodel.name = &apos;something&apos;;\n\n// BUT, setting a property that doesn&apos;t exist\n// will throw an error because the object is sealed.\nmodel.something = &apos;something else&apos;; // KABOOM!</code></pre>\n",
+          "desc": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode\">Strict mode</a> in JS is pretty great and is fairly well supported in modern browsers.\n\n</p>\n<p>If you want to be <em>really</em> hardcore about not letting you set properties that aren&apos;t defined, you can specify <code>seal: true</code> when defining your model.\n\n</p>\n<pre><code class=\"js\">// enable strict mode\n&quot;use strict&quot;;\n\nvar MySuperStrictModel = AmpersandModel.extend({\n    // set this to true\n    seal: true,\n    // also throw errors for properties not defined\n    // when set via `set`.\n    extraProperties: &apos;reject&apos;,\n    // normal properties\n    props: {\n        name: &apos;string&apos;\n    }\n});\n\n// create an instance of this model\nvar model = new MySuperStrictModel();\n\n// setting defined properties works like usual\nmodel.name = &apos;something&apos;;\n\n// BUT, setting a property that doesn&apos;t exist\n// will throw an error because the object is sealed.\nmodel.something = &apos;something else&apos;; // KABOOM!</code></pre>\n",
           "type": "module",
           "displayName": "Going hardcore \"strict\" definition"
         },
@@ -71,34 +78,11 @@
           "displayName": "Getting model attributes"
         },
         {
-          "textRaw": "Tests",
-          "name": "tests",
-          "desc": "<p>An extensive suite of tests can be run by opening <code>test/index.html</code> in a browser. In order to ensure compatibility with backbone to the extent possible we started with all the tests from Backbone 1.0.0 and modified them to use ampersand-model.\n\n</p>\n",
+          "textRaw": "Running the tests",
+          "name": "running_the_tests",
+          "desc": "<pre><code>npm test</code></pre>\n<p><em>note</em>: Much of the functionality of ampersand-model is actually inherited from <a href=\"https://github.com/ampersandjs/ampersand-state\">ampersand-state</a> and is tested seperately there. In order to ensure compatibility with backbone to the extent possible we started with all the tests from Backbone and modified them to use ampersand-model. But over time they&apos;ve been spread out and converted to be run with <a href=\"https://github.com/substack/tape\">tape</a> so we can automatically test against many browser versions with testling.\n\n\n</p>\n",
           "type": "module",
-          "displayName": "Tests"
-        },
-        {
-          "textRaw": "Caveats",
-          "name": "Caveats",
-          "desc": "<p>The module exports just one item, the ampersand-model constructor. It&apos;s has a method called <code>extend</code> that works as follows:\n\n</p>\n",
-          "modules": [
-            {
-              "textRaw": ".define(modelDefinition)",
-              "name": ".define(modeldefinition)",
-              "desc": "<p><code>define</code> is the main method you&apos;ll use to create model definitions. It returns a custom constructor that can be used to create instances of your custom model.\n\n</p>\n<p>As an example imagine two modules <code>app.js</code> and <code>UserModel.js</code>.\n\n</p>\n<p>The contents of <code>UserModel.js</code> defines a model:\n\n</p>\n<pre><code class=\"js\">var AmpersandModel = require(&apos;ampersand-model&apos;);\n\n// define a model\nvar UserModel = AmpersandModel.extend({\n    props: {\n        name: &apos;string&apos;\n    }\n});\n\nvar user = new User({name: &apos;henrik&apos;});\n\nconsole.log(user.name); // logs out &apos;henrik&apos;</code></pre>\n",
-              "type": "module",
-              "displayName": ".define(modelDefinition)"
-            },
-            {
-              "textRaw": ".dataTypes",
-              "name": ".datatypes",
-              "desc": "<p>The dataTypes\n\n\n\n</p>\n",
-              "type": "module",
-              "displayName": ".dataTypes"
-            }
-          ],
-          "type": "module",
-          "displayName": "Module: ampersand-model"
+          "displayName": "Running the tests"
         },
         {
           "textRaw": "Module: ampersand-model",
@@ -106,11 +90,11 @@
           "desc": "<p>The module exports just one item, the ampersand-model constructor. It&apos;s has a method called <code>extend</code> that works as follows:\n\n</p>\n",
           "modules": [
             {
-              "textRaw": ".define(modelDefinition)",
-              "name": ".define(modeldefinition)",
-              "desc": "<p><code>define</code> is the main method you&apos;ll use to create model definitions. It returns a custom constructor that can be used to create instances of your custom model.\n\n</p>\n<p>As an example imagine two modules <code>app.js</code> and <code>UserModel.js</code>.\n\n</p>\n<p>The contents of <code>UserModel.js</code> defines a model:\n\n</p>\n<pre><code class=\"js\">var AmpersandModel = require(&apos;ampersand-model&apos;);\n\n// define a model\nvar UserModel = AmpersandModel.extend({\n    props: {\n        name: &apos;string&apos;\n    }\n});\n\nvar user = new User({name: &apos;henrik&apos;});\n\nconsole.log(user.name); // logs out &apos;henrik&apos;</code></pre>\n",
+              "textRaw": ".extend(modelDefinition)",
+              "name": ".extend(modeldefinition)",
+              "desc": "<p><code>extend</code> is the main method you&apos;ll use to create model definitions. It returns a custom constructor that can be used to create instances of your custom model.\n\n</p>\n<p>As an example imagine two modules <code>app.js</code> and <code>UserModel.js</code>.\n\n</p>\n<p>The contents of <code>UserModel.js</code> defines a model:\n\n</p>\n<pre><code class=\"js\">var AmpersandModel = require(&apos;ampersand-model&apos;);\n\n// define a model\nvar UserModel = AmpersandModel.extend({\n    props: {\n        name: &apos;string&apos;\n    }\n});\n\nvar user = new User({name: &apos;henrik&apos;});\n\nconsole.log(user.name); // logs out &apos;henrik&apos;</code></pre>\n",
               "type": "module",
-              "displayName": ".define(modelDefinition)"
+              "displayName": ".extend(modelDefinition)"
             },
             {
               "textRaw": ".dataTypes",

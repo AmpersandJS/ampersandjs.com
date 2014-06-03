@@ -78,10 +78,26 @@
           "displayName": "State can be extended as many times as you want"
         },
         {
+          "textRaw": "child models and collections",
+          "name": "child_models_and_collections",
+          "desc": "<p>You can declare children and collections that will get instantiated on init as follows:\n\n</p>\n<pre><code class=\"js\">var State = require(&apos;ampersand-state&apos;);\nvar Messages = require(&apos;./models/messages&apos;);\nvar ProfileModel = require(&apos;./models/profile&apos;);\n\n\nvar Person = State.extend({\n    props: {\n        name: &apos;string&apos;\n    },\n    collections: {\n        // `Messages` here is a collection\n        messages: Messages\n    },\n    children: {\n        // `ProfileModel` is another ampersand-state constructor\n        profile: ProfileModel\n    }\n});\n\n// When we instantiate an instance of a Person \n// the Messages collection and ProfileModels\n// are instantiated as well\n\nvar person = new Person();\n\n// so meetings exists as an empty collection\nperson.meetings instanceof Meetings; // true\n\n// and profile exists as an empty `ProfileModel`\nperson.profile instanceof ProfileModel; // true\n\n// This also provides some additional capabilities\n// when we instantiate a state object with some\n// data it will apply them to the collections and child\n// models as you might expect:\nvar otherPerson = new Person({\n    messages: [\n        {from: &apos;someone&apos;, message: &apos;hi&apos;},\n        {from: &apos;someoneElse&apos;, message: &apos;yo!&apos;},\n    ],\n    profile: {\n        name: &apos;Joe&apos;, \n        hairColor: &apos;black&apos;\n    }\n});\n\n// now messages would have a length\notherPerson.messages.length === 2; // true\n\n// and the profile state object would be\n// populated\notherPerson.profile.name === &apos;Joe&apos;; // true\n\n// The same works for `set`, it will apply it \n// to children as well. \notherPerson.set({profile: {name: &apos;Mary&apos;}});\n\n// Since this a state object it triggers a `change:name` on \n// the `profile` object. \n// In addition, since it&apos;s a child that event propagates \n// up. More on that below.</code></pre>\n",
+          "type": "module",
+          "displayName": "child models and collections"
+        },
+        {
           "textRaw": "Changelog",
           "name": "changelog",
           "type": "module",
           "displayName": "Changelog"
+        }
+      ],
+      "events": [
+        {
+          "textRaw": "Event bubbling, derived properties based on children",
+          "type": "event",
+          "name": "bubbling, derived properties based on children",
+          "desc": "<p>Say you want a simple way to listen for any changes that are represented in a tempalate.\n\n</p>\n<p>Let&apos;s say you&apos;ve got a <code>person</code> state object with a <code>profile</code> child. You want an easy way to listen for changes to either the base <code>person</code> object or the <code>profile</code>. In fact, you want to listen to anything related to the person object. \n\n</p>\n<p>Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain. \n\n</p>\n<p>Now we can listen for deeply nested changes to properties.\n\n</p>\n<p>And we can declare derived properties that depend on children. For example:\n\n</p>\n<pre><code class=\"js\">var Person = State.extend({\n    children: {\n        profile: Profile\n    },\n    derived: {\n        childsName: {\n            // now we can declare a child as a\n            // dependency\n            deps: [&apos;profile.name&apos;],\n            fn: function () {\n                return &apos;my child\\&apos;s name is &apos; + this.profile.name;\n            }\n        }\n    }\n});\n\nvar me = new Person();\n\n// we can listen for changes to the derived property\nme.on(&apos;change:childsName&apos;, function (model, newValue) {\n    console.log(newValue); // logs out `my child&apos;s name is henrik`\n});\n\n// so when a property of a child is changed the callback\n// above will be fired (if the resulting derived property is different)\nme.profile.name = &apos;henrik&apos;;</code></pre>\n",
+          "params": []
         }
       ],
       "type": "module",

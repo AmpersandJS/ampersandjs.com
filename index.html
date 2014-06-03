@@ -295,6 +295,11 @@
 
 </p>
 <pre><code>bower install ampersand-model</code></pre>
+<h3>Browser compatibility</h3>
+<p><a href="https://ci.testling.com/ampersandjs/ampersand-model"><img src="https://ci.testling.com/ampersandjs/ampersand-model.png" alt="testling badge"></a>
+
+
+</p>
 <h3>Types of state</h3>
 <p>Take for instance a <code>selected</code> property on a model. That&apos;s likely something you would use to represent current UI state for the current browser session but not something you&apos;d want to save back to the API when calling a model&apos;s .save() method. So there really are two types of state. It&apos;s challenging to make that type of distinction with Backbone.
 
@@ -387,7 +392,7 @@ are the only property attributes you can set.
     }
 }</code></pre>
 <h3>A sample model with comments</h3>
-<pre><code class="js">var Person = AmpersandModel.define({
+<pre><code class="js">var Person = AmpersandModel.extend({
     // every ampersand model should have a type
     type: &apos;member&apos;,
     initialize: function () {
@@ -466,7 +471,7 @@ are the only property attributes you can set.
 <pre><code class="js">// enable strict mode
 &quot;use strict&quot;;
 
-var MySuperStrictModel = AmpersandModel.define({
+var MySuperStrictModel = AmpersandModel.extend({
     // set this to true
     seal: true,
     // also throw errors for properties not defined
@@ -502,20 +507,17 @@ user.get(&apos;firstName&apos;);
 
 // ampersand
 user.firstName;</code></pre>
-<h3>Tests</h3>
-<p>An extensive suite of tests can be run by opening <code>test/index.html</code> in a browser. In order to ensure compatibility with backbone to the extent possible we started with all the tests from Backbone 1.0.0 and modified them to use ampersand-model.
+<h3>Running the tests</h3>
+<pre><code>npm test</code></pre>
+<p><em>note</em>: Much of the functionality of ampersand-model is actually inherited from <a href="https://github.com/ampersandjs/ampersand-state">ampersand-state</a> and is tested seperately there. In order to ensure compatibility with backbone to the extent possible we started with all the tests from Backbone and modified them to use ampersand-model. But over time they&apos;ve been spread out and converted to be run with <a href="https://github.com/substack/tape">tape</a> so we can automatically test against many browser versions with testling.
+
 
 </p>
-<h3>Caveats</h3>
-<div class="signature"><ul>
-<li>Since backbone does an <code>instanceof</code> check when adding initted models to a collection, ampersand-model monkey patches the <code>_prepareModel</code> collection method to check against ampersand-model instead.</li>
-<li>Still needs better docs. Probably a full docs site.</li>
-</div></ul>
 <h3>Module: ampersand-model</h3>
 <p>The module exports just one item, the ampersand-model constructor. It&apos;s has a method called <code>extend</code> that works as follows:
 
 </p>
-<h4>.define(modelDefinition)</h4>
+<h4>.extend(modelDefinition)</h4>
 <div class="signature"><ul>
 <li>Returns: <span class="type">Constructor</span> A custom constructor for generating instances of the model you defined.</li>
 <li><code>modelDefinition</code> <span class="type">Object</span> An object containing your entire model definition<ul>
@@ -534,7 +536,7 @@ user.firstName;</code></pre>
 </ul>
 </li>
 </div></ul>
-<p><code>define</code> is the main method you&apos;ll use to create model definitions. It returns a custom constructor that can be used to create instances of your custom model.
+<p><code>extend</code> is the main method you&apos;ll use to create model definitions. It returns a custom constructor that can be used to create instances of your custom model.
 
 </p>
 <p>As an example imagine two modules <code>app.js</code> and <code>UserModel.js</code>.
@@ -818,18 +820,120 @@ awesome instanceof AwesomePerson; // true;
 
 // and so is this
 awesome instanceof Person; // true</code></pre>
+<h3>child models and collections</h3>
+<p>You can declare children and collections that will get instantiated on init as follows:
+
+</p>
+<pre><code class="js">var State = require(&apos;ampersand-state&apos;);
+var Messages = require(&apos;./models/messages&apos;);
+var ProfileModel = require(&apos;./models/profile&apos;);
+
+
+var Person = State.extend({
+    props: {
+        name: &apos;string&apos;
+    },
+    collections: {
+        // `Messages` here is a collection
+        messages: Messages
+    },
+    children: {
+        // `ProfileModel` is another ampersand-state constructor
+        profile: ProfileModel
+    }
+});
+
+// When we instantiate an instance of a Person 
+// the Messages collection and ProfileModels
+// are instantiated as well
+
+var person = new Person();
+
+// so meetings exists as an empty collection
+person.meetings instanceof Meetings; // true
+
+// and profile exists as an empty `ProfileModel`
+person.profile instanceof ProfileModel; // true
+
+// This also provides some additional capabilities
+// when we instantiate a state object with some
+// data it will apply them to the collections and child
+// models as you might expect:
+var otherPerson = new Person({
+    messages: [
+        {from: &apos;someone&apos;, message: &apos;hi&apos;},
+        {from: &apos;someoneElse&apos;, message: &apos;yo!&apos;},
+    ],
+    profile: {
+        name: &apos;Joe&apos;, 
+        hairColor: &apos;black&apos;
+    }
+});
+
+// now messages would have a length
+otherPerson.messages.length === 2; // true
+
+// and the profile state object would be
+// populated
+otherPerson.profile.name === &apos;Joe&apos;; // true
+
+// The same works for `set`, it will apply it 
+// to children as well. 
+otherPerson.set({profile: {name: &apos;Mary&apos;}});
+
+// Since this a state object it triggers a `change:name` on 
+// the `profile` object. 
+// In addition, since it&apos;s a child that event propagates 
+// up. More on that below.</code></pre>
+<h3>Event bubbling, derived properties based on children</h3>
+<p>Say you want a simple way to listen for any changes that are represented in a tempalate.
+
+</p>
+<p>Let&apos;s say you&apos;ve got a <code>person</code> state object with a <code>profile</code> child. You want an easy way to listen for changes to either the base <code>person</code> object or the <code>profile</code>. In fact, you want to listen to anything related to the person object. 
+
+</p>
+<p>Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain. 
+
+</p>
+<p>Now we can listen for deeply nested changes to properties.
+
+</p>
+<p>And we can declare derived properties that depend on children. For example:
+
+</p>
+<pre><code class="js">var Person = State.extend({
+    children: {
+        profile: Profile
+    },
+    derived: {
+        childsName: {
+            // now we can declare a child as a
+            // dependency
+            deps: [&apos;profile.name&apos;],
+            fn: function () {
+                return &apos;my child\&apos;s name is &apos; + this.profile.name;
+            }
+        }
+    }
+});
+
+var me = new Person();
+
+// we can listen for changes to the derived property
+me.on(&apos;change:childsName&apos;, function (model, newValue) {
+    console.log(newValue); // logs out `my child&apos;s name is henrik`
+});
+
+// so when a property of a child is changed the callback
+// above will be fired (if the resulting derived property is different)
+me.profile.name = &apos;henrik&apos;;</code></pre>
 <h3>Changelog</h3>
-<div class="signature"><ul>
-<li>0.1.0 - lots of cleanup, grabbing tests from human-model, now maintains the prototype chain so <code>instanceof</code> checks pass no matter how many times it&apos;s been extended.</li>
-<li>0.0.2 - improved doc</li>
-<li>0.0.1 - initial publish</li>
-</div></ul>
 </div>
           <div class="include"><h2>ampersand-collection</h2>
 <p>A way to store/manage objects or models.
 
 </p>
-<p>Unlike other tools this makes no assumptions about how it&apos;s going to be used or what type of models it is going to contain. This makes it a very flexible/useful tool for modeling all kinds of stuff. 
+<p>Unlike other tools this makes no assumptions about how it&apos;s going to be used or what type of models it is going to contain. This makes it a very flexible/useful tool for modeling all kinds of stuff.
 
 </p>
 <p>It does not require underscore or jQuery, but instead makes it easy to extend with those methods if you&apos;d like.
@@ -845,7 +949,7 @@ awesome instanceof Person; // true</code></pre>
 <h3>install</h3>
 <pre><code>npm i ampersand-collection</code></pre>
 <h3>massive flexibility</h3>
-<p>The collection is a fairly low-level tool, in that it&apos;s useful for any time you want to be able to store JS objects in an array. 
+<p>The collection is a fairly low-level tool, in that it&apos;s useful for any time you want to be able to store JS objects in an array.
 
 </p>
 <p>In many ways it&apos;s simply an observable array of objects.
@@ -862,22 +966,24 @@ awesome instanceof Person; // true</code></pre>
 </p>
 <pre><code class="js">var Collection = require(&apos;ampersand-collection&apos;);
 
-
 // can just store plain objects
 var basicCollection = new Collection([
     {name: &apos;larry&apos;},
     {name: &apos;curly&apos;},
     {name: &apos;moe&apos;}
 ]);</code></pre>
+<p>Adding <a href="http://github.com/AmpersandJS/ampersand-rest-mixin">ampersand-collection-rest-mixin</a> and <a href="http://github.com/AmpersandJS/ampersand-collection-underscore-mixin">ampersand-collection-underscore-mixin</a>. 
+
+</p>
 <pre><code class="js">var Collection = require(&apos;ampersand-collection&apos;);
-var restMixin = require(&apos;ampersand-rest-mixin&apos;);
-var underscoreMixin = require(&apos;ampersand-underscore-mixin&apos;);
+var restMixin = require(&apos;ampersand-collection-rest-mixin&apos;);
+var underscoreMixin = require(&apos;ampersand-collection-underscore-mixin&apos;);
 
 
 // or we can extend it with underscore and REST methods
 // to turn it into something similar to a Backbone Collection
 var RestfulCollection = Collection.extend(underscoreMixin, restMixin, {
-    url: &apos;/mystuff&apos; 
+    url: &apos;/mystuff&apos;
 });
 
 var collection = new RestfulCollection();
@@ -890,6 +996,10 @@ collection.fetch();</code></pre>
 
 </p>
 <p>This makes ampersand-collection work and act a lot like Backbone.Collection, if you&apos;re planning on hitting a REST-ful API this is probably what you want to use.
+
+</p>
+<h3>browser support</h3>
+<p><a href="https://ci.testling.com/AmpersandJS/ampersand-rest-collection"><img src="https://ci.testling.com/AmpersandJS/ampersand-rest-collection.png" alt="testling badge"></a>
 
 
 
@@ -930,11 +1040,24 @@ c.each(function (model) {
 </p>
 <p>You probably won&apos;t use this directly, but it is used by ampersand-model and ampersand-rest-collection to provide the REST functionality.
 
+</p>
+<h3>browser support</h3>
+<p><a href="https://ci.testling.com/AmpersandJS/ampersand-sync"><img src="https://ci.testling.com/AmpersandJS/ampersand-sync.png" alt="testling badge"></a>
+
 
 
 </p>
 <h3>install</h3>
 <pre><code>npm install ampersand-sync</code></pre>
+<h3>running the tests</h3>
+<pre><code>npm test</code></pre>
+<p>Tests are written in <a href="https://github.com/substack/tape">tape</a> and since they require a browser environment it gets run in a headless browser using phantomjs via <a href="https://github.com/juliangruber/tape-run">tape-run</a>. Make sure you have phantomjs installed for this to work. 
+
+</p>
+<p>You can also run <code>npm start</code> then open a browser.
+
+
+</p>
 </div>
           <div class="include"><h2>ampersand-view</h2>
 <p>A set of common helpers and conventions for using as a base view for ampersand.js apps.
@@ -1348,6 +1471,45 @@ registry.remove(&apos;{{model type}}&apos;, &apos;{{ model id }}&apos;, &apos;{{
 // de-reference all models
 registry.clear();</code></pre>
 </div>
+        </section>
+        <section>
+          <h2 data-nav="View Conventions">View Conventions</h2>
+          <p>The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.</p>
+          <p>In ampersand, <strong>a "view" doesn't have to actually be an "amperand-view"</strong> at all.</p>
+          <p>But in order to maintain the ability to write a collection renderer or to be able to render sub-views it's useful to have a few simple conventions we follow.</p>
+          <p><strong>Any</strong> object can be a view if it follows a few rules. Following these rules ensure that that your view plays nicely with other views.</p>
+          <p>The rules are most easily explained by an example, here is an absolutely bare-minimum `view`:</p>
+          <p>
+            <pre class="javascript"><code>function MinimalView(options) {
+    // If given an element as part of an options object
+    // the view *should* store an element as `this.el`.
+    this.el = options.el;
+}
+
+// All views should have a `render` method that creates, replaces, or 
+// fills in the `this.el` property.
+// If passed in when created this view may already have a `this.el`. 
+// If so, your render would method would populate it, or create a new
+// one and replace it (if already part of the DOM tree).
+MinimalView.prototype.render = function () {
+    // The important thing is after calling `render` the view should have
+    // a `this.el` that is a *real* DOM element.
+    this.el.textContent = 'hello, awesome developer!';
+};
+
+// It should have a `remove` method that does any tear down you may want
+// to do. Including ideally removing itself from it's parent (if reasonable to do so)
+MinimalView.prototype.remove = function () {
+    // you could do it with vanilla JS like this
+    var parent = this.el.parentNode;
+    if (parent) parent.removeChild(this.el);
+    
+    // ...or if you're using jQUery you could just do
+    $(this.el).remove();
+};
+</code></pre>
+          </p>
+          <p>That's it! </p>
         </section>
         <section>
           <h2 data-nav="moonboots">Moonboots</h2>
