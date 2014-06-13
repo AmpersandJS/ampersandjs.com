@@ -1,6 +1,31 @@
-// Navigation
+// Main Navigation
 
-nav
+nav.nav-main
+  padding: 40px 60px 70px
+  font-family: $font-family-gotham-round
+
+  .logo-ampersand
+    min-height: 34px
+    margin-right: 20px
+    padding: 2px 0 2px 40px
+    display: inline-block
+    background-size: auto 34px
+    font-weight: $font-weight-semibold
+    font-size: $font-size-large
+    color: $gray-darker
+
+  .nav-item
+    margin-right: 20px
+    font-weight: $font-weight-normal
+    font-size: $font-size-small
+
+  .button
+    margin-top: 0
+    float: right
+
+// Navigation for docs (fixed)
+
+nav.docs
   position: fixed
   top: 100px
   width: 300px
@@ -39,5 +64,5 @@ nav
 
 @media screen and (max-width: 650px)
 
-  nav
+  nav.docs
     display: none

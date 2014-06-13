@@ -8,7 +8,9 @@ button
 .button, a.button
   display: inline-block
   border-radius: 3px
+  margin-top: 15px
   padding: 6px 15px
+  font-family: $font-family-gotham-round
   font-size: $font-size-base
   font-weight: $font-weight-bold
   text-align: center
@@ -61,3 +63,6 @@ button
 
     &:disabled, .button-disabled
       background-color: $blue-light
+
+.button + .button
+  margin-left: 10px

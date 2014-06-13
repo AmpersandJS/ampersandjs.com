@@ -1,285 +1,373 @@
-doctype
-html(lang="en")
+block vars
+  - var pageTitle = "Home"
+  - var description = "Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5"
 
-  head
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="description", content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5")
-    meta(name="author", content="Henrik Joreteg, Luke Karrys, Lance Stout, Philip Roberts, Isaac Lewis, Michael (Gar) Garvin")
+extends templates/layout
 
-    link(rel="stylesheet", href="static/css/plugins/normalize.css")
-    link(rel="stylesheet", href="static/css/main.css")
+block content
 
-    title Ampersand.js Documentation 
+  header.hero
+    .illustration.temp An illustration may go here!
+    h1 A highly modular, loosely coupled, non-frameworky framework for building complex JavaScript apps.
 
-    script.
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-44685415-1', 'humanjavascript.com');
-      ga('send', 'pageview');
+  hr
 
-  body
+  section.splash
 
-    header(role="banner", class="cf")
-      h1.logo ampersand.js
+    .container.cf
+      .splash-intro
+        h2 Why Ampersand?
+        p Ampersand.js is a well-defined approach to combining (get it?) a series of intentionally tiny modules.
+        h3 Maximize simplicity
+        p
+          em If you don’t actively fight for simplicity in software, complexity will win, and it will suck.
+        ul
+          li Everything is a CommonJS module.
+          li Everything is installed via npm.
+          li Everything is MIT licensed.
+          li Trusted versioning with semver.
+        h3 Designed for rich “app” experiences
+        ul
+          li Modern browsers by default. Unapologetically supporting only IE9+.
+          li The browser is a runtime, not a document viewer.
+          li Embraces the offline-first mentality.
+        a.button.button-primary(href="/learn") Discover Ampersand
+      .releases-list
+        h3 Recent releases
+        .module-card
+          h4.module-name ampersand
+          p.module-version version 1.3.2
+          p.module-links
+            a(href="#") github
+            a(href="#") npm
+        .module-card
+          h4.module-name ampersand-sync
+          p.module-version version 1.0.1
+          p.module-links
+            a(href="#") github
+            a(href="#") npm
+        .module-card
+          h4.module-name webrtcsupport
+          p.module-version version 0.7.4
+          p.module-links
+            a(href="#") github
+            a(href="#") npm
+        a.button.button-primary(href="/contribute") How to contribute
+
+    hr
+
+    .callout.jsforteams
+      .logo.logo-jsforteams JS for Teams
+      h2
+        span Great software isn’t built by rock stars. 
+        | It’s built by teams.
+      p Join us for JS for Teams, a first-of-its-kind training adventure for dev teams eager to build complex apps with Ampersand.
+      a.button.button-secondary(href="#") Enroll now
+    hr
+    .callout.human-javascript
+      h2 A foundation for building simple but powerful JS apps with Ampersand
+      img.humanjs-ipad(src="/static/images/human-javascript.png")
+      //- Needs svg and png fallback
+      .logo.logo-humanjs Human JavaScript
+      p Henrik Joreteg introduces practical patterns for powerfully simple application development. Human Javascript is a saner way to write JS.
+      a.button.button-secondary(href="#") Buy the book for $39
+      a.button.button-secondary(href="#") Read the book online
+
+    hr
+
+    .callout.modules-list
+      h2 Useful modules
+      .cf
+        .module-card
+          h4.module-name bindingbows
+          p.module-author by latentflip
+          p.module-description Safe, production happy, colourful logging for chrome - makes reading your logs much easier.
+          p.module-links
+            a(href="#") github
+            a(href="#") npm
+        .module-card
+          h4.module-name emoji-images
+          p.module-author by HenrikJoreteg
+          p.module-description Replace stuff like :smiley: in text with <img> tags of a corresponding image.
+          p.module-links
+            a(href="#") github
+            a(href="#") npm
+        .module-card
+          h4.module-name mediahammerjs
+          p.module-author by jtangelder
+          p.module-description Normalizes touch and mouse events between browsers. Making gesture events much easier to work with.
+          p.module-links
+            a(href="#") github
+            a(href="#") npm
+      a.button.button-secondary(href="/contribute") View all modules
+
+    hr
+
+    .callout.community
+      h2 Companies Using Ampersand.js
+      .illustration.temp list of companies, yo
+      h2 See Ampersand.js in Action
+      .illustration.temp list of projects, yo
+      a.button.button-secondary(href="/learn") Get started
+
+
+    //- header(role="banner", class="cf")
+    //-   h1.logo ampersand.js
 
       //-a(href="http://humanjavascript.com/", title="Buy Human Javascript book", class="button button-secondary") Buy Human Javascript Book
 
-    .container
+    //- .container
 
-      nav(role="navigation")
+    //-   nav.docs(role="navigation")
 
-        .panel
-          h4 Warning
-          p These docs are incomplete and still being written.
-          a(href="https://github.com/AmpersandJS/ampersandjs.com", class="button button-secondary button-small") Help make them better
+    //-     .panel
+    //-       h4 Warning
+    //-       p These docs are incomplete and still being written.
+    //-       a(href="https://github.com/AmpersandJS/ampersandjs.com", class="button button-secondary button-small") Help make them better
 
-        #slider
+    //-     #slider
 
-      main(role="main")
+    //-   main(role="main")
 
-        section!= globals.intro
-
-
-        section
-
-          h2 Quick Start Guide
-
-          ol
-            li
-              a(href="http://nodejs.org/") install node.js
-            li 
-              | install ampersand &mdash; 
-              code $ npm install ampersand -g
-            li 
-              | run 
-              code ampersand
-              |  to create your new app folder, build your project scaffolding, and run your app.
-              pre
-                code $ ampersand
-            li 
-              | open your browser to: 
-              code http://localhost:3000
-
-            li that's it!
-
-          h3 What's included?
-
-          ul
-            li Well-architected shell of a single page app to serve as a starting point for your app.
-            li A solution for using jade templates and templatizer to pre-compile client templates.
-            li A fully functional development environment that will watch for changes. You just modify and refresh (without manual build steps).
-            li Changing one flag in your config puts it in production mode which builds and serves minfied, uniquely named, and permanently cachable static files.
-            li A clientside routing system using HTML5 pushState.
-            li A main layout template is rendered by the main view that includes a page container where page views are rendered as the user navigates to different URLs in the app.
-            li An example of rendering a collection of models in a container.
-            li A mock REST API to demonstrate how you might talk to an API to fetch data.
-            li 
-              | A solution for declarative binding of model properties to views, that is 
-              em completely 
-              | decoupled from the template engine. See human-view below for more details.
-            li A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team environments where you need somewhere to reference what is being stored on your models. See human-model for more detail. 
-
-        section
-
-          h2(data-nav= "The Book") Human JavaScript book
-
-          p 
-            | A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here 
-            a(href="http://humanjavascript.com") is available for $39
-            | .
-
-          p 
-            a(href="http://humanjavascript.com", class="image-wrapper humanjs")
-              img(src="static/images/human-javascript.png", width="200", alt="human javascript ebook")
-
-          //- included modules
-          @gendoc ampersand-model ../ampersand-model/README.md
-          @gendoc ampersand-state ../ampersand-state/README.md
-          @gendoc ampersand-collection ../ampersand-collection/README.md
-          @gendoc ampersand-rest-collection ../ampersand-rest-collection/README.md
-          @gendoc ampersand-sync ../ampersand-sync/README.md
-          @gendoc ampersand-view ../ampersand-view/README.md
-          @gendoc ampersand-router ../ampersand-router/README.md
-          @gendoc ampersand-registry ../ampersand-registry/README.md
+    //-     //- section!= globals.intro
 
 
-        section
-          h2(data-nav= "View Conventions") View Conventions
+    //-     section
 
-          p The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.
+    //-       h2 Quick Start Guide
 
-          p In ampersand, <strong>a "view" doesn't have to actually be an "amperand-view"</strong> at all.
+    //-       ol
+    //-         li
+    //-           a(href="http://nodejs.org/") install node.js
+    //-         li 
+    //-           | install ampersand &mdash; 
+    //-           code $ npm install ampersand -g
+    //-         li 
+    //-           | run 
+    //-           code ampersand
+    //-           |  to create your new app folder, build your project scaffolding, and run your app.
+    //-           pre
+    //-             code $ ampersand
+    //-         li 
+    //-           | open your browser to: 
+    //-           code http://localhost:3000
 
-          p But in order to maintain the ability to write a collection renderer or to be able to render sub-views it's useful to have a few simple conventions we follow.
+    //-         li that's it!
+
+    //-       h3 What's included?
+
+    //-       ul
+    //-         li Well-architected shell of a single page app to serve as a starting point for your app.
+    //-         li A solution for using jade templates and templatizer to pre-compile client templates.
+    //-         li A fully functional development environment that will watch for changes. You just modify and refresh (without manual build steps).
+    //-         li Changing one flag in your config puts it in production mode which builds and serves minfied, uniquely named, and permanently cachable static files.
+    //-         li A clientside routing system using HTML5 pushState.
+    //-         li A main layout template is rendered by the main view that includes a page container where page views are rendered as the user navigates to different URLs in the app.
+    //-         li An example of rendering a collection of models in a container.
+    //-         li A mock REST API to demonstrate how you might talk to an API to fetch data.
+    //-         li 
+    //-           | A solution for declarative binding of model properties to views, that is 
+    //-           em completely 
+    //-           | decoupled from the template engine. See human-view below for more details.
+    //-         li A solution for creating readable, type-checked, and very explicitly defined models. This is hugely important in team environments where you need somewhere to reference what is being stored on your models. See human-model for more detail. 
+
+    //-     section
+
+    //-       h2(data-nav= "The Book") Human JavaScript book
+
+    //-       p 
+    //-         | A 100+ page e-book providing additional context, explanations and philosophy behind the tools documented here 
+    //-         a(href="http://humanjavascript.com") is available for $39
+    //-         | .
+
+    //-       p 
+    //-         a(href="http://humanjavascript.com", class="image-wrapper humanjs")
+    //-           img(src="static/images/human-javascript.png", width="200", alt="human javascript ebook")
+
+    //-       //- included modules
+    //-       //- @gendoc ampersand-model ../ampersand-model/README.md
+    //-       //- @gendoc ampersand-state ../ampersand-state/README.md
+    //-       //- @gendoc ampersand-collection ../ampersand-collection/README.md
+    //-       //- @gendoc ampersand-rest-collection ../ampersand-rest-collection/README.md
+    //-       //- @gendoc ampersand-sync ../ampersand-sync/README.md
+    //-       //- @gendoc ampersand-view ../ampersand-view/README.md
+    //-       //- @gendoc ampersand-router ../ampersand-router/README.md
+    //-       //- @gendoc ampersand-registry ../ampersand-registry/README.md
+
+
+    //-     section
+    //-       h2(data-nav= "View Conventions") View Conventions
+
+    //-       p The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.
+
+    //-       p In ampersand, <strong>a "view" doesn't have to actually be an "amperand-view"</strong> at all.
+
+    //-       p But in order to maintain the ability to write a collection renderer or to be able to render sub-views it's useful to have a few simple conventions we follow.
         
-          p <strong>Any</strong> object can be a view if it follows a few rules. Following these rules ensure that that your view plays nicely with other views.
+    //-       p <strong>Any</strong> object can be a view if it follows a few rules. Following these rules ensure that that your view plays nicely with other views.
 
-          p The rules are most easily explained by an example, here is an absolutely bare-minimum `view`:
+    //-       p The rules are most easily explained by an example, here is an absolutely bare-minimum `view`:
 
-          p
-            pre.javascript
-              code.
-                function MinimalView(options) {
-                    // If given an element as part of an options object
-                    // the view *should* store an element as `this.el`.
-                    this.el = options.el;
-                }
+    //-       p
+    //-         pre.javascript
+    //-           code.
+    //-             function MinimalView(options) {
+    //-                 // If given an element as part of an options object
+    //-                 // the view *should* store an element as `this.el`.
+    //-                 this.el = options.el;
+    //-             }
 
-                // All views should have a `render` method that creates, replaces, or 
-                // fills in the `this.el` property.
-                // If passed in when created this view may already have a `this.el`. 
-                // If so, your render would method would populate it, or create a new
-                // one and replace it (if already part of the DOM tree).
-                MinimalView.prototype.render = function () {
-                    // The important thing is after calling `render` the view should have
-                    // a `this.el` that is a *real* DOM element.
-                    this.el.textContent = 'hello, awesome developer!';
-                };
+    //-             // All views should have a `render` method that creates, replaces, or 
+    //-             // fills in the `this.el` property.
+    //-             // If passed in when created this view may already have a `this.el`. 
+    //-             // If so, your render would method would populate it, or create a new
+    //-             // one and replace it (if already part of the DOM tree).
+    //-             MinimalView.prototype.render = function () {
+    //-                 // The important thing is after calling `render` the view should have
+    //-                 // a `this.el` that is a *real* DOM element.
+    //-                 this.el.textContent = 'hello, awesome developer!';
+    //-             };
 
-                // It should have a `remove` method that does any tear down you may want
-                // to do. Including ideally removing itself from it's parent (if reasonable to do so)
-                MinimalView.prototype.remove = function () {
-                    // you could do it with vanilla JS like this
-                    var parent = this.el.parentNode;
-                    if (parent) parent.removeChild(this.el);
+    //-             // It should have a `remove` method that does any tear down you may want
+    //-             // to do. Including ideally removing itself from it's parent (if reasonable to do so)
+    //-             MinimalView.prototype.remove = function () {
+    //-                 // you could do it with vanilla JS like this
+    //-                 var parent = this.el.parentNode;
+    //-                 if (parent) parent.removeChild(this.el);
 
-                    // ...or if you're using jQuery you could just do
-                    $(this.el).remove();
-                };
+    //-                 // ...or if you're using jQuery you could just do
+    //-                 $(this.el).remove();
+    //-             };
 
-          p That's it! 
+    //-       p That's it! 
 
-        section
+    //-     section
 
-          h2(data-nav="moonboots") Moonboots
+    //-       h2(data-nav="moonboots") Moonboots
 
-          p Moonboots is a tool to help you intelligently deal with different goals of serving JS during development and in production.
-          p In development we explicitly don't want to cache or minify our JS and CSS files while working. We want to organize our modules in a way that makes the most sense for us as we're building the app.
-          p In production, we want to use the exact same source code structure to generate a single minified, uniquely named file for the JS and the CSS so we can tell the browser to cache those permanently. If we do our job correctly when serving those files, our main application code will be downloaded once per revision of the app.
-          p Moonboots aims to solve this problem. You structure your entire application in the same way that you would in node with Common JS modules requiring each other. It uses browserify under the hood to do all that magic. But then you just configure your client application like so: 
+    //-       p Moonboots is a tool to help you intelligently deal with different goals of serving JS during development and in production.
+    //-       p In development we explicitly don't want to cache or minify our JS and CSS files while working. We want to organize our modules in a way that makes the most sense for us as we're building the app.
+    //-       p In production, we want to use the exact same source code structure to generate a single minified, uniquely named file for the JS and the CSS so we can tell the browser to cache those permanently. If we do our job correctly when serving those files, our main application code will be downloaded once per revision of the app.
+    //-       p Moonboots aims to solve this problem. You structure your entire application in the same way that you would in node with Common JS modules requiring each other. It uses browserify under the hood to do all that magic. But then you just configure your client application like so: 
 
-          h3 Moonboots and Express.js
+    //-       h3 Moonboots and Express.js
 
-          p 
-            | The full documentation for moonboots is 
-            a(href="https://github.com/henrikjoreteg/moonboots#readme") available in the Moonboots repo
-            | .
+    //-       p 
+    //-         | The full documentation for moonboots is 
+    //-         a(href="https://github.com/henrikjoreteg/moonboots#readme") available in the Moonboots repo
+    //-         | .
 
-          p For a preview, here's how we'd configure a clientside moonboots app to be served by Express:
+    //-       p For a preview, here's how we'd configure a clientside moonboots app to be served by Express:
 
-          pre
-            code.js.
-              var express = require('express'),
-                  Moonboots = require('moonboots'),
-                  app = express();
+    //-       pre
+    //-         code.js.
+    //-           var express = require('express'),
+    //-               Moonboots = require('moonboots'),
+    //-               app = express();
 
-              // configure our app
-              var clientApp = new Moonboots({
-                  main: __dirname + '/sample/app/app.js',
-                  developmentMode: false,
-                  libraries: [
-                      __dirname + '/sample/libraries/jquery.js'
-                  ],
-                  stylesheets: [
-                      __dirname + '/styles.css'
-                  ],
-                  server: app
-              });
+    //-           // configure our app
+    //-           var clientApp = new Moonboots({
+    //-               main: __dirname + '/sample/app/app.js',
+    //-               developmentMode: false,
+    //-               libraries: [
+    //-                   __dirname + '/sample/libraries/jquery.js'
+    //-               ],
+    //-               stylesheets: [
+    //-                   __dirname + '/styles.css'
+    //-               ],
+    //-               server: app
+    //-           });
 
-              // We also just need to specify the routes at which we want to serve this clientside app.
-              // This is important for supporting "deep linking" into a single page app. The server
-              // has to know what urls to let the browser app handle.
-              app.get('*', clientApp.html());
+    //-           // We also just need to specify the routes at which we want to serve this clientside app.
+    //-           // This is important for supporting "deep linking" into a single page app. The server
+    //-           // has to know what urls to let the browser app handle.
+    //-           app.get('*', clientApp.html());
 
-              // start listening for http requests
-              app.listen(3000);
+    //-           // start listening for http requests
+    //-           app.listen(3000);
           
-          h3 Moonboots and Hapi
-          p 
-            | If you're using hapi, there's 
-            a(href="https://github.com/wraithgar/moonboots-hapi") a version of Moonboots that is structured as a Hapi plugin
-            | .
+    //-       h3 Moonboots and Hapi
+    //-       p 
+    //-         | If you're using hapi, there's 
+    //-         a(href="https://github.com/wraithgar/moonboots-hapi") a version of Moonboots that is structured as a Hapi plugin
+    //-         | .
 
-        section
+    //-     section
 
-          h2 Finding modules
-          p 
-            | There's a site containing a curated list of npm-installable modules with a quick filter box:  
-            a(href="http://tools.ampersandjs.com") humanjs-resources
-            |  that should help you find things you may need. 
-          p 
-            | Also, there are lots of modules you can find via 
-            a(href="http://browserify.org/search") browserify's module search
-            | .
+    //-       h2 Finding modules
+    //-       p 
+    //-         | There's a site containing a curated list of npm-installable modules with a quick filter box:  
+    //-         a(href="http://tools.ampersandjs.com") humanjs-resources
+    //-         |  that should help you find things you may need. 
+    //-       p 
+    //-         | Also, there are lots of modules you can find via 
+    //-         a(href="http://browserify.org/search") browserify's module search
+    //-         | .
 
-        section
+    //-     section
 
-          h2 Examples
+    //-       h2 Examples
 
-          h3 And Bang
-          p And Bang helps same-page-ify your team with shared tasks and chat. 
-          p Many of the tools and approaches of human javascript were extracted from And Bang.
-          a(href="http://andbang.com", class="image-wrapper")
-            img.exampleImage(src="https://i.cloudup.com/p3kLPyMYDw-2000x2000.png", width="400")
+    //-       h3 And Bang
+    //-       p And Bang helps same-page-ify your team with shared tasks and chat. 
+    //-       p Many of the tools and approaches of human javascript were extracted from And Bang.
+    //-       a(href="http://andbang.com", class="image-wrapper")
+    //-         img.exampleImage(src="https://i.cloudup.com/p3kLPyMYDw-2000x2000.png", width="400")
 
-          h3 Talky
-          p Talky is truly simple video chat and screen sharing app for groups.
-          p Powered by WebRTC and built on Human Javascript.
+    //-       h3 Talky
+    //-       p Talky is truly simple video chat and screen sharing app for groups.
+    //-       p Powered by WebRTC and built on Human Javascript.
 
-          a(href="https://talky.io", class="image-wrapper")
-            img.exampleImage(src="https://i.cloudup.com/0c5WD7hIUb-2000x2000.png", width="400")
+    //-       a(href="https://talky.io", class="image-wrapper")
+    //-         img.exampleImage(src="https://i.cloudup.com/0c5WD7hIUb-2000x2000.png", width="400")
 
-          h3 The Resources App
-          p 
-            | Quick module search of curated modules. The source for this app is 
-            a(href="https://github.com/henrikjoreteg/humanjs-resources") available on Github
-            | .
+    //-       h3 The Resources App
+    //-       p 
+    //-         | Quick module search of curated modules. The source for this app is 
+    //-         a(href="https://github.com/henrikjoreteg/humanjs-resources") available on Github
+    //-         | .
 
-          a(href="http://resources.humanjavascript.com", class="image-wrapper")
-            img.exampleImage(src="https://i.cloudup.com/XhYHvX7FA5-2000x2000.png", width="400")
+    //-       a(href="http://resources.humanjavascript.com", class="image-wrapper")
+    //-         img.exampleImage(src="https://i.cloudup.com/XhYHvX7FA5-2000x2000.png", width="400")
 
-          h3 Otalk
-          p Otalk is an open source chat client powered XMPP, stanza.io, and WebRTC. You can think of it as an open source alternative to Skype.
+    //-       h3 Otalk
+    //-       p Otalk is an open source chat client powered XMPP, stanza.io, and WebRTC. You can think of it as an open source alternative to Skype.
 
-          a(href="https://otalk.im", class="image-wrapper")
-            img.exampleImage(src="https://i.cloudup.com/u0xhQors8G-2000x2000.png", width="400")
+    //-       a(href="https://otalk.im", class="image-wrapper")
+    //-         img.exampleImage(src="https://i.cloudup.com/u0xhQors8G-2000x2000.png", width="400")
 
-        section
+    //-     section
 
-          h2 Contributors
-          p Ampersand.js is the combined efforts of lots of people and since all these projects are open source there are simply too many contributors to list. 
-          p 
-            | The project is sponsored by 
-            a(href="http://andyet.com") &amp;yet
-            | .
-          p The core contributor team consists of:
+    //-       h2 Contributors
+    //-       p Ampersand.js is the combined efforts of lots of people and since all these projects are open source there are simply too many contributors to list. 
+    //-       p 
+    //-         | The project is sponsored by 
+    //-         a(href="http://andyet.com") &amp;yet
+    //-         | .
+    //-       p The core contributor team consists of:
 
-          ul
-            li 
-              a(href="http://twitter.com/henrikjoreteg") Henrik Joreteg
-            li 
-              a(href="http://twitter.com/lukekarrys") Luke Karrys
-            li 
-              a(href="http://twitter.com/lancestout") Lance Stout
-            li 
-              a(href="http://twitter.com/philip_roberts") Philip Roberts
-            li 
-              a(href="http://twitter.com/_crossdiver") Isaac Lewis
-            li 
-              a(href="http://twitter.com/wraithgar") Michael (Gar) Garvin
+    //-       ul
+    //-         li 
+    //-           a(href="http://twitter.com/henrikjoreteg") Henrik Joreteg
+    //-         li 
+    //-           a(href="http://twitter.com/lukekarrys") Luke Karrys
+    //-         li 
+    //-           a(href="http://twitter.com/lancestout") Lance Stout
+    //-         li 
+    //-           a(href="http://twitter.com/philip_roberts") Philip Roberts
+    //-         li 
+    //-           a(href="http://twitter.com/_crossdiver") Isaac Lewis
+    //-         li 
+    //-           a(href="http://twitter.com/wraithgar") Michael (Gar) Garvin
             
-          p 
-            | If you have benefitted from these tools, please consider 
-            a(href="http://humanjavascript.com") buying the book 
-            |  or  
-            a(href="http://andyet.com") hiring &amp;yet
-            |  to help with your next development project.
+    //-       p 
+    //-         | If you have benefitted from these tools, please consider 
+    //-         a(href="http://humanjavascript.com") buying the book 
+    //-         |  or  
+    //-         a(href="http://andyet.com") hiring &amp;yet
+    //-         |  to help with your next development project.
 
-    script(src="static/js/highlight.pack.js")
-    script(src="static/js/slugger.js")
-    script(src="static/js/setup.js")
-    script(src="http://static.andyet.com/tag.js")
+    // script(src="static/js/highlight.pack.js")
+    // script(src="static/js/slugger.js")
+    // script(src="static/js/setup.js")
+    // script(src="http://static.andyet.com/tag.js")
