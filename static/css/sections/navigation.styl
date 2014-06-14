@@ -23,46 +23,65 @@ nav.nav-main
     margin-top: 0
     float: right
 
-// Navigation for docs (fixed)
+// Docs Navigation
 
-nav.docs
-  position: fixed
-  top: 100px
-  width: 300px
-  height: 100%
-  padding: 0 40px 150px 40px
-  overflow-y: scroll
+.nav-docs
+  font-family: $font-family-gotham-round
+  font-size: $font-size-small
 
-  a:not(.button)
+  a
+    margin-bottom: 5px
     display: block
-    text-transform: capitalize
-    font-size: $font-size-small
+    line-height: 1.3em
 
-    &:hover
-      text-decoration: underline
+  .section-top
+    color: $gray-darker
+    margin-top: 10px
 
-    &.active
-      color: $blue
-
-  .h1, .h2
-    margin: 5px 0
-    font-weight: bold
-    color: black
-
-  a:not(.h1):not(.h2):not(.button)
+  .section-sub
     color: $gray
-    padding-left: 10px
+    margin-left: 10px
 
-#slider
-  background: $blue
-  width: 3px
-  height: 20px
-  position: absolute
-  margin-left: -10px
-  transition: all 250ms ease-out 0
-  -webkit-transition: all 250ms ease-out 0
 
-@media screen and (max-width: 650px)
+//- Old navigation for docs
+// nav.docs
+//   position: fixed
+//   top: 100px
+//   width: 300px
+//   height: 100%
+//   padding: 0 40px 150px 40px
+//   overflow-y: scroll
 
-  nav.docs
-    display: none
+//   a:not(.button)
+//     display: block
+//     text-transform: capitalize
+//     font-size: $font-size-small
+
+//     &:hover
+//       text-decoration: underline
+
+//     &.active
+//       color: $blue
+
+//   .h1, .h2
+//     margin: 5px 0
+//     font-weight: bold
+//     color: black
+
+//   a:not(.h1):not(.h2):not(.button)
+//     color: $gray
+//     padding-left: 10px
+
+// #slider
+//   background: $blue
+//   width: 3px
+//   height: 20px
+//   position: absolute
+//   margin-left: -10px
+//   transition: all 250ms ease-out 0
+//   -webkit-transition: all 250ms ease-out 0
+
+// @media screen and (max-width: 650px)
+
+//   nav.docs
+//     display: none
