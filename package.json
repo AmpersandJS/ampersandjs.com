@@ -12,9 +12,10 @@
     "bluebird": "*",
     "jade": "~1.1.5",
     "marked": "0.3.2",
-    "module-details": "^1.0.1",
+    "module-details": "^1.1.0",
     "request": "~2.33.0",
-    "rimraf": ""
+    "rimraf": "",
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "servedir": "*"

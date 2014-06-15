@@ -1,38 +1,22 @@
 var pack = require('./package.json');
 var fs = require('fs');
-var request = require('request');
 var jade = require('jade');
 var marked = require('marked');
 var async = require('async');
-var rmrf = require('rimraf');
 var templateGlobals = {};
-var jadeTemplate = fs.readFileSync(__dirname + '/docs/index.jade', 'utf8');
 var includes = [];
 var intro = marked(fs.readFileSync(__dirname + '/intro.md', 'utf8'));
 var getModules = require('./lib/get-modules');
+var _ = require('underscore');
+
 
 console.log("INTRO", intro.length);
-
-// replace include lines with
-jadeTemplate = jadeTemplate.replace(/(?:@gendoc) (.*)$/gim, function (line, match, index) {
-    var split = match.split(' ');
-    var label = split[0];
-    var path = split[1];
-    includes.push({
-        label: label,
-        path: path,
-        html: '',
-        json: ''
-    });
-    return 'div.include!= globals.modules["' + label + '"]';
-});
-
 
 getModules(pack.coreModules, function (err, modules) {
 
     templateGlobals.modules = modules;
 
-    jade.render(jadeTemplate, {
+    jade.render(fs.readFileSync(__dirname + '/docs/index.jade', 'utf8'), {
         globals: templateGlobals,
         pretty: true,
         filename: __dirname + '/docs/index.jade'
@@ -41,3 +25,22 @@ getModules(pack.coreModules, function (err, modules) {
         fs.writeFileSync(__dirname + '/docs/index.html', html, 'utf8');
     });
 });
+
+getModules(pack.coreModules.concat(pack.formModules), function (err, modules) {
+    var recentlyUpdated = _.sortBy(modules, function (module) {
+        var latest = module['dist-tags'].latest;
+        var date = new Date(module.time[latest]);
+        return date;
+    }).reverse().slice(0, 3);
+
+
+    jade.render(fs.readFileSync(__dirname + '/index.jade', 'utf8'), {
+        globals: {recent: recentlyUpdated},
+        pretty: true,
+        filename: __dirname + '/index.jade'
+    }, function (err, html) {
+        if (err) throw err;
+        fs.writeFileSync(__dirname + '/index.html', html, 'utf8');
+    });
+
+})

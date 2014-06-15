@@ -34,24 +34,16 @@ block content
         a.button.button-primary(href="/learn") Discover Ampersand
       .releases-list
         h3 Recent releases
-        .module-card
-          h4.module-name ampersand
-          p.module-version version 1.3.2
-          p.module-links
-            a(href="#") github
-            a(href="#") npm
-        .module-card
-          h4.module-name ampersand-sync
-          p.module-version version 1.0.1
-          p.module-links
-            a(href="#") github
-            a(href="#") npm
-        .module-card
-          h4.module-name webrtcsupport
-          p.module-version version 0.7.4
-          p.module-links
-            a(href="#") github
-            a(href="#") npm
+        for module in globals.recent
+          - var split = new Date(module.time[module['dist-tags'].latest]).toDateString().split(' ');
+          - var dateString = split.slice(1, 3).join(' ') + ', ' + split[3];
+          .module-card
+            h4.module-name= module.name
+            p.module-version= 'v' + module['dist-tags'].latest + ' – ' + dateString
+            p.module-links
+              a(href= module.homepage) github
+              a(href= module.npmlink) npm
+        
         a.button.button-primary(href="/contribute") How to contribute
 
     hr
