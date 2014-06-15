@@ -23,51 +23,1078 @@
   <body>
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="#" class="section-top">Getting Started</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-top active">Ampersand-model</a><a href="#" class="section-sub">Installation</a><a href="#" class="section-sub">Browser Compatibility</a><a href="#" class="section-sub">Types of State</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-top">Section Title</a><a href="#" class="section-sub">This is a super long title wow it's really long!</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-top">Section Title</a><a href="#" class="section-top">Section Title</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-top">Section Title</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a><a href="#" class="section-sub">Sub Nav Item</a></nav>
+      <nav class="nav-docs"><a href="#getting-started" class="section-top">Getting Started</a><a href="#ampersand" class="section-top">ampersand.js app scaffolding</a><a href="#ampersand-defaults" class="section-sub">Defaults</a><a href="#ampersand-changelog" class="section-sub">Changelog</a><a href="#ampersand-state" class="section-top">ampersand-state</a><a href="#ampersand-state-browser-support" class="section-sub">browser support</a><a href="#ampersand-state-install" class="section-sub">install</a><a href="#ampersand-state-in-pursuit-of-the-ultimate-observable-js-object" class="section-sub">In pursuit of the ultimate observable JS object.</a><a href="#ampersand-state-so-what-that39s-boring" class="section-sub">So what?! That&#39;s boring.</a><a href="#ampersand-state-you-didn39t-invent-derived-properties-pal-codeltsarcasmgtcode" class="section-sub">You didn&#39;t invent derived properties, pal. <code>&lt;/sarcasm&gt;</code></a><a href="#ampersand-state-handling-relationships-between-objectsmodels-with-derived-properties" class="section-sub">Handling relationships between objects/models with derived properties</a><a href="#ampersand-state-cached-derived-properties-are-da-shiznit" class="section-sub">Cached, derived properties are da shiznit</a><a href="#ampersand-state-derived-properties-are-intelligently-triggered" class="section-sub">Derived properties are intelligently triggered</a><a href="#ampersand-state-derived-properties-don39t-emhaveem-to-be-cached" class="section-sub">Derived properties don&#39;t <em>have</em> to be cached.</a><a href="#ampersand-state-state-can-be-extended-as-many-times-as-you-want" class="section-sub">State can be extended as many times as you want</a><a href="#ampersand-state-child-models-and-collections" class="section-sub">child models and collections</a><a href="#ampersand-state-event-bubbling-derived-properties-based-on-children" class="section-sub">Event bubbling, derived properties based on children</a><a href="#ampersand-state-a-quick-note-about-instanceof-checks" class="section-sub">A quick note about instanceof checks</a><a href="#ampersand-state-changelog" class="section-sub">Changelog</a><a href="#ampersand-model" class="section-top">ampersand-model</a><a href="#ampersand-model-installing" class="section-sub">Installing</a><a href="#ampersand-model-browser-compatibility" class="section-sub">Browser compatibility</a><a href="#ampersand-model-types-of-state" class="section-sub">Types of state</a><a href="#ampersand-model-handling-model-relationships" class="section-sub">Handling model relationships</a><a href="#ampersand-model-why-do-this" class="section-sub">Why do this?</a><a href="#ampersand-model-explicit-model-definitions" class="section-sub">Explicit model definitions</a><a href="#ampersand-model-a-sample-model-with-comments" class="section-sub">A sample model with comments</a><a href="#ampersand-model-going-hardcore-quotstrictquot-definition" class="section-sub">Going hardcore &quot;strict&quot; definition</a><a href="#ampersand-model-setting-model-attributes" class="section-sub">Setting model attributes</a><a href="#ampersand-model-getting-model-attributes" class="section-sub">Getting model attributes</a><a href="#ampersand-model-running-the-tests" class="section-sub">Running the tests</a><a href="#ampersand-model-module-ampersand-model" class="section-sub">Module: ampersand-model</a><a href="#ampersand-collection" class="section-top">ampersand-collection</a><a href="#ampersand-collection-browser-support" class="section-sub">browser support</a><a href="#ampersand-collection-install" class="section-sub">install</a><a href="#ampersand-collection-massive-flexibility" class="section-sub">massive flexibility</a><a href="#ampersand-collection-a-quick-note-about-instanceof-checks" class="section-sub">A quick note about instanceof checks</a><a href="#ampersand-rest-collection" class="section-top">ampersand-rest-collection</a><a href="#ampersand-rest-collection-browser-support" class="section-sub">browser support</a><a href="#ampersand-rest-collection-install" class="section-sub">install</a><a href="#ampersand-rest-collection-example" class="section-sub">example</a><a href="#ampersand-view" class="section-top">ampersand-view</a><a href="#ampersand-view-browser-support" class="section-sub">Browser support</a><a href="#ampersand-view-install" class="section-sub">Install</a><a href="#ampersand-view-usage" class="section-sub">Usage</a><a href="#ampersand-view-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-changelog" class="section-sub">Changelog</a><a href="#ampersand-view-switcher" class="section-top">ampersand-view-switcher</a><a href="#ampersand-view-switcher-installing" class="section-sub">installing</a><a href="#ampersand-view-switcher-example-usage" class="section-sub">example usage</a><a href="#ampersand-view-switcher-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-switcher-changelog" class="section-sub">Changelog</a><a href="#ampersand-view-switcher-credits" class="section-sub">Credits</a><a href="#ampersand-router" class="section-top">ampersand-router</a><a href="#ampersand-router-install" class="section-sub">install</a><a href="#ampersand-router-example" class="section-sub">example</a>
+      </nav>
       <div class="docs-content">
         <section>
           <h1>Getting Started</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h2>Sub Nav Item Title</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h2>Sub Nav Item Title</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h2>Sub Nav Item Title</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
+          <p>Something friendly here :)</p>
         </section>
-        <section class="module">
-          <h1>Ampersand-model</h1>
+        <section class="module"><a name="ampersand" href="#ampersand" class="anchor">
+            <h1>ampersand.js app scaffolding</h1></a>
+          <div class="module-card">
+            <h4 class="module-name">ampersand</h4>
+            <p class="module-version">latest v1.6.1</p>
+            <p class="module-description">CLI tool for generating single page apps a. la. http://humanjavascript.com</p>
+            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand">github</a><a href="https://www.npmjs.org/package/ampersand">npm</a></p>
+          </div>
+          <div><p>Install it, then follow the prompts to generate a starting point for your app.</p>
+<pre><code>npm i ampersand -g &amp;&amp; ampersand
+</code></pre><a name="ampersand-defaults" class="anchor" href="#ampersand-defaults"><h2><span class="header-link"></span>Defaults</h2></a><p>You can optionally create a <code>.ampersandjsrc</code> file in your home folder containing JSON with your preferred defaults.</p>
+<p>Currently the only options are: </p>
+<pre><code class="undefinedjson">{
+    &quot;name&quot;: &quot;Your Name &lt;maybe_your_email@your_domain.com&gt;&quot;,
+    &quot;framework&quot;: &quot;express || hapi&quot;
+}
+</code></pre>
+<p>This config simply changes the suggested defaults when answering questions. They can still be overwritten when running the generator, but saves a bit of typing.</p>
+<a name="ampersand-changelog" class="anchor" href="#ampersand-changelog"><h2><span class="header-link"></span>Changelog</h2></a><ul>
+<li>1.0.1 - Fixing bug in console output for directory to install to.</li>
+<li>1.0.0 - Adding option to generate app that uses either express or hapi 2.0 as the server framework. Moving docs site to its own repo.</li>
+</ul>
+</div>
+        </section>
+        <section class="module"><a name="ampersand-state" href="#ampersand-state" class="anchor">
+            <h1>ampersand-state</h1></a>
+          <div class="module-card">
+            <h4 class="module-name">ampersand-state</h4>
+            <p class="module-version">latest v4.2.4</p>
+            <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
+            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
+          </div>
+          <div><p>An observable, extensible state object with derived watchable properties.</p>
+<p>Ampersand-state serves as a base object for <a href="http://github.com/ampersandjs/ampersand-model">ampersand-model</a> but is useful any time you want to track complex state.</p>
+<p><a href="https://github.com/ampersandjs/ampersand-model">ampersand-model</a> extends ampersand-state to include assumptions that you&#39;d want if you&#39;re using models to model date from a REST API. But by itself ampersand-state is useful for anytime you want something to model state, that fires events for changes and lets you define and listen to derived properties.</p>
+<a name="ampersand-state-browser-support" class="anchor" href="#ampersand-state-browser-support"><h2><span class="header-link"></span>browser support</h2></a><p><a href="https://ci.testling.com/ampersandjs/ampersand-state"><img src="https://ci.testling.com/ampersandjs/ampersand-state.png" alt="browser support">
+</a></p>
+<a name="ampersand-state-install" class="anchor" href="#ampersand-state-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-state
+</code></pre><a name="ampersand-state-in-pursuit-of-the-ultimate-observable-js-object" class="anchor" href="#ampersand-state-in-pursuit-of-the-ultimate-observable-js-object"><h2><span class="header-link"></span>In pursuit of the ultimate observable JS object.</h2></a><p>So much of building an application is managing state. Your app needs a single unadulterated <em>source of truth</em>. But in order to fully de-couple it from everything that cares about it, it needs to be observable.</p>
+<p>Typically that&#39;s done by allowing you to register handlers for when things change.</p>
+<p>In our case it looks like this:</p>
+<pre><code class="undefinedjs">// Require the lib
+var State = require(&#39;ampersand-state&#39;);
+
+// Create a constructor to represent the state we want to store
+var Person = State.extend({
+    props: {
+        name: &#39;string&#39;,
+        isDancing: &#39;boolean&#39;
+    }
+});
+
+// Create an instance of our object
+var person = new Person({name: &#39;henrik&#39;});
+
+// watch it
+person.on(&#39;change:isDancing&#39;, function () {
+    console.log(&#39;shake it!&#39;); 
+});
+
+// set the value and the callback will fire
+person.isDancing = true;
+</code></pre>
+<a name="ampersand-state-so-what-that39s-boring" class="anchor" href="#ampersand-state-so-what-that39s-boring"><h2><span class="header-link"></span>So what?! That&#39;s boring.</h2></a><p>Agreed. Though, there is some more subtle awesomeness in being able to observe changes that are set with a simple assigment: <code>person.isDancing = true</code> as opposed to <code>person.set(&#39;isDancing&#39;, true)</code> (either works, btw), but that&#39;s nothing groundbreaking.</p>
+<p>So, what else? Well, as it turns out, a <em>huge</em> amount of code that you write in a project is really in describing and tracking relationships between variables.</p>
+<p>So, what if our observable layer did that for us too?</p>
+<p>Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if it&#39;s total delta is &gt; 10 pixels.</p>
+<pre><code class="undefinedjs">var DraggedElementModel = State.extend({
+    props: {
+        x: &#39;number&#39;,
+        y: &#39;number&#39;
+    },
+    derived: {
+        // the name of our derived property
+        dragged: {
+            // the properties it depends on
+            deps: [&#39;x&#39;, &#39;y&#39;],
+            // how it&#39;s calculated
+            fn: function () {
+                // the distance formula
+                return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) &gt; 10;
+            }
+        }
+    }
+});
+
+var element = new DraggedElementModel({x: 0, y: 0});
+
+// now we can just watch for changes to &quot;dragged&quot;
+element.on(&#39;change:dragged&#39;, function (model, val) {
+    if (val) {
+        console.log(&#39;element has moved more than 10px&#39;);
+    } else {
+        console.log(&#39;element has moved less than 10px&#39;);
+    }
+});
+</code></pre>
+<a name="ampersand-state-you-didn39t-invent-derived-properties-pal-codeltsarcasmgtcode" class="anchor" href="#ampersand-state-you-didn39t-invent-derived-properties-pal-codeltsarcasmgtcode"><h2><span class="header-link"></span>You didn&#39;t invent derived properties, pal. <code>&lt;/sarcasm&gt;</code></h2></a><p>True, derived properties aren&#39;t a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, they&#39;re just accessed without calling a method. For example, using the draggable example above, the derived property is just <code>element.dragged</code>.</p>
+<a name="ampersand-state-handling-relationships-between-objectsmodels-with-derived-properties" class="anchor" href="#ampersand-state-handling-relationships-between-objectsmodels-with-derived-properties"><h2><span class="header-link"></span>Handling relationships between objects/models with derived properties</h2></a><p>Say you&#39;ve got an observable that you&#39;re using to model data from a RESTful API. Say that you&#39;ve got a <code>/users</code> endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we&#39;ve already fetched and created models for. From our user model we want to be able to easily access the group model. So, when passed to a template we can just access related group information.</p>
+<p>Cached, derived properties are perfect for handling this relationship:</p>
+<pre><code class="undefinedjs">var UserModel = State.extend({
+    props: {
+        name: &#39;string&#39;,
+        groupId: &#39;string&#39;
+    },
+    derived: {
+        groupModel: {
+            deps: [&#39;groupId&#39;],
+            fn: function () {
+                // we access our group collection from within 
+                // the derived property to grab the right group model.
+                return ourGroupCollection.get(this.groupId);
+            }
+        }
+    }
+});
+
+
+var user = new UserModel({name: &#39;henrik&#39;, groupId: &#39;2341&#39;});
+
+// now we can get the actual group model like so:
+user.groupModel;
+
+// As a bonus, it&#39;s even evented so you can listen for changes to the groupModel property.
+user.on(&#39;change:groupModel&#39;, function (model, newGroupModel) {
+    console.log(&#39;group changed!&#39;, newGroupModel);
+});
+</code></pre>
+<a name="ampersand-state-cached-derived-properties-are-da-shiznit" class="anchor" href="#ampersand-state-cached-derived-properties-are-da-shiznit"><h2><span class="header-link"></span>Cached, derived properties are da shiznit</h2></a><p>So, say you have a more &quot;expensive&quot; computation for model. Say you&#39;re parsing a long string for URLs and turning them into HTML and then wanting to reference that later. Again, this is built in.</p>
+<p>By default, derived properties are cached. </p>
+<pre><code class="undefinedjs">// assume this linkifies strings
+var linkify = require(&#39;urlify&#39;);
+
+var MySmartDescriptionModel = State.extend({
+    // assume this is a long string of text
+    description: &#39;string&#39;,
+    derived: {
+        linkified: {
+            deps: [&#39;description&#39;],
+            fn: function () {
+                return linkify(this.description);
+            }
+        }
+    }
+});
+
+var myDescription = new MySmartDescriptionModel({
+    description: &quot;Some text with a link. http://twitter.com/henrikjoreteg&quot;
+});
+
+// Now i can just reference this as many times as I want but it 
+// will never run it through the expensive function again.
+
+myDescription.linkified;
+</code></pre>
+<p>With the model above, the descrition will only be run through that linkifier method once, unless of course the description changes.</p>
+<a name="ampersand-state-derived-properties-are-intelligently-triggered" class="anchor" href="#ampersand-state-derived-properties-are-intelligently-triggered"><h2><span class="header-link"></span>Derived properties are intelligently triggered</h2></a><p>Just because an underlying property has changed, <em>doesn&#39;t mean the derived property has</em>. </p>
+<p>Cached derived properties will <em>only</em> trigger a <code>change</code> if the resulting calculated value has changed.</p>
+<p>This is <em>super</em> useful if you&#39;ve bound a derived property to a DOM property. This ensures that you won&#39;t ever touch the DOM unless the resulting value is <em>actually</em> different. Avoiding unecessary DOM changes is a huge boon for performance.</p>
+<p>This is also important for cases where you&#39;re dealing with fast changing attributes.</p>
+<p>Say you&#39;re drawing a realtime graph of tweets from the Twitter firehose, instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.</p>
+<pre><code class="undefinedjs">var MyGraphDataModel = State.extend({
+    props: {
+        numberOfTweets: &#39;number&#39;
+    },
+    derived: {
+        thousandTweets: {
+            deps: [&#39;numberOfTweets&#39;],
+            fn: function () {
+                return Math.floor(this.numberOfTweets / 1000);
+            }
+        }
+    }
+});
+
+// then just watch the property
+var data = new MyGraphDataModel({numberOfTweets: 555});
+
+// start adding &#39;em
+var increment = function () {
+    data.number += 1;
+}
+setInterval(increment, 50);
+
+data.on(&#39;change:thousandTweets&#39;, function () {
+    // will only get called every time is passes another 
+    // thousand tweets.
+});
+</code></pre>
+<a name="ampersand-state-derived-properties-don39t-emhaveem-to-be-cached" class="anchor" href="#ampersand-state-derived-properties-don39t-emhaveem-to-be-cached"><h2><span class="header-link"></span>Derived properties don&#39;t <em>have</em> to be cached.</h2></a><p>Say you want to calculate a value whenever it&#39;s accessed. Sure, you can create a non-cached derived property.</p>
+<p>If you say <code>cache: false</code> then it will fire a <code>change</code> event anytime any of the <code>deps</code> changes and it will be re-calculated each time its accessed.</p>
+<a name="ampersand-state-state-can-be-extended-as-many-times-as-you-want" class="anchor" href="#ampersand-state-state-can-be-extended-as-many-times-as-you-want"><h2><span class="header-link"></span>State can be extended as many times as you want</h2></a><p>Each state object you define will have and <code>extend</code> method on the constructor.</p>
+<p>That means you can extend as much as you want and the definitions will get merged.</p>
+<pre><code class="undefinedjs">var Person = State.extend({
+    props: {
+        name: &#39;string&#39;
+    },
+    sayHi: function () {
+        return &#39;hi, &#39; + this.name;
+    }
+});
+
+var AwesomePerson = Person.extend({
+    props: {
+        awesomeness: &#39;number&#39;
+    }
+});
+
+// Now awesome person will have both awesomeness and name properties
+var awesome = new AwesomePerson({
+    name: &#39;henrik&#39;,
+    awesomeness: 8
+});
+
+// and it will have the methods in the original
+awesome.sayHi(); // returns &#39;hi, henrik&#39;
+
+// it also maintains the prototype chain
+// so instanceof checks will work up the chain
+
+// so this is true
+awesome instanceof AwesomePerson; // true;
+
+// and so is this
+awesome instanceof Person; // true
+</code></pre>
+<a name="ampersand-state-child-models-and-collections" class="anchor" href="#ampersand-state-child-models-and-collections"><h2><span class="header-link"></span>child models and collections</h2></a><p>You can declare children and collections that will get instantiated on init as follows:</p>
+<pre><code class="undefinedjs">var State = require(&#39;ampersand-state&#39;);
+var Messages = require(&#39;./models/messages&#39;);
+var ProfileModel = require(&#39;./models/profile&#39;);
+
+
+var Person = State.extend({
+    props: {
+        name: &#39;string&#39;
+    },
+    collections: {
+        // `Messages` here is a collection
+        messages: Messages
+    },
+    children: {
+        // `ProfileModel` is another ampersand-state constructor
+        profile: ProfileModel
+    }
+});
+
+// When we instantiate an instance of a Person 
+// the Messages collection and ProfileModels
+// are instantiated as well
+
+var person = new Person();
+
+// so meetings exists as an empty collection
+person.meetings instanceof Meetings; // true
+
+// and profile exists as an empty `ProfileModel`
+person.profile instanceof ProfileModel; // true
+
+// This also provides some additional capabilities
+// when we instantiate a state object with some
+// data it will apply them to the collections and child
+// models as you might expect:
+var otherPerson = new Person({
+    messages: [
+        {from: &#39;someone&#39;, message: &#39;hi&#39;},
+        {from: &#39;someoneElse&#39;, message: &#39;yo!&#39;},
+    ],
+    profile: {
+        name: &#39;Joe&#39;, 
+        hairColor: &#39;black&#39;
+    }
+});
+
+// now messages would have a length
+otherPerson.messages.length === 2; // true
+
+// and the profile state object would be
+// populated
+otherPerson.profile.name === &#39;Joe&#39;; // true
+
+// The same works for `set`, it will apply it 
+// to children as well. 
+otherPerson.set({profile: {name: &#39;Mary&#39;}});
+
+// Since this a state object it triggers a `change:name` on 
+// the `profile` object. 
+// In addition, since it&#39;s a child that event propagates 
+// up. More on that below.
+</code></pre>
+<a name="ampersand-state-event-bubbling-derived-properties-based-on-children" class="anchor" href="#ampersand-state-event-bubbling-derived-properties-based-on-children"><h2><span class="header-link"></span>Event bubbling, derived properties based on children</h2></a><p>Say you want a simple way to listen for any changes that are represented in a tempalate.</p>
+<p>Let&#39;s say you&#39;ve got a <code>person</code> state object with a <code>profile</code> child. You want an easy way to listen for changes to either the base <code>person</code> object or the <code>profile</code>. In fact, you want to listen to anything related to the person object. </p>
+<p>Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain. </p>
+<p>Now we can listen for deeply nested changes to properties.</p>
+<p>And we can declare derived properties that depend on children. For example:</p>
+<pre><code class="undefinedjs">var Person = State.extend({
+    children: {
+        profile: Profile
+    },
+    derived: {
+        childsName: {
+            // now we can declare a child as a
+            // dependency
+            deps: [&#39;profile.name&#39;],
+            fn: function () {
+                return &#39;my child\&#39;s name is &#39; + this.profile.name;
+            }
+        }
+    }
+});
+
+var me = new Person();
+
+// we can listen for changes to the derived property
+me.on(&#39;change:childsName&#39;, function (model, newValue) {
+    console.log(newValue); // logs out `my child&#39;s name is henrik`
+});
+
+// so when a property of a child is changed the callback
+// above will be fired (if the resulting derived property is different)
+me.profile.name = &#39;henrik&#39;;
+</code></pre>
+<a name="ampersand-state-a-quick-note-about-instanceof-checks" class="anchor" href="#ampersand-state-a-quick-note-about-instanceof-checks"><h2><span class="header-link"></span>A quick note about instanceof checks</h2></a><p>With npm and browserify for module deps you can sometimes end up with a situation where, the same <code>state</code> constructor wasn&#39;t used to build a <code>state</code> object. As a result <code>instanceof</code> checks will fail. </p>
+<p>In order to deal with this (because sometimes this is a legitimate scenario), <code>state</code> simply creates a read-only <code>isState</code> property on all state objects that can be used to check whether or a not a given object is in fact a state object no matter what its constructor was.</p>
+<a name="ampersand-state-changelog" class="anchor" href="#ampersand-state-changelog"><h2><span class="header-link"></span>Changelog</h2></a></div>
+        </section>
+        <section class="module"><a name="ampersand-model" href="#ampersand-model" class="anchor">
+            <h1>ampersand-model</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-model</h4>
-            <p class="module-version">version 1.0.0</p>
-            <p class="module-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat.</p>
-            <p class="module-links"><a href="#">github</a><a href="#">npm</a></p>
+            <p class="module-version">latest v2.10.6</p>
+            <p class="module-description">ampersand-model helps you create observable models for your apps. Most commonly in clientside frameworks, your models are what hold data fetched from your API. But really, it's all about having a way to separate concerns. Your models should be your author</p>
+            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-model">github</a><a href="https://www.npmjs.org/package/ampersand-model">npm</a></p>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h2>Sub Nav Item Title</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h2>Sub Nav Item Title</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet.</li>
-            <li>Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <ol>
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet.</li>
-            <li>Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</li>
-          </ol>
-          <h3>h3 Another header if there was one</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h4>h4 More and more headers</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h5>h5 What does this one look like?</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
-          <h6>h6 What about this one?</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.</p>
+          <div><p>ampersand-model helps you create observable models for your apps. Most commonly in clientside frameworks, your models are what hold data fetched from your API. But really, it&#39;s all about having a way to separate concerns. Your models should be your authoritive &quot;source of truth&quot; when it comes to all state held in your application.</p>
+<p>ampersand-model takes what backbone models do a step further by forcing you to explicitly define what the model is going to store so that the model code can end up being self-documenting in that you can now simply look at the model code and see what they&#39;re expected to store.</p>
+<p>This is hugely important for enabling teams to work on the same app together. There&#39;s also a few extra goodies, like direct accessors (not having to use <code>.set()</code> and <code>.get()</code>), and intelligently evented dervied properties.</p>
+<a name="ampersand-model-installing" class="anchor" href="#ampersand-model-installing"><h2><span class="header-link"></span>Installing</h2></a><p>via npm:</p>
+<pre><code>npm install ampersand-model
+</code></pre><p>via bower: </p>
+<pre><code>bower install ampersand-model
+</code></pre><a name="ampersand-model-browser-compatibility" class="anchor" href="#ampersand-model-browser-compatibility"><h2><span class="header-link"></span>Browser compatibility</h2></a><p><a href="https://ci.testling.com/ampersandjs/ampersand-model"><img src="https://ci.testling.com/ampersandjs/ampersand-model.png" alt="testling badge"></a></p>
+<a name="ampersand-model-types-of-state" class="anchor" href="#ampersand-model-types-of-state"><h2><span class="header-link"></span>Types of state</h2></a><p>Take for instance a <code>selected</code> property on a model. That&#39;s likely something you would use to represent current UI state for the current browser session but not something you&#39;d want to save back to the API when calling a model&#39;s .save() method. So there really are two types of state. It&#39;s challenging to make that type of distinction with Backbone.</p>
+<p>ampersand-model supports three types of state that will get stored on a model: </p>
+<ul>
+<li><strong>properties</strong>: State that comes from (and will be sent back to) our API and represents the data persisted on the server.</li>
+<li><strong>session properties</strong>: State that represents current browser session state. </li>
+<li><strong>derived properties</strong>: These are read-only psuedo properties that are usually derived from properties or session properties. These are generally created for convenince or as a means to let you cache a computed result (read more below).</li>
+</ul>
+<p>In ampersand model you have to classify all your properties as either <code>prop</code> or a <code>session</code>. That includes declaring your <code>id</code> property. How ampersand-model handles properties that you have not pre-defined is determined by its <code>extraProperties</code> setting. But, by default properties that are <code>.set()</code> on a model that you have not defined are simply ignored.</p>
+<a name="ampersand-model-handling-model-relationships" class="anchor" href="#ampersand-model-handling-model-relationships"><h2><span class="header-link"></span>Handling model relationships</h2></a><p>From our experience, derived properties work really well for handling relationships between models. Let&#39;s say you&#39;ve got a model representing people and model representing a group of people. Often your API for fetching people would include something like a groupID as a property for each person you retrieve.</p>
+<a name="ampersand-model-why-do-this" class="anchor" href="#ampersand-model-why-do-this"><h2><span class="header-link"></span>Why do this?</h2></a><p>Backbone models have a lot of flexibility in that you don&#39;t have to define what you&#39;re wanting to store ahead of time. </p>
+<p>The only challenge with that is that for more complex applications is actually becomes quite difficult to remember what properties are available to you.</p>
+<p>Using ampersand models means they&#39;re much more self-documenting and help catch bugs. Someone new to the project can read the models and have a pretty good idea of how the app is put together.</p>
+<p>It also uses&#39;s ES5&#39;s fancy <code>Object.defineProperty</code> to treat model attributes as if they were properties.</p>
+<p>That means with Ampersand Model you can set an attribute like this: <code>user.name = &#39;henrik&#39;</code> and still get a <code>change:name</code> event fired. </p>
+<p>Obviously, this restriction also means that this won&#39;t work in browsers that don&#39;t support that. You can check specific browser support here: http://kangax.github.io/es5-compat-table/</p>
+<a name="ampersand-model-explicit-model-definitions" class="anchor" href="#ampersand-model-explicit-model-definitions"><h2><span class="header-link"></span>Explicit model definitions</h2></a><p>Schema definitions take an attribute called <code>props</code> to defined properties.</p>
+<p>Property names can be defined two different ways, either an array with <code>[type, required, default]</code>,
+or an object: <code>{ type: &#39;string&#39;, required: true, default: &#39;&#39; , allowNull: false}</code></p>
+<p>types can be: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code>, or <code>date</code>
+required: true, false (optional)
+default: any (optional)
+setOnce: true, false (optional)
+test: function (optional)
+allowNull: true, false (optional)
+values: <code>[&#39;some&#39;, &#39;valid&#39;, &#39;values&#39;]</code>(optional) </p>
+<p>Note that when defining with an array <code>type</code>, <code>required</code>, and <code>default</code>
+are the only property attributes you can set.</p>
+<p>If <code>required</code> is true, the attribute will always have a value even if it is not explicitly set or is cleared.  If a default is given, that will be used.  If no default is given a default for its data type will be used (e.g. &#39;&#39; for string, {} for object)</p>
+<p>If a <code>default</code> is given, the attribute will default to that value when the model is instantiated.</p>
+<p>If <code>setOnce</code> is true, the attribute will throw an error if anything tries to set its value more than once.</p>
+<p>If <code>values</code> is provided, you can only set that property to a value in the list. You can use this in combination with <code>type</code> to check both, or just use <code>values</code> and <code>default</code> by themselves. This is handy for <code>enum</code>-type stuff. For example:</p>
+<pre><code class="undefinedjs">props: {
+    alignment: {
+        values: [&#39;top&#39;, &#39;middle&#39;, &#39;bottom&#39;],
+        default: &#39;middle&#39;
+    }
+}
+</code></pre>
+<p>If given, <code>test</code> should be a function that expects the new value (and optionally the new type) of the attribute.  It should return an error message on failure, and false on success</p>
+<pre><code class="undefinedjs">props: {
+    firstName: [&#39;string&#39;, true, &#39;Jim&#39;]
+    lastName: {
+        type: &#39;string&#39;, 
+        required: false, 
+        default: &#39;Bob&#39; 
+    }
+}
+</code></pre>
+<a name="ampersand-model-a-sample-model-with-comments" class="anchor" href="#ampersand-model-a-sample-model-with-comments"><h2><span class="header-link"></span>A sample model with comments</h2></a><pre><code class="undefinedjs">var Person = AmpersandModel.extend({
+    // every ampersand model should have a type
+    type: &#39;member&#39;,
+    initialize: function () {
+        // main initialization function
+    },
+    // props are for properties that exist on the server
+    props: {
+        id: {
+            type: &#39;number&#39;,
+            setOnce: true
+        },
+        firstName: [&#39;string&#39;, true],
+        lastName: [&#39;string&#39;, true],
+        created: [&#39;date&#39;],
+        email: [&#39;string&#39;, true],
+        username: [&#39;string&#39;, true],
+        lastLogin: [&#39;date&#39;],
+        largePicUrl: [&#39;string&#39;],
+        department: {
+            type: &#39;number&#39;,
+            // you can optionally provide your own test function
+            test: function (val) {
+                if (val &gt; 20) {
+                    return &quot;Invalid department&quot;;
+                }
+            }
+        },
+        alignment: {
+            // you can also specify a list of valid values
+            values: [&#39;top&#39;, &#39;middle&#39;, &#39;bottom&#39;],
+            default: &#39;middle&#39;
+        }
+    },
+    // derived properties and their dependencies. If any dependency changes
+    // that will also trigger a &#39;change&#39; event on the derived property so
+    // we know to re-render the template
+    derived: {
+        // fullName is 
+        fullName: {
+            // you can optionally define the properties this derived property
+            // depends on. That way if the underlying properties change you can
+            // listen for changes directly on the derived property.
+            deps: [&#39;firstName&#39;, &#39;lastName&#39;],
+            fn: function () {
+                return this.firstName + &#39; &#39; + this.lastName;
+            }
+        }
+    },
+    // Session properties are browser state for a model
+    // these trigger &#39;change&#39; events when set, but are not
+    // included when serializing or saving to server.
+    session: {
+        selectedTasks: [&#39;array&#39;, true, []],
+        lastPage: [&#39;string&#39;, true, &#39;tasks&#39;],
+        unread: [&#39;boolean&#39;, true, false],
+        active: [&#39;boolean&#39;, true, false]
+    },
+    // child collections that will be initted. They will
+    // be created at as a property of the same name as the
+    // key. The child collection will also be given a reference
+    // to its parent.
+    collections: {
+        messages: Messages
+    },
+    otherMethods: function (cb) {
+        // of course you can tack on whatever other methods you want
+    }
+});
+</code></pre>
+<a name="ampersand-model-going-hardcore-quotstrictquot-definition" class="anchor" href="#ampersand-model-going-hardcore-quotstrictquot-definition"><h2><span class="header-link"></span>Going hardcore &quot;strict&quot; definition</h2></a><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode">Strict mode</a> in JS is pretty great and is fairly well supported in modern browsers.</p>
+<p>If you want to be <em>really</em> hardcore about not letting you set properties that aren&#39;t defined, you can specify <code>seal: true</code> when defining your model.</p>
+<pre><code class="undefinedjs">// enable strict mode
+&quot;use strict&quot;;
+
+var MySuperStrictModel = AmpersandModel.extend({
+    // set this to true
+    seal: true,
+    // also throw errors for properties not defined
+    // when set via `set`.
+    extraProperties: &#39;reject&#39;,
+    // normal properties
+    props: {
+        name: &#39;string&#39;
+    }
+});
+
+// create an instance of this model
+var model = new MySuperStrictModel();
+
+// setting defined properties works like usual
+model.name = &#39;something&#39;;
+
+// BUT, setting a property that doesn&#39;t exist
+// will throw an error because the object is sealed.
+model.something = &#39;something else&#39;; // KABOOM!
+</code></pre>
+<a name="ampersand-model-setting-model-attributes" class="anchor" href="#ampersand-model-setting-model-attributes"><h2><span class="header-link"></span>Setting model attributes</h2></a><pre><code class="undefinedjs">// backbone:
+user.set(&#39;firstName&#39;, &#39;billy bob&#39;);
+
+// ampersand:
+user.firstName = &#39;billy bob&#39;;
+
+// p.s. you can still do it the other way in ampersand (so you can still pass options)
+user.set(&#39;firstName&#39;, &#39;billy bob&#39;, {silent: true})
+</code></pre>
+<a name="ampersand-model-getting-model-attributes" class="anchor" href="#ampersand-model-getting-model-attributes"><h2><span class="header-link"></span>Getting model attributes</h2></a><pre><code class="undefinedjs">// backbone:
+user.get(&#39;firstName&#39;);
+
+// ampersand
+user.firstName;
+</code></pre>
+<a name="ampersand-model-running-the-tests" class="anchor" href="#ampersand-model-running-the-tests"><h2><span class="header-link"></span>Running the tests</h2></a><pre><code>npm test
+</code></pre><p><em>note</em>: Much of the functionality of ampersand-model is actually inherited from <a href="https://github.com/ampersandjs/ampersand-state">ampersand-state</a> and is tested seperately there. In order to ensure compatibility with backbone to the extent possible we started with all the tests from Backbone and modified them to use ampersand-model. But over time they&#39;ve been spread out and converted to be run with <a href="https://github.com/substack/tape">tape</a> so we can automatically test against many browser versions with testling.</p>
+<a name="ampersand-model-module-ampersand-model" class="anchor" href="#ampersand-model-module-ampersand-model"><h2><span class="header-link"></span>Module: ampersand-model</h2></a><p>The module exports just one item, the ampersand-model constructor. It&#39;s has a method called <code>extend</code> that works as follows:</p>
+<a name="ampersand-model-extendmodeldefinition" class="anchor" href="#ampersand-model-extendmodeldefinition"><h3><span class="header-link"></span>.extend(modelDefinition)</h3></a><ul>
+<li>Returns: {Constructor} A custom constructor for generating instances of the model you defined.</li>
+<li><code>modelDefinition</code> {Object} An object containing your entire model definition<ul>
+<li><code>props</code> {Object} An object of named property definitions</li>
+<li><code>session</code> {Object} An object of named session property definitions</li>
+<li><code>derived</code> {Object} An object of named derived property definitions<ul>
+<li><code>derivedDefinition</code> {Object | Function} This can either be a single function or an object describing the derived property and its dependencies.<ul>
+<li><code>deps</code> {Array} An array containing strings of other property names or derived property names. When these change, the derived property is re-calculated and only if different than previous cached value, a <code>change</code> event is fired for the derived property.</li>
+<li><code>fn</code> {Function} A function that returns the value of the derived property. This function&#39;s <code>this</code> will be the model instance.</li>
+<li><code>cache</code> {Boolean} Default: <code>true</code> Whether or not to cache the result.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>initialize</code> {Function} Default: <code>function () {}</code> An overridable function that will be called as a last step in the instantiation process for your model. It get called with as the constructor got. </li>
+</ul>
+</li>
+</ul>
+<p><code>extend</code> is the main method you&#39;ll use to create model definitions. It returns a custom constructor that can be used to create instances of your custom model.</p>
+<p>As an example imagine two modules <code>app.js</code> and <code>UserModel.js</code>.</p>
+<p>The contents of <code>UserModel.js</code> defines a model:</p>
+<pre><code class="undefinedjs">var AmpersandModel = require(&#39;ampersand-model&#39;);
+
+// define a model
+var UserModel = AmpersandModel.extend({
+    props: {
+        name: &#39;string&#39;
+    }
+});
+
+var user = new User({name: &#39;henrik&#39;});
+
+console.log(user.name); // logs out &#39;henrik&#39;
+</code></pre>
+<a name="ampersand-model-datatypes" class="anchor" href="#ampersand-model-datatypes"><h3><span class="header-link"></span>.dataTypes</h3></a><p>The dataTypes</p>
+</div>
+        </section>
+        <section class="module"><a name="ampersand-collection" href="#ampersand-collection" class="anchor">
+            <h1>ampersand-collection</h1></a>
+          <div class="module-card">
+            <h4 class="module-name">ampersand-collection</h4>
+            <p class="module-version">latest v1.3.2</p>
+            <p class="module-description">A way to store/manage objects or models.</p>
+            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-collection">github</a><a href="https://www.npmjs.org/package/ampersand-collection">npm</a></p>
+          </div>
+          <div><p>A way to store/manage objects or models.</p>
+<p>Unlike other tools this makes no assumptions about how it&#39;s going to be used or what type of models it is going to contain. This makes it a very flexible/useful tool for modeling all kinds of stuff.</p>
+<p>It does not require underscore or jQuery, but instead makes it easy to extend with those methods if you&#39;d like.</p>
+<a name="ampersand-collection-browser-support" class="anchor" href="#ampersand-collection-browser-support"><h2><span class="header-link"></span>browser support</h2></a><p><a href="https://ci.testling.com/ampersandjs/ampersand-collection"><img src="https://ci.testling.com/ampersandjs/ampersand-collection.png" alt="browser support">
+</a></p>
+<a name="ampersand-collection-install" class="anchor" href="#ampersand-collection-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm i ampersand-collection
+</code></pre><a name="ampersand-collection-massive-flexibility" class="anchor" href="#ampersand-collection-massive-flexibility"><h2><span class="header-link"></span>massive flexibility</h2></a><p>The collection is a fairly low-level tool, in that it&#39;s useful for any time you want to be able to store JS objects in an array.</p>
+<p>In many ways it&#39;s simply an observable array of objects.</p>
+<p>It emits <code>add</code>, <code>remove</code> events and makes it possible to merge in a set of objects into an existing collection and emit change events appropriately.</p>
+<p>If you extend it with a <code>.model</code> property that contains a constructor, the collection will ensure that objects that don&#39;t match that constructor are instantiated before being added to the collection.</p>
+<p>For example:</p>
+<pre><code class="undefinedjs">var Collection = require(&#39;ampersand-collection&#39;);
+
+// can just store plain objects
+var basicCollection = new Collection([
+    {name: &#39;larry&#39;},
+    {name: &#39;curly&#39;},
+    {name: &#39;moe&#39;}
+]);
+</code></pre>
+<p>Adding <a href="http://github.com/AmpersandJS/ampersand-rest-mixin">ampersand-collection-rest-mixin</a> and <a href="http://github.com/AmpersandJS/ampersand-collection-underscore-mixin">ampersand-collection-underscore-mixin</a>. </p>
+<pre><code class="undefinedjs">var Collection = require(&#39;ampersand-collection&#39;);
+var restMixin = require(&#39;ampersand-collection-rest-mixin&#39;);
+var underscoreMixin = require(&#39;ampersand-collection-underscore-mixin&#39;);
+
+
+// or we can extend it with underscore and REST methods
+// to turn it into something similar to a Backbone Collection
+var RestfulCollection = Collection.extend(underscoreMixin, restMixin, {
+    url: &#39;/mystuff&#39;
+});
+
+var collection = new RestfulCollection();
+
+// does ajax request
+collection.fetch();
+</code></pre>
+<a name="ampersand-collection-a-quick-note-about-instanceof-checks" class="anchor" href="#ampersand-collection-a-quick-note-about-instanceof-checks"><h2><span class="header-link"></span>A quick note about instanceof checks</h2></a><p>With npm and browserify for module deps you can sometimes end up with a situation where, the same <code>collection</code> constructor wasn&#39;t used to build a <code>collection</code> object. As a result <code>instanceof</code> checks will fail. </p>
+<p>In order to deal with this (because sometimes this is a legitimate scenario), <code>collection</code> simply creates a read-only <code>isCollection</code> property on all collection objects that can be used to check whether or a not a given object is in fact a collection object no matter what its constructor was.</p>
+</div>
+        </section>
+        <section class="module"><a name="ampersand-rest-collection" href="#ampersand-rest-collection" class="anchor">
+            <h1>ampersand-rest-collection</h1></a>
+          <div class="module-card">
+            <h4 class="module-name">ampersand-rest-collection</h4>
+            <p class="module-version">latest v1.0.3</p>
+            <p class="module-description">ampersand-collection with REST and Underscore mixins.</p>
+            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-rest-collection">github</a><a href="https://www.npmjs.org/package/ampersand-rest-collection">npm</a></p>
+          </div>
+          <div><p>Extends ampersand-collection with REST and Underscore mixins.</p>
+<p>This makes ampersand-collection work and act a lot like Backbone.Collection, if you&#39;re planning on hitting a REST-ful API this is probably what you want to use.</p>
+<a name="ampersand-rest-collection-browser-support" class="anchor" href="#ampersand-rest-collection-browser-support"><h2><span class="header-link"></span>browser support</h2></a><p><a href="https://ci.testling.com/AmpersandJS/ampersand-rest-collection"><img src="https://ci.testling.com/AmpersandJS/ampersand-rest-collection.png" alt="testling badge"></a></p>
+<a name="ampersand-rest-collection-install" class="anchor" href="#ampersand-rest-collection-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-rest-collection
+</code></pre><a name="ampersand-rest-collection-example" class="anchor" href="#ampersand-rest-collection-example"><h2><span class="header-link"></span>example</h2></a><p>Define a collection</p>
+<pre><code class="undefinedjavascript">var Collection = require(&#39;ampersand-rest-collection&#39;);
+var Model = require(&#39;some-model&#39;);
+
+
+module.exports = Collection.extend({
+    model: Model,
+    url: &#39;/models&#39;
+});
+</code></pre>
+<p>Using it:</p>
+<pre><code class="undefinedjavascript">var Collection = require(&#39;./path-to-your-collection-module&#39;);
+
+
+var c = new Collection();
+
+// call RESTful methods
+c.fetch();
+
+// also has underscore mixins
+c.each(function (model) {
+    console.log(&#39;model:&#39;, model);
+});
+</code></pre>
+</div>
+        </section>
+        <section class="module"><a name="ampersand-view" href="#ampersand-view" class="anchor">
+            <h1>ampersand-view</h1></a>
+          <div class="module-card">
+            <h4 class="module-name">ampersand-view</h4>
+            <p class="module-version">latest v5.1.9</p>
+            <p class="module-version">beta v2.4.0</p>
+            <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
+            <p class="module-links"><a href="http://ampersandjs.com">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
+          </div>
+          <div><p>A set of common helpers and conventions for using as a base view for ampersand.js apps.</p>
+<p>What does it do?</p>
+<ol>
+<li>Gives you a proven pattern for managing/binding the contents of an element.</li>
+<li>Simple declarative property/template bindings without needing to include a template engine that does it for you. This keeps your logic out of your templates and lets you use a string of HTML as a fully dynamic template or just a simple function that returns an HTML string.</li>
+<li>The view&#39;s base element is replaced (or created) during a render. So, rather than having to specify tag type and attributes in javascript in the view definition you can just include that in your template like everything else.</li>
+<li>A way to render a collection of models within an element in the view, each with their own view, preserving order, and doing proper cleanup when the main view is removed.</li>
+<li>A simple way to render sub-views that get cleaned up when the parent view is removed.</li>
+</ol>
+<a name="ampersand-view-browser-support" class="anchor" href="#ampersand-view-browser-support"><h2><span class="header-link"></span>Browser support</h2></a><p><a href="https://ci.testling.com/ampersandjs/ampersand-view"><img src="https://ci.testling.com/ampersandjs/ampersand-view.png" alt="browser support">
+</a></p>
+<a name="ampersand-view-install" class="anchor" href="#ampersand-view-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-view
+</code></pre><a name="ampersand-view-usage" class="anchor" href="#ampersand-view-usage"><h2><span class="header-link"></span>Usage</h2></a><a name="ampersand-view-basics" class="anchor" href="#ampersand-view-basics"><h3><span class="header-link"></span>Basics</h3></a><p>Nothing special is required, just use <code>AmpersandView</code> in the same way as you would Backbone.View:</p>
+<pre><code class="undefinedjavascript">var MyView = AmpersandView.extend({
+    initialize: function () { ... }, 
+    render: function () { ... }
+});
+</code></pre>
+<a name="ampersand-view-declarative-bindings" class="anchor" href="#ampersand-view-declarative-bindings"><h3><span class="header-link"></span>Declarative Bindings</h3></a><p>Full description of the available binding types can be found here: https://github.com/henrikjoreteg/dom-bindings#binding-types</p>
+<p>A few examples below:</p>
+<pre><code class="undefinedjavascript">var MyView = AmpersandView.extend({
+    // set a `template` property of your view. This can either be
+    // a function that returns an HTML string or just a string if 
+    // no logic is required.
+    template: &#39;&lt;li&gt;&lt;a&gt;&lt;span class=&quot;userName&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&#39;, 
+    // Simple declarative bindings
+    // The key is the name of the model property
+    bindings: {
+        // the value is a selector, by default a text binding is assumed
+        // this would keep the model&#39;s `name` attribute in the span, even
+        // if it&#39;s changed.
+        &#39;model.name&#39;: &#39;.userName&#39;,
+
+        // You can add/remove a class based on a boolean property.
+        // Based on the truthiness of the `active` property an
+        // &quot;active&quot; class will be added or removed from element(s)
+        // that match the selector. without affecting other classes 
+        // that may alreay be there.
+        &#39;model.active&#39;: {
+            type: &#39;booleanClass&#39;,
+            selector: &#39;li&#39;,
+            // you can optionally specify a name like this
+            // name: &#39;is-active&#39;
+            // or even a true/false case like this:
+            // yes: &#39;is-active&#39;,
+            // no: &#39;is-not-active&#39;
+            // if no name is given it will use the property name
+            // by default.
+        },
+
+        // As you might have guessed, you can bind to any attribute you want
+        &#39;model.userUrl&#39;: {
+            type: &#39;attribute&#39;,
+            name: &#39;href&#39;,
+            selector: &#39;a&#39;
+        },
+
+        // This works for boolean attributes. The following would add and remove 
+        // the entire `checked` attribute (assuming the property value was a boolean)
+        selected: {
+            type: &#39;booleanAttribute&#39;,
+            selector: &#39;input&#39;,
+            name: &#39;checked&#39;
+        },
+
+        // If you really need to, you can have as many bindings as you want for the same
+        // property, just pass an array of binding definitions:
+        superActive: [
+            {
+                type: &#39;text&#39;,
+                selector: &#39;.username&#39;
+            },
+            {
+                type: &#39;class&#39;,
+                selector: &#39;li&#39;
+            },
+            // btw, also works for selectors that match multiple elements
+            {
+                type: &#39;booleanAttribute&#39;,
+                selector: &#39;.username, .thing&#39;
+            }
+        ]        
+    },
+    render: function () {
+        // method for rendering the view&#39;s template and binding all
+        // the model properties as described by `textBindings` above.
+        // You can also bind other attributes, and if you&#39;re using
+        // ampersand-model, you can bind derived properties too.
+        this.renderAndBind({what: &#39;some context object for the template&#39;});
+    }
+});
+</code></pre>
+<a name="ampersand-view-what-about-two-way-bindings" class="anchor" href="#ampersand-view-what-about-two-way-bindings"><h3><span class="header-link"></span>What about two-way bindings?</h3></a><p>Note that these are all one-way bindings. People love to talk about the feature of two-way bindings, but from my experience, the vast majority of the time it&#39;s not actually something that you want. Why make two different ways of doing the same thing? The most common two-way bindings that people do are for form elements, which, is super easy to do with the events hash. Plus, then it&#39;s very easy to configure exactly when you want the user action to actually change the model.</p>
+<p>Having said that, we may enable it anyway, in a future release, that&#39;s still up for discussion.</p>
+<a name="ampersand-view-handling-subviews" class="anchor" href="#ampersand-view-handling-subviews"><h3><span class="header-link"></span>handling subviews</h3></a><p>Often you want to render some other subview within a view. The trouble is that when you remove the parent view, you also want to remove all the subviews.</p>
+<p>AmpersandView has two convenience method for handling this that&#39;s also used by <code>renderCollection</code> to do cleanup.</p>
+<p>It looks like this:</p>
+<pre><code class="undefinedjavascript">var AmpersandView = require(&#39;ampersand-view&#39;);
+
+// This can be *anything* with a `remove` method
+// and an `el` property... such as another ampersand-view
+// instance.
+// But you could very easily write other little custom views
+// that followed the same conventions. Such as custom dialogs, etc.
+var SubView = require(&#39;./my-sub-view&#39;);
+
+module.exports = AmpersandView.extend({
+    render: function () {
+        // this takes a view instance and either an element, or element selector 
+        // to draw the view into.
+        this.renderSubview(new Subview(), &#39;.someElementSelector&#39;);
+
+        // There&#39;s an even lower level api that `renderSubview` usees
+        // that will do nothing other than call `remove` on it when
+        // the parent view is removed.
+        this.registerSubview(new Subview());
+    }
+})
+</code></pre>
+<p><strong>registerSubview also, stores a reference to the parent view on the subview as <code>.parent</code></strong></p>
+<a name="ampersand-view-api-reference" class="anchor" href="#ampersand-view-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><p>Note that this is a fork of Backbone&#39;s view so most of the public methods/properties here still exist: http://backbonejs.org/#View</p>
+<a name="ampersand-view-template" class="anchor" href="#ampersand-view-template"><h3><span class="header-link"></span>.template</h3></a><p>The <code>.template</code> is a property for the view prototype. It should either be a string of HTML or a function that returns a string of HTML. It isn&#39;t required, but it is used as a default for calling <code>renderAndBind</code> and <code>renderWithTemplate</code>.</p>
+<p>The important thing to note is that the <em>HTML should not have more than one root element</em>. This is because the view code assumes that it has one and only one root element that becomes the <code>.el</code> property of the instantiated view.</p>
+<a name="ampersand-view-autorender" class="anchor" href="#ampersand-view-autorender"><h3><span class="header-link"></span>.autoRender</h3></a><p>The <code>.autoRender</code> property lets you optionally specify that the view should just automatically render with all the defaults. This requires that you at minimum specify a <a href="#template">template</a> string of function.</p>
+<p>By setting <code>autoRender: true</code> the view will simply call <code>.renderAndBind</code> for you (after your <code>initialize</code> method if present). So for simple views, if you&#39;ve got a few bindings and a template your whole view could just be really and declarative like this:</p>
+<pre><code class="undefinedjs">var AmpersandView = require(&#39;ampersand-view&#39;);
+
+
+module.exports = AmpersandView.extend({
+    autoRender: true,
+    template: &#39;&lt;div&gt;&lt;span id=&quot;username&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#39;,
+    bindings: {
+        name: &#39;#username&#39;
+    } 
+});
+</code></pre>
+<p><strong>Note:</strong> if you are using a template function (and not a string) the template function will get called with a context argument that looks like this:</p>
+<pre><code class="undefinedjs">this.renderAndBind({
+    model: this.model,
+    collection: this.collection
+}, this.template);
+</code></pre>
+<a name="ampersand-view-rendercollectioncollection-itemview-containerel-viewoptions" class="anchor" href="#ampersand-view-rendercollectioncollection-itemview-containerel-viewoptions"><h3><span class="header-link"></span>.renderCollection(collection, ItemView, containerEl, [viewOptions])</h3></a><ul>
+<li><code>collection</code> {Backbone Collection} The instantiated collection we wish to render.</li>
+<li><code>itemViewClass</code> {View Constructor} The view constructor that will be instantiated for each model in the collection. This view will be instantiated with a reference to the model and collection and the item view&#39;s <code>render</code> method will be called with an object containing a reference to the containerElement as follows: <code>.render({containerEl: &lt;&lt; element &gt;&gt;})</code>.</li>
+<li><code>containerEl</code> {Element} The element that should hold the collection of views.</li>
+<li><code>viewOptions</code> {Object} [optional] Additional options <ul>
+<li><code>viewOptions</code> {Object} Options object that will get passed to the <code>initialize</code> method of the individual item views.</li>
+<li><code>filter</code> {Function} [optional] Function that will be used to determine if a model should be rendered in this collection view. It will get called with a model and you simply return <code>true</code> or <code>false</code>.</li>
+<li><code>reverse</code> {Boolean} [optional] Convenience for reversing order in which the items are rendered.</li>
+</ul>
+</li>
+</ul>
+<p>This method will maintain this collection within that container element. Including proper handling of add, remove, sort, reset, etc. </p>
+<p>Also, when the parent view gets <code>.remove()</code>&#39;ed any event handlers registered by the individual item views will be properly removed as well. </p>
+<p>Each item view will only be <code>.render()</code>&#39;ed once (unless you change that within the item view itself).</p>
+<a name="ampersand-view-example" class="anchor" href="#ampersand-view-example"><h4><span class="header-link"></span>Example:</h4></a><pre><code class="undefinedjavascript">// some view for individual items in the collection
+var ItemView = AmpersandView.extend({ ... });
+
+// the main view
+var MainView = AmpersandView.extend({
+    template: &#39;&lt;section class=&quot;page&quot;&gt;&lt;ul class=&quot;itemContainer&quot;&gt;&lt;/ul&gt;&lt;/section&gt;&#39;,
+    render: function (opts) {
+        // render our template as usual
+        this.renderAndBind();
+
+        // call renderCollection with these arguments:
+        // 1. collection
+        // 2. which view to use for each item in the list
+        // 3. which element within this view to use as the container
+        // 4. options object (not required):
+        //      {
+        //          // function used to determine if model should be included
+        //          filter: function (model) {},
+        //          // boolean to specify reverse rendering order
+        //          reverse: false,
+        //          // view options object (just gets passed to item view&#39;s `initialize` method)
+        //          viewOptions: {}
+        //      }
+        this.renderCollection(this.collection, ItemView, this.$(&#39;.itemContainer&#39;)[0], opts);
+        return this;
+    }  
+})
+</code></pre>
+<a name="ampersand-view-registersubviewviewinstance" class="anchor" href="#ampersand-view-registersubviewviewinstance"><h3><span class="header-link"></span>.registerSubview(viewInstance)</h3></a><ul>
+<li>viewInstance {Object} Any object with a &quot;remove&quot; method, typically an instantiated view. But doesn&#39;t have to be, it can be anything with a remove method. The remove method doesn&#39;t have to actually remove itself from the DOM (since the parent view is being removed anyway), it is generally just used for unregistering any handler that it set up.</li>
+</ul>
+<a name="ampersand-view-rendersubviewviewinstance-containerel" class="anchor" href="#ampersand-view-rendersubviewviewinstance-containerel"><h3><span class="header-link"></span>.renderSubview(viewInstance, containerEl)</h3></a><ul>
+<li>viewInstance {Object} Any object with a <code>.remove()</code>, <code>.render()</code> and an <code>.el</code> property that is the DOM element for that view. Typically this is just an instantiated view. </li>
+<li>containerEl {Element | String | jQueryElement} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed human view runs <code>this.$(&quot;YOUR STRING&quot;)</code> to try to grab the element that should contain the sub view.</li>
+</ul>
+<p>This method is just sugar for the common use case of instantiating a view and putting in an element within the parent.</p>
+<p>It will:</p>
+<ol>
+<li>fetch your container (if you gave it a selector string)</li>
+<li>register your subview so it gets cleaned up if parent is removed and so <code>view.parent</code> will be available when your subview&#39;s <code>render</code> method gets called</li>
+<li>call the subview&#39;s <code>render()</code> method</li>
+<li>append it to the container</li>
+<li>return the subview</li>
+</ol>
+<a name="ampersand-view-example" class="anchor" href="#ampersand-view-example"><h4><span class="header-link"></span>Example:</h4></a><pre><code class="undefinedjs">var view = AmpersandView.extend({
+    template: &#39;&lt;li&gt;&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;/li&gt;&#39;,
+    render: function () {
+        this.renderAndBind();
+
+        ...
+
+        var model = this.model;
+        this.renderSubview(new SubView({
+            model: model
+        }), &#39;.container&#39;);
+
+        ... 
+
+    } 
+});
+</code></pre>
+<a name="ampersand-view-renderandbindcontext-template" class="anchor" href="#ampersand-view-renderandbindcontext-template"><h3><span class="header-link"></span>.renderAndBind([context], [template])</h3></a><ul>
+<li><code>context</code> {Object | null} [optional] The context that will be passed to the template function, usually <code>{model: this.model}</code>.</li>
+<li><code>template</code> {Function | String} [optional] A function that returns HTML or a string of HTML.</li>
+</ul>
+<p>This is shortcut for the default rendering you&#39;re going to do in most every render method, which is: use the template property of the view to replace <code>this.el</code> of the view and re-register all handlers from the event hash and any other binding as described above.</p>
+<a name="ampersand-view-example" class="anchor" href="#ampersand-view-example"><h4><span class="header-link"></span>Example:</h4></a><pre><code class="undefinedjs">var view = AmpersandView.extend({
+    template: &#39;&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;&#39;,
+    bindings: {
+        &#39;name&#39;: &#39;a&#39;
+    },
+    events: {
+        &#39;click a&#39;: &#39;handleLinkClick&#39;
+    },
+    render: function () {
+        // this does everything
+        // 1. renders template
+        // 2. registers delegated click handler
+        // 3. inserts and binds the &#39;name&#39; property
+        //    of the view&#39;s `this.model` to the &lt;a&gt; tag.
+        this.renderAndBind();
+    }
+});
+</code></pre>
+<a name="ampersand-view-renderwithtemplatecontext-template" class="anchor" href="#ampersand-view-renderwithtemplatecontext-template"><h3><span class="header-link"></span>.renderWithTemplate([context], [template])</h3></a><ul>
+<li><code>context</code> {Object | null} The context object that will be passed to the template function if it&#39;s a function.</li>
+<li><code>template</code> {Function | String} [optional] template function that returns a string of HTML or a string of HTML. If it&#39;s not passed, it will default to the <code>template</code> property in the view.</li>
+</ul>
+<p>This is shortcut for doing everything we need to do to render and fully replace current root element with the template that our view is wanting to render. In typical backbone view approaches you never replace the root element. But from our experience, it&#39;s nice to see the <em>entire</em> html structure represented by that view in the template code. Otherwise you end up with a lot of wrapper elements in your DOM tree.</p>
+<a name="ampersand-view-getbyrolename" class="anchor" href="#ampersand-view-getbyrolename"><h3><span class="header-link"></span>.getByRole(name)</h3></a><ul>
+<li><code>name</code> {String} The name of the &#39;role&#39; attribute we&#39;re searching for.</li>
+</ul>
+<p>This is for convenience and also to encourage the use of the <code>role</code> attribute for grabbing elements from the view. Using roles to select elements in your view makes it much less likely that designers and JS devs accidentally break each other&#39;s code. This will work even if the <code>role</code> attribute is on the view&#39;s root <code>el</code>.</p>
+<a name="ampersand-view-example" class="anchor" href="#ampersand-view-example"><h4><span class="header-link"></span>Example:</h4></a><pre><code class="undefinedjs">var view = AmpersandView.extend({
+    template: &#39;&lt;li&gt;&lt;img role=&quot;avatar&quot; src=&quot;/user.png&quot;/&gt;&lt;/li&gt;&#39;,
+    render: function () {
+        this.renderAndBind();
+
+        // cache an element for easy reference by other methods
+        this.imgEl = this.getByRole(&#39;avatar&#39;);
+    } 
+});
+</code></pre>
+<a name="ampersand-view-changelog" class="anchor" href="#ampersand-view-changelog"><h2><span class="header-link"></span>Changelog</h2></a><ul>
+<li>1.6.3 <a href="https://github.com/HenrikJoreteg/ampersand-view/compare/v1.6.2...v1.6.3">diff</a> - Move throw statment for too many root elements inside non <code>&lt;body&gt;</code> case.</li>
+<li>1.6.2 <a href="https://github.com/HenrikJoreteg/ampersand-view/compare/v1.6.1...v1.6.2">diff</a> - Make <code>getByRole</code> work even if <code>role</code> attribute is on the root element. Throws an error if your view template contains more than one root element.</li>
+<li>1.6.1 <a href="https://github.com/HenrikJoreteg/ampersand-view/compare/v1.6.0...v1.6.1">diff</a> - Make sure renderSubview registers the subview first, so it has a <code>.parent</code> before it calls <code>.render()</code> on the subview.</li>
+<li>1.6.0 <a href="https://github.com/HenrikJoreteg/ampersand-view/compare/v1.5.0...v1.6.0">diff</a> - Adding <code>getByRole</code> method</li>
+<li>1.5.0 - Adding bower.json, adding missing dev dependencies, other small bugfixes.</li>
+<li>1.4.1 - Removing elements without using jQuery&#39;s <code>.empty()</code> in renderCollection. (fixes: https://github.com/HenrikJoreteg/ampersand-view/issues/13)</li>
+<li>1.4.0 - Adding <code>parent</code> reference to subviews registered via registerSubview</li>
+</ul>
+</div>
+        </section>
+        <section class="module"><a name="ampersand-view-switcher" href="#ampersand-view-switcher" class="anchor">
+            <h1>ampersand-view-switcher</h1></a>
+          <div class="module-card">
+            <h4 class="module-name">ampersand-view-switcher</h4>
+            <p class="module-version">latest v0.3.0</p>
+            <p class="module-description">A utility for swapping out views inside a container element.</p>
+            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
+          </div>
+          <div><p>This module does one thing: <em>it helps you swap out views inside of an element</em>. It&#39;s compatible with ampersand-view, backbone views and any view that has an <code>.el</code>, <code>.render</code> and <code>.remove()</code></p>
+<p>What might you do with it?</p>
+<ul>
+<li>build a page container for your app.</li>
+<li>build a system for managing display of modals in your single page app.</li>
+<li>animate a transition between showing any two views.</li>
+</ul>
+<p>What it does</p>
+<ul>
+<li>Takes an instantiated view and renders it in the container.</li>
+<li>Removes the existing view from the container and calls <code>remove</code> on it.</li>
+<li>Makes it easy to do custom stuff as views are added and removed.</li>
+<li>Works either synchronously or asynchronously depending on whether you want to animate transitions between the views.</li>
+<li>Makes no assumptions about what your views do or how they&#39;re structured except the following:<ul>
+<li>Views should have an <code>.el</code> property that is the root element of the view.</li>
+<li>Views should have a <code>.remove()</code> method that cleans up and unbinds methods accordingly.</li>
+<li>If your view has a <code>.render()</code> method it will get called before it&#39;s shown.</li>
+<li>Beyond this, they could be any object.</li>
+</ul>
+</li>
+<li>IT DOES VERY LITTLE ELSE (and <em>that</em> is a feature)</li>
+</ul>
+<a name="ampersand-view-switcher-installing" class="anchor" href="#ampersand-view-switcher-installing"><h2><span class="header-link"></span>installing</h2></a><pre><code>npm install ampersand-view-switcher
+</code></pre><a name="ampersand-view-switcher-example-usage" class="anchor" href="#ampersand-view-switcher-example-usage"><h2><span class="header-link"></span>example usage</h2></a><p>Here&#39;s an example of how you might use the view switcher to handle page views within your ampersand app.</p>
+<p><code>mainview.js</code></p>
+<pre><code class="undefinedjs">var HumanView = require(&#39;ampersand-view&#39;);
+var ViewSwitcher = require(&#39;ampersand-view-switcher&#39;);
+var templates = require(&#39;./templates&#39;);
+
+module.exports = HumanView.extend({
+    template: templates.body,
+    render: function () {
+        // render our template
+        this.renderAndBind();
+
+        // grab the element without our template based on its &quot;role&quot; attribute
+        this.pageContainer = this.getByRole(&#39;page-container&#39;);
+
+        // set up our page switcher for that element
+        this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
+            // here we provide a few things we&#39;d like to do each time
+            // we switch pages in the app.
+            show: function (newView, oldView) {
+                // set our document title
+                document.title = newView.pageTitle || &#39;my awesome app&#39;;
+                // scroll to the top
+                document.body.scrollTop = 0;
+                // perhaps store a reference to our current page on our
+                // app global for easy access from the browser console.
+                app.currentPage = view;
+            }
+        });
+    } 
+});
+</code></pre>
+<p>Or if you wanted to animate them you can do it asynchronously like so:</p>
+<pre><code class="undefinedjs">// set up our page switcher for that element
+this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
+    // whether or not to wait for remove to be done before starting show
+    waitForRemove: true,
+    // here we provide a few things to do before the element gets
+    // removed from the DOM.
+    hide: function (oldView, newView, cb) {
+        // it&#39;s inserted and rendered for me so we&#39;ll add a class 
+        // that has a corresponding CSS transition.
+        view.el.classList.add(&#39;animateOut&#39;);
+        // give it time to finish (yes there are other ways to do this)
+        setTimeout(cb, 1000);
+    },
+    // here we provide a few things we&#39;d like to do each time
+    // we switch pages in the app.
+    show: function (view, oldView) {
+        // it&#39;s inserted and rendered for me
+        document.title = newView.pageTitle || &#39;app name&#39;;
+        document.body.scrollTop = 0;
+
+        // store an additional reference, just because
+        app.currentPage = newView;
+
+        view.el.classList.add(&#39;animateIn&#39;);
+        setTimeout(cb, 2000)
+    }
+});
+</code></pre>
+<a name="ampersand-view-switcher-api-reference" class="anchor" href="#ampersand-view-switcher-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-view-switcher-class-viewswitcherelement-options" class="anchor" href="#ampersand-view-switcher-class-viewswitcherelement-options"><h3><span class="header-link"></span>Class: ViewSwitcher(element, [options])</h3></a><ul>
+<li><code>element</code> {Element} The DOM element that should contain the views.</li>
+<li><code>options</code> {Object} [optinal]<ul>
+<li><code>show</code> {Function} [optional] A function that gets called when a view is being shown. It&#39;s passed the new view, the previous view (if relevant), and a callback. If you name 3 incoming arguments for example <code>function (newView, oldView, callback) { ... }</code> the view switcher will wait for you to call the callback before it&#39;s considered ready. If you only use one or two like this: <code>function (newView, oldView) { ... }</code> it won&#39;t wait for you to call a callback.</li>
+<li><code>hide</code> {Function} [optional] A function that gets called when a view is being removed. It&#39;s passed the old view, the new view (if relevant), and a callback. If you name 3 incoming arguments for example <code>function (oldView, newView, callback) { ... }</code> the view switcher will wait for you to call the callback before it&#39;s considered ready. If you only use one or two like this: <code>function (oldView, newView) { ... }</code> it won&#39;t wait for you to call a callback.</li>
+<li><code>waitForRemove</code> {Boolean} [default: <code>false</code>] Whether or not to wait until your <code>hide</code> animation callback gets called before starting your <code>show</code> animation.</li>
+<li><code>empty</code> {Function} [optional] A function that gets called any time the view switcher is empty. Including when you instantiate it without giving it a view to start with.</li>
+<li><code>view</code> {View} [optional] A view instance to start with.</li>
+</ul>
+</li>
+</ul>
+<a name="ampersand-view-switcher-method-setviewinstance" class="anchor" href="#ampersand-view-switcher-method-setviewinstance"><h4><span class="header-link"></span>Method: .set(viewInstance)</h4></a><ul>
+<li><code>viewInstance</code> {View} The new view to render. </li>
+</ul>
+<p>The instantiated view switcher has this one main method. Simply call it with the new view you wish to show. </p>
+<p>This is most likely going to be an instantiated <a href="https://github.com/ampersandjs/ampersand-view">ampersand-view</a> or Backbone.View, but can be anything that has a <code>.el</code> property that represents that view&#39;s root element and <code>.remove()</code> method that cleans up after itself. In addition if your custom view object has a <code>.render()</code> method it will get called before the view is added to the DOM.</p>
+<a name="ampersand-view-switcher-method-clearcallback" class="anchor" href="#ampersand-view-switcher-method-clearcallback"><h4><span class="header-link"></span>Method: .clear(callback)</h4></a><ul>
+<li><code>callback</code> {Function} [optional] An optional callback when removed. Useful if you&#39;re doing custom animations.</li>
+</ul>
+<a name="ampersand-view-switcher-changelog" class="anchor" href="#ampersand-view-switcher-changelog"><h2><span class="header-link"></span>Changelog</h2></a><ul>
+<li>0.3.0 Adding empty callback, initial view option.</li>
+<li>0.0.1 Initial version (prototype stage, beware)</li>
+</ul>
+<a name="ampersand-view-switcher-credits" class="anchor" href="#ampersand-view-switcher-credits"><h2><span class="header-link"></span>Credits</h2></a><p>Written by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a> with inspiration and ideas from <a href="http://twitter.com/philip_roberts">@philip_roberts</a> and <a href="http://twitter.com/wraithgar">@wraithgar</a> and <a href="http://andyet.com/team">other awesome Yetis</a>.</p>
+</div>
+        </section>
+        <section class="module"><a name="ampersand-router" href="#ampersand-router" class="anchor">
+            <h1>ampersand-router</h1></a>
+          <div class="module-card">
+            <h4 class="module-name">ampersand-router</h4>
+            <p class="module-version">latest v1.0.0</p>
+            <p class="module-description">Clientside router with fallbacks for browsers that don't support pushState. Mostly lifted from Backbone.js.</p>
+            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-router">github</a><a href="https://www.npmjs.org/package/ampersand-router">npm</a></p>
+          </div>
+          <div><p>Clientside router with fallbacks for browsers that don&#39;t support pushState. Mostly lifted from Backbone.js.</p>
+<p>Ampersand-router also adds a <code>redirectTo</code> method which is handy for doing &quot;internal&quot; redirects without breaking backbutton functionality in the browser.</p>
+<a name="ampersand-router-install" class="anchor" href="#ampersand-router-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-router
+</code></pre><a name="ampersand-router-example" class="anchor" href="#ampersand-router-example"><h2><span class="header-link"></span>example</h2></a><pre><code class="undefinedjavascript">var Router = require(&#39;ampersand-router&#39;);
+
+
+module.exports = Router.extend({
+    routes: {
+        &#39;&#39;: &#39;home&#39;,
+        &#39;users/:id&#39;: &#39;userDetail&#39;,
+        &#39;info&#39;: &#39;info&#39;
+    },
+
+    // ------- ROUTE HANDLERS ---------
+    home: function () {
+        this.trigger(&#39;newPage&#39;, new HomePage());
+    },
+
+    // redirect example
+    userDetail: function (id) {
+        var user = app.users.get(id);
+        if (user) {
+            this.trigger(&#39;newPage&#39;, new HomePage());
+        } else {
+            this.redirectTo(&#39;users&#39;);
+        }
+    }
+
+    ...
+}};
+</code></pre>
+</div>
         </section>
       </div>
     </div>

@@ -1,18 +1,19 @@
 {
   "name": "docs.humanjavascript.com",
   "version": "0.0.0",
-  "description": "Documentation site for human javascript",
+  "description": "Documentation site for ampersand.js",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "henrikjoreteg/docs.humanjavascript.com"
+    "url": "ampersandjs/ampersandjs.com"
   },
   "dependencies": {
-    "marked": "0.3.2",
-    "request": "~2.33.0",
-    "jade": "~1.1.5",
     "async": "~0.2.9",
     "bluebird": "*",
+    "jade": "~1.1.5",
+    "marked": "0.3.2",
+    "module-details": "^1.0.1",
+    "request": "~2.33.0",
     "rimraf": ""
   },
   "devDependencies": {
@@ -22,6 +23,23 @@
     "build": "node build.js && echo 'built index.html'",
     "start": "servedir"
   },
+  "coreModules": [
+    "ampersand",
+    "ampersand-state",
+    "ampersand-model",
+    "ampersand-collection",
+    "ampersand-rest-collection",
+    "ampersand-view",
+    "ampersand-view-switcher",
+    "ampersand-router"
+  ],
+  "formModules": [
+    "ampersand-form-view",
+    "ampersand-input-view",
+    "ampersand-checkbox-view",
+    "ampersand-array-input-view",
+    "ampersand-select-view"
+  ],
   "author": "Henrik Joreteg",
   "license": "MIT"
 }

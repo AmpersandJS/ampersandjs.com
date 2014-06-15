@@ -8,83 +8,32 @@ block content
 
   .docs.cf
     nav.nav-docs
-
-      a.section-top(href="#") Getting Started
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-
-      a.section-top.active(href="#") Ampersand-model
-      a.section-sub(href="#") Installation
-      a.section-sub(href="#") Browser Compatibility
-      a.section-sub(href="#") Types of State
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-
-      a.section-top(href="#") Section Title
-      a.section-sub(href="#") This is a super long title wow it's really long!
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-
-      a.section-top(href="#") Section Title
-
-      a.section-top(href="#") Section Title
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-
-      a.section-top(href="#") Section Title
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
-      a.section-sub(href="#") Sub Nav Item
+      a.section-top(href= '#getting-started') Getting Started
+      for module, key in globals.modules
+        for item in module.toc
+          if item.depth === 1
+            a.section-top(href= '#' + item.linkText)!= item.text
+          if item.depth === 2
+            a.section-sub(href= '#' + item.linkText)!= item.text
 
     .docs-content
       section
         h1 Getting Started
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h2 Sub Nav Item Title
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h2 Sub Nav Item Title
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h2 Sub Nav Item Title
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
+        p Something friendly here :)
 
-      section.module
-        h1 Ampersand-model
-        .module-card
-          h4.module-name ampersand-model
-          p.module-version version 1.0.0
-          p.module-description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat.
-          p.module-links
-            a(href="#") github
-            a(href="#") npm
+      for module, key in globals.modules
+        section.module
+          a.anchor(name= module.name, href= '#' + module.name)
+            h1= module.title
+          .module-card
+            h4.module-name= module.name
+            for version, label in module['dist-tags']
+              p.module-version= label + ' v' + version
+            p.module-description= module.description
+            p.module-links
+              a(href= module.homepage) github
+              a(href='https://www.npmjs.org/package/#{module.name}') npm
 
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h2 Sub Nav Item Title
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h2 Sub Nav Item Title
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        ul
-          li Lorem ipsum dolor sit amet
-          li Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet.
-          li Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        ol
-          li Lorem ipsum dolor sit amet
-          li Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet.
-          li Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h3 h3 Another header if there was one
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h4 h4 More and more headers
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h5 h5 What does this one look like?
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
-        h6 h6 What about this one?
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat consequat nisl, quis facilisis massa tincidunt sit amet. Phasellus at vehicula nibh. Proin laoreet consectetur erat eget gravida.
+          div!= module.html
+
+        
