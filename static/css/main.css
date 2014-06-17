@@ -453,6 +453,16 @@ nav.nav-main .button {
   color: #828c8f;
   margin-left: 10px;
 }
+.nav-docs .section-sub-sub {
+  color: #828c8f;
+  margin-left: 10px;
+}
+.nav-docs .section-sub-sub code {
+  display: none;
+}
+.nav-docs .section-sub-sub:before {
+  content: '- ';
+}
 .hero {
   text-align: center;
 }
@@ -576,3 +586,4 @@ nav.nav-main .button {
   text-indent: -9999em;
   background-size: 17px auto;
 }
+
