@@ -53,15 +53,23 @@ block content
       h2
         span Great software isn’t built by rock stars. 
         | It’s built by teams.
-      p Join us for JS for Teams, a first-of-its-kind training adventure for dev teams eager to build complex apps with Ampersand.
-      a.button.button-secondary(href="#") Enroll now
+      p Join us for 
+        a(href="http://jsforteams.com") JS for Teams
+        | , a first-of-its-kind training adventure for dev teams eager to build complex apps with Ampersand.
+      p Next adventure embarks
+        strong July 24 &amp; 25
+        | .
+      a.button.button-secondary(href="http://jsforteams.com/its-aliiiive/") Enroll now
     hr
     .callout.human-javascript
       h2 A foundation for building simple but powerful JS apps with Ampersand
       img.humanjs-ipad(src="/static/images/human-javascript.png")
       //- Needs svg and png fallback
       .logo.logo-humanjs Human JavaScript
-      p Henrik Joreteg introduces practical patterns for powerfully simple application development. Human Javascript is a saner way to write JS.
+      p Henrik Joreteg introduces practical patterns for powerfully simple application development. 
+        a(href="http://humanjavascript.com/")
+          em Human Javascript 
+        | is a saner way to write JS.
       a.button.button-secondary(href="https://gumroad.com/l/humanjs") Buy the book for $39
       a.button.button-secondary(href="http://projects.joreteg.com/read.humanjavascript.com/") Read it free online
 
@@ -91,16 +99,28 @@ block content
           p.module-links
             a(href="#") github
             a(href="#") npm
-      a.button.button-secondary(href="/contribute") View all modules
+      a.button.button-primary(href="/contribute") View all modules
 
     hr
 
     .callout.community
-      h2 Companies Using Ampersand.js
-      .illustration.temp list of companies, yo
       h2 See Ampersand.js in Action
-      .illustration.temp list of projects, yo
-      a.button.button-secondary(href="/learn") Get started
+      .projects-list.cf
+        .project
+          a.logo.logo-andbang(href="https://andbang.com/") And Bang
+          p
+            a(href="https://andbang.com/") And Bang 
+            | helps same-page-ify your team with shared tasks and chat.
+        .project
+          a.logo.logo-talky(href="https://talky.io/") Talky
+          p
+            a(href="https://talky.io/") Talky 
+            | is truly simple video chat and screen sharing, powered by WebRTC and Ampersand.js.
+        .project
+          a.logo.logo-otalk(href="https://otalk.im/login") Otalk
+          p
+            a(href="https://otalk.im/login") Otalk 
+            | is an open source chat client powered XMPP, stanza.io, and WebRTC.
 
 
     //- header(role="banner", class="cf")
