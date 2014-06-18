@@ -1,0 +1,11 @@
+extends /templates/layout
+
+block content
+
+  .docs.cf
+    nav.nav-docs
+      for page in globals.pages
+        a.section-top(href= '/learn/' + page.url)= page.meta.pagetitle
+
+    .docs-content
+      section!= globals.content

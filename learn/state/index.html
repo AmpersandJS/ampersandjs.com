@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
+    <meta name="author" content="undefined">
+    <title>Ampersand.js - Ampersand State</title>
+    <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
+    <link rel="stylesheet" href="/static/css/plugins/normalize.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+  </head>
+  <body>
+    <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
+    <div class="docs cf">
+      <nav class="nav-docs"><a href="/learn/" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a>
+      </nav>
+      <div class="docs-content">
+        <section><h1 id="managing-state">Managing State</h1>
+<p>So much of application development is managing relationship between object properties. If you take a step back from your code you can often see that most of it is saying &quot;when this condition and this other condition are met, then this value should be &#39;x&#39;.&quot;</p>
+<p>This is especially true when building user interfaces.</p>
+<p>Stringing together a spaghetti bowl of <code>if</code> statements is a painful way to build a state machine that handles this. </p>
+<p>Often times it&#39;d be easier if we could just declare: &quot;this thing is dependent on these two other things&quot; and from those two other values calculate a value.</p>
+<p>Turns out trackig relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not, if it has all the data it needs. </p>
+<p>It is from this need, that we made ampersand state.</p>
+<h2 id="in-pursuit-of-the-ultimate-observable-js-object-">In pursuit of the ultimate observable JS object.</h2>
+<p>Your app needs a single unadulterated <em>source of truth</em>. But in order to fully de-couple it from everything that cares about it, it needs to be observable.</p>
+<p>Typically that&#39;s done by allowing you to register handlers for when things change.</p>
+<p>In our case it looks like this:</p>
+<pre><code class="lang-js">// Require the lib
+var State = require(&#39;ampersand-state&#39;);
+
+// Create a constructor to represent the state we want to store
+var Person = State.extend({
+    props: {
+        name: &#39;string&#39;,
+        isDancing: &#39;boolean&#39;
+    }
+});
+
+// Create an instance of our object
+var person = new Person({name: &#39;henrik&#39;});
+
+// watch it
+person.on(&#39;change:isDancing&#39;, function () {
+    console.log(&#39;shake it!&#39;); 
+});
+
+// set the value and the callback will fire
+person.isDancing = true;
+</code></pre>
+<h2 id="so-what-that-s-boring-">So what?! That&#39;s boring.</h2>
+<p>Agreed. Though, there is some more subtle awesomeness in being able to observe changes that are set with a simple assigment: <code>person.isDancing = true</code> as opposed to <code>person.set(&#39;isDancing&#39;, true)</code> (either works, btw), but that&#39;s nothing groundbreaking.</p>
+<p>So, what else? Well, as it turns out, a <em>huge</em> amount of code that you write in a project is really in describing and tracking relationships between variables.</p>
+<p>So, what if our observable layer did that for us too?</p>
+<p>Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if it&#39;s total delta is &gt; 10 pixels.</p>
+<pre><code class="lang-js">var DraggedElementModel = State.extend({
+    props: {
+        x: &#39;number&#39;,
+        y: &#39;number&#39;
+    },
+    derived: {
+        // the name of our derived property
+        dragged: {
+            // the properties it depends on
+            deps: [&#39;x&#39;, &#39;y&#39;],
+            // how it&#39;s calculated
+            fn: function () {
+                // the distance formula
+                return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) &gt; 10;
+            }
+        }
+    }
+});
+
+var element = new DraggedElementModel({x: 0, y: 0});
+
+// now we can just watch for changes to &quot;dragged&quot;
+element.on(&#39;change:dragged&#39;, function (model, val) {
+    if (val) {
+        console.log(&#39;element has moved more than 10px&#39;);
+    } else {
+        console.log(&#39;element has moved less than 10px&#39;);
+    }
+});
+</code></pre>
+<h2 id="you-didn-t-invent-derived-properties-pal-sarcasm-">You didn&#39;t invent derived properties, pal. <code>&lt;/sarcasm&gt;</code></h2>
+<p>True, derived properties aren&#39;t a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, they&#39;re just accessed without calling a method. For example, using the draggable example above, the derived property is just <code>element.dragged</code>.</p>
+<h2 id="handling-relationships-between-objects-models-with-derived-properties">Handling relationships between objects/models with derived properties</h2>
+<p>Say you&#39;ve got an observable that you&#39;re using to model data from a RESTful API. Say that you&#39;ve got a <code>/users</code> endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we&#39;ve already fetched and created models for. From our user model we want to be able to easily access the group model. So, when passed to a template we can just access related group information.</p>
+<p>Cached, derived properties are perfect for handling this relationship:</p>
+<pre><code class="lang-js">var UserModel = State.extend({
+    props: {
+        name: &#39;string&#39;,
+        groupId: &#39;string&#39;
+    },
+    derived: {
+        groupModel: {
+            deps: [&#39;groupId&#39;],
+            fn: function () {
+                // we access our group collection from within 
+                // the derived property to grab the right group model.
+                return ourGroupCollection.get(this.groupId);
+            }
+        }
+    }
+});
+
+
+var user = new UserModel({name: &#39;henrik&#39;, groupId: &#39;2341&#39;});
+
+// now we can get the actual group model like so:
+user.groupModel;
+
+// As a bonus, it&#39;s even evented so you can listen for changes to the groupModel property.
+user.on(&#39;change:groupModel&#39;, function (model, newGroupModel) {
+    console.log(&#39;group changed!&#39;, newGroupModel);
+});
+</code></pre>
+<h2 id="cached-derived-properties-are-da-shiznit">Cached, derived properties are da shiznit</h2>
+<p>So, say you have a more &quot;expensive&quot; computation for model. Say you&#39;re parsing a long string for URLs and turning them into HTML and then wanting to reference that later. Again, this is built in.</p>
+<p>By default, derived properties are cached. </p>
+<pre><code class="lang-js">// assume this linkifies strings
+var linkify = require(&#39;urlify&#39;);
+
+var MySmartDescriptionModel = State.extend({
+    // assume this is a long string of text
+    description: &#39;string&#39;,
+    derived: {
+        linkified: {
+            deps: [&#39;description&#39;],
+            fn: function () {
+                return linkify(this.description);
+            }
+        }
+    }
+});
+
+var myDescription = new MySmartDescriptionModel({
+    description: &quot;Some text with a link. http://twitter.com/henrikjoreteg&quot;
+});
+
+// Now i can just reference this as many times as I want but it 
+// will never run it through the expensive function again.
+
+myDescription.linkified;
+</code></pre>
+<p>With the model above, the descrition will only be run through that linkifier method once, unless of course the description changes.</p>
+<h2 id="derived-properties-are-intelligently-triggered">Derived properties are intelligently triggered</h2>
+<p>Just because an underlying property has changed, <em>doesn&#39;t mean the derived property has</em>. </p>
+<p>Cached derived properties will <em>only</em> trigger a <code>change</code> if the resulting calculated value has changed.</p>
+<p>This is <em>super</em> useful if you&#39;ve bound a derived property to a DOM property. This ensures that you won&#39;t ever touch the DOM unless the resulting value is <em>actually</em> different. Avoiding unecessary DOM changes is a huge boon for performance.</p>
+<p>This is also important for cases where you&#39;re dealing with fast changing attributes.</p>
+<p>Say you&#39;re drawing a realtime graph of tweets from the Twitter firehose, instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.</p>
+<pre><code class="lang-js">var MyGraphDataModel = State.extend({
+    props: {
+        numberOfTweets: &#39;number&#39;
+    },
+    derived: {
+        thousandTweets: {
+            deps: [&#39;numberOfTweets&#39;],
+            fn: function () {
+                return Math.floor(this.numberOfTweets / 1000);
+            }
+        }
+    }
+});
+
+// then just watch the property
+var data = new MyGraphDataModel({numberOfTweets: 555});
+
+// start adding &#39;em
+var increment = function () {
+    data.number += 1;
+}
+setInterval(increment, 50);
+
+data.on(&#39;change:thousandTweets&#39;, function () {
+    // will only get called every time is passes another 
+    // thousand tweets.
+});
+</code></pre>
+<h2 id="derived-properties-don-t-have-to-be-cached-">Derived properties don&#39;t <em>have</em> to be cached.</h2>
+<p>Say you want to calculate a value whenever it&#39;s accessed. Sure, you can create a non-cached derived property.</p>
+<p>If you say <code>cache: false</code> then it will fire a <code>change</code> event anytime any of the <code>deps</code> changes and it will be re-calculated each time its accessed.</p>
+<h2 id="state-can-be-extended-as-many-times-as-you-want">State can be extended as many times as you want</h2>
+<p>Each state object you define will have and <code>extend</code> method on the constructor.</p>
+<p>That means you can extend as much as you want and the definitions will get merged.</p>
+<pre><code class="lang-js">var Person = State.extend({
+    props: {
+        name: &#39;string&#39;
+    },
+    sayHi: function () {
+        return &#39;hi, &#39; + this.name;
+    }
+});
+
+var AwesomePerson = Person.extend({
+    props: {
+        awesomeness: &#39;number&#39;
+    }
+});
+
+// Now awesome person will have both awesomeness and name properties
+var awesome = new AwesomePerson({
+    name: &#39;henrik&#39;,
+    awesomeness: 8
+});
+
+// and it will have the methods in the original
+awesome.sayHi(); // returns &#39;hi, henrik&#39;
+
+// it also maintains the prototype chain
+// so instanceof checks will work up the chain
+
+// so this is true
+awesome instanceof AwesomePerson; // true;
+
+// and so is this
+awesome instanceof Person; // true
+</code></pre>
+<h2 id="child-models-and-collections">child models and collections</h2>
+<p>You can declare children and collections that will get instantiated on init as follows:</p>
+<pre><code class="lang-js">var State = require(&#39;ampersand-state&#39;);
+var Messages = require(&#39;./models/messages&#39;);
+var ProfileModel = require(&#39;./models/profile&#39;);
+
+
+var Person = State.extend({
+    props: {
+        name: &#39;string&#39;
+    },
+    collections: {
+        // `Messages` here is a collection
+        messages: Messages
+    },
+    children: {
+        // `ProfileModel` is another ampersand-state constructor
+        profile: ProfileModel
+    }
+});
+
+// When we instantiate an instance of a Person 
+// the Messages collection and ProfileModels
+// are instantiated as well
+
+var person = new Person();
+
+// so meetings exists as an empty collection
+person.meetings instanceof Meetings; // true
+
+// and profile exists as an empty `ProfileModel`
+person.profile instanceof ProfileModel; // true
+
+// This also provides some additional capabilities
+// when we instantiate a state object with some
+// data it will apply them to the collections and child
+// models as you might expect:
+var otherPerson = new Person({
+    messages: [
+        {from: &#39;someone&#39;, message: &#39;hi&#39;},
+        {from: &#39;someoneElse&#39;, message: &#39;yo!&#39;},
+    ],
+    profile: {
+        name: &#39;Joe&#39;, 
+        hairColor: &#39;black&#39;
+    }
+});
+
+// now messages would have a length
+otherPerson.messages.length === 2; // true
+
+// and the profile state object would be
+// populated
+otherPerson.profile.name === &#39;Joe&#39;; // true
+
+// The same works for `set`, it will apply it 
+// to children as well. 
+otherPerson.set({profile: {name: &#39;Mary&#39;}});
+
+// Since this a state object it triggers a `change:name` on 
+// the `profile` object. 
+// In addition, since it&#39;s a child that event propagates 
+// up. More on that below.
+</code></pre>
+<h2 id="event-bubbling-derived-properties-based-on-children">Event bubbling, derived properties based on children</h2>
+<p>Say you want a simple way to listen for any changes that are represented in a tempalate.</p>
+<p>Let&#39;s say you&#39;ve got a <code>person</code> state object with a <code>profile</code> child. You want an easy way to listen for changes to either the base <code>person</code> object or the <code>profile</code>. In fact, you want to listen to anything related to the person object. </p>
+<p>Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain. </p>
+<p>Now we can listen for deeply nested changes to properties.</p>
+<p>And we can declare derived properties that depend on children. For example:</p>
+<pre><code class="lang-js">var Person = State.extend({
+    children: {
+        profile: Profile
+    },
+    derived: {
+        childsName: {
+            // now we can declare a child as a
+            // dependency
+            deps: [&#39;profile.name&#39;],
+            fn: function () {
+                return &#39;my child\&#39;s name is &#39; + this.profile.name;
+            }
+        }
+    }
+});
+
+var me = new Person();
+
+// we can listen for changes to the derived property
+me.on(&#39;change:childsName&#39;, function (model, newValue) {
+    console.log(newValue); // logs out `my child&#39;s name is henrik`
+});
+
+// so when a property of a child is changed the callback
+// above will be fired (if the resulting derived property is different)
+me.profile.name = &#39;henrik&#39;;
+</code></pre>
+<h2 id="a-quick-note-about-instanceof-checks">A quick note about instanceof checks</h2>
+<p>With npm and browserify for module deps you can sometimes end up with a situation where, the same <code>state</code> constructor wasn&#39;t used to build a <code>state</code> object. As a result <code>instanceof</code> checks will fail. </p>
+<p>In order to deal with this (because sometimes this is a legitimate scenario), <code>state</code> simply creates a read-only <code>isState</code> property on all state objects that can be used to check </p>
+</section>
+      </div>
+    </div>
+    <footer class="footer-main">
+      <nav class="nav-footer"><a href="/docs" class="nav-item">Get Started</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></nav>
+      <p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br>with the help of our contributors</p><a class="logo logo-ampersand-gray">&amp;</a>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-44685415-1', 'humanjavascript.com');
+      ga('send', 'pageview');
+      
+    </script>
+    <script src="/static/js/highlight.pack.js"></script>
+    <script>
+      // init code highlighting
+      Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
+        var codeEl = pre.firstChild;
+        codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['javascript']).value;
+      });
+    </script>
+  </body>
+</html>
