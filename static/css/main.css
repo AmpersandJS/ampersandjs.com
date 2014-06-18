@@ -456,6 +456,7 @@ nav.nav-main .button {
 .nav-docs .section-sub-sub {
   color: #828c8f;
   margin-left: 10px;
+  font-size: 90%;
 }
 .nav-docs .section-sub-sub code {
   display: none;
@@ -562,6 +563,13 @@ nav.nav-main .button {
 }
 .docs-content section:not(:last-child) {
   border-bottom: 1px solid #f7f7f7;
+}
+.docs-content h1 code,
+.docs-content h2 code,
+.docs-content h3 code {
+  font-size: 0.6em;
+  background: none;
+  font-weight: normal;
 }
 .footer-main {
   padding: 40px 20px;
