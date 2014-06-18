@@ -6,28 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
     <meta name="author" content="undefined">
-    <title>Ampersand.js - Quick Start Guide</title>
+    <title>Ampersand.js - View Conventions</title>
     <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
     <link rel="stylesheet" href="/static/css/plugins/normalize.css">
     <link rel="stylesheet" href="/static/css/main.css">
   </head>
   <body>
-    <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
+    <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
       <nav class="nav-docs"><a href="/learn/" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/view-conventions" class="section-top">View Conventions</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="jump-right-in">Jump right in</h1>
-<ol>
-<li>Make sure you&#39;ve got <a href="http://nodejs.org/">node.js installed</a>.</li>
-<li>Install the ampersand command line and running by running this in a terminal:<pre><code>npm install ampersand -g
-</code></pre></li>
-<li>Change into whatever directory you normally put your projects and just run this:<pre><code>ampersand
-</code></pre></li>
-</ol>
-<p>From here, you should be able to follow the prompts to generate a working app.</p>
-<p>This app contains what is considered to be best practices for building ampersand apps.</p>
-<p>If you hit any snags or want more info <a href="/docs/#ampersand">see the docs for the CLI tool</a>.</p>
+        <section><h1 id="what-is-a-view-according-to-ampersand-">What is a view according to ampersand?</h1>
+<p>The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.</p>
+<p>It doesn&#39;t matter if your &quot;view&quot; is an instance of <code>ampersand-view</code> or not. <em>Any</em> object can be a view if it follows a few rules.</p>
+<p>Following these rules ensure that that your view plays nicely with other views.</p>
+<h2 id="the-rules-are-most-easily-explained-by-an-example">The rules are most easily explained by an example</h2>
+<p>Here is an absolutely bare-minimum <code>view</code></p>
+<pre><code class="lang-js">function MinimalView(options) {
+    // If given an element as part of an options object
+    // the view *should* store an element as `this.el`.
+    this.el = options.el;
+}
+
+// All views should have a `render` method that creates, replaces, or 
+// fills in the `this.el` property.
+// If passed in when created this view may already have a `this.el`. 
+// If so, your render would method would populate it, or create a new
+// one and replace it (if already part of the DOM tree).
+MinimalView.prototype.render = function () {
+    // The important thing is after calling `render` the view should have
+    // a `this.el` that is a *real* DOM element.
+    this.el.textContent = &#39;hello, awesome developer!&#39;;
+};
+
+// It should have a `remove` method that does any tear down you may want
+// to do. Including ideally removing itself from it&#39;s parent (if reasonable to do so)
+MinimalView.prototype.remove = function () {
+    // you could do it with vanilla JS like this
+    var parent = this.el.parentNode;
+    if (parent) parent.removeChild(this.el);
+
+    // ...or if you&#39;re using jQUery you could just do
+    $(this.el).remove();
+};
+</code></pre>
+<h2 id="that-s-it-">that&#39;s it!</h2>
 </section>
       </div>
     </div>
