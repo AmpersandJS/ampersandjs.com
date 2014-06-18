@@ -23,9 +23,9 @@
 <p>Stringing together a spaghetti bowl of <code>if</code> statements is a painful way to build a state machine that handles this. </p>
 <p>Often times it&#39;d be easier if we could just declare: &quot;this thing is dependent on these two other things&quot; and from those two other values calculate a value.</p>
 <p>Turns out trackig relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not, if it has all the data it needs. </p>
-<p>It is from this need, that we made ampersand state.</p>
+<p>It is for this purpose, that ampersand state was created.</p>
 <h2 id="in-pursuit-of-the-ultimate-observable-js-object-">In pursuit of the ultimate observable JS object.</h2>
-<p>Your app needs a single unadulterated <em>source of truth</em>. But in order to fully de-couple it from everything that cares about it, it needs to be observable.</p>
+<p>Your code needs a single unadulterated <em>source of truth</em> for each piece of data it cares about. But in order to fully de-couple it from everything that cares about it, it needs to be observable.</p>
 <p>Typically that&#39;s done by allowing you to register handlers for when things change.</p>
 <p>In our case it looks like this:</p>
 <pre><code class="lang-js">// Require the lib
