@@ -375,6 +375,7 @@ me.on('change:childsName', function (model, newValue) {
 me.profile.name = 'henrik';
 ```
 
+
 ## A quick note about instanceof checks
 
 With npm and browserify for module deps you can sometimes end up with a situation where, the same `state` constructor wasn't used to build a `state` object. As a result `instanceof` checks will fail. 
