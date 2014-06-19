@@ -3,8 +3,9 @@
 .splash
 
   .container, .callout
-    max-width: 790px
+    max-width: 820px
     margin: 0 auto 70px
+    padding: 0 20px
 
   .splash-intro
     width: 70%
@@ -53,6 +54,10 @@
       width: 32%
       &:not(:last-child)
         margin-right: 2%
+      p
+        max-width: 100%
+        margin-left: 0
+        margin-right: 0
 
   .projects-list
 
@@ -72,3 +77,43 @@
         width: 45px
       &.logo-otalk
         width: 100px
+
+@media (max-width: 700px)
+
+  .splash
+
+    .splash-intro
+      width: 100%
+      padding-right: 0
+
+      .button
+        max-width: 250px
+        margin: 30px auto 20px
+        display: block
+
+    .releases-list
+      width: 100%
+      margin-top: 40px
+      padding-top: 20px
+      border-top: 1px solid $border-color
+      text-align: center
+
+    .logo-humanjs
+      width: 280px
+      height: 52px
+      background-size: 280px auto
+
+    .modules-list
+      .module-card
+        float: none
+        width: 100%
+        &:not(:last-child)
+          margin-right: 0
+
+    .projects-list
+
+      .project
+        width: 100%
+        margin-bottom: 30px
+        padding: 0 10px
+        float: none

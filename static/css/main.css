@@ -17,6 +17,11 @@ body {
   -webkit-font-smoothing: antialiased;
   border: 20px solid #f7f7f7;
 }
+@media (max-width: 860px) {
+  body {
+    border-width: 10px;
+  }
+}
 ::-moz-selection {
   background-color: #88d5f7;
   color: #fff;
@@ -113,6 +118,11 @@ hr {
   border: none;
   border-top: 1px solid #f7f7f7;
 }
+@media (max-width: 700px) {
+  hr {
+    margin-bottom: 40px;
+  }
+}
 .logo {
   background-repeat: no-repeat;
   display: block;
@@ -150,13 +160,13 @@ hr {
 }
 .illustration {
   margin: 0 auto 30px;
-  background: no-repeat 50% 50%;
+  padding: 0 20px;
 }
-.illustration.beach {
-  width: 400px;
-  height: 300px;
-  background-image: url("../images/ampersand-at-the-beach.png");
-  background-image: url("../images/ampersand-at-the-beach.svg"), none;
+.illustration img {
+  width: 100%;
+}
+.illustration.beach img {
+  max-width: 400px;
 }
 main {
   padding: 30px 0 50px 50px;
@@ -297,7 +307,8 @@ a.button.button-secondary .button-disabled {
   background-color: #88d5f7;
 }
 .button + .button {
-  margin-left: 10px;
+  margin-left: 7px;
+  margin-right: 7px;
 }
 code {
   font-family: Menlo, Monaco, Consolas, monospace;
@@ -515,8 +526,30 @@ nav.nav-main .button {
 .nav-docs .section-sub-sub:before {
   content: '- ';
 }
+@media (max-width: 860px) {
+  nav.nav-main {
+    padding: 20px 20px 50px;
+  }
+  .nav-docs {
+    top: 10px;
+  }
+  .nav-docs .logo-ampersand {
+    width: 40px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  nav.nav-main {
+    text-align: center;
+  }
+  nav.nav-main .button {
+    display: none;
+  }
+}
 .hero {
   text-align: center;
+  padding: 0 20px;
 }
 .hero h1 {
   max-width: 700px;
@@ -524,8 +557,9 @@ nav.nav-main .button {
 }
 .splash .container,
 .splash .callout {
-  max-width: 790px;
+  max-width: 820px;
   margin: 0 auto 70px;
+  padding: 0 20px;
 }
 .splash .splash-intro {
   width: 70%;
@@ -577,6 +611,11 @@ nav.nav-main .button {
 .splash .modules-list .module-card:not(:last-child) {
   margin-right: 2%;
 }
+.splash .modules-list .module-card p {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
 .splash .projects-list .project {
   width: 33.33%;
   padding: 0 10px;
@@ -597,6 +636,42 @@ nav.nav-main .button {
 .splash .projects-list .logo.logo-otalk {
   width: 100px;
 }
+@media (max-width: 700px) {
+  .splash .splash-intro {
+    width: 100%;
+    padding-right: 0;
+  }
+  .splash .splash-intro .button {
+    max-width: 250px;
+    margin: 30px auto 20px;
+    display: block;
+  }
+  .splash .releases-list {
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #f7f7f7;
+    text-align: center;
+  }
+  .splash .logo-humanjs {
+    width: 280px;
+    height: 52px;
+    background-size: 280px auto;
+  }
+  .splash .modules-list .module-card {
+    float: none;
+    width: 100%;
+  }
+  .splash .modules-list .module-card:not(:last-child) {
+    margin-right: 0;
+  }
+  .splash .projects-list .project {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    float: none;
+  }
+}
 .panel {
   margin: 30px 0;
   border: 1px solid #e6eaed;
@@ -613,7 +688,8 @@ nav.nav-main .button {
 .panel p {
   font-size: 0.95em;
 }
-.docs-page .footer-main {
+.docs-page .footer-main,
+.learn-page .footer-main {
   max-width: 980px;
   margin: 0 auto;
   padding-left: 25%;
@@ -647,6 +723,22 @@ nav.nav-main .button {
   background: none;
   font-weight: normal;
 }
+@media (max-width: 860px) {
+  .docs {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 768px) {
+  .nav-docs {
+    display: none;
+  }
+  .docs-content {
+    padding-left: 0;
+  }
+  .docs-page .footer-main {
+    padding-left: 0;
+  }
+}
 .contribute .container {
   max-width: 790px;
   margin: 0 auto 70px;
@@ -658,9 +750,10 @@ nav.nav-main .button {
 .contribute .contribute-intro ul,
 .contribute .contribute-intro dl,
 .contribute .contribute-intro blockquote {
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 500px;
+  padding: 0 20px;
 }
 .contribute .member {
   margin-bottom: 30px;
@@ -692,6 +785,20 @@ nav.nav-main .button {
 .contribute .contributors-list .member {
   width: 14.28%;
   display: block;
+}
+@media (max-width: 500px) {
+  .contribute .core-team .member {
+    width: 50%;
+  }
+  .contribute .core-team .member:nth-child(2n+1) {
+    clear: left;
+  }
+  .contribute .core-team .member:nth-child(3n+1) {
+    clear: none;
+  }
+  .contribute .contributors-list .member {
+    width: 20%;
+  }
 }
 .footer-main {
   padding: 40px 20px;

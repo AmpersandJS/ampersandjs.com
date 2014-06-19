@@ -15,6 +15,10 @@ body
   -webkit-font-smoothing: antialiased
   border: 20px solid $border-color
 
+@media (max-width: 860px)
+  body
+    border-width: 10px
+
 ::-moz-selection
   background-color: $blue-light
   color: white
@@ -106,6 +110,10 @@ hr
   border: none
   border-top: 1px solid $border-color
 
+@media (max-width: 700px)
+  hr
+    margin-bottom: 40px
+
 .logo
   background-repeat: no-repeat
   display: block
@@ -136,13 +144,12 @@ hr
 
 .illustration
   margin: 0 auto 30px
-  background: no-repeat 50% 50%
-
+  padding: 0 20px
+  img
+    width: 100%
   &.beach
-    width: 400px
-    height: 300px
-    background-image: url(../images/ampersand-at-the-beach.png)
-    background-image: url(../images/ampersand-at-the-beach.svg), none
+    img
+      max-width: 400px
 
 
 //- lynn: double check this later

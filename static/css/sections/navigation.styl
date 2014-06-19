@@ -87,45 +87,21 @@ nav.nav-main
       content: '- '
 
 
-//- Old navigation for docs
-// nav.docs
-//   position: fixed
-//   top: 100px
-//   width: 300px
-//   height: 100%
-//   padding: 0 40px 150px 40px
-//   overflow-y: scroll
+@media (max-width: 860px)
+  nav.nav-main
+    padding: 20px 20px 50px
 
-//   a:not(.button)
-//     display: block
-//     text-transform: capitalize
-//     font-size: $font-size-small
+  .nav-docs
+    top: 10px
 
-//     &:hover
-//       text-decoration: underline
+    .logo-ampersand
+      width: 40px
+      height: 50px
+      margin-bottom: 20px
 
-//     &.active
-//       color: $blue
+@media (max-width: 768px)
+  nav.nav-main
+    text-align: center
 
-//   .h1, .h2
-//     margin: 5px 0
-//     font-weight: bold
-//     color: black
-
-//   a:not(.h1):not(.h2):not(.button)
-//     color: $gray
-//     padding-left: 10px
-
-// #slider
-//   background: $blue
-//   width: 3px
-//   height: 20px
-//   position: absolute
-//   margin-left: -10px
-//   transition: all 250ms ease-out 0
-//   -webkit-transition: all 250ms ease-out 0
-
-// @media screen and (max-width: 650px)
-
-//   nav.docs
-//     display: none
+    .button
+      display: none
