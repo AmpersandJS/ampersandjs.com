@@ -39,13 +39,19 @@ function build() {
             return date;
         }).reverse().slice(0, 3);
 
-        jade.render(fs.readFileSync(__dirname + '/index.jade', 'utf8'), {
-            globals: {recent: recentlyUpdated},
-            pretty: true,
-            filename: __dirname + '/index.jade'
-        }, function (err, html) {
-            if (err) throw err;
-            fs.writeFileSync(__dirname + '/index.html', html, 'utf8');
+        getModules(pack.featuredModules, function (err, modules) {
+            jade.render(fs.readFileSync(__dirname + '/index.jade', 'utf8'), {
+                globals: {
+                    recent: recentlyUpdated,
+                    featured: modules
+                },
+                pretty: true,
+                filename: __dirname + '/index.jade',
+                basedir: __dirname
+            }, function (err, html) {
+                if (err) throw err;
+                fs.writeFileSync(__dirname + '/index.html', html, 'utf8');
+            });
         });
     });
 

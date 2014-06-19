@@ -42,6 +42,11 @@
     "ampersand-array-input-view",
     "ampersand-select-view"
   ],
+  "featuredModules": [
+    "bows",
+    "emoji-images",
+    "getusermedia"
+  ],
   "author": "Henrik Joreteg",
   "license": "MIT"
 }
