@@ -1,17 +1,14 @@
 block vars
   - var pageTitle = "Learn"
   - var description = "Get started with Ampersand.js"
-  - var bodyClass = "docs-page"
+  - var bodyClass = "learn-index"
 
 extends /templates/layout
 
 block content
 
   .docs.cf
-    nav.nav-docs
-      a.logo.logo-ampersand(href="/")
-      for page in globals.pages
-        a.section-top(href= '/learn/' + page.url)= page.meta.pagetitle
+    include /templates/learn-menu
 
     .docs-content
       section

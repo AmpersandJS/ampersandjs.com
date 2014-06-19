@@ -1,15 +1,5 @@
 nav.nav-docs
-  a.section-top(href= '/learn') Quick Start
-  a.section-top(href= '/learn/npm') Getting Code
-  a.section-top(href= '/learn/state') State 
-  a.section-top(href= '/learn/models-collections') Models and Collections
-  a.section-top(href= '/learn/views') Views
-  a.section-top(href= '/learn/layouts') Layouts and View Switchers
-  a.section-top(href= '/learn/pages') Page Views
-  a.section-top(href= '/learn/templating') Templating
-  a.section-top(href= '/learn/routing') Clientside Routing
-  a.section-top(href= '/learn/ampersand-cli') The CLI Tool
-
-
-
-
+  a.logo.logo-ampersand(href="/")
+  a.section-top(href= '/learn/') Guides
+  for page in globals.pages
+    a.section-sub(href= '/learn/' + page.url)= page.meta.pagetitle

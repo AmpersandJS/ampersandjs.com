@@ -8,10 +8,7 @@ extends /templates/layout
 block content
 
   .docs.cf
-    nav.nav-docs
-      a.logo.logo-ampersand(href="/")
-      for page in globals.pages
-        a.section-top(href= '/learn/' + page.url)= page.meta.pagetitle
+    include /templates/learn-menu
 
     .docs-content
       section!= globals.content
