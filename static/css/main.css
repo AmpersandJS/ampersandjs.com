@@ -724,6 +724,7 @@ nav.nav-main .button {
 }
 .docs-content {
   padding-left: 30%;
+  min-height: 350px;
 }
 .docs-content .anchor:focus {
   outline: none;
