@@ -19,11 +19,11 @@
     "underscore": "^1.6.0"
   },
   "devDependencies": {
-    "servedir": "*"
+    "http-server": "^0.6.1"
   },
   "scripts": {
     "build": "node build.js && echo 'built index.html'",
-    "start": "servedir"
+    "start": "http-server . -p 8000"
   },
   "coreModules": [
     "ampersand",
