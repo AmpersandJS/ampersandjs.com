@@ -1,52 +1,93 @@
 # Documentation site for ampersand.js
 
-Uses same doc parsing process as what builds nodejs.org docs. It's markdown with a bit more structured data for things like documenting events and method signatures.
+This generates the static site that lives here: http://ampersandjs.com/
 
-## How to build
+## How it works
 
-Make edits to `index.jade` file.
+The dynamic portions of the site are pulled down from The Internet™. 
 
-You can include/parse/process modules by adding lines that look like this to the jade file:
+Specifically, we use [module-details](https://github.com/HenrikJoreteg/module-details) to fetch and parse complete info about a module from the npm registry.
 
+The specific modules that get include listed and read from the package.json file in this repository.
+
+As of this writing the relevant portion looks like this:
+
+```json
+  ...
+  "coreModules": [
+    "ampersand",
+    "ampersand-state",
+    "ampersand-model",
+    "ampersand-collection",
+    "ampersand-rest-collection",
+    "ampersand-view",
+    "ampersand-view-switcher",
+    "ampersand-router"
+  ],
+  "formModules": [
+    "ampersand-form-view",
+    "ampersand-input-view",
+    "ampersand-checkbox-view",
+    "ampersand-array-input-view",
+    "ampersand-select-view"
+  ],
+  "featuredModules": [
+    "bows",
+    "emoji-images",
+    "getusermedia"
+  ],
+  ...
 ```
-@gendoc ampersand-view ../ampersand-view/README.md
-        
-@gendoc ampersand-model https://raw.githubusercontent.com/AmpersandJS/ampersand-model/master/README.md
+
+The core and form modules are all fetched and dates compared to figure out which are in fact, the most "recent" for use in the home page "recently released" seciton. 
+
+The featured modules are grabbed and rendered in order listed in the "featuredModules" section.
+
+So, updating "recent" doesn't require anything other than running the build script.
+
+Updating featured, just requires picking 3 modules, they will be shown in the order they're listed.
+
+
+## The "docs" pages
+
+These are built entirely from README.md files of the listed projects. They're run through a filter that removes hidden sections (such as "browser support" and "license"), and we also remove anything in between html comments in README's that look like this:
+
+```html
+<!-- starthide -->
+This text will not show up in generated docs
+<!-- endhide -->
 ```
-The first is whatever label you want to give it for the module (used to generate the JSON doc file, etc). 
 
-The second is either a relative file path or a URL to a markdown file. 
+It's then converted to HTML and rendered using the jade templates. 
 
-Then just do this:
+Perhaps a bit convoluted, but works well enough.
+
+## The "learn" pages
+
+These are all in markdown in the `learn_markdown` directory. There's a bit of metadata at the top.
+
+This is the page title (used to generate what the nav calls it) and an `order` value that will be used to sort them all. 
+
+These don't have to be sequential and nothing will blow up if there are two that are the same or whatnot, they're simply run through a sorter that uses that value to attempt to sort them. 
+
+## Running that fabled "build" script
 
 ```
 npm run build
-npm start
-open index.html
 ```
 
-**Important**
-To build this site, you will need the following repositories and place them in the same directory as ampersandjs.com to be able to build:
+Using something like `http-server` from npm will make working on the docs a bit easiser, because links will work properly.
 
-- [ampersand-model](https://github.com/AmpersandJS/ampersand-model)
-- [ampersand-state](https://github.com/AmpersandJS/ampersand-state)
-- [ampersand-collection](https://github.com/AmpersandJS/ampersand-collection)
-- [ampersand-rest-collection](https://github.com/AmpersandJS/ampersand-rest-collection)
-- [ampersand-sync](https://github.com/AmpersandJS/ampersand-sync)
-- [ampersand-view](https://github.com/AmpersandJS/ampersand-view)
-- [ampersand-router](https://github.com/AmpersandJS/ampersand-router)
-- [ampersand-registry](https://github.com/AmpersandJS/ampersand-registry)
+install it like so:
 
-## Why?
+```
+npm i -g http-server
+```
 
-Then you can just include readme files from projects into a doc site. That way the official docs are kept with their code, but can still be aggregated into a nice doc site.
+There's a quick and dirty `-w` option that will rebuild if anything changes:
 
-## Tricks
+```
+npm run build -w 
+```
 
-You may want something in your github readme that isn't rendered into the site.
-
-Running this build will remove anything between `<!-- starthide -->` and `<!-- endhide -->` comments in the included readmes. This is useful for being able to link to the HTML docs from the readme, etc.
-
-## Credit
-
-<3 to [@lancestout](https://twitter.com/lancestout), [@latent_flip](https://twitter.com/philip_roberts) and node docs for the sweet structured markdown format/parsiing.
+So you can have that in one terminal tab, and just run `http-server` in the root project directory in another tab and you're up and running.
