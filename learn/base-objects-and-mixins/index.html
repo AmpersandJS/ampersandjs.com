@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
     <meta name="author" content="undefined">
-    <title>Ampersand.js - Learn About Events in Ampersand</title>
+    <title>Ampersand.js - Using Base Objects and Mixins</title>
     <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
     <link rel="stylesheet" href="/static/css/plugins/normalize.css">
     <link rel="stylesheet" href="/static/css/main.css">
@@ -17,66 +17,7 @@
       <nav class="nav-docs"><a href="/learn/base-objects-and-mixins" class="section-top">Using Base Objects and Mixins</a><a href="/learn/ampersand-cli" class="section-top">Ampersand CLI Tool</a><a href="/learn/browserify" class="section-top">NPM &amp; Browserify Quickstart</a><a href="/learn/" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/transition-from-backbone" class="section-top">Transitioning from Backbone</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/events" class="section-top">Learn About Events in Ampersand</a><a href="/learn/view-conventions" class="section-top">View Conventions</a><a href="/learn/role-attribute" class="section-top">Using the `role` attribute</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="using-events-within-ampersand">Using events within ampersand</h1>
-<p>Separating application state from everything that cares about what the current state is, can only be done if it&#39;s possible to observe changes to that state.</p>
-<p>That&#39;s where events come into play.</p>
-<p>Ampersand borrows its event system directly from Backbone (specifically using the <a href="https://www.npmjs.org/package/backbone-events-standalone">backbone-events-standalone</a> module).</p>
-<p>So, if you&#39;ve used backbone you&#39;ll feel right at home (see <a href="http://backbonejs.org/#Events">backbone event docs here</a>). All credit for the event code goes to <a href="https://twitter.com/jashkenas">Jeremy Ashkenas</a> and the rest of backbone contributors.</p>
-<p>But the real value of ampersand is what events are fired and when.</p>
-<h2 id="the-basics">The basics</h2>
-<p>The basics of events work as follows:</p>
-<pre><code class="lang-js">// this could be anything that uses the events module
-var model = new SomeModel(); 
-
-// We can register a function to be called when a matching event happens
-model.on(&#39;change:name&#39;, function () {
-    // this will run if the name changes
-});
-</code></pre>
-<p>But, the neat thing about ampersand-state (which both ampersand-view and ampersand-model are built on) is how you can also effeciently listen to changes to derived properties.</p>
-<p>For example, if we have a model like this:</p>
-<pre><code class="lang-js">var AmpersandModel = require(&#39;ampersand-model&#39;);
-
-
-module.exports = AmpersandModel.extend({
-    props: {
-        name: &#39;string&#39;,
-        greetingType: [&#39;string&#39;, true, &#39;long&#39;]
-    },
-    derived: {
-        greeting: {
-            deps: [&#39;name&#39;, &#39;greetingType&#39;],
-            fn: function () {
-                if (this.greetingType === &#39;short&#39;) {
-                    return &#39;hi&#39;;
-                } else {
-                    return &#39;hi &#39; + this.name;
-                }
-            }
-        }
-    }
-});
-</code></pre>
-<p>We can listen to it like this:</p>
-<pre><code class="lang-js">// we create a model
-var model = new Model({name: &#39;audry&#39;, greetingType: &#39;short&#39;});
-
-// We can listen to a change to the derived property
-model.on(&#39;change:greeting&#39;, function (model, val) { console.log(&#39;greeting is now: &#39;, val) });
-
-// Note that in our model definition the value of derived property will not change
-// as long as the greeting type is `short`.
-model.greetingType = &#39;short&#39;; // callback runs and prints: &quot;greeting is now: hi&quot;
-
-// so now if we change the name that callback would never fire
-model.name = &#39;something else&#39;; // callback doesn&#39;t run
-model.name = &#39;you&#39;; // still no
-
-// but if we change the greating type so the value is actually different, we&#39;ll get the event
-model.greetingType = &#39;short&#39;; // callback runs and prints: &quot;greeting is now: hi you&quot;
-</code></pre>
-<p>In addition to derived properties, state lets you listen for changes to child models, etc.</p>
-<p>Read more about it in the <a href="http://ampersandjs.com/learn/state/">ampersand-state guide</a>.</p>
+        <section><h1 id="using-base-objects-and-mixins">Using Base Objects and Mixins</h1>
 </section>
       </div>
     </div>
