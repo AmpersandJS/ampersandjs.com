@@ -14,7 +14,7 @@
   <body>
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="#getting-started" class="section-top">Getting Started</a><a href="#ampersand" class="section-top">ampersand.js app scaffolding</a><a href="#ampersand-defaults" class="section-sub">Defaults</a><a href="#ampersand-changelog" class="section-sub">Changelog</a><a href="#ampersand-state" class="section-top">ampersand-state</a><a href="#ampersand-state-install" class="section-sub">Install</a><a href="#ampersand-state-api-reference" class="section-sub">API Reference</a><a href="#ampersand-state-extend-codeampersandstateextend-code" class="section-sub-sub">extend <code>AmpersandState.extend({ })</code></a><a href="#ampersand-state-constructorinitialize-codenew-ampersandstateattrs-optionscode" class="section-sub-sub">constructor/initialize <code>new AmpersandState([attrs], [options])</code></a><a href="#ampersand-state-extraproperties-codeampersandstateextend-extraproperties-39allow39-code" class="section-sub-sub">extraProperties <code>AmpersandState.extend({ extraProperties: &#39;allow&#39; })</code></a><a href="#ampersand-state-datatypes" class="section-sub-sub">dataTypes</a><a href="#ampersand-state-props-codeampersandviewextend-props-name-39string39-code" class="section-sub-sub">props <code>AmpersandView.extend({ props: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-session-codeampersandviewextend-session-name-39string39-code" class="section-sub-sub">session <code>AmpersandView.extend({ session: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-derived" class="section-sub-sub">derived</a><a href="#ampersand-state-children-codeampersandstateextend-children-profile-profile-code" class="section-sub-sub">children <code>AmpersandState.extend({ children: { profile: Profile } })</code></a><a href="#ampersand-state-parse" class="section-sub-sub">parse</a><a href="#ampersand-state-serialize-codestateserializecode" class="section-sub-sub">serialize <code>state.serialize()</code></a><a href="#ampersand-state-get-codestategetattribute-stateattribute-statefirstnamecode" class="section-sub-sub">get <code>state.get(attribute); state[attribute]; state.firstName</code></a><a href="#ampersand-state-set-codestatesetattributes-options-statefirstname-39henrik39code" class="section-sub-sub">set <code>state.set(attributes, [options]); state.firstName = &#39;Henrik&#39;;</code></a><a href="#ampersand-state-unset-codestateunsetattribute-optionscode" class="section-sub-sub">unset <code>state.unset(attribute, [options])</code></a><a href="#ampersand-state-toggle-codestatetoggle39active39code" class="section-sub-sub">toggle <code>state.toggle(&#39;active&#39;)</code></a><a href="#ampersand-state-previousattributes-codestatepreviousattributescode" class="section-sub-sub">previousAttributes <code>state.previousAttributes()</code></a><a href="#ampersand-state-haschanged-codestatehaschangedattributecode" class="section-sub-sub">hasChanged <code>state.hasChanged([attribute])</code></a><a href="#ampersand-state-changedattributes-codestatechangedattributesobjecttodiffcode" class="section-sub-sub">changedAttributes <code>state.changedAttributes([objectToDiff])</code></a><a href="#ampersand-state-tojson-codestatetojsoncode" class="section-sub-sub">toJSON <code>state.toJSON()</code></a><a href="#ampersand-state-changelog" class="section-sub">Changelog</a><a href="#ampersand-model" class="section-top">ampersand-model</a><a href="#ampersand-model-installing" class="section-sub">Installing</a><a href="#ampersand-model-api-reference" class="section-sub">API Reference</a><a href="#ampersand-model-idattribute-codemodelidattributecode" class="section-sub-sub">idAttribute <code>model.idAttribute</code></a><a href="#ampersand-model-namespaceattribute" class="section-sub-sub">namespaceAttribute</a><a href="#ampersand-model-typeattribute" class="section-sub-sub">typeAttribute</a><a href="#ampersand-model-getid-codemodelgetidcode" class="section-sub-sub">getId <code>model.getId()</code></a><a href="#ampersand-model-getnamespace-codemodelgetnamespacecode" class="section-sub-sub">getNamespace <code>model.getNamespace()</code></a><a href="#ampersand-model-gettype-codemodelgettypecode" class="section-sub-sub">getType <code>model.getType()</code></a><a href="#ampersand-model-constructorinitialize" class="section-sub-sub">constructor/initialize</a><a href="#ampersand-model-collection" class="section-sub-sub">collection</a><a href="#ampersand-model-registry" class="section-sub-sub">registry</a><a href="#ampersand-model-cid-codemodelcidcode" class="section-sub-sub">cid <code>model.cid</code></a><a href="#ampersand-model-save-codemodelsaveattributes-optionscode" class="section-sub-sub">save <code>model.save([attributes], [options])</code></a><a href="#ampersand-model-fetch-codemodelfetchoptionscode" class="section-sub-sub">fetch <code>model.fetch([options])</code></a><a href="#ampersand-model-destroy-codemodeldestroyoptionscode" class="section-sub-sub">destroy <code>model.destroy([options])</code></a><a href="#ampersand-model-sync-codemodelsyncmethod-model-optionscode" class="section-sub-sub">sync <code>model.sync(method, model, [options])</code></a><a href="#ampersand-model-remove" class="section-sub-sub">remove</a><a href="#ampersand-model-isnew-codemodelisnewcode" class="section-sub-sub">isNew <code>model.isNew()</code></a><a href="#ampersand-model-url-codemodelurlcode" class="section-sub-sub">url <code>model.url()</code></a><a href="#ampersand-model-urlroot-codemodelurlroot-or-modelurlrootcode" class="section-sub-sub">urlRoot <code>model.urlRoot or model.urlRoot()</code></a><a href="#ampersand-model-escape" class="section-sub-sub">escape</a><a href="#ampersand-model-addlistval" class="section-sub-sub">addListVal</a><a href="#ampersand-model-removelistval" class="section-sub-sub">removeListval</a><a href="#ampersand-model-haslistval" class="section-sub-sub">hasListVal</a><a href="#ampersand-model-isvalid-codemodelisvalidcode" class="section-sub-sub">isValid <code>model.isValid()</code></a><a href="#ampersand-collection" class="section-top">ampersand-collection</a><a href="#ampersand-collection-installation" class="section-sub">Installation</a><a href="#ampersand-collection-api-reference" class="section-sub">API Reference</a><a href="#ampersand-collection-extend-codeampersandcollectionextendattributescode" class="section-sub-sub">extend <code>AmpersandCollection.extend([attributes])</code></a><a href="#ampersand-collection-constructorinitialize-codenew-ampersandcollectionmodelsarray-optionscode" class="section-sub-sub">constructor/initialize <code>new AmpersandCollection([modelsArray], [options])</code></a><a href="#ampersand-collection-model-codecollectionmodelcode" class="section-sub-sub">model <code>collection.model</code></a><a href="#ampersand-collection-mainindex-collectionmainindex" class="section-sub-sub">mainIndex `collection.mainIndex</a><a href="#ampersand-collection-indexes-codecollectionsindexescode" class="section-sub-sub">indexes <code>collections.indexes</code></a><a href="#ampersand-collection-ismodel-codecollectionismodelmodelcode" class="section-sub-sub">isModel <code>collection.isModel(model)</code></a><a href="#ampersand-collection-length-codecollectionlengthcode" class="section-sub-sub">length <code>collection.length</code></a><a href="#ampersand-collection-iscollection-codecollectioniscollectioncode" class="section-sub-sub">isCollection <code>collection.isCollection</code></a><a href="#ampersand-collection-add-codecollectionaddmodelorobjectcode" class="section-sub-sub">add <code>collection.add(modelOrObject)</code></a><a href="#ampersand-collection-serialize-codecollectionserializecode" class="section-sub-sub">serialize <code>collection.serialize()</code></a><a href="#ampersand-collection-tojson-codecollectiontojsoncode" class="section-sub-sub">toJSON <code>collection.toJSON()</code></a><a href="#ampersand-collection-set-codecollectionsetmodels-optionscode" class="section-sub-sub">set <code>collection.set(models, [options])</code></a><a href="#ampersand-collection-get-codecollectiongetquery-indexnamecode" class="section-sub-sub">get <code>collection.get(query, [indexName])</code></a><a href="#ampersand-collection-at-codecollectionatindexcode" class="section-sub-sub">at <code>collection.at(index)</code></a><a href="#ampersand-collection-remove-codecollectionremovemodels-optionscode" class="section-sub-sub">remove <code>collection.remove(models, [options])</code></a><a href="#ampersand-collection-reset-codecollectionresetmodels-optionscode" class="section-sub-sub">reset <code>collection.reset(models, [options])</code></a><a href="#ampersand-collection-sort-codecollectionsortoptionscode" class="section-sub-sub">sort <code>collection.sort([options])</code></a><a href="#ampersand-collection-strongproxied-es5-array-methods-9strong" class="section-sub-sub"><strong>proxied ES5 array methods (9)</strong></a><a href="#ampersand-rest-collection" class="section-top">ampersand-rest-collection</a><a href="#ampersand-rest-collection-browser-support" class="section-sub">browser support</a><a href="#ampersand-rest-collection-install" class="section-sub">install</a><a href="#ampersand-rest-collection-example" class="section-sub">example</a><a href="#ampersand-view" class="section-top">ampersand-view</a><a href="#ampersand-view-install" class="section-sub">Install</a><a href="#ampersand-view-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-extend-codeampersandviewextendpropertiescode" class="section-sub-sub">extend <code>AmpersandView.extend(properties)</code></a><a href="#ampersand-view-template-codeampersandviewextend-template-quotltdivgtltinputgtltdivgtquot-code" class="section-sub-sub">template <code>AmpersandView.extend({ template: &quot;&lt;div&gt;&lt;input&gt;&lt;/div&gt;&quot; })</code></a><a href="#ampersand-view-autorender-codeampersandviewextend-autorender-true-code" class="section-sub-sub">autoRender <code>AmpersandView.extend({ autoRender: true })</code></a><a href="#ampersand-view-events" class="section-sub-sub">events</a><a href="#ampersand-view-bindings" class="section-sub-sub">bindings</a><a href="#ampersand-view-el" class="section-sub-sub">el</a><a href="#ampersand-view-constructor-codenew-ampersandviewoptionscode" class="section-sub-sub">constructor <code>new AmpersandView([options])</code></a><a href="#ampersand-view-initialize-codenew-ampersandviewoptionscode" class="section-sub-sub">initialize <code>new AmpersandView([options])</code></a><a href="#ampersand-view-render-codeviewrendercode" class="section-sub-sub">render <code>view.render()</code></a><a href="#ampersand-view-rendercollection-codeviewrendercollectioncollection-itemview-containerel-viewoptionscode" class="section-sub-sub">renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></a><a href="#ampersand-view-registersubview-codeviewregistersubviewviewinstancecode" class="section-sub-sub">registerSubview <code>view.registerSubview(viewInstance)</code></a><a href="#ampersand-view-rendersubview-codeviewrendersubviewviewinstance-containerelcode" class="section-sub-sub">renderSubview <code>view.renderSubview(viewInstance, containerEl)</code></a><a href="#ampersand-view-renderwithtemplate-codeviewrenderwithtemplatecontext-templatecode" class="section-sub-sub">renderWithTemplate <code>view.renderWithTemplate([context], [template])</code></a><a href="#ampersand-view-get-codeviewget39classname39code" class="section-sub-sub">get <code>view.get(&#39;.classname&#39;)</code></a><a href="#ampersand-view-getbyrole-codeviewgetbyrole39rolename39code" class="section-sub-sub">getByRole <code>view.getByRole(&#39;rolename&#39;)</code></a><a href="#ampersand-view-getall-codeviewgetall39classname39code" class="section-sub-sub">getAll <code>view.getAll(&#39;.classname&#39;)</code></a><a href="#ampersand-view-cacheelements-codeviewcacheelementshashcode" class="section-sub-sub">cacheElements <code>view.cacheElements(hash)</code></a><a href="#ampersand-view-listentoandrun-codeviewlistentoandrunobject-eventsstring-callbackcode" class="section-sub-sub">listenToAndRun <code>view.listenToAndRun(object, eventsString, callback)</code></a><a href="#ampersand-view-remove-codeviewremovecode" class="section-sub-sub">remove <code>view.remove()</code></a><a href="#ampersand-view-animateremove-codeviewanimateremovecode" class="section-sub-sub">animateRemove <code>view.animateRemove()</code></a><a href="#ampersand-view-delegateevents-codeviewdelegateeventseventscode" class="section-sub-sub">delegateEvents <code>view.delegateEvents([events])</code></a><a href="#ampersand-view-undelegateevents-codeviewundelegateeventscode" class="section-sub-sub">undelegateEvents <code>view.undelegateEvents()</code></a><a href="#ampersand-view-changelog" class="section-sub">Changelog</a><a href="#ampersand-view-switcher" class="section-top">Ampersand View Switcher</a><a href="#ampersand-view-switcher-install" class="section-sub">Install</a><a href="#ampersand-view-switcher-example" class="section-sub">Example</a><a href="#ampersand-view-switcher-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-switcher-constructor-codenew-viewswitcherelement-optionscode" class="section-sub-sub">constructor <code>new ViewSwitcher(element, [options])</code></a><a href="#ampersand-view-switcher-set-codeswitchersetviewinstancecode" class="section-sub-sub">set <code>switcher.set(viewInstance)</code></a><a href="#ampersand-view-switcher-clear-codeswitcherclearcallbackcode" class="section-sub-sub">clear <code>switcher.clear(callback)</code></a><a href="#ampersand-view-switcher-changelog" class="section-sub">Changelog</a><a href="#ampersand-router" class="section-top">ampersand-router</a><a href="#ampersand-router-install" class="section-sub">install</a><a href="#ampersand-router-example" class="section-sub">example</a><a href="#ampersand-form-view" class="section-top">ampersand-form-view</a><a href="#ampersand-form-view-install" class="section-sub">install</a><a href="#ampersand-form-view-example-defining-a-form-view" class="section-sub">Example: Defining a form view</a><a href="#ampersand-form-view-credits" class="section-sub">credits</a><a href="#ampersand-input-view" class="section-top">ampersand-input-view</a><a href="#ampersand-input-view-install" class="section-sub">install</a><a href="#ampersand-input-view-example" class="section-sub">example</a><a href="#ampersand-input-view-credits" class="section-sub">credits</a><a href="#ampersand-checkbox-view" class="section-top">ampersand-checkbox-view</a><a href="#ampersand-checkbox-view-install" class="section-sub">install</a><a href="#ampersand-checkbox-view-example" class="section-sub">example</a><a href="#ampersand-checkbox-view-browser-support" class="section-sub">browser support</a><a href="#ampersand-checkbox-view-credits" class="section-sub">credits</a><a href="#ampersand-array-input-view" class="section-top">ampersand-array-input-view</a><a href="#ampersand-array-input-view-install" class="section-sub">install</a><a href="#ampersand-array-input-view-example" class="section-sub">example</a><a href="#ampersand-array-input-view-credits" class="section-sub">credits</a><a href="#ampersand-select-view" class="section-top">ampersand-select-view</a><a href="#ampersand-select-view-install" class="section-sub">install</a><a href="#ampersand-select-view-example" class="section-sub">example</a><a href="#ampersand-select-view-browser-support" class="section-sub">browser support</a><a href="#ampersand-select-view-credits" class="section-sub">credits</a>
+      <nav class="nav-docs"><a href="#getting-started" class="section-top">Getting Started</a><a href="#ampersand" class="section-top">ampersand.js app scaffolding</a><a href="#ampersand-defaults" class="section-sub">Defaults</a><a href="#ampersand-changelog" class="section-sub">Changelog</a><a href="#ampersand-state" class="section-top">ampersand-state</a><a href="#ampersand-state-install" class="section-sub">Install</a><a href="#ampersand-state-api-reference" class="section-sub">API Reference</a><a href="#ampersand-state-extend-codeampersandstateextend-code" class="section-sub-sub">extend <code>AmpersandState.extend({ })</code></a><a href="#ampersand-state-constructorinitialize-codenew-ampersandstateattrs-optionscode" class="section-sub-sub">constructor/initialize <code>new AmpersandState([attrs], [options])</code></a><a href="#ampersand-state-extraproperties-codeampersandstateextend-extraproperties-39allow39-code" class="section-sub-sub">extraProperties <code>AmpersandState.extend({ extraProperties: &#39;allow&#39; })</code></a><a href="#ampersand-state-datatypes" class="section-sub-sub">dataTypes</a><a href="#ampersand-state-props-codeampersandviewextend-props-name-39string39-code" class="section-sub-sub">props <code>AmpersandView.extend({ props: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-session-codeampersandviewextend-session-name-39string39-code" class="section-sub-sub">session <code>AmpersandView.extend({ session: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-derived" class="section-sub-sub">derived</a><a href="#ampersand-state-children-codeampersandstateextend-children-profile-profile-code" class="section-sub-sub">children <code>AmpersandState.extend({ children: { profile: Profile } })</code></a><a href="#ampersand-state-parse" class="section-sub-sub">parse</a><a href="#ampersand-state-serialize-codestateserializecode" class="section-sub-sub">serialize <code>state.serialize()</code></a><a href="#ampersand-state-get-codestategetattribute-stateattribute-statefirstnamecode" class="section-sub-sub">get <code>state.get(attribute); state[attribute]; state.firstName</code></a><a href="#ampersand-state-set-codestatesetattributes-options-statefirstname-39henrik39code" class="section-sub-sub">set <code>state.set(attributes, [options]); state.firstName = &#39;Henrik&#39;;</code></a><a href="#ampersand-state-unset-codestateunsetattribute-optionscode" class="section-sub-sub">unset <code>state.unset(attribute, [options])</code></a><a href="#ampersand-state-toggle-codestatetoggle39active39code" class="section-sub-sub">toggle <code>state.toggle(&#39;active&#39;)</code></a><a href="#ampersand-state-previousattributes-codestatepreviousattributescode" class="section-sub-sub">previousAttributes <code>state.previousAttributes()</code></a><a href="#ampersand-state-haschanged-codestatehaschangedattributecode" class="section-sub-sub">hasChanged <code>state.hasChanged([attribute])</code></a><a href="#ampersand-state-changedattributes-codestatechangedattributesobjecttodiffcode" class="section-sub-sub">changedAttributes <code>state.changedAttributes([objectToDiff])</code></a><a href="#ampersand-state-tojson-codestatetojsoncode" class="section-sub-sub">toJSON <code>state.toJSON()</code></a><a href="#ampersand-state-changelog" class="section-sub">Changelog</a><a href="#ampersand-model" class="section-top">ampersand-model</a><a href="#ampersand-model-installing" class="section-sub">Installing</a><a href="#ampersand-model-api-reference" class="section-sub">API Reference</a><a href="#ampersand-model-idattribute-codemodelidattributecode" class="section-sub-sub">idAttribute <code>model.idAttribute</code></a><a href="#ampersand-model-namespaceattribute" class="section-sub-sub">namespaceAttribute</a><a href="#ampersand-model-typeattribute" class="section-sub-sub">typeAttribute</a><a href="#ampersand-model-getid-codemodelgetidcode" class="section-sub-sub">getId <code>model.getId()</code></a><a href="#ampersand-model-getnamespace-codemodelgetnamespacecode" class="section-sub-sub">getNamespace <code>model.getNamespace()</code></a><a href="#ampersand-model-gettype-codemodelgettypecode" class="section-sub-sub">getType <code>model.getType()</code></a><a href="#ampersand-model-constructorinitialize" class="section-sub-sub">constructor/initialize</a><a href="#ampersand-model-collection" class="section-sub-sub">collection</a><a href="#ampersand-model-registry" class="section-sub-sub">registry</a><a href="#ampersand-model-cid-codemodelcidcode" class="section-sub-sub">cid <code>model.cid</code></a><a href="#ampersand-model-save-codemodelsaveattributes-optionscode" class="section-sub-sub">save <code>model.save([attributes], [options])</code></a><a href="#ampersand-model-fetch-codemodelfetchoptionscode" class="section-sub-sub">fetch <code>model.fetch([options])</code></a><a href="#ampersand-model-destroy-codemodeldestroyoptionscode" class="section-sub-sub">destroy <code>model.destroy([options])</code></a><a href="#ampersand-model-sync-codemodelsyncmethod-model-optionscode" class="section-sub-sub">sync <code>model.sync(method, model, [options])</code></a><a href="#ampersand-model-remove" class="section-sub-sub">remove</a><a href="#ampersand-model-isnew-codemodelisnewcode" class="section-sub-sub">isNew <code>model.isNew()</code></a><a href="#ampersand-model-url-codemodelurlcode" class="section-sub-sub">url <code>model.url()</code></a><a href="#ampersand-model-urlroot-codemodelurlroot-or-modelurlrootcode" class="section-sub-sub">urlRoot <code>model.urlRoot or model.urlRoot()</code></a><a href="#ampersand-model-escape" class="section-sub-sub">escape</a><a href="#ampersand-model-addlistval" class="section-sub-sub">addListVal</a><a href="#ampersand-model-removelistval" class="section-sub-sub">removeListval</a><a href="#ampersand-model-haslistval" class="section-sub-sub">hasListVal</a><a href="#ampersand-model-isvalid-codemodelisvalidcode" class="section-sub-sub">isValid <code>model.isValid()</code></a><a href="#ampersand-collection" class="section-top">ampersand-collection</a><a href="#ampersand-collection-installation" class="section-sub">Installation</a><a href="#ampersand-collection-api-reference" class="section-sub">API Reference</a><a href="#ampersand-collection-extend-codeampersandcollectionextendattributescode" class="section-sub-sub">extend <code>AmpersandCollection.extend([attributes])</code></a><a href="#ampersand-collection-constructorinitialize-codenew-ampersandcollectionmodelsarray-optionscode" class="section-sub-sub">constructor/initialize <code>new AmpersandCollection([modelsArray], [options])</code></a><a href="#ampersand-collection-model-codecollectionmodelcode" class="section-sub-sub">model <code>collection.model</code></a><a href="#ampersand-collection-mainindex-collectionmainindex" class="section-sub-sub">mainIndex `collection.mainIndex</a><a href="#ampersand-collection-indexes-codecollectionsindexescode" class="section-sub-sub">indexes <code>collections.indexes</code></a><a href="#ampersand-collection-ismodel-codecollectionismodelmodelcode" class="section-sub-sub">isModel <code>collection.isModel(model)</code></a><a href="#ampersand-collection-length-codecollectionlengthcode" class="section-sub-sub">length <code>collection.length</code></a><a href="#ampersand-collection-iscollection-codecollectioniscollectioncode" class="section-sub-sub">isCollection <code>collection.isCollection</code></a><a href="#ampersand-collection-add-codecollectionaddmodelorobjectcode" class="section-sub-sub">add <code>collection.add(modelOrObject)</code></a><a href="#ampersand-collection-serialize-codecollectionserializecode" class="section-sub-sub">serialize <code>collection.serialize()</code></a><a href="#ampersand-collection-tojson-codecollectiontojsoncode" class="section-sub-sub">toJSON <code>collection.toJSON()</code></a><a href="#ampersand-collection-set-codecollectionsetmodels-optionscode" class="section-sub-sub">set <code>collection.set(models, [options])</code></a><a href="#ampersand-collection-get-codecollectiongetquery-indexnamecode" class="section-sub-sub">get <code>collection.get(query, [indexName])</code></a><a href="#ampersand-collection-at-codecollectionatindexcode" class="section-sub-sub">at <code>collection.at(index)</code></a><a href="#ampersand-collection-remove-codecollectionremovemodels-optionscode" class="section-sub-sub">remove <code>collection.remove(models, [options])</code></a><a href="#ampersand-collection-reset-codecollectionresetmodels-optionscode" class="section-sub-sub">reset <code>collection.reset(models, [options])</code></a><a href="#ampersand-collection-sort-codecollectionsortoptionscode" class="section-sub-sub">sort <code>collection.sort([options])</code></a><a href="#ampersand-collection-strongproxied-es5-array-methods-9strong" class="section-sub-sub"><strong>proxied ES5 array methods (9)</strong></a><a href="#ampersand-rest-collection" class="section-top">ampersand-rest-collection</a><a href="#ampersand-rest-collection-install" class="section-sub">Install</a><a href="#ampersand-rest-collection-api-reference" class="section-sub">API Reference</a><a href="#ampersand-rest-collection-ajaxconfig-codeampersandrestcollectionextend-ajaxconfig-function-code" class="section-sub-sub">ajaxConfig <code>AmpersandRestCollection.extend({ ajaxConfig: function () { ... } })</code></a><a href="#ampersand-rest-collection-fetch-codecollectionfetchoptionscode" class="section-sub-sub">fetch <code>collection.fetch([options])</code></a><a href="#ampersand-rest-collection-create-codecollectioncreatemodel-optionscode" class="section-sub-sub">create <code>collection.create(model, [options])</code></a><a href="#ampersand-rest-collection-sync-codemodelsyncmethod-collection-optionscode" class="section-sub-sub">sync <code>model.sync(method, collection, [options])</code></a><a href="#ampersand-rest-collection-underscore-methods-42" class="section-sub-sub">underscore methods (42)</a><a href="#ampersand-view" class="section-top">ampersand-view</a><a href="#ampersand-view-install" class="section-sub">Install</a><a href="#ampersand-view-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-extend-codeampersandviewextendpropertiescode" class="section-sub-sub">extend <code>AmpersandView.extend(properties)</code></a><a href="#ampersand-view-template-codeampersandviewextend-template-quotltdivgtltinputgtltdivgtquot-code" class="section-sub-sub">template <code>AmpersandView.extend({ template: &quot;&lt;div&gt;&lt;input&gt;&lt;/div&gt;&quot; })</code></a><a href="#ampersand-view-autorender-codeampersandviewextend-autorender-true-code" class="section-sub-sub">autoRender <code>AmpersandView.extend({ autoRender: true })</code></a><a href="#ampersand-view-events" class="section-sub-sub">events</a><a href="#ampersand-view-bindings" class="section-sub-sub">bindings</a><a href="#ampersand-view-el" class="section-sub-sub">el</a><a href="#ampersand-view-constructor-codenew-ampersandviewoptionscode" class="section-sub-sub">constructor <code>new AmpersandView([options])</code></a><a href="#ampersand-view-initialize-codenew-ampersandviewoptionscode" class="section-sub-sub">initialize <code>new AmpersandView([options])</code></a><a href="#ampersand-view-render-codeviewrendercode" class="section-sub-sub">render <code>view.render()</code></a><a href="#ampersand-view-rendercollection-codeviewrendercollectioncollection-itemview-containerel-viewoptionscode" class="section-sub-sub">renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></a><a href="#ampersand-view-registersubview-codeviewregistersubviewviewinstancecode" class="section-sub-sub">registerSubview <code>view.registerSubview(viewInstance)</code></a><a href="#ampersand-view-rendersubview-codeviewrendersubviewviewinstance-containerelcode" class="section-sub-sub">renderSubview <code>view.renderSubview(viewInstance, containerEl)</code></a><a href="#ampersand-view-renderwithtemplate-codeviewrenderwithtemplatecontext-templatecode" class="section-sub-sub">renderWithTemplate <code>view.renderWithTemplate([context], [template])</code></a><a href="#ampersand-view-get-codeviewget39classname39code" class="section-sub-sub">get <code>view.get(&#39;.classname&#39;)</code></a><a href="#ampersand-view-getbyrole-codeviewgetbyrole39rolename39code" class="section-sub-sub">getByRole <code>view.getByRole(&#39;rolename&#39;)</code></a><a href="#ampersand-view-getall-codeviewgetall39classname39code" class="section-sub-sub">getAll <code>view.getAll(&#39;.classname&#39;)</code></a><a href="#ampersand-view-cacheelements-codeviewcacheelementshashcode" class="section-sub-sub">cacheElements <code>view.cacheElements(hash)</code></a><a href="#ampersand-view-listentoandrun-codeviewlistentoandrunobject-eventsstring-callbackcode" class="section-sub-sub">listenToAndRun <code>view.listenToAndRun(object, eventsString, callback)</code></a><a href="#ampersand-view-remove-codeviewremovecode" class="section-sub-sub">remove <code>view.remove()</code></a><a href="#ampersand-view-animateremove-codeviewanimateremovecode" class="section-sub-sub">animateRemove <code>view.animateRemove()</code></a><a href="#ampersand-view-delegateevents-codeviewdelegateeventseventscode" class="section-sub-sub">delegateEvents <code>view.delegateEvents([events])</code></a><a href="#ampersand-view-undelegateevents-codeviewundelegateeventscode" class="section-sub-sub">undelegateEvents <code>view.undelegateEvents()</code></a><a href="#ampersand-view-changelog" class="section-sub">Changelog</a><a href="#ampersand-view-switcher" class="section-top">ampersand-view-switcher</a><a href="#ampersand-view-switcher-install" class="section-sub">Install</a><a href="#ampersand-view-switcher-example" class="section-sub">Example</a><a href="#ampersand-view-switcher-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-switcher-constructor-codenew-viewswitcherelement-optionscode" class="section-sub-sub">constructor <code>new ViewSwitcher(element, [options])</code></a><a href="#ampersand-view-switcher-set-codeswitchersetviewinstancecode" class="section-sub-sub">set <code>switcher.set(viewInstance)</code></a><a href="#ampersand-view-switcher-clear-codeswitcherclearcallbackcode" class="section-sub-sub">clear <code>switcher.clear(callback)</code></a><a href="#ampersand-view-switcher-changelog" class="section-sub">Changelog</a><a href="#ampersand-router" class="section-top">ampersand-router</a><a href="#ampersand-router-install" class="section-sub">install</a><a href="#ampersand-router-api-reference" class="section-sub">API Reference</a><a href="#ampersand-router-extend-codeampersandrouterextendpropertiescode" class="section-sub-sub">extend <code>AmpersandRouter.extend(properties)</code></a><a href="#ampersand-router-routers-coderouterroutescode" class="section-sub-sub">routers <code>router.routes</code></a><a href="#ampersand-router-constructor-initialize-codenew-routeroptionscode" class="section-sub-sub">constructor / initialize <code>new Router([options])</code></a><a href="#ampersand-router-route-coderouterrouteroute-name-callbackcode" class="section-sub-sub">route <code>router.route(route, name, [callback])</code></a><a href="#ampersand-router-navigate-coderouternavigatefragment-optionscode" class="section-sub-sub">navigate <code>router.navigate(fragment, [options])</code></a><a href="#ampersand-router-redirectto-coderouterredirecttofragmentcode" class="section-sub-sub">redirectTo <code>router.redirectTo(fragment)</code></a><a href="#ampersand-router-execute-coderouterexecutecallback-argscode" class="section-sub-sub">execute <code>router.execute(callback, args)</code></a><a href="#ampersand-router-historystart-coderouterhistorystartoptionscode" class="section-sub-sub">history.start <code>router.history.start([options])</code></a>
       </nav>
       <div class="docs-content">
         <section>
@@ -415,38 +415,126 @@ people.filter(function (person) {
             <h1>ampersand-rest-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-rest-collection</h4>
-            <p class="module-version">latest v1.0.3</p>
+            <p class="module-version">latest v1.0.4</p>
             <p class="module-description">ampersand-collection with REST and Underscore mixins.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-rest-collection">github</a><a href="https://www.npmjs.org/package/ampersand-rest-collection">npm</a></p>
           </div>
           <div><p>Extends ampersand-collection with REST and Underscore mixins.</p>
-<p>This makes ampersand-collection work and act a lot like Backbone.Collection, if you&#39;re planning on hitting a REST-ful API this is probably what you want to use.</p>
-<a name="ampersand-rest-collection-browser-support" class="anchor" href="#ampersand-rest-collection-browser-support"><h2><span class="header-link"></span>browser support</h2></a><p><a href="https://ci.testling.com/AmpersandJS/ampersand-rest-collection"><img src="https://ci.testling.com/AmpersandJS/ampersand-rest-collection.png" alt="testling badge"></a></p>
-<a name="ampersand-rest-collection-install" class="anchor" href="#ampersand-rest-collection-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-rest-collection
-</code></pre><a name="ampersand-rest-collection-example" class="anchor" href="#ampersand-rest-collection-example"><h2><span class="header-link"></span>example</h2></a><p>Define a collection</p>
-<pre><code class="undefinedjavascript">var Collection = require(&#39;ampersand-rest-collection&#39;);
-var Model = require(&#39;some-model&#39;);
+<p>This makes ampersand-collection work and act a lot like Backbone.Collection, if youre planning on hitting a REST-ful API this is probably what you want to use.</p>
+<a name="ampersand-rest-collection-install" class="anchor" href="#ampersand-rest-collection-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-rest-collection
+</code></pre><a name="ampersand-rest-collection-api-reference" class="anchor" href="#ampersand-rest-collection-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><p>The ampersand-rest-collection is simply an <a href="#ampersand-collection">ampersand-collection</a> extended with two mixins: ampersand-collection-rest-mixin and ampersand-collection-underscore-mixin.</p>
+<pre><code class="undefinedjavascript">var Collection = require(ampersand-collection);
+var underscoreMixin = require(ampersand-collection-underscore-mixin);
+var restMixins = require(ampersand-collection-rest-mixin);
 
+module.exports = Collection.extend(underscoreMixin, restMixins);
+</code></pre>
+<a name="ampersand-rest-collection-ajaxconfig-codeampersandrestcollectionextend-ajaxconfig-function-code" class="anchor" href="#ampersand-rest-collection-ajaxconfig-codeampersandrestcollectionextend-ajaxconfig-function-code"><h3><span class="header-link"></span>ajaxConfig <code>AmpersandRestCollection.extend({ ajaxConfig: function () { ... } })</code></h3></a><p>ampersand-sync will call ajaxConfig on your collection before it makes the request to the server, passing it the request parameters. When extending your own collection, set an ajaxConfig function to modify the request before it goes to the server. Useful for setting headers/CORS options etc.</p>
+<p>The function will be called with <code>params</code> as the first argument, which is the object which will be passed to the underling <code>jQuery.ajax</code> call by ampersand-sync.</p>
+<pre><code class="undefinedjavascript">var MyCollection = AmpersandRestCollection.extend({
+    url: &#39;http://otherdomain.example.com/stuff&#39;,
 
-module.exports = Collection.extend({
-    model: Model,
-    url: &#39;/models&#39;
+    ajaxConfig: function (params) {
+        //Enable CORS requests
+        params.crossDomain = true;
+
+        //Send cookies cross domain for auth
+        params.xhrFields = params.xhrFields || {};
+        params.xhrFields.withCredentials = true;
+
+        return params;
+    }
+});
+
+var collection = new MyCollection()
+collection.fetch();
+</code></pre>
+<a name="ampersand-rest-collection-fetch-codecollectionfetchoptionscode" class="anchor" href="#ampersand-rest-collection-fetch-codecollectionfetchoptionscode"><h3><span class="header-link"></span>fetch <code>collection.fetch([options])</code></h3></a><p>Fetch the default set of models for the collection from the server, <a href="#ampersand-collection-set">setting</a> them on the collection when they arrive. If the collection already contains data, by default, the operation of <a href="#ampersand-collection-set">set</a> will add new models from the server, merge the attributes of existing ones, and remove any which aren&#39;t in the response. This behaviour can be modified with the <code>reset</code>, <code>add</code>, <code>remove</code>, <code>merge</code> options.</p>
+<p>Options:</p>
+<ul>
+<li><code>success</code> {Function} [optional] - callback to be called if the request was successful, will be passed <code>(collection, response, options)</code> as arguments.</li>
+<li><code>error</code> {Function} [optional] - callback to be called if the request was not successful, will be passed <code>(collection, response, options)</code> as arguments.</li>
+<li><code>reset</code> {Boolean} [optional] - call <a href="#ampersand-collection-reset">reset</a> instead of set with the models returned from the server, <em>defaults to false</em>.</li>
+<li><code>add</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{add: false}</code> prevents the call to <code>set</code> from adding new models retrieved from the server that aren&#39;t in the local collection. <em>Defaults to false</em></li>
+<li><code>remove</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{remove: false}</code> prevents the call to <code>set</code> from removing models that are in the local collection but aren&#39;t returned by the server. <em>Defaults to false</em></li>
+<li><code>merge</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{merge: false}</code> prevents the call to <code>set</code> from updating models in the local collection which have changed on the server. <em>Defaults to false</em></li>
+</ul>
+<p>You can also pass any options that <code>jQuery.ajax</code> expects to modify the query. For example: to fetch a specific page of a paginated collection: <code>collection.fetch({ data: { page: 3 } })</code></p>
+<a name="ampersand-rest-collection-create-codecollectioncreatemodel-optionscode" class="anchor" href="#ampersand-rest-collection-create-codecollectioncreatemodel-optionscode"><h3><span class="header-link"></span>create <code>collection.create(model, [options])</code></h3></a><p>Convenience to create a new instance of a model within a collection. Equivalent to instantiating a model with a hash of attributes, saving the model to the server, and adding the model to the set after being successfully created. Returns the new model. If client-side validation failed, the model will be unsaved, with validation errors. In order for this to work, you should set the <code>model</code> property of the collection. The create method can accept either an attributes hash or an existing, unsaved model object.</p>
+<p>Creating a model will cause an immediate <code>&quot;add&quot;</code> event to be triggered on the collection, a <code>&quot;request&quot;</code> event as the new model is sent to the server, as well as a <code>&quot;sync&quot;</code> event, once the server has responded with the successful creation of the model. Pass <code>{wait: true}</code> if you&#39;d like to wait for the server before adding the new model to the collection.</p>
+<pre><code>var Library = AmpersandRestCollection.extend({
+  model: Book
+});
+
+var library = new Library;
+
+var othello = library.create({
+  title: &quot;Othello&quot;,
+  author: &quot;William Shakespeare&quot;
+});
+</code></pre><a name="ampersand-rest-collection-sync-codemodelsyncmethod-collection-optionscode" class="anchor" href="#ampersand-rest-collection-sync-codemodelsyncmethod-collection-optionscode"><h3><span class="header-link"></span>sync <code>model.sync(method, collection, [options])</code></h3></a><p>Simple delegation to ampersand-sync to persist the collection to the server. Can be overridden for custom behaviour.</p>
+<a name="ampersand-rest-collection-underscore-methods-42" class="anchor" href="#ampersand-rest-collection-underscore-methods-42"><h3><span class="header-link"></span>underscore methods (42)</h3></a><p>The ampersand-collection-underscore-mixin proxies the collection methods in underscore onto the underlying models array for the collection. For example:</p>
+<pre><code class="undefinedjavascript">books.each(function(book) {
+  book.publish();
+});
+
+var titles = books.map(function(book) {
+  return book.get(&quot;title&quot;);
+});
+
+var publishedBooks = books.filter(function(book) {
+  return book.get(&quot;published&quot;) === true;
+});
+
+var alphabetical = books.sortBy(function(book) {
+  return book.author.get(&quot;name&quot;).toLowerCase();
 });
 </code></pre>
-<p>Using it:</p>
-<pre><code class="undefinedjavascript">var Collection = require(&#39;./path-to-your-collection-module&#39;);
-
-
-var c = new Collection();
-
-// call RESTful methods
-c.fetch();
-
-// also has underscore mixins
-c.each(function (model) {
-    console.log(&#39;model:&#39;, model);
-});
-</code></pre>
+<p>The full list of proxied methods is:</p>
+<ul>
+<li><a href="http://underscorejs.org/forEach">forEach</a></li>
+<li><a href="http://underscorejs.org/each">each</a></li>
+<li><a href="http://underscorejs.org/map">map</a></li>
+<li><a href="http://underscorejs.org/collect">collect</a></li>
+<li><a href="http://underscorejs.org/reduce">reduce</a></li>
+<li><a href="http://underscorejs.org/foldl">foldl</a></li>
+<li><a href="http://underscorejs.org/inject">inject</a></li>
+<li><a href="http://underscorejs.org/reduceRight">reduceRight</a></li>
+<li><a href="http://underscorejs.org/foldr">foldr</a></li>
+<li><a href="http://underscorejs.org/find">find</a></li>
+<li><a href="http://underscorejs.org/detect">detect</a></li>
+<li><a href="http://underscorejs.org/filter">filter</a></li>
+<li><a href="http://underscorejs.org/select">select</a></li>
+<li><a href="http://underscorejs.org/reject">reject</a></li>
+<li><a href="http://underscorejs.org/every">every</a></li>
+<li><a href="http://underscorejs.org/all">all</a></li>
+<li><a href="http://underscorejs.org/some">some</a></li>
+<li><a href="http://underscorejs.org/any">any</a></li>
+<li><a href="http://underscorejs.org/include">include</a></li>
+<li><a href="http://underscorejs.org/contains">contains</a></li>
+<li><a href="http://underscorejs.org/invoke">invoke</a></li>
+<li><a href="http://underscorejs.org/max">max</a></li>
+<li><a href="http://underscorejs.org/min">min</a></li>
+<li><a href="http://underscorejs.org/toArray">toArray</a></li>
+<li><a href="http://underscorejs.org/size">size</a></li>
+<li><a href="http://underscorejs.org/first">first</a></li>
+<li><a href="http://underscorejs.org/head">head</a></li>
+<li><a href="http://underscorejs.org/take">take</a></li>
+<li><a href="http://underscorejs.org/initial">initial</a></li>
+<li><a href="http://underscorejs.org/rest">rest</a></li>
+<li><a href="http://underscorejs.org/tail">tail</a></li>
+<li><a href="http://underscorejs.org/drop">drop</a></li>
+<li><a href="http://underscorejs.org/last">last</a></li>
+<li><a href="http://underscorejs.org/without">without</a></li>
+<li><a href="http://underscorejs.org/difference">difference</a></li>
+<li><a href="http://underscorejs.org/indexOf">indexOf</a></li>
+<li><a href="http://underscorejs.org/shuffle">shuffle</a></li>
+<li><a href="http://underscorejs.org/lastIndexOf">lastIndexOf</a></li>
+<li><a href="http://underscorejs.org/isEmpty">isEmpty</a></li>
+<li><a href="http://underscorejs.org/chain">chain</a></li>
+<li><a href="http://underscorejs.org/sample">sample</a></li>
+<li><a href="http://underscorejs.org/partition">partition</a></li>
+</ul>
 </div>
         </section>
         <section class="module"><a name="ampersand-view" href="#ampersand-view" class="anchor">
@@ -679,10 +767,10 @@ var MainView = AmpersandView.extend({
 </div>
         </section>
         <section class="module"><a name="ampersand-view-switcher" href="#ampersand-view-switcher" class="anchor">
-            <h1>Ampersand View Switcher</h1></a>
+            <h1>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v0.3.1</p>
+            <p class="module-version">latest v0.3.2</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
@@ -820,392 +908,116 @@ switcher.clear();
             <h1>ampersand-router</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-router</h4>
-            <p class="module-version">latest v1.0.0</p>
+            <p class="module-version">latest v1.0.1</p>
             <p class="module-description">Clientside router with fallbacks for browsers that don't support pushState. Mostly lifted from Backbone.js.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-router">github</a><a href="https://www.npmjs.org/package/ampersand-router">npm</a></p>
           </div>
-          <div><p>Clientside router with fallbacks for browsers that don&#39;t support pushState. Mostly lifted from Backbone.js.</p>
+          <div><p>Clientside router with fallbacks for browsers that don&#39;t support pushState. Mostly lifted from <a href="http://backbonejs.org/#Router">Backbone.js</a>.</p>
 <p>Ampersand-router also adds a <code>redirectTo</code> method which is handy for doing &quot;internal&quot; redirects without breaking backbutton functionality in the browser.</p>
 <a name="ampersand-router-install" class="anchor" href="#ampersand-router-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-router
-</code></pre><a name="ampersand-router-example" class="anchor" href="#ampersand-router-example"><h2><span class="header-link"></span>example</h2></a><pre><code class="undefinedjavascript">var Router = require(&#39;ampersand-router&#39;);
+</code></pre><a name="ampersand-router-api-reference" class="anchor" href="#ampersand-router-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-router-extend-codeampersandrouterextendpropertiescode" class="anchor" href="#ampersand-router-extend-codeampersandrouterextendpropertiescode"><h3><span class="header-link"></span>extend <code>AmpersandRouter.extend(properties)</code></h3></a><p>Get started by creating a custom router class. Define actions that are triggered when certain URL fragments are matched, and provide a <a href="#ampersand-router-routes">routes</a> hash that pairs routes to actions. Note that you&#39;ll want to avoid using a leading slash in your route definitions:</p>
+<pre><code class="undefinedjavascript">var AppRouter = AmpersandRouter.extend({
 
+  routes: {
+    &quot;help&quot;:                 &quot;help&quot;,    // #help
+    &quot;search/:query&quot;:        &quot;search&quot;,  // #search/kiwis
+    &quot;search/:query/p:page&quot;: &quot;search&quot;   // #search/kiwis/p7
+  },
 
-module.exports = Router.extend({
+  help: function() {
+    //...
+  },
+
+  search: function(query, page) {
+    //...
+  }
+
+});
+</code></pre>
+<a name="ampersand-router-routers-coderouterroutescode" class="anchor" href="#ampersand-router-routers-coderouterroutescode"><h3><span class="header-link"></span>routers <code>router.routes</code></h3></a><p>The routes hash maps URLs with parameters to functions on your router (or just direct function definitions, if you prefer), similar to the <a href="#ampersand-view">View</a>&#39;s <a href="#ampersand-view-events">events hash</a>. Routes can contain parameter parts, <code>:param</code>, which match a single URL component between slashes; and splat parts <code>*splat</code>, which can match any number of URL components. Part of a route can be made optional by surrounding it in parentheses <code>(/:optional)</code>.</p>
+<p>For example, a route of <code>&quot;search/:query/p:page&quot;</code> will match a fragment of <code>#search/obama/p2</code>, passing <code>&quot;obama&quot;</code> and <code>&quot;2&quot;</code> to the action.</p>
+<p>A route of <code>&quot;file/*path&quot;</code> will match <code>#file/nested/folder/file.txt</code>, passing <code>&quot;nested/folder/file.txt&quot;</code> to the action.</p>
+<p>A route of <code>&quot;docs/:section(/:subsection)&quot;</code> will match #docs/faq and #docs/faq/installing, passing <code>&quot;faq&quot;</code> to the action in the first case, and passing <code>&quot;faq&quot;</code> and <code>&quot;installing&quot;</code> to the action in the second.</p>
+<p>Trailing slashes are treated as part of the URL, and (correctly) treated as a unique route when accessed. <code>docs</code> and <code>docs/</code> will fire different callbacks. If you can&#39;t avoid generating both types of URLs, you can define a <code>&quot;docs(/)&quot;</code> matcher to capture both cases.</p>
+<p>When the visitor presses the back button, or enters a URL, and a particular route is matched, the name of the action will be fired as an event, so that other objects can listen to the router, and be notified. In the following example, visiting <code>#help/uploading</code> will fire a <code>route:help</code> event from the router.</p>
+<pre><code class="undefinedjavascript">routes: {
+  &quot;help/:page&quot;:         &quot;help&quot;,
+  &quot;download/*path&quot;:     &quot;download&quot;,
+  &quot;folder/:name&quot;:       &quot;openFolder&quot;,
+  &quot;folder/:name-:mode&quot;: &quot;openFolder&quot;
+}
+
+router.on(&quot;route:help&quot;, function(page) {
+  ...
+});
+</code></pre>
+<a name="ampersand-router-constructor-initialize-codenew-routeroptionscode" class="anchor" href="#ampersand-router-constructor-initialize-codenew-routeroptionscode"><h3><span class="header-link"></span>constructor / initialize <code>new Router([options])</code></h3></a><p>When creating a new router, you may pass its routes hash directly as an option, if you choose. All options will also be passed to your <code>initialize</code> function, if defined.</p>
+<a name="ampersand-router-route-coderouterrouteroute-name-callbackcode" class="anchor" href="#ampersand-router-route-coderouterrouteroute-name-callbackcode"><h3><span class="header-link"></span>route <code>router.route(route, name, [callback])</code></h3></a><p>Manually create a route for the router, The <code>route</code> argument may be a routing string or regular expression. Each matching capture from the route or regular expression will be passed as an argument to the callback. The <code>name</code> argument will be triggered as a <code>&quot;route:name&quot;</code> event whenever the route is matched. If the <code>callback</code> argument is omitted <code>router[name]</code> will be used instead. Routes added later may override previously declared routes.</p>
+<pre><code class="undefinedjavascript">initialize: function(options) {
+
+  // Matches #page/10, passing &quot;10&quot;
+  this.route(&quot;page/:number&quot;, &quot;page&quot;, function(number){ ... });
+
+  // Matches /117-a/b/c/open, passing &quot;117-a/b/c&quot; to this.open
+  this.route(/^(.*?)\/open$/, &quot;open&quot;);
+
+},
+
+open: function(id) { ... }
+</code></pre>
+<a name="ampersand-router-navigate-coderouternavigatefragment-optionscode" class="anchor" href="#ampersand-router-navigate-coderouternavigatefragment-optionscode"><h3><span class="header-link"></span>navigate <code>router.navigate(fragment, [options])</code></h3></a><p>Whenever you reach a point in your application that you&#39;d like to save as a URL, call <em>navigate</em> in order to update the URL. If you wish to also call the route function, set the <code>trigger</code> option to <code>true</code>. To update the URL without creating an entry in the browser&#39;s history, set the <code>replace</code> option to <code>true</code>.</p>
+<pre><code class="undefinedjavascript">openPage: function(pageNumber) {
+  this.document.pages.at(pageNumber).open();
+  this.navigate(&quot;page/&quot; + pageNumber);
+}
+
+// Or ...
+
+app.navigate(&quot;help/troubleshooting&quot;, {trigger: true});
+
+// Or ...
+
+app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
+</code></pre>
+<a name="ampersand-router-redirectto-coderouterredirecttofragmentcode" class="anchor" href="#ampersand-router-redirectto-coderouterredirecttofragmentcode"><h3><span class="header-link"></span>redirectTo <code>router.redirectTo(fragment)</code></h3></a><p>Sometimes you want to be able to redirect to a different route in your application without adding an entry in the browser&#39;s history. RedirectTo is just a shorthand for calling <a href="#ampersand-router-navigate">navigate</a> with both <code>trigger</code> and <code>replace</code> set to <code>true</code>.</p>
+<pre><code class="undefinedjavascript">var AppRouter = AmpersandRouter.extend({
     routes: {
-        &#39;&#39;: &#39;home&#39;,
-        &#39;users/:id&#39;: &#39;userDetail&#39;,
-        &#39;info&#39;: &#39;info&#39;
+        &#39;login&#39;: &#39;login&#39;,
+        &#39;dashboard&#39;: &#39;dashboard&#39;
     },
 
-    // ------- ROUTE HANDLERS ---------
-    home: function () {
-        this.trigger(&#39;newPage&#39;, new HomePage());
-    },
+    dashboard: function () {
+        if (!app.me.loggedIn) return redirectTo(&#39;login&#39;);
 
-    // redirect example
-    userDetail: function (id) {
-        var user = app.users.get(id);
-        if (user) {
-            this.trigger(&#39;newPage&#39;, new HomePage());
-        } else {
-            this.redirectTo(&#39;users&#39;);
-        }
-    }
-
-    ...
-}};
-</code></pre>
-</div>
-        </section>
-        <section class="module"><a name="ampersand-form-view" href="#ampersand-form-view" class="anchor">
-            <h1>ampersand-form-view</h1></a>
-          <div class="module-card">
-            <h4 class="module-name">ampersand-form-view</h4>
-            <p class="module-version">latest v0.2.2</p>
-            <p class="module-description">Completely customizable form lib for bulletproof clientside forms.</p>
-            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-form-view">github</a><a href="https://www.npmjs.org/package/ampersand-form-view">npm</a></p>
-          </div>
-          <div><p>ampersand-form-view is a wrapper view for easily building complex forms on the clientside with awesome clientside validation and UX.</p>
-<p>It would work quite well with backbone apps or anything else really, it has no external dependencies.</p>
-<p>At a high level, the way it works is you define a view object (by making an object that following the <a href="http://ampersandjs.com/#-view-conventions">simple view conventions</a> of ampersand).</p>
-<p>That form can be given an array of field views.</p>
-<p>These fields are also <a href="http://ampersandjs.com/#-view-conventions">views</a> but just follow a few more conventions in order to be able to work with a our form view.</p>
-<p>Those rules are as follows: </p>
-<ul>
-<li>It maintains a <code>value</code> property that is the current value of the field.</li>
-<li>It should also store a <code>value</code> property if passed in as part of the config/options object when the view is created.</li>
-<li>It maintains a <code>valid</code> property that is a boolean. The parent form checks this to know whether it can submit the form or not.</li>
-<li>It has a <code>name</code> property that is a string of the name of the field.</li>
-<li>It reports changes to its parent when it deems appropriate by calling <code>this.parent.update(this)</code> **note that is passes itsef to the parent. You would typically do this when the <code>this.value</code> has changed or the <code>this.valid</code> has changed.</li>
-<li>When rendered by a form-view it the form view creates a <code>parent</code> property that is a reference to the containing form view.</li>
-<li>It can optionally also define a <code>beforeSubmit</code> method. This gets called by the parent if it exists. This can be useful for stuff like a required text input that you don&#39;t want to show an error for if empty until the user tries to submit the form.</li>
-</ul>
-<a name="ampersand-form-view-install" class="anchor" href="#ampersand-form-view-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-form-view
-</code></pre><a name="ampersand-form-view-example-defining-a-form-view" class="anchor" href="#ampersand-form-view-example-defining-a-form-view"><h2><span class="header-link"></span>Example: Defining a form view</h2></a><p>Here&#39;s how you might draw a form view as a subview.</p>
-<pre><code class="undefinedjavascript">// we&#39;ll just use an ampersand-view here as an 
-// example parent view
-var View = require(&#39;ampersand-view&#39;);
-var InputView = require(&#39;ampersand-text-input-view&#39;);
-
-
-module.exports = View.extend({
-    template: &#39;&lt;div&gt;&lt;p&gt;App form&lt;/p&gt;&lt;form role=&quot;app-edit-form&quot;&gt;&lt;/form&gt;&lt;/div&gt;&#39;
-    render: function () {
-        this.form = new FormView({
-            el: this.getByRole(&#39;app-edit-form&#39;),
-            submitCallback: function (obj) {
-                console.log(&#39;form submitted! Your data:&#39;, obj);
-            },
-            // this valid callback gets called (if it exists)
-            // when the form first loads and any time the form
-            // changes from valid to invalid or vice versa.
-            // You might use this to disable the &quot;submit&quot; button
-            // any time the form is invalid, for exmaple.
-            validCallback: function (valid) {
-                if (valid) {
-                    console.log(&#39;The form is valid!&#39;);
-                } else {
-                    console.log(&#39;The form is not valid!&#39;);
-                }
-            },
-            // This is just an array of field views that follow
-            // the rules described above. I&#39;m using an input-view
-            // here, but again, *this could be anything* you would
-            // pass it whatever config items needed to instantiate
-            // the field view you made. 
-            fields: [
-                new InputView({
-                    name: &#39;client_name&#39;,
-                    label: &#39;App Name&#39;,
-                    placeholder: &#39;My Awesome App&#39;,
-                    // an intial value if it has one
-                    value: &#39;hello&#39;,
-                    // this one takes an array of tests
-                    tests: [
-                        function (val) {
-                            if (val.length &lt; 5) return &quot;Must be 5+ characters.&quot;;
-                        }
-                    ]
-                }),
-                new SomeOtherFieldView({
-                    name: &#39;something&#39;,
-                    ...
-                })
-            ]
-        });
-
-        // registering the form view as a subview ensures that
-        // it`s `remove` method will get called when the parent
-        // view is removed.
-        this.registerSubview(this.form);
+        // show dashboard page...
     }
 });
 </code></pre>
-<a name="ampersand-form-view-credits" class="anchor" href="#ampersand-form-view-credits"><h2><span class="header-link"></span>credits</h2></a><p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a></p>
-</div>
-        </section>
-        <section class="module"><a name="ampersand-input-view" href="#ampersand-input-view" class="anchor">
-            <h1>ampersand-input-view</h1></a>
-          <div class="module-card">
-            <h4 class="module-name">ampersand-input-view</h4>
-            <p class="module-version">latest v1.1.0</p>
-            <p class="module-description">A view module for intelligently rendering and validating input. Works well with ampersand-form-view.</p>
-            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-input-view">github</a><a href="https://www.npmjs.org/package/ampersand-input-view">npm</a></p>
-          </div>
-          <div><p>A view module for intelligently rendering and validating input. Works well with <a href="ampersandjs/ampersand-form-view">ampersand-form-view</a>.</p>
-<p>It does the following:</p>
+<a name="ampersand-router-execute-coderouterexecutecallback-argscode" class="anchor" href="#ampersand-router-execute-coderouterexecutecallback-argscode"><h3><span class="header-link"></span>execute <code>router.execute(callback, args)</code></h3></a><p>This method is called internally within the router, whenever a route matches and its corresponding callback is about to be executed. Override it to perform custom parsing or wrapping of your routes, for example, to parse query strings before handing them to your route callback, like so:</p>
+<pre><code class="undefinedjavascript">var Router = AmpersandRouter.extend({
+  execute: function(callback, args) {
+    args.push(parseQueryString(args.pop()));
+    if (callback) callback.apply(this, args);
+  }
+});
+</code></pre>
+<a name="ampersand-router-historystart-coderouterhistorystartoptionscode" class="anchor" href="#ampersand-router-historystart-coderouterhistorystartoptionscode"><h3><span class="header-link"></span>history.start <code>router.history.start([options])</code></h3></a><p>AmpersandRouter automatically requires and instantiates a single ampersand-history object. AmpersandHistory serves as a global router (per frame) to handle hashchange events or pushState, match the appropriate route, and trigger callbacks. You shouldn&#39;t ever have to create one of these yourself since ampersand-router already contains one.</p>
+<p>When all of your Routers have been created, and all of the routes are set up properly, call <code>router.history.start()</code> on one of your routers to begin monitoring hashchange events, and dispatching routes. Subsequent calls to <code>history.start()</code> will throw an error, and <code>router.history.started</code> is a boolean value indicating whether it has already been called.</p>
+<p>Supported options:</p>
 <ul>
-<li>Automatically shows/hides error messages based on tests</li>
-<li>Will not show error messages pre-submit or it&#39;s never had a valid value. This lets people tab-through a form without triggering a bunch of error messages.</li>
-<li>Live-validates to always report if in valid state, but only shows messages when sane to do so.</li>
+<li><strong>pushState</strong> {Boolean} - To indicate that you&#39;d like to use HTML5 pushState support in your application, use <code>Backbone.history.start({pushState: true})</code>. <strong>Defaults to false</strong></li>
+<li><strong>hashChange</strong> {Boolean} - If you&#39;d like to use pushState, but have browsers that don&#39;t support it natively use full page refreshes instead, you can add <code>{hashChange: false}</code> to the options. <strong>Defaults to true</strong></li>
+<li><strong>root</strong> {String} - If your application is not being served from the root url <code>/</code> of your domain, be sure to tell History where the root really is, as an option: <code>router.history.start({pushState: true, root: &quot;/public/search/&quot;})</code>. <strong>Defaults to <code>/</code></strong></li>
+<li><strong>silent</strong> {Boolean} - If the server has already rendered the entire page, and you don&#39;t want the initial route to trigger when starting History, pass <code>silent: true</code>. <strong>Defaults to false</strong></li>
 </ul>
-<p>It&#39;s built on <a href="ampersandjs/ampersand-view">ampersand-view</a> so it can be extended with <code>extend</code> as you might expect.</p>
-<a name="ampersand-input-view-install" class="anchor" href="#ampersand-input-view-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-input-view
-</code></pre><a name="ampersand-input-view-example" class="anchor" href="#ampersand-input-view-example"><h2><span class="header-link"></span>example</h2></a><pre><code class="undefinedjavascript">var InputView = require(&#39;ampersand-input-view&#39;);
-
-var field = new InputView({
-    // form input `name`
-    name: &#39;client_name&#39;,
-    // You can replace the built-in template with your own.
-    // just give it an html string. Make sure it has a single &quot;root&quot; element that contains:
-    //  - an `&lt;input&gt;` element
-    //  - an element with a `role=&quot;label&quot;` attribute
-    //  - an element with a `role=&quot;message-container&quot;` attribute (this we&#39;ll show/hide)
-    //  - an elememt with a `role=&quot;message-text&quot;` attribute (where message text goes for error)
-    template: // some HTML string
-    // Label name
-    label: &#39;App Name&#39;,
-    // Optional placeholder attribute
-    placeholder: &#39;My Awesome App&#39;,
-    // optinal intial value if it has one
-    value: &#39;hello&#39;,
-    // optional, this is the that will be 
-    // replaced by this view. If you don&#39;t
-    // give it one, it will create one.
-    el: document.getElementByID(&#39;field&#39;),
-    // whether or not this field is required
-    required: true, // true by default
-    // class to set on input when input is valid
-    validClass: &#39;input-valid&#39;, // &lt;- that&#39;s the default
-    // type value to use for the input tag&#39;s type value
-    type: &#39;text&#39;,
-    // class to set on input when input is valid
-    invalidClass: &#39;input-invalid&#39;, // &lt;- that&#39;s the default
-    // Message to use if error is that it&#39;s required
-    // but no value was set.
-    requiredMessage: &#39;This field is required.&#39;,
-    // An array of test functions. They will be called
-    // in order with the current input value and you should
-    // write your test and return the error message to show
-    // if the test fails. It also gets called with the field
-    // instance as it&#39;s `this` context.
-    tests: [
-        function (val) {
-            if (val.length &lt; 5) return &quot;Must be 5+ characters.&quot;;
-        }
-    ],
-    // optional, you can pass in the parent view explicitly
-    parent:  someViewInstance 
-});
-
-// append it somewhere or use it in side an ampersand-form-view
-document.querySelector(&#39;form&#39;).appendChild(field.el);
-</code></pre>
-<a name="ampersand-input-view-credits" class="anchor" href="#ampersand-input-view-credits"><h2><span class="header-link"></span>credits</h2></a><p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a>.</p>
-</div>
-        </section>
-        <section class="module"><a name="ampersand-checkbox-view" href="#ampersand-checkbox-view" class="anchor">
-            <h1>ampersand-checkbox-view</h1></a>
-          <div class="module-card">
-            <h4 class="module-name">ampersand-checkbox-view</h4>
-            <p class="module-version">latest v1.1.1</p>
-            <p class="module-description">A view module for intelligently rendering and validating checkbox input. Works well with ampersand-form-view.</p>
-            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-checkbox-view">github</a><a href="https://www.npmjs.org/package/ampersand-checkbox-view">npm</a></p>
-          </div>
-          <div><p>A view module for intelligently rendering and validating checkbox input. Works well with <a href="ampersandjs/ampersand-form-view">ampersand-form-view</a>.</p>
-<p>It does the following:</p>
-<ul>
-<li>Automatically shows/hides error message based required.</li>
-<li>Will only show error message checkbox is required and:<ul>
-<li>trying to submit form and it&#39;s not checked.</li>
-<li>it has ever been checked and now isn&#39;t.</li>
-</ul>
-</li>
-</ul>
-<p>Depdent on two micro-libs, so works well with ampersand apps, backbone apps or anything else, really.</p>
-<a name="ampersand-checkbox-view-install" class="anchor" href="#ampersand-checkbox-view-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-checkbox-view
-</code></pre><a name="ampersand-checkbox-view-example" class="anchor" href="#ampersand-checkbox-view-example"><h2><span class="header-link"></span>example</h2></a><pre><code class="undefinedjavascript">var CheckboxView = require(&#39;ampersand-checkbox-view&#39;);
-
-var field = new CheckboxView({
-    // form input `name`
-    name: &#39;client_name&#39;,
-    // You can replace the built-in template with your own.
-    // just give it an html string. Make sure it has a single &quot;root&quot; element that contains:
-    //  - an `&lt;input&gt;` element
-    //  - an element with a `role=&quot;label&quot;` attribute
-    //  - an element with a `role=&quot;message-container&quot;` attribute (this we&#39;ll show/hide)
-    //  - an elememt with a `role=&quot;message-text&quot;` attribute (where message text goes for error)
-    template: // some HTML string
-    // Label name
-    label: &#39;App Name&#39;,
-    // optinal intial value if it has one
-    value: true, // or false
-    // optional, this is the element that will be 
-    // replaced by this view. If you don&#39;t
-    // give it one, it will create one.
-    el: document.getElementByID(&#39;field&#39;),
-    // whether or not this field is required
-    required: true, // true by default
-    // class to set on input when input is valid
-    validClass: &#39;input-valid&#39;, // &lt;- that&#39;s the default
-    // type value to use for the input tag&#39;s type value
-    type: &#39;text&#39;,
-    // class to set on input when input is valid
-    invalidClass: &#39;input-invalid&#39;, // &lt;- that&#39;s the default
-    // Message to use if error is that it&#39;s required
-    // but no value was set.
-    requiredMessage: &#39;This box must be checked.&#39;,
-    // optional, you can pass in the parent view explicitly
-    parent:  someViewInstance 
-});
-
-// append it somewhere or use it in side an ampersand-form-view
-document.querySelector(&#39;form&#39;).appendChild(field.el);
-</code></pre>
-<a name="ampersand-checkbox-view-browser-support" class="anchor" href="#ampersand-checkbox-view-browser-support"><h2><span class="header-link"></span>browser support</h2></a><p><a href="https://ci.testling.com/AmpersandJS/ampersand-checkbox-view"><img src="https://ci.testling.com/AmpersandJS/ampersand-checkbox-view.png" alt="testling badge"></a></p>
-<a name="ampersand-checkbox-view-credits" class="anchor" href="#ampersand-checkbox-view-credits"><h2><span class="header-link"></span>credits</h2></a><p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a>.</p>
-</div>
-        </section>
-        <section class="module"><a name="ampersand-array-input-view" href="#ampersand-array-input-view" class="anchor">
-            <h1>ampersand-array-input-view</h1></a>
-          <div class="module-card">
-            <h4 class="module-name">ampersand-array-input-view</h4>
-            <p class="module-version">latest v1.0.1</p>
-            <p class="module-description">A view module for intelligently rendering and validating inputs that should produce an array of values. Works well with ampersand-form-view.</p>
-            <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-array-input-view">github</a><a href="https://www.npmjs.org/package/ampersand-array-input-view">npm</a></p>
-          </div>
-          <div><p>A view module for intelligently rendering and validating inputs that should produce an array of values. Works well with <a href="ampersandjs/ampersand-form-view">ampersand-form-view</a>.</p>
-<p><strong>still a bit broken, just saving progress</strong></p>
-<p>It does the following:</p>
-<ul>
-<li>Automatically shows/hides error messages based on tests</li>
-<li>Exposes control for adding more input fields.</li>
-<li>Exposes control removing all but required number of input fields.</li>
-<li>Will not show error messages pre-submit or it&#39;s never had a valid value. This lets people tab-through a form without triggering a bunch of error message.</li>
-<li>Live-validates to always report if in valid state, but only shows messages when sane to do so.</li>
-</ul>
-<a name="ampersand-array-input-view-install" class="anchor" href="#ampersand-array-input-view-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-input-view
-</code></pre><a name="ampersand-array-input-view-example" class="anchor" href="#ampersand-array-input-view-example"><h2><span class="header-link"></span>example</h2></a><pre><code class="undefinedjavascript">var InputView = require(&#39;ampersand-array-input-view&#39;);
-
-var field = new InputView({
-    // form input `name`
-    name: &#39;client_name&#39;,
-    // You can replace the built-in template with your own.
-    // just give it an html string. Make sure it has a single &quot;root&quot; element that contains:
-    //  - an `&lt;input&gt;` element
-    //  - an element with a `role=&quot;label&quot;` attribute
-    //  - an element with a `role=&quot;message-container&quot;` attribute (this we&#39;ll show/hide)
-    //  - an elememt with a `role=&quot;message-text&quot;` attribute (where message text goes for error)
-    template: // some HTML string
-    // Label name
-    label: &#39;App Name&#39;,
-    // Optional placeholder attribute
-    placeholder: &#39;My Awesome App&#39;,
-    // optinal intial value if it has one
-    value: [&#39;hello&#39;],
-    // optional, this is the that will be 
-    // replaced by this view. If you don&#39;t
-    // give it one, it will create one.
-    el: document.getElementByID(&#39;field&#39;),
-    // whether or not this field is required
-    numberRequired: 0, // number of answers needed
-    // class to set on input when input is valid
-    validClass: &#39;input-valid&#39;, // &lt;- that&#39;s the default
-    // type value to use for the input tag&#39;s type value
-    type: &#39;text&#39;,
-    // class to set on input when input is valid
-    invalidClass: &#39;input-invalid&#39;, // &lt;- that&#39;s the default
-    // Message to use if error is that it&#39;s required
-    // but no value was set.
-    requiredMessage: &#39;This field is required.&#39;,
-    // An array of test functions that each input must pass.
-    // They will be called in order with the current input value 
-    // and you should write your test to return an error message
-    // if it fails and something falsey if it passes.
-    // Note that these tests get called with the field view instance as 
-    // it&#39;s `this` context.
-    tests: [
-        function (val) {
-            if (val.length &lt; 5) return &quot;Must be 5+ characters.&quot;;
-        }
-    ],
-    // optional, you can pass in the parent view explicitly
-    parent:  someViewInstance 
-});
-
-// append it somewhere or use it in side an ampersand-form-view
-document.querySelector(&#39;form&#39;).appendChild(field.el);
-</code></pre>
-<a name="ampersand-array-input-view-credits" class="anchor" href="#ampersand-array-input-view-credits"><h2><span class="header-link"></span>credits</h2></a><p>Created by <a href="http://twitter.com/henrikjoreteg">@HenrikJoreteg</a>.</p>
-</div>
-        </section>
-        <section class="module"><a name="ampersand-select-view" href="#ampersand-select-view" class="anchor">
-            <h1>ampersand-select-view</h1></a>
-          <div class="module-card">
-            <h4 class="module-name">ampersand-select-view</h4>
-            <p class="module-version">latest v1.0.1</p>
-            <p class="module-description">A view module for intelligently rendering and validating selectbox input. Works well with ampersand-form-view.</p>
-            <p class="module-links"><a href="https://github.com/AmpersandJS/ampersand-select-view">github</a><a href="https://www.npmjs.org/package/ampersand-select-view">npm</a></p>
-          </div>
-          <div><p>A view module for intelligently rendering and validating selectbox input. Works well with ampersand-form-view.</p>
-<a name="ampersand-select-view-install" class="anchor" href="#ampersand-select-view-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-select-view
-</code></pre><a name="ampersand-select-view-example" class="anchor" href="#ampersand-select-view-example"><h2><span class="header-link"></span>example</h2></a><pre><code class="undefinedjavascript">var FormView = require(&#39;ampersand-form-view&#39;);
-var SelectView = require(&#39;ampersand-select-view&#39;);
-
-
-module.exports = FormView.extend({
-    fields: function () {
-        return [
-            new SelectView({
-                label: &#39;Pick a color!&#39;,
-                // actual field name
-                name: &#39;color&#39;,
-                parent: this,
-                // you can pass simple string options
-                options: [&#39;blue&#39;, &#39;orange&#39;, &#39;red&#39;],
-                // if included this will add option for an unselected state
-                unselectedText: &#39;please choose one&#39;,
-                // you can specify that they have to pick one
-                required: true
-            }),
-            new SelectView({
-                name: &#39;option&#39;,
-                parent: this,
-                // you can also pass pairs, first is the value, second is used for the label
-                options: [ [&#39;a&#39;, &#39;Option A&#39;], [&#39;b&#39;, &#39;Option B&#39;], [&#39;c&#39;, &#39;Option C&#39;] ]
-            }),
-            new SelectView({
-                name: &#39;model&#39;,
-                parent: this,
-                // you can pass in a collection here too
-                options: collection,
-                // and pick an item from the collection as the selected one
-                value: collection1.at(2),
-                // here you specify which attribute on the objects in the collection
-                // to use for the value returned.
-                idAttribute: &#39;id&#39;,
-                // you can also specify which model attribute to use as the title
-                textAttribute: &#39;title&#39;,
-                // here you can specify if it should return the selected model from the
-                // collection, or just the id attribute
-                yieldModel: false
-            })
-        ];
-    }
+<p>When called, if a route succeeds with a match for the current URL, <code>router.history.start()</code> returns <code>true</code>. If no defined route matches the current URL, it returns <code>false</code>.</p>
+<p>Because hash-based history in Internet Explorer relies on an <code>&lt;iframe&gt;</code>, be sure to only call <code>start()</code> after the DOM is ready.</p>
+<pre><code class="undefinedjavascript">$(function(){
+  new WorkspaceRouter();
+  new HelpPaneRouter();
+  Backbone.history.start({pushState: true});
 });
 </code></pre>
-<a name="ampersand-select-view-browser-support" class="anchor" href="#ampersand-select-view-browser-support"><h2><span class="header-link"></span>browser support</h2></a><p><a href="https://ci.testling.com/AmpersandJS/ampersand-select-view"><img src="https://ci.testling.com/AmpersandJS/ampersand-select-view.png" alt="testling badge"></a></p>
-<a name="ampersand-select-view-credits" class="anchor" href="#ampersand-select-view-credits"><h2><span class="header-link"></span>credits</h2></a><p>Written by <a href="twitter.com/philip_roberts">@philip_roberts</a>.</p>
 </div>
         </section>
       </div>

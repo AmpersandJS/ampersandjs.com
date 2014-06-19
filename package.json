@@ -33,7 +33,9 @@
     "ampersand-rest-collection",
     "ampersand-view",
     "ampersand-view-switcher",
-    "ampersand-router",
+    "ampersand-router"
+  ],
+  "formModules": [
     "ampersand-form-view",
     "ampersand-input-view",
     "ampersand-checkbox-view",
