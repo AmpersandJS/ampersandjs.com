@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
-    <meta name="author" content="undefined">
-    <title>Ampersand.js - Using Base Objects and Mixins</title>
+    <meta name="author" content="Get started with Ampersand.js">
+    <title>Ampersand.js - Learn</title>
     <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
     <link rel="stylesheet" href="/static/css/plugins/normalize.css">
     <link rel="stylesheet" href="/static/css/main.css">
@@ -14,10 +14,78 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"><a href="/learn/base-objects-and-mixins" class="section-top">Using Base Objects and Mixins</a><a href="/learn/ampersand-cli" class="section-top">Ampersand CLI Tool</a><a href="/learn/browserify" class="section-top">NPM &amp; Browserify Quickstart</a><a href="/learn/" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/transition-from-backbone" class="section-top">Transitioning from Backbone</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/events" class="section-top">Learn About Events in Ampersand</a><a href="/learn/view-conventions" class="section-top">View Conventions</a><a href="/learn/role-attribute" class="section-top">Using the `role` attribute</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/browserify" class="section-top">NPM &amp; Browserify Quickstart</a><a href="/learn/transition-from-backbone" class="section-top">Transitioning from Backbone</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/events" class="section-top">Events in Ampersand</a><a href="/learn/view-conventions" class="section-top">View Conventions</a><a href="/learn/base-objects-and-mixins" class="section-top">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-top">Using the `role` attribute</a><a href="/learn/ampersand-cli" class="section-top">Ampersand CLI Tool</a>
       </nav>
       <div class="docs-content">
         <section><h1 id="using-base-objects-and-mixins">Using Base Objects and Mixins</h1>
+<p>Flexibility and composability are core values of ampersand.</p>
+<p>We accomplish this, in part, with base objects and mixins and it&#39;s a pattern that&#39;s very useful for adding the functionality that you need to your objects.</p>
+<p>Say you wanted a helper function that would always be available to all the views in your app. </p>
+<h2 id="base-view-example-adding-a-this-method">Base view example, adding a <code>this.$</code> method</h2>
+<p>Simply create a base view, by convention we&#39;d put it in <code>client/views/base.js</code>.</p>
+<p>Let&#39;s say that we wanted a <code>this.$()</code> in our views like what backbone has. It&#39;s a very handy feature in backbone, but we didn&#39;t want to force it on you. You don&#39;t have to use jQuery, Zepto, or any such library at all unless you want to. </p>
+<p>Where as backbone expects it to <a href="https://github.com/jashkenas/backbone/blob/f210ef68f3d8cfc0676577fe347ababf0aab4497/backbone.js#L25">exist as a global or AMD module</a> </p>
+<p>But we can accomplish the same thing by adding it to our base view like this:</p>
+<pre><code class="lang-js">var AmpersandView = require(&#39;ampersand-view&#39;);
+// this could come from a global too, of course, if you&#39;d prefer
+// but it&#39;s on npm so why not :)
+var $ = require(&#39;jquery&#39;); 
+
+
+module.exports = AmpersandView.extend({
+    $: function (selector) {
+        return $(selector, this.el);
+    } 
+});
+</code></pre>
+<p>So, now, your other views can just use that as a base:</p>
+<p><code>client/views/other-view.js</code></p>
+<pre><code class="lang-js">// instead of requiring ampersand view directly we just 
+// require our base view to extend for other views
+var BaseView = require(&#39;./base&#39;);
+
+
+module.exports = BaseView.extend({
+    otherMethod: function () {
+    }
+    ...
+})
+</code></pre>
+<h2 id="using-and-re-using-mixins">Using (and re-using) mixins</h2>
+<p>If you&#39;ve got a particularly useful mixin, it&#39;s handy to not write it repeatedly. Or perhaps you only want to extend certain views instead of all.</p>
+<p>You can also just have objects of methods and mix them into an existing view. </p>
+<p>This is how we extend <a href="http://ampersandjs.com/docs#ampersand-rest-collection-api-reference">ampersand-collection</a> to become <a href="http://ampersandjs.com/docs#ampersand-rest-collection-api-reference">ampersand-collection</a> with RESTful methods.</p>
+<p>The <code>.extend</code> method <a href="https://github.com/AmpersandJS/ampersand-class-extend">that we use in ampersand</a>, allows you to pass in as many mixins as you want.</p>
+<p>So, using the example above we could also have created a mixin that looked like this:</p>
+<p><code>client/helpers/jquery-mixin.js</code></p>
+<pre><code class="lang-js">var $ = require(&#39;jquery&#39;);
+
+
+module.exports = {
+    $: function (selector) {
+        return $(selector, this.el);
+    }
+};
+</code></pre>
+<p><strong> note: it&#39;s not requiring or extending view here, it&#39;s simply exporting an object with a <code>$</code> method. </strong></p>
+<p>Now, when we&#39;re building a view we could do it like this instead:</p>
+<p><code>client/views/other-view.js</code></p>
+<pre><code class="lang-js">var AmpersandView = require(&#39;ampersand-view&#39;);
+var jQueryMixin = require(&#39;../helpers/jquery-mixin&#39;);
+
+
+// ** note **  we just add it to our extend: ↓
+module.exports = AmpersandView.extend(jQueryMixin, {
+    otherMethod: function () {
+        // now we&#39;d have our `$` method
+        var el = this.$(&#39;.some-class&#39;);
+    }
+    ...
+})
+</code></pre>
+<h2 id="publish-mixins-to-npm">Publish mixins to npm</h2>
+<p>Nothing wrong with publishing little re-usable mixins to npm. For future use. Super handy way of providing interesting functionality without having to include a bunch of code in the base libraries that you don&#39;t end up using.</p>
+<p>Fast, light, flexible, FTW!</p>
 </section>
       </div>
     </div>

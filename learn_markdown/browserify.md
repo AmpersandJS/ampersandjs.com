@@ -1,5 +1,6 @@
 ---
 pagetitle: NPM & Browserify Quickstart
+order: 2
 ---
 
 # NPM & Browserify Quickstart
