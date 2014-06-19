@@ -479,6 +479,7 @@ nav.nav-main .nav-item.external:after {
   bottom: 50%;
   background-image: url("../images/icon-arrow.png");
   background-image: url("../images/icon-arrow.svg"), none;
+  background-size: auto 8px;
 }
 nav.nav-main .button {
   margin-top: 0;
@@ -545,6 +546,15 @@ nav.nav-main .button {
   }
   nav.nav-main .button {
     display: none;
+  }
+  .learn-index .nav-docs {
+    padding-top: 0;
+    text-align: center;
+  }
+  .learn-index .nav-docs .logo-ampersand {
+    width: 40px;
+    height: 50px;
+    margin: 0 auto 20px;
   }
 }
 .hero {
@@ -689,7 +699,7 @@ nav.nav-main .button {
   font-size: 0.95em;
 }
 .docs-page .footer-main,
-.learn-page .footer-main {
+.learn-index .footer-main {
   max-width: 980px;
   margin: 0 auto;
   padding-left: 25%;
@@ -698,6 +708,9 @@ nav.nav-main .button {
   max-width: 1100px;
   margin: 0 auto 40px;
   padding: 0 60px;
+}
+.docs a.back {
+  display: none;
 }
 .nav-docs {
   width: 20%;
@@ -729,14 +742,33 @@ nav.nav-main .button {
   }
 }
 @media (max-width: 768px) {
-  .nav-docs {
+  .docs-page .nav-docs {
     display: none;
   }
   .docs-content {
     padding-left: 0;
   }
-  .docs-page .footer-main {
+  .learn-index .nav-docs {
+    width: 100%;
+    position: static;
+  }
+  .learn-index .docs-content {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .docs-page .footer-main,
+  .learn-index .footer-main {
     padding-left: 0;
+  }
+  .docs a.back {
+    margin: -50px 0 50px;
+    padding-left: 25px;
+    display: block;
+    background: no-repeat 0 45%;
+    background-image: url("../images/icon-arrow-back.png");
+    background-image: url("../images/icon-arrow-back.svg"), none;
+    background-size: auto 10px;
   }
 }
 .contribute .container {

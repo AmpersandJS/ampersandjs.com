@@ -1,6 +1,6 @@
 // Docs
 
-.docs-page, .learn-page
+.docs-page, .learn-index
 
   .footer-main
     max-width: 980px
@@ -11,6 +11,9 @@
   max-width: 1100px
   margin: 0 auto 40px
   padding: 0 60px
+
+  a.back
+    display: none
 
 .nav-docs
   width: 20%
@@ -42,13 +45,32 @@
 
 @media (max-width: 768px)
 
-  .nav-docs
-    display: none
+  .docs-page
+    .nav-docs
+      display: none
 
   .docs-content
     padding-left: 0
 
-  .docs-page
+  .learn-index
+    .nav-docs
+      width: 100%
+      position: static
+    .docs-content
+      max-width: 500px
+      margin: 0 auto
+      text-align: center
 
+  .docs-page, .learn-index
     .footer-main
       padding-left: 0
+
+  .docs
+    a.back
+      margin: -50px 0 50px
+      padding-left: 25px
+      display: block
+      background: no-repeat 0 45%
+      background-image: url(../images/icon-arrow-back.png)
+      background-image: url(../images/icon-arrow-back.svg), none
+      background-size: auto 10px
