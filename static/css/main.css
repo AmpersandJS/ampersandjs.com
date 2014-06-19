@@ -703,6 +703,12 @@ nav.nav-main .button {
   max-width: 980px;
   margin: 0 auto;
   padding-left: 25%;
+  border-top: none;
+}
+.docs-page .footer-main .nav-footer,
+.learn-index .footer-main .nav-footer {
+  border-top: 1px solid #f7f7f7;
+  padding-top: 40px;
 }
 .docs {
   max-width: 1100px;
@@ -760,6 +766,7 @@ nav.nav-main .button {
   .docs-page .footer-main,
   .learn-index .footer-main {
     padding-left: 0;
+    padding-right: 0;
   }
   .docs a.back {
     margin: -50px 0 50px;
