@@ -1,5 +1,5 @@
 ---
-pagetitle: Learn About Events in Ampersand
+pagetitle: Events in Ampersand
 order: 6
 ---
 
