@@ -80,27 +80,14 @@ block content
     .callout.modules-list
       h2 Useful modules
       .cf
-        .module-card
-          h4.module-name bindingbows
-          p.module-author by latentflip
-          p.module-description Safe, production happy, colourful logging for chrome - makes reading your logs much easier.
-          p.module-links
-            a(href="#") github
-            a(href="#") npm
-        .module-card
-          h4.module-name emoji-images
-          p.module-author by HenrikJoreteg
-          p.module-description Replace stuff like :smiley: in text with <img> tags of a corresponding image.
-          p.module-links
-            a(href="#") github
-            a(href="#") npm
-        .module-card
-          h4.module-name mediahammerjs
-          p.module-author by jtangelder
-          p.module-description Normalizes touch and mouse events between browsers. Making gesture events much easier to work with.
-          p.module-links
-            a(href="#") github
-            a(href="#") npm
+        for module in globals.featured
+          .module-card
+            h4.module-name= module.name
+            p.module-author by #{module.author.name}
+            p.module-description= module.description
+            p.module-links
+              a(href= module.homepage) github
+              a(href= module.npmlink) npm
       a.button.button-primary(href="/contribute") View all modules
 
     hr
