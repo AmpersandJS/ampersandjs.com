@@ -14,7 +14,7 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/browserify" class="section-top">NPM &amp; Browserify Quickstart</a><a href="/learn/transition-from-backbone" class="section-top">Transitioning from Backbone</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/events" class="section-top">Events in Ampersand</a><a href="/learn/view-conventions" class="section-top">View Conventions</a><a href="/learn/base-objects-and-mixins" class="section-top">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-top">Using the `role` attribute</a><a href="/learn/ampersand-cli" class="section-top">Ampersand CLI Tool</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/quick-start-guide" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/browserify" class="section-top">NPM &amp; Browserify Quickstart</a><a href="/learn/transition-from-backbone" class="section-top">Transitioning from Backbone</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/events" class="section-top">Events in Ampersand</a><a href="/learn/view-conventions" class="section-top">View Conventions</a><a href="/learn/base-objects-and-mixins" class="section-top">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-top">Using the `role` attribute</a><a href="/learn/ampersand-cli" class="section-top">Ampersand CLI Tool</a>
       </nav>
       <div class="docs-content">
         <section><h1 id="what-is-a-view-according-to-ampersand-">What is a view according to ampersand?</h1>
@@ -22,7 +22,7 @@
 <p>It doesn&#39;t matter if your &quot;view&quot; is an instance of <code>ampersand-view</code> or not. <em>Any</em> object can be a view if it follows a few rules.</p>
 <p>Following these rules ensure that that your view plays nicely with other views.</p>
 <h2 id="the-rules-are-most-easily-explained-by-an-example">The rules are most easily explained by an example</h2>
-<p>Here is an absolutely bare-minimum <code>view</code></p>
+<p>Here is an absolutely bare-minimum <code>view</code>. Please see the comments.</p>
 <pre><code class="lang-js">function MinimalView(options) {
     // If given an element as part of an options object
     // the view *should* store an element as `this.el`.

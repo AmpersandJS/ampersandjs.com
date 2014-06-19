@@ -91,12 +91,23 @@ function build() {
             basedir: __dirname
         }, function (err, html) {
             if (err) throw err;
-            var directory = __dirname + '/learn/' + (item.url ? item.url + '/' : '');
+            var directory = __dirname + '/learn/' + item.url + '/';
             try { fs.mkdirSync(directory); } catch (e) {}
             var file = directory + 'index.html';
             console.log('building: ' + file);
             fs.writeFileSync(file, html, 'utf8');
         });
+    });
+
+    jade.render(fs.readFileSync(__dirname + '/templates/learn-index.jade', 'utf8'), {
+        globals: {
+            pages: parsed
+        },
+        pretty: true,
+        filename: __dirname + '/templates/learn-index.jade',
+        basedir: __dirname
+    }, function (err, html) {
+        fs.writeFileSync(__dirname + '/learn/index.html', html, 'utf8');
     });
 }
 

@@ -1,0 +1,22 @@
+block vars
+  - var pageTitle = "Learn"
+  - var description = "Get started with Ampersand.js"
+  - var bodyClass = "docs-page"
+
+extends /templates/layout
+
+block content
+
+  .docs.cf
+    nav.nav-docs
+      a.logo.logo-ampersand(href="/")
+      for page in globals.pages
+        a.section-top(href= '/learn/' + page.url)= page.meta.pagetitle
+
+    .docs-content
+      section
+        h1 Guides and tutorials
+
+        p While the docs are meant for reference, these guides provide a bit more context about conventions, best practices, and how things work together. 
+
+        p If you have suggestions for other guides you'd like to see. Let us know by <a href="https://github.com/AmpersandJS/ampersandjs.com/issues/new">filing an issue</a>.

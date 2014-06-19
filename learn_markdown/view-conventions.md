@@ -14,7 +14,7 @@ Following these rules ensure that that your view plays nicely with other views.
 
 ## The rules are most easily explained by an example
 
-Here is an absolutely bare-minimum `view`
+Here is an absolutely bare-minimum `view`. Please see the comments.
 
 ```js
 function MinimalView(options) {

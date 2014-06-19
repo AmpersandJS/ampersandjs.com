@@ -3,7 +3,7 @@ pagetitle: Ampersand State
 order: 1
 ---
 
-# Managing State
+# Undersanding State
 
 So much of application development is managing relationship between object properties. If you take a step back from your code you can often see that most of it is saying "when this condition and this other condition are met, then this value should be 'x'."
 
@@ -94,7 +94,7 @@ element.on('change:dragged', function (model, val) {
 
 ```
 
-## You didn't invent derived properties, pal. `</sarcasm>`
+## We didn't invent derived properties, this is true.
 
 True, derived properties aren't a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, they're just accessed without calling a method. For example, using the draggable example above, the derived property is just `element.dragged`.
 

@@ -14,10 +14,10 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/browserify" class="section-top">NPM &amp; Browserify Quickstart</a><a href="/learn/transition-from-backbone" class="section-top">Transitioning from Backbone</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/events" class="section-top">Events in Ampersand</a><a href="/learn/view-conventions" class="section-top">View Conventions</a><a href="/learn/base-objects-and-mixins" class="section-top">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-top">Using the `role` attribute</a><a href="/learn/ampersand-cli" class="section-top">Ampersand CLI Tool</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/quick-start-guide" class="section-top">Quick Start Guide</a><a href="/learn/state" class="section-top">Ampersand State</a><a href="/learn/browserify" class="section-top">NPM &amp; Browserify Quickstart</a><a href="/learn/transition-from-backbone" class="section-top">Transitioning from Backbone</a><a href="/learn/forms" class="section-top">Working with forms</a><a href="/learn/events" class="section-top">Events in Ampersand</a><a href="/learn/view-conventions" class="section-top">View Conventions</a><a href="/learn/base-objects-and-mixins" class="section-top">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-top">Using the `role` attribute</a><a href="/learn/ampersand-cli" class="section-top">Ampersand CLI Tool</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="managing-state">Managing State</h1>
+        <section><h1 id="undersanding-state">Undersanding State</h1>
 <p>So much of application development is managing relationship between object properties. If you take a step back from your code you can often see that most of it is saying &quot;when this condition and this other condition are met, then this value should be &#39;x&#39;.&quot;</p>
 <p>This is especially true when building user interfaces.</p>
 <p>Stringing together a spaghetti bowl of <code>if</code> statements is a painful way to build a state machine that handles this. </p>
@@ -85,7 +85,7 @@ element.on(&#39;change:dragged&#39;, function (model, val) {
     }
 });
 </code></pre>
-<h2 id="you-didn-t-invent-derived-properties-pal-sarcasm-">You didn&#39;t invent derived properties, pal. <code>&lt;/sarcasm&gt;</code></h2>
+<h2 id="we-didn-t-invent-derived-properties-this-is-true-">We didn&#39;t invent derived properties, this is true.</h2>
 <p>True, derived properties aren&#39;t a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, they&#39;re just accessed without calling a method. For example, using the draggable example above, the derived property is just <code>element.dragged</code>.</p>
 <h2 id="handling-relationships-between-objects-models-with-derived-properties">Handling relationships between objects/models with derived properties</h2>
 <p>Say you&#39;ve got an observable that you&#39;re using to model data from a RESTful API. Say that you&#39;ve got a <code>/users</code> endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we&#39;ve already fetched and created models for. From our user model we want to be able to easily access the group model. So, when passed to a template we can just access related group information.</p>
