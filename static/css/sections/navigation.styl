@@ -1,8 +1,11 @@
 // Main Navigation
 
 nav.nav-main
-  padding: 40px 60px 70px
+  padding: 40px 60px 50px
   font-family: $font-family-gotham-round
+  background: white
+  position: relative
+  z-index: 5
 
   .logo-ampersand
     min-height: 34px
@@ -42,8 +45,22 @@ nav.nav-main
 // Docs Navigation
 
 .nav-docs
+  padding-top: 50px
+  padding-bottom: 50px
+  position: fixed
+  top: 20px
+  bottom: 20px
+  z-index: 1
+  overflow-y: scroll
+  background: white
   font-family: $font-family-gotham-round
   font-size: $font-size-small
+
+  .logo-ampersand
+    width: 50px
+    height: 60px
+    margin-bottom: 30px
+    margin-left: 20px
 
   a
     margin-bottom: 5px

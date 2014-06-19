@@ -1,6 +1,7 @@
 block vars
   - var pageTitle = "Documentation"
   - var description = "Get started with Ampersand.js"
+  - var bodyClass = "docs-page"
 
 extends ../templates/layout
 
@@ -8,6 +9,7 @@ block content
 
   .docs.cf
     nav.nav-docs
+      a.logo.logo-ampersand(href="/")
       a.section-top(href= '#getting-started') Getting Started
       for module, key in globals.modules
         for item in module.toc
