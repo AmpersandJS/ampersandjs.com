@@ -754,6 +754,7 @@ nav.nav-main .button {
   }
   .docs-content {
     padding-left: 0;
+    min-height: 0;
   }
   .learn-index .nav-docs {
     width: 100%;
