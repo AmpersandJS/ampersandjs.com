@@ -614,7 +614,7 @@ nav.nav-main .button {
   font-size: 0.95em;
 }
 .docs-page .footer-main {
-  max-width: 1100px;
+  max-width: 980px;
   margin: 0 auto;
   padding-left: 25%;
 }
@@ -629,6 +629,9 @@ nav.nav-main .button {
 }
 .docs-content {
   padding-left: 30%;
+}
+.docs-content .anchor:focus {
+  outline: none;
 }
 .docs-content section {
   padding-bottom: 40px;
