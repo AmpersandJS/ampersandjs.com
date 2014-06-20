@@ -1,5 +1,5 @@
 ---
-pagetitle: Ampersand State
+pagetitle: Understanding State
 order: 1
 ---
 
