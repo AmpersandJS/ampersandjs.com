@@ -1,9 +1,9 @@
 ---
-pagetitle: NPM & Browserify Quickstart
+pagetitle: Browserify & npm Quickstart
 order: 2
 ---
 
-# NPM & Browserify Quickstart
+# Browserify & npm Quickstart
 
 You don't _have_ to use ampersand with browserify (or some other commonjs loader) but that's how we build everything, and we love it.
 
@@ -11,9 +11,9 @@ This is a quick run down of npm and browserify if you haven't used them before.
 
 The below assumes you have [installed npm and node.js](http://nodejs.org/) on your system already.
 
-## NPM
+## npm
 
-[NPM](http://npmjs.org) is the official package manager for node.js.
+[npm](http://npmjs.org) is the official package manager for node.js.
 
 ### Starting a new project
 

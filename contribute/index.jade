@@ -2,7 +2,7 @@ block vars
   - var pageTitle = "Contribute"
   - var description = "Contribute to and improve Ampersand.js"
 
-extends ../templates/layout
+extends /templates/layout
 
 block content
 
@@ -28,50 +28,14 @@ block content
     .container
       h2 Core Contributors
       .core-team.cf
-        .member
-          img(src="/static/images/team-henrik.jpg")
-          a(href="https://github.com/HenrikJoreteg") @HenrikJoreteg
-        .member
-          img(src="/static/images/team-philip.png")
-          a(href="https://github.com/latentflip") @latentflip
-        .member
-          img(src="/static/images/team-luke.jpg")
-          a(href="https://github.com/lukekarrys") @lukekarrys
-        .member
-          img(src="/static/images/team-lance.jpg")
-          a(href="https://github.com/legastero") @legastero
-        .member
-          img(src="/static/images/team-ike.jpg")
-          a(href="https://github.com/ike") @ike
-        .member
-          img(src="/static/images/team-gar.jpg")
-          a(href="https://github.com/wraithgar") @wraithgar
+        for member, name in globals.coreContributors
+          .member
+            img(src= member.avatar_url + 's=300')
+            a(href= member.url) @#{name}
 
       h2 With contributions from
+      
       .contributors-list.cf
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
-        a.member(href="https://github.com/HenrikJoreteg")
-          img(src="/static/images/team-henrik.jpg")
+        for member in globals.contributors
+          a.member(href= member.url)
+            img(src= member.avatar + 's=200')

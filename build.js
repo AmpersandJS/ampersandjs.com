@@ -3,6 +3,7 @@ var path = require('path');
 var rimraf = require('rimraf');
 var fs = require('fs');
 var jade = require('jade');
+var renderJade = require('./lib/render-jade');
 var marked = require('marked');
 var metaMarked = require('meta-marked')
 var async = require('async');
@@ -11,6 +12,8 @@ var includes = [];
 var intro = marked(fs.readFileSync(__dirname + '/intro.md', 'utf8'));
 var getModules = require('./lib/get-modules');
 var _ = require('underscore');
+var contributors = require('./contributors.json');
+var coreContributors = require('./core-contributors.json');
 
 
 function build() {
@@ -18,17 +21,8 @@ function build() {
 
     // build docs pages from npm for core modules
     getModules(pack.coreModules, function (err, modules) {
-
         templateGlobals.modules = modules;
-
-        jade.render(fs.readFileSync(__dirname + '/docs/index.jade', 'utf8'), {
-            globals: templateGlobals,
-            pretty: true,
-            filename: __dirname + '/docs/index.jade'
-        }, function (err, html) {
-            if (err) throw err;
-            fs.writeFileSync(__dirname + '/docs/index.html', html, 'utf8');
-        });
+        renderJade(__dirname + '/docs/index.jade', templateGlobals);
     });
 
     // grab "latest" updated modules for home page aside.
@@ -40,17 +34,9 @@ function build() {
         }).reverse().slice(0, 3);
 
         getModules(pack.featuredModules, function (err, modules) {
-            jade.render(fs.readFileSync(__dirname + '/index.jade', 'utf8'), {
-                globals: {
-                    recent: recentlyUpdated,
-                    featured: modules
-                },
-                pretty: true,
-                filename: __dirname + '/index.jade',
-                basedir: __dirname
-            }, function (err, html) {
-                if (err) throw err;
-                fs.writeFileSync(__dirname + '/index.html', html, 'utf8');
+            renderJade(__dirname + '/index.jade', {
+                recent: recentlyUpdated,
+                featured: modules
             });
         });
     });
@@ -85,35 +71,25 @@ function build() {
     fs.mkdirSync(__dirname + '/learn');
 
     parsed.forEach(function (item) {
-        jade.render(fs.readFileSync(__dirname + '/templates/learn-page.jade', 'utf8'), {
-            globals: {
-                content: item.html,
-                pages: parsed,
-                pageTitle: item.meta.pagetitle,
-                description: item.meta.pagedescription
-            },
-            pretty: true,
-            filename: __dirname + '/index.jade',
-            basedir: __dirname
-        }, function (err, html) {
-            if (err) throw err;
-            var directory = __dirname + '/learn/' + item.url + '/';
-            try { fs.mkdirSync(directory); } catch (e) {}
-            var file = directory + 'index.html';
-            console.log('building: ' + file);
-            fs.writeFileSync(file, html, 'utf8');
-        });
+        renderJade(__dirname + '/templates/learn-page.jade', {
+            content: item.html,
+            pages: parsed,
+            pageTitle: item.meta.pagetitle,
+            description: item.meta.pagedescription
+        }, __dirname + '/learn/' + item.url + '/index.html');
     });
 
-    jade.render(fs.readFileSync(__dirname + '/templates/learn-index.jade', 'utf8'), {
-        globals: {
-            pages: parsed
-        },
-        pretty: true,
-        filename: __dirname + '/templates/learn-index.jade',
-        basedir: __dirname
-    }, function (err, html) {
-        fs.writeFileSync(__dirname + '/learn/index.html', html, 'utf8');
+    renderJade(__dirname + '/templates/learn-index.jade', {
+        pages: parsed
+    }, __dirname + '/learn/index.html');
+
+    contributors = contributors.filter(function (member) {
+        return !coreContributors[member.user];
+    });
+
+    renderJade(__dirname + '/contribute/index.jade', {
+        contributors: contributors,
+        coreContributors: coreContributors
     });
 }
 
