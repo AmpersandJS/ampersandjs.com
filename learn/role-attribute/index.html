@@ -18,6 +18,44 @@
       </nav>
       <div class="docs-content">
         <section><h1 id="using-the-humble-role-attribute">Using the humble <code>role</code> attribute</h1>
+<p>Working with single page apps as a team has always required more collaboration between folks doing HTML/CSS and the JS developers. </p>
+<p>Turns out, most of the challenge is that there&#39;s no obvious way to know whether a <code>class</code>, <code>id</code> or certain HTML tag types are being used by the JS or not. So someone working on design and markup can inadvertently break the JS app and vice versa. </p>
+<p>What we discovered at <a href="http://andyet.com">&amp;yet</a> using the <code>role</code> attribute works quite well for making this distinction.</p>
+<p>So, whenever selecting elements or registering event handlers within a view if the JS developer always uses the <code>role</code> attribute as a selector, an HTML/CSS dev can go change whatever else they want in the template without fear of breaking the JS.</p>
+<p>For example if you have a view like this:</p>
+<pre><code class="lang-js">var View = require(&#39;ampersand-view&#39;);
+
+
+module.exports = View.extend({
+    // note there&#39;s a `class` and a `role`
+    template: &#39;&lt;div&gt;&lt;a class=&quot;save-button&quot; role=&quot;action-save&quot;&gt;save result&lt;/a&gt;&lt;/div&gt;&#39;,
+    events: {
+        // by using the role to reference it from JS
+        // the designer can change classes at will
+        // without breaking the behavior
+        &#39;click [role=action-save]&#39;: &#39;handleSaveClick&#39;
+        // as opposed to: &#39;click .save-button&#39;: &#39;handleSaveClick&#39;
+    },
+    handleSaveClick: function (e) {
+        e.preventDefault();
+        this.model.save();
+    }
+});
+</code></pre>
+<p>In order to encourage this practice, because it&#39;s so helpful, there are several places within <a href="/docs/#ampersand-view">ampersand-view</a> where there&#39;s shortcuts for grabbing things by role. For example <code>this.getByRole(&#39;action-save&#39;)</code> would fetch the element from within the view with that role. </p>
+<p>There&#39;s also a shortcut for role-based selection when declaring bindings: </p>
+<pre><code class="lang-js">...
+bindings: {
+    &#39;model.saveable&#39;: {
+        type: &#39;booleanClass&#39;,
+        // doing this
+        role: &#39;action-save&#39;
+        // is equivalent to:
+        // selector: &#39;[role=action-save]&#39;
+    }
+}
+</code></pre>
+<p>From our experience this makes collaboration and fast iteration between CSS and JS folks much easier.</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
