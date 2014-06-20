@@ -17,11 +17,8 @@ block content
 
     .container.contribute-intro
       h2 How to contribute
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. In accumsan tempus placerat. Aliquam rutrum interdum lectus. Pellentesque tincidunt ultrices rhoncus.
-      p Suspendisse pretium, enim at accumsan vulputate, purus tellus malesuada lorem, nec sodales justo erat sit amet orci. Maecenas lacinia auctor risus sit amet suscipit. Nam sed varius odio, non tempor quam.
-      h3 Aliquam rutrum interdum lectus
-      p Donec sodales, tellus eget suscipit feugiat, nulla lectus tristique dui, a rutrum neque massa nec tortor. Mauris faucibus velit vel nibh interdum, eget gravida dui convallis. Cras porttitor dictum tempor. Curabitur ac lorem porttitor, semper risus ut, ultricies massa. Donec id tristique eros. Maecenas iaculis velit vel euismod commodo.
-      p Nunc ac felis nunc. Quisque nec pharetra quam. Sed odio sem, vestibulum non elementum vitae, bibendum id massa.
+      p All the core ampersand modules are in the <a href="https://github.com/ampersandjs">AmperandJS Organization</a> on GitHub. 
+      p Report issues on the relevant GitHub repo or jump in and <a href="http://espy.github.io/ubersicht/#ampersandjs">fix one of the open issues</a>.
 
     hr
 
@@ -34,6 +31,10 @@ block content
             a(href= member.url) @#{name}
 
       h2 With contributions from
+
+      p This list is fetched from GitHub's API and lists users who have contributed to repos in the <a href="https://github.com/ampersandjs">AmperandJS Organization</a>.
+
+      p They're sorted by total number of contributions. 
       
       .contributors-list.cf
         for member in globals.contributors
