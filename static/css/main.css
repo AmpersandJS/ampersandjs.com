@@ -558,6 +558,21 @@ nav.nav-main .button {
     margin: 0 auto 20px;
   }
 }
+@media (max-width: 600px) {
+  nav.nav-main {
+    padding: 20px 10px 40px;
+  }
+  nav.nav-main .logo-ampersand {
+    width: 170px;
+    margin: 0 auto 10px;
+    display: block;
+    text-align: left;
+  }
+  nav.nav-main .nav-item {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
 .hero {
   text-align: center;
   padding: 0 20px;
@@ -867,6 +882,7 @@ nav.nav-main .button {
   }
   .contribute .contributors-list .member {
     width: 20%;
+    margin-bottom: 15px;
   }
 }
 .footer-main {
