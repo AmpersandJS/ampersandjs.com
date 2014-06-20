@@ -720,11 +720,11 @@ nav.nav-main .button {
   display: none;
 }
 .nav-docs {
-  width: 20%;
+  width: 250px;
   padding-right: 10px;
 }
 .docs-content {
-  padding-left: 30%;
+  padding-left: 280px;
   min-height: 350px;
 }
 .docs-content .anchor {
@@ -762,6 +762,14 @@ nav.nav-main .button {
   font-size: 0.6em;
   background: none;
   font-weight: normal;
+}
+@media (max-width: 1000px) {
+  .nav-docs {
+    width: 200px;
+  }
+  .docs-content {
+    padding-left: 230px;
+  }
 }
 @media (max-width: 860px) {
   .docs {
