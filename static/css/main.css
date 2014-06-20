@@ -165,7 +165,8 @@ hr {
 .illustration img {
   width: 100%;
 }
-.illustration.beach img {
+.illustration.beach img,
+.illustration.house img {
   max-width: 400px;
 }
 main {
