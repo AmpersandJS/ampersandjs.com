@@ -12,10 +12,23 @@ nav.nav-main
     margin-right: 20px
     padding: 2px 0 2px 40px
     display: inline-block
-    background-size: auto 34px
+    position: relative
+    background: none
     font-weight: $font-weight-semibold
     font-size: $font-size-large
     color: $gray-darker
+    &:before
+      width: 35px
+      height: 35px
+      content: ''
+      display: block
+      left: 0
+      top: 0
+      position: absolute
+      background: no-repeat 0 0
+      background-image: url(../images/logo-ampersand.png)
+      background-image: $logo-ampersand, none
+      background-size: auto 34px
 
   .nav-item
     margin-right: 20px
