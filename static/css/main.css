@@ -726,6 +726,25 @@ nav.nav-main .button {
   padding-left: 30%;
   min-height: 350px;
 }
+.docs-content .anchor {
+  position: relative;
+}
+.docs-content .anchor .header-link {
+  width: 20px;
+  height: 8px;
+  margin-top: -3px;
+  display: none;
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  background: no-repeat 0 0;
+  background-image: url("../images/icon-link.png");
+  background-image: url("../images/icon-link.svg"), none;
+  background-size: 20px auto;
+}
+.docs-content .anchor:hover .header-link {
+  display: block;
+}
 .docs-content .anchor:focus {
   outline: none;
 }
