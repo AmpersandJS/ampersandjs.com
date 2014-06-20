@@ -824,6 +824,7 @@ nav.nav-main .button {
   .learn-index .nav-docs {
     width: 100%;
     position: static;
+    overflow: auto;
   }
   .learn-index .docs-content {
     max-width: 500px;
