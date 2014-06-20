@@ -28,7 +28,9 @@ block content
       for module, key in globals.modules
         section.module
           a.anchor(name= module.name, href= '#' + module.name)
-            h1= module.title
+            h1
+              span.header-link
+              | #{module.title}
           .module-card
             h4.module-name= module.name
             for version, label in module['dist-tags']
