@@ -508,7 +508,6 @@ nav.nav-main .button {
   bottom: 20px;
   z-index: 1;
   overflow-y: scroll;
-  background: #fff;
   font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
   font-size: 0.95em;
 }
@@ -730,9 +729,9 @@ nav.nav-main .button {
 }
 .docs-page .footer-main,
 .learn-index .footer-main {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding-left: 25%;
+  padding: 0 60px 0 340px;
   border-top: none;
 }
 .docs-page .footer-main .nav-footer,
@@ -800,10 +799,18 @@ nav.nav-main .button {
   .docs-content {
     padding-left: 230px;
   }
+  .docs-page .footer-main,
+  .learn-index .footer-main {
+    padding-left: 290px;
+  }
 }
 @media (max-width: 860px) {
   .docs {
     padding: 0 20px;
+  }
+  .docs-page .footer-main,
+  .learn-index .footer-main {
+    padding: 0 20px 0 250px;
   }
 }
 @media (max-width: 768px) {
