@@ -27,8 +27,9 @@ block content
       .core-team.cf
         for member, name in globals.coreContributors
           .member
-            img(src= member.avatar_url + 's=300')
-            a(href= member.url) @#{name}
+            a(href= 'http://twitter.com/' + member.twitter)
+              img(src= member.avatar_url + 's=300')
+            a(href= 'http://twitter.com/' + member.twitter) @#{member.twitter}
 
       h2 With contributions from
 

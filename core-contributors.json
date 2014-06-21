@@ -29,18 +29,8 @@
     "followers": 385,
     "following": 51,
     "created_at": "2009-03-27T17:36:36Z",
-    "updated_at": "2014-06-20T00:07:44Z",
-    "private_gists": 23,
-    "total_private_repos": 13,
-    "owned_private_repos": 12,
-    "disk_usage": 83649,
-    "collaborators": 34,
-    "plan": {
-      "name": "medium",
-      "space": 2516582,
-      "collaborators": 0,
-      "private_repos": 20
-    }
+    "updated_at": "2014-06-20T23:29:22Z",
+    "twitter": "henrikjoreteg"
   },
   "latentflip": {
     "login": "latentflip",
@@ -69,10 +59,11 @@
     "bio": "Founder, CTO and Ruby/JavaScript developer at http://floatapp.com. I like to break things.",
     "public_repos": 202,
     "public_gists": 91,
-    "followers": 106,
+    "followers": 107,
     "following": 36,
     "created_at": "2009-04-27T07:29:09Z",
-    "updated_at": "2014-06-19T18:59:38Z"
+    "updated_at": "2014-06-20T16:04:22Z",
+    "twitter": "philip_roberts"
   },
   "legastero": {
     "login": "legastero",
@@ -104,7 +95,8 @@
     "followers": 62,
     "following": 5,
     "created_at": "2008-12-05T01:34:29Z",
-    "updated_at": "2014-06-19T23:35:05Z"
+    "updated_at": "2014-06-20T20:00:33Z",
+    "twitter": "lancestout"
   },
   "lynnandtonic": {
     "login": "lynnandtonic",
@@ -136,7 +128,8 @@
     "followers": 9,
     "following": 10,
     "created_at": "2011-06-23T17:17:51Z",
-    "updated_at": "2014-06-20T05:31:24Z"
+    "updated_at": "2014-06-21T06:35:45Z",
+    "twitter": "lynnandtonic"
   },
   "lukekarrys": {
     "login": "lukekarrys",
@@ -165,10 +158,11 @@
     "bio": null,
     "public_repos": 58,
     "public_gists": 21,
-    "followers": 29,
+    "followers": 30,
     "following": 64,
     "created_at": "2010-12-30T22:10:09Z",
-    "updated_at": "2014-06-20T04:13:15Z"
+    "updated_at": "2014-06-21T12:53:56Z",
+    "twitter": "lukekarrys"
   },
   "wraithgar": {
     "login": "wraithgar",
@@ -200,6 +194,7 @@
     "followers": 5,
     "following": 0,
     "created_at": "2008-11-25T16:44:27Z",
-    "updated_at": "2014-06-18T21:55:15Z"
+    "updated_at": "2014-06-20T18:01:25Z",
+    "twitter": "wraithgar"
   }
 }

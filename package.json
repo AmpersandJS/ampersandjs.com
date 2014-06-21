@@ -1,12 +1,8 @@
 {
   "name": "docs.humanjavascript.com",
-  "version": "0.0.0",
   "description": "Documentation site for ampersand.js",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "ampersandjs/ampersandjs.com"
-  },
+  "version": "0.0.0",
+  "author": "Henrik Joreteg",
   "dependencies": {
     "async": "~0.2.9",
     "bluebird": "*",
@@ -22,10 +18,47 @@
   "devDependencies": {
     "http-server": "^0.6.1"
   },
+  "featuredModules": [
+    "bows",
+    "emoji-images",
+    "getusermedia"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "ampersandjs/ampersandjs.com"
+  },
   "scripts": {
     "build": "node build.js && echo 'built index.html'",
     "start": "http-server . -p 8000"
   },
+  "coreContributors": [
+    {
+      "gh": "HenrikJoreteg",
+      "twitter": "henrikjoreteg"
+    },
+    {
+      "gh": "latentflip",
+      "twitter": "philip_roberts"
+    },
+    {
+      "gh": "legastero",
+      "twitter": "lancestout"
+    },
+    {
+      "gh": "lynnandtonic",
+      "twitter": "lynnandtonic"
+    },
+    {
+      "gh": "lukekarrys",
+      "twitter": "lukekarrys"
+    },
+    {
+      "gh": "wraithgar",
+      "twitter": "wraithgar"
+    }
+  ],
   "coreModules": [
     "ampersand",
     "ampersand-state",
@@ -42,20 +75,5 @@
     "ampersand-checkbox-view",
     "ampersand-array-input-view",
     "ampersand-select-view"
-  ],
-  "coreContributors": [
-    "HenrikJoreteg",
-    "latentflip",
-    "legastero",
-    "lynnandtonic",
-    "lukekarrys",
-    "wraithgar"
-  ],
-  "featuredModules": [
-    "bows",
-    "emoji-images",
-    "getusermedia"
-  ],
-  "author": "Henrik Joreteg",
-  "license": "MIT"
+  ]
 }
