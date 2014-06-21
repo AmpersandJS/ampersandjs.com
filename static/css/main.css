@@ -854,12 +854,12 @@ nav.nav-main .button {
   margin: 0 auto 70px;
   text-align: center;
 }
-.contribute .contribute-intro h2,
-.contribute .contribute-intro p,
-.contribute .contribute-intro ol,
-.contribute .contribute-intro ul,
-.contribute .contribute-intro dl,
-.contribute .contribute-intro blockquote {
+.contribute h2,
+.contribute p,
+.contribute ol,
+.contribute ul,
+.contribute dl,
+.contribute blockquote {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
