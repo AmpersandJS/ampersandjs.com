@@ -646,6 +646,7 @@ nav.nav-main .button {
 }
 .splash .modules-list .module-card {
   float: left;
+  min-height: 230px;
   width: 32%;
 }
 .splash .modules-list .module-card:not(:last-child) {
@@ -701,6 +702,7 @@ nav.nav-main .button {
   .splash .modules-list .module-card {
     float: none;
     width: 100%;
+    min-height: 0;
   }
   .splash .modules-list .module-card:not(:last-child) {
     margin-right: 0;
