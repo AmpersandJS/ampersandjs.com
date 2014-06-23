@@ -67,7 +67,8 @@
     "ampersand-rest-collection",
     "ampersand-view",
     "ampersand-view-switcher",
-    "ampersand-router"
+    "ampersand-router",
+    "ampersand-dom-bindings"
   ],
   "formModules": [
     "ampersand-form-view",

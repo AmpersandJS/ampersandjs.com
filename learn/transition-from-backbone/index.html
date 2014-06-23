@@ -65,6 +65,54 @@ model.name = &#39;henrik&#39;; // this still fires a `change:name`
 // getting properties
 model.name;
 </code></pre>
+<h2 id="views">Views</h2>
+<p>Backbone views are pretty sparse, by design. But data binding is something you&#39;re going to have to solve if you don&#39;t want to re-render the whole view. Or if you ever want to do individual bindings. </p>
+<p>Also, a common problem in backbone is what the story looks like when you&#39;re wanting to fetch and render a single model from a collection for a &quot;detail&quot; page. Also, what happens when you want to fetch more than one model? Or what if you want to render the empty &quot;shell&quot; of the page first, while fetching data. </p>
+<p>Ampersand-view handles this with declarative bindings. </p>
+<p>In the same you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data. </p>
+<p>This gives you complete flexiliby over when you render what.</p>
+<p>Also, no template engine is necessary! You can simply have an HTML string as your <code>template</code> property and declare your bindings and everything Just Works™.</p>
+<h3 id="example">Example</h3>
+<p>Here&#39;s an example view pulled from a real app.</p>
+<pre><code class="lang-js">var View = require(&#39;ampersand-view&#39;);
+var templates = require(&#39;../templates&#39;);
+
+
+module.exports = View.extend({
+    template: templates.includes.person,
+    bindings: {
+        &#39;model.fullName&#39;: &#39;[role=name]&#39;,
+        &#39;model.avatar&#39;: {
+            type: &#39;attribute&#39;,
+            role: &#39;avatar&#39;,
+            name: &#39;src&#39;
+        },
+        &#39;model.editUrl&#39;: {
+            type: &#39;attribute&#39;,
+            role: &#39;action-edit&#39;,
+            name: &#39;href&#39;
+        },
+        &#39;model.viewUrl&#39;: {
+            type: &#39;attribute&#39;,
+            role: &#39;name&#39;,
+            name: &#39;href&#39;
+        }
+    },
+    events: {
+        &#39;click [role=action-delete]&#39;: &#39;handleRemoveClick&#39;
+    },
+    handleRemoveClick: function () {
+        this.model.destroy();
+        return false;
+    }
+});
+</code></pre>
+<p>The nice thing about this approach is, it doesn&#39;t matter if you swap out the <code>model</code> or if you don&#39;t have a <code>model</code> yet. It will still just work.</p>
+<p>This works because ampersand-view also inherits from <a href="http://ampersandjs.com/docs#ampersand-state">ampersand-state</a> and so its <code>model</code> and <code>el</code> properties are evented properties tracked by ampersand-state.</p>
+<h3 id="subviews">Subviews</h3>
+<p>Ampersand-view also has the concept of subviews. Which you can render within a parent view and it will get gracefully removed when the parent is. This makes it easier to split up your views into smaller more reusable pieces. </p>
+<p>Many internal tools like all the <a href="http://ampersandjs.com/learn/forms">ampersand form tools</a> are meant to work well as subviews. And again, anything can be subview as long as it follows the <a href="http://ampersandjs.com/learn/view-conventions">ampersand view conventions</a> ultimate flexibility and composability, FTW! :)</p>
+<p>You can read more about subviews in the <a href="http://ampersandjs.com/docs#ampersand-view">ampersand-view documentation</a>.</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>

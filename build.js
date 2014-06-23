@@ -83,10 +83,6 @@ function build() {
         pages: parsed
     }, __dirname + '/learn/index.html');
 
-    contributors = contributors.filter(function (member) {
-        return !coreContributors[member.user];
-    });
-
     renderJade(__dirname + '/contribute/index.jade', {
         contributors: contributors,
         coreContributors: coreContributors
