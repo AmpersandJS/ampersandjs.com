@@ -14,11 +14,45 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/docs" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub">Browserify &amp; npm Quickstart</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Fetching Data for Views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a>
       </nav>
       <div class="docs-content">
         <section><h1 id="ampersand-forms">Ampersand Forms</h1>
 <p>Let&#39;s be honest, forms are a pain!</p>
+<p>Good forms don&#39;t just require markup, they require <em>behavior</em>. You want to give the user feedback on what they&#39;re doing often as they&#39;re doing it, but not be annoying.</p>
+<p>Nothing&#39;s more frustrating as a user, than submitting a form with <em>mostly</em> correct data and being surprised by the failure, and it&#39;s even worse if they lose some data in the process.</p>
+<p>Take a simple text input, how do we want it to behave? Well, it depends. If it&#39;s empty to start with and the user is first entering data, we don&#39;t just want to show them errors, they <em>know</em> it&#39;s incomplete, so we don&#39;t need to tell them they&#39;re &quot;wrong&quot;, they already know!</p>
+<p>But, if they &quot;blur&quot; from one field to go to the next, and the current input value is wrong, we should ideally tell them that <em>before</em> they go to submit it.</p>
+<p>Also, if the field value has ever been valid, and they make it invalid, even if they&#39;re still focused on the field, we should probably tell them.</p>
+<p>This is just for &quot;simple&quot; single-line text entry. </p>
+<p>On the developer side, it&#39;s hard to do forms right. No matter what library we use, it seems to never <em>quite</em> do what we want it to. </p>
+<p>On the other hand for simple cases if we&#39;ve got an model that describes exactly what data we ultimately need in order to talk to the API, it&#39;s annoying to have to write a bunch of form fields each time to just be able to request that data from the users.</p>
+<h2 id="so-what-do-we-do-in-ampersand-for-this-">So what do we do in ampersand for this?</h2>
+<p>In order to be flexible enough to support any type of form control you can think up, while keeping the simple stuff relatively simple to do, we handle this with several different tools working together. First, there&#39;s <a href="https://github.com/ampersandjs/ampersand-form-view">ampersand-form-view</a> which manages the form as a whole. It follows the <a href="/learn/view-conventions">view conventions of ampersand</a> so we can easily use it as a subview within a page. </p>
+<p>The form view is made up of subviews, one for each value you&#39;re trying to get from the user.</p>
+<p>So, the nice thing about that is now we&#39;ve decoupled <code>&lt;input&gt;</code>s from values. So if you wanted a password from the user, you would have a single &quot;password-view&quot; that actually rendered <em>two</em> <code>&lt;input&gt;</code>s, for password and validation of that password, but ultimately just produced a single value. </p>
+<p>So rather than thinking of a &quot;field view&quot; as a single form control, we think of it as a view that&#39;s responsible for a certain form value, whatever widget that might be.</p>
+<p>So, how does this work? Well, in addition to following <a href="/learn/view-conventions">the contract for what a <code>view</code> is</a>, it also follows the following rules.</p>
+<h2 id="form-input-view-conventions">Form input view conventions</h2>
+<ul>
+<li>It must maintain a <code>value</code> property that is the current value of the field.</li>
+<li>It must also store a <code>value</code> property if passed in as part of the config/options object when the view is created.</li>
+<li>It maintains a <code>valid</code> property that is a boolean. The parent form checks this property on each field to determine whether the form as a whole is valid.</li>
+<li>It has a <code>name</code> property that is a string of the name of the field.</li>
+<li>When rendered by a form-view it the form view creates a <code>parent</code> property that is a reference to the containing form view.</li>
+<li>It reports changes to its parent when it deems appropriate by calling <code>this.parent.update(this)</code> **note that it passes itsef to the parent. You would typically do this when the <code>this.value</code> has changed or the <code>this.valid</code> has changed.</li>
+<li>It has a <code>setValue</code> method, that can be used to programmatically set the value. </li>
+<li>If a field as a <code>beforeSubmit</code> method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as <code>invalid</code> as a result of some other condition that only matters pre-submit.</li>
+</ul>
+<h2 id="how-to-use-it">How to use it</h2>
+<p>The quickest way to build a starting point for a form in your project is to point the <a href="/docs#ampersand-generating-forms-from-models">ampersand-cli&#39;s at a model</a> to generate a form for editing it.</p>
+<p>The code below will get you started, and we&#39;ll probably make a few more of these over time. But the idea is, if you want to write a color picker, or a date input view, or a username-checker-input that does server-side validation, or a password field with a strength indicator, you can write a view for that and as long as it follows the form view conventions in the list above, still have it work well with the rest of the form.</p>
+<h2 id="getting-the-code-itself">Getting the code itself</h2>
+<p><a href="https://github.com/ampersandjs/ampersand-form-view">form-view</a> - The view for wrapping field views
+<a href="https://github.com/ampersandjs/ampersand-input-view">ampersand-input-view</a> - Produces a text value, allows you to pass an array of validation tests it must pass, renders error messages. Everything is configurable. Can also render a textarea.
+<a href="https://github.com/AmpersandJS/ampersand-select-view">ampersand-select-view</a> - Produces a select input, can take a collection or array as values.
+<a href="https://github.com/AmpersandJS/ampersand-array-input-view">ampersand-array-input-view</a> - Produces an array value by specifying number of required answers. Renders <code>&lt;input&gt;</code>s for each, and generates controls for adding/removing the unneedd fields.
+<a href="https://github.com/AmpersandJS/ampersand-checkbox-view">ampersand-checkbox-view</a> - Produces a boolean value</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>

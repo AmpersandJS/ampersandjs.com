@@ -17,54 +17,7 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Fetching Data for Views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="transitioning-from-backbone">Transitioning from Backbone</h1>
-<p>If you&#39;re used to backbone, you&#39;ll feel right at home with ampersand. There are a few key differences.</p>
-<h2 id="everything-is-decoupled">Everything is decoupled</h2>
-<p>The <a href="/learn/events/">event system</a> is simply a standalone version of the backbone one, the <a href="/docs/#ampersand-router">ampersand-router</a> is 95% the same, <a href="/docs/#ampersand-rest-collection">ampersand-rest-collection</a> has a nearly identical API, even though internally it&#39;s built on the slimmer, simpler <a href="/docs/#ampersand-collection">ampersand-collection</a>.</p>
-<p>We didn&#39;t want to make anything mandatory, so we decoupled the various backbone pieces from eachother.</p>
-<p>This has some nice benefits, like being able to use the convenient event features of ampersand-collection on their own. For example, writing a multi-touch library that tracks active &quot;touches&quot; currently on the screen. Where you want an evented collection, but don&#39;t want to have to bundle in all of backbone in order to use that functionality.</p>
-<p>You&#39;ll see the same patterns throughout ampersand. Everything is, as much as possible, de-coupled from eachother. </p>
-<p>You can easily write your own views and use everything else. In addition, just by <a href="/learn/view-conventions/">following a few conventions</a>, you can even have those view still play nicely with other views.</p>
-<h2 id="models">Models</h2>
-<p>Models in ampersand require explicit definition of properties. </p>
-<p>Backbone allows you to instantiate a model and simply set any value on it. </p>
-<p>Ampersand, not so. We intentionally made it strict so that you have to declare what properties you&#39;re going to store in a model. This means your models end up serving as a form of documentation for the project. A new developer can read the models and the router files and have a pretty good idea of how your app is structured.</p>
-<p>In additon, ampersand-model properties don&#39;t require using <code>.set()</code> and <code>.get()</code>. Instead, you can simply change a property by explicitly assigning it a new value and it will still fire a <code>change</code> event if appropriate. </p>
-<p>backbone:</p>
-<pre><code class="lang-js">// instantiating (no property definitions required)
-var model = new Backbone.Model();
-
-// setting properties
-model.set(&#39;name&#39;, &#39;henrik&#39;);
-
-// getting properties
-model.get(&#39;name&#39;, &#39;henrik&#39;); // returns &#39;henrik&#39;
-</code></pre>
-<p>ampersand: </p>
-<p>First off, everything is CommonJS modules, so in one file you&#39;d do:</p>
-<p><code>client/models/my-model.js</code></p>
-<pre><code class="lang-js">var AmpersandModel = require(&#39;ampersand-model&#39;);
-
-
-module.exports = AmpersandModel.extend({
-    props: {
-        name: &#39;string&#39;
-    } 
-});
-</code></pre>
-<p>Using it from another file</p>
-<p><code>client/some-other-file.js</code></p>
-<pre><code class="lang-js">var MyModel = require(&#39;./models/model&#39;);
-
-
-var model = new MyModel();
-
-// setting properties
-model.name = &#39;henrik&#39;; // this still fires a `change:name`
-
-// getting properties
-model.name;
-</code></pre>
+        <section><h1 id="fetching-data-for-views">Fetching Data For Views</h1>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
