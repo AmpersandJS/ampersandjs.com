@@ -492,6 +492,9 @@ nav.nav-main .nav-item {
   font-weight: 400;
   font-size: 0.95em;
 }
+nav.nav-main .nav-item.active {
+  color: #ec008c;
+}
 nav.nav-main .nav-item.external {
   position: relative;
   padding-right: 12px;
@@ -534,6 +537,9 @@ nav.nav-main .button {
   margin-bottom: 5px;
   display: block;
   line-height: 1.3em;
+}
+.nav-docs .active {
+  color: #ec008c;
 }
 .nav-docs .section-top {
   color: #272b2d;
