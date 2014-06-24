@@ -1183,7 +1183,7 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
             <h1><span class="header-link"></span>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v1.0.1</p>
+            <p class="module-version">latest v1.0.2</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
@@ -1212,11 +1212,11 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
 <a name="ampersand-view-switcher-install" class="anchor" href="#ampersand-view-switcher-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-view-switcher
 </code></pre><a name="ampersand-view-switcher-example" class="anchor" href="#ampersand-view-switcher-example"><h2><span class="header-link"></span>Example</h2></a><p>Here&#39;s an example of how you might use the view switcher to handle page views within your ampersand app.</p>
 <p><code>mainview.js</code></p>
-<pre><code class="undefinedjs">var HumanView = require(&#39;ampersand-view&#39;);
+<pre><code class="undefinedjs">var AmpersandView = require(&#39;ampersand-view&#39;);
 var ViewSwitcher = require(&#39;ampersand-view-switcher&#39;);
 var templates = require(&#39;./templates&#39;);
 
-module.exports = HumanView.extend({
+module.exports = AmpersandView.extend({
     template: templates.body,
     render: function () {
         // render our template

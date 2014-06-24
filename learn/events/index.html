@@ -77,6 +77,48 @@ model.greetingType = &#39;short&#39;; // callback runs and prints: &quot;greetin
 </code></pre>
 <p>In addition to derived properties, state lets you listen for changes to child models, etc.</p>
 <p>Read more about it in the <a href="http://ampersandjs.com/learn/state/">ampersand-state guide</a>.</p>
+<h2 id="event-catalog">Event Catalog</h2>
+<p>In addition to the specified events, all event emitters emit the &quot;all&quot; event:</p>
+<ul>
+<li>&quot;all&quot; — this special event fires for any triggered event, passing the event name as the first argument.</li>
+</ul>
+<h3 id="ampersand-state">ampersand-state</h3>
+<ul>
+<li>&quot;change:[attribute]&quot; (model, value, options) — when a specific attribute has been updated.</li>
+<li>&quot;invalid&quot; (model, error, options) — when a model&#39;s validation fails on the client.</li>
+<li>&quot;remove&quot; (model, collection, options) — when a model is removed from a collection.</li>
+<li>&quot;add&quot; (model, collection, options) — when a model is added to a collection.</li>
+</ul>
+<h3 id="ampersand-model">ampersand-model</h3>
+<ul>
+<li>&quot;change&quot; (model, options) — when a model&#39;s attributes have changed.</li>
+<li>&quot;change:[attribute]&quot; (model, value, options) — when a specific attribute has been updated.</li>
+<li>&quot;remove&quot; (model, collection, options) — when a model is removed from a collection.</li>
+<li>&quot;add&quot; (model, collection, options) — when a model is added to a collection.</li>
+<li>&quot;destroy&quot; (model, collection, options) — when a model is destroyed.</li>
+<li>&quot;request&quot; (model_or_collection, xhr, options) — when a model or collection has started a request to the server.</li>
+<li>&quot;sync&quot; (model_or_collection, resp, options) — when a model or collection has been successfully synced with the server.</li>
+<li>&quot;error&quot; (model_or_collection, resp, options) — when model&#39;s or collection&#39;s request to remote server has failed.</li>
+<li>&quot;invalid&quot; (model, error, options) — when a model&#39;s validation fails on the client.</li>
+</ul>
+<h3 id="ampersand-collection">ampersand-collection</h3>
+<ul>
+<li><p>Proxies all of the model events, and additionally:</p>
+</li>
+<li><p>&quot;sort&quot; (collection, options) — when the collection has been re-sorted.</p>
+</li>
+<li>&quot;reset&quot; (collection, options) — when the collection&#39;s entire contents have been replaced.</li>
+</ul>
+<h3 id="ampersand-view">ampersand-view</h3>
+<ul>
+<li>&quot;remove&quot; (view) - Fired when the view is removed from the DOM.</li>
+</ul>
+<h3 id="ampersand-router">ampersand-router</h3>
+<ul>
+<li>&quot;route:[name]&quot; (params) — Fired by the router when a specific route is matched.</li>
+<li>&quot;route&quot; (route, params) — Fired by the router when any route has been matched.</li>
+<li>&quot;route&quot; (router, route, params) — Fired by history when any route has been matched.</li>
+</ul>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
