@@ -86,6 +86,13 @@ a:hover {
 small {
   font-size: 0.95em;
 }
+p,
+ul,
+ol,
+dl,
+blockquote {
+  font-size: 1.1em;
+}
 ul,
 ol {
   margin: 15px 0 15px 30px;
@@ -436,6 +443,7 @@ pre .diff .change {
 }
 .module-card .module-links {
   margin-bottom: 0;
+  font-size: 1em;
 }
 .module-card .module-links a {
   display: inline-block;
@@ -757,6 +765,13 @@ nav.nav-main .button {
   margin: 0 auto 40px;
   padding: 0 60px;
   word-wrap: break-word;
+}
+.docs p,
+.docs ul,
+.docs ol,
+.docs dl,
+.docs blockquote {
+  font-size: 1em;
 }
 .docs a.back {
   display: none;
