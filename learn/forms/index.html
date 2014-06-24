@@ -44,11 +44,103 @@
 <li>It has a <code>setValue</code> method, that can be used to programmatically set the value. </li>
 <li>If a field as a <code>beforeSubmit</code> method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as <code>invalid</code> as a result of some other condition that only matters pre-submit.</li>
 </ul>
+<h2 id="creating-a-form-view">Creating a form view</h2>
+<p>You end up a creating a form view that looks something like this.</p>
+<pre><code class="lang-js">var FormView = require(&#39;ampersand-form-view&#39;);
+var InputView = require(&#39;ampersand-input-view&#39;);
+var CheckboxView = require(&#39;ampersand-checkbox-view&#39;);
+var ArrayInputView = require(&#39;ampersand-array-input-view&#39;);
+
+
+module.exports = FormView.extend({
+    fields: function () {
+        return [
+            new InputView({
+                label: &#39;Name&#39;,
+                name: &#39;name&#39;,
+                value: this.model &amp;&amp; this.model.name,
+                placeholder: &#39;Name&#39;,
+                parent: this
+            }),
+            new CheckboxView({
+                label: &#39;Is Awesome?&#39;,
+                name: &#39;awesome&#39;,
+                value: this.model &amp;&amp; this.model.isAwesome,
+                parent: this
+            }),
+            new InputView({
+                label: &#39;Coolness Factor&#39;,
+                name: &#39;coolnessFactor&#39;,
+                value: this.model &amp;&amp; this.model.coolnessFactor,
+                placeholder: &#39;8&#39;,
+                parent: this,
+                type: &#39;number&#39;,
+                tests: [
+                    function (val) {
+                        if (val &lt; 0 || val &gt; 11) return &quot;Must be between 0 and 11&quot;;
+                    },
+                    function (val) {
+                        if (!/^[0-9]+$/.test(val)) return &quot;Must be a number.&quot;;
+                    }
+                ]
+            }),
+            new ArrayInputView({
+                label: &#39;Favorite Colors&#39;,
+                name: &#39;colors&#39;,
+                value: this.model &amp;&amp; this.model.colors,
+                placeholder: &#39;blue&#39;,
+                parent: this,
+                numberRequired: 2,
+                tests: [
+                    function (val) {
+                        if ([&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;].indexOf(val) === -1) {
+                            return &quot;Can only be red, blue, or green. Sorry.&quot;
+                        }
+                    }
+                ]
+            })
+        ];
+    }
+});
+</code></pre>
+<p>Each one of field views inside the form follow the rules above. But, as a whole, you&#39;ve now got a form that knows how to create valid data with those fields. </p>
+<p>Rather than creating a form that posts using traditional methods, you&#39;ll have a form that produces data that you can use to create and save, or edit an existing model, with the same form!</p>
+<p>Then, in a page you might use the form as follows:</p>
+<pre><code class="lang-js">var PageView = require(&#39;./base&#39;);
+var templates = require(&#39;../templates&#39;);
+var PersonForm = require(&#39;../forms/person&#39;);
+
+
+module.exports = PageView.extend({
+    pageTitle: &#39;edit person&#39;,
+    template: templates.pages.personEdit,
+    render: function () {
+        this.renderWithTemplate();
+        this.form = new PersonForm({
+            el: el,
+            submitCallback: function (data) {
+                // here you&#39;ll get clean data object with
+                // keyed by field name with the `value` for
+                // that field. So for the sample form the
+                // data might look like this:
+                // {
+                //    name: &quot;holly&quot;, 
+                //    awesome: true, 
+                //    coolnessFactor: 11,
+                //    colors: [&#39;red&#39;, &#39;green&#39;]
+                // }
+                console.log(data); 
+            }
+        });
+
+    }
+});
+</code></pre>
 <h2 id="how-to-use-it">How to use it</h2>
-<p>The quickest way to build a starting point for a form in your project is to point the <a href="/docs#ampersand-generating-forms-from-models">ampersand-cli&#39;s at a model</a> to generate a form for editing it.</p>
-<p>The code below will get you started, and we&#39;ll probably make a few more of these over time. But the idea is, if you want to write a color picker, or a date input view, or a username-checker-input that does server-side validation, or a password field with a strength indicator, you can write a view for that and as long as it follows the form view conventions in the list above, still have it work well with the rest of the form.</p>
-<h2 id="examples">Examples</h2>
-<p>There&#39;s a great example of how form-views work inside the app that we generate using as described in the <a href="http://ampersandjs.com/learn/quick-start-guide">quick start guide</a>. It shows how to create a single form view that is used on separate pages to creating new models and editing existing ones with intelligent, completely customizable validation.</p>
+<p>The quickest way to build out a starting point for a form in your project is to point the <a href="/docs#ampersand-generating-forms-from-models">ampersand-cli&#39;s at a model file</a> to generate a form for editing it.</p>
+<p>We&#39;ll eventually make more &quot;official&quot; input views types. But the idea is, if you want to write a color picker, or a date input view, or a username-checker-input that does server-side validation, or a password field with a strength indicator, you can write a view for that and as long as it follows the form view conventions in the list above and it will still work happily with the rest of the form.</p>
+<h2 id="other-examples">Other examples</h2>
+<p>There&#39;s an example of a working form-view inside the app that gets generated when you follow the <a href="http://ampersandjs.com/learn/quick-start-guide">quick start guide</a>. It shows how to create a single form view that gets used on separate pages for creating new models and editing existing ones with intelligent, completely customizable validation.</p>
 <h2 id="getting-the-code-itself">Getting the code itself</h2>
 <ul>
 <li><a href="https://github.com/ampersandjs/ampersand-form-view">form-view</a> - The view for wrapping field views</li>
