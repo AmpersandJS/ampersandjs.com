@@ -538,9 +538,6 @@ nav.nav-main .button {
   display: block;
   line-height: 1.3em;
 }
-.nav-docs .active {
-  color: #ec008c;
-}
 .nav-docs .section-top {
   color: #272b2d;
   margin-top: 10px;
@@ -548,6 +545,9 @@ nav.nav-main .button {
 .nav-docs .section-sub {
   color: #828c8f;
   margin-left: 10px;
+}
+.nav-docs .active {
+  color: #ec008c;
 }
 .nav-docs .section-sub-sub {
   color: #828c8f;
