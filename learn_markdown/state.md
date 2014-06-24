@@ -13,16 +13,16 @@ Stringing together a spaghetti bowl of `if` statements is a painful way to build
 
 Often times it'd be easier if we could just declare: "this thing is dependent on these two other things" and from those two other values calculate a value.
 
-Turns out trackig relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not, if it has all the data it needs. 
+Turns out tracking relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not or whether it has all the data it needs or not.
 
 It is for this purpose, that ampersand state was created.
 
 
 ## In pursuit of the ultimate observable JS object.
 
-Your code needs a single unadulterated *source of truth* for each piece of data it cares about. But in order to fully de-couple it from everything that cares about it, it needs to be observable.
+Your app needs a single unadulterated *source of truth* for each piece of data it cares about. But in order to fully de-couple the state from everything that cares about it, our state needs to be observable.
 
-Typically that's done by allowing you to register handlers for when things change.
+That's done by allowing you to register handlers on the state object to let you know when things change.
 
 In our case it looks like this:
 
@@ -53,13 +53,13 @@ person.isDancing = true;
 
 ## So what?! That's boring.
 
-Agreed. Though, there is some more subtle awesomeness in being able to observe changes that are set with a simple assigment: `person.isDancing = true` as opposed to `person.set('isDancing', true)` (either works, btw), but that's nothing groundbreaking.
+Sure, you've hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assigment: `person.isDancing = true` as opposed to having to do `person.set('isDancing', true)` (either works, btw).
 
-So, what else? Well, as it turns out, a *huge* amount of code that you write in a project is really in describing and tracking relationships between variables.
+So, what else? Well, as we said there's a *huge* amount of code that you write in a project really just describes and tracks relationships between values.
 
 So, what if our observable layer did that for us too?
 
-Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if it's total delta is > 10 pixels.
+Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if the total distance the touch event has moved is > 10 pixels.
 
 ```js
 var DraggedElementModel = State.extend({
@@ -94,14 +94,15 @@ element.on('change:dragged', function (model, val) {
 
 ```
 
-## We didn't invent derived properties, this is true.
 
-True, derived properties aren't a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, they're just accessed without calling a method. For example, using the draggable example above, the derived property is just `element.dragged`.
+Derived properties aren't a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, the fact that they can be accessed without calling a method keeps things clean. For example, using the draggable example above, the derived property is just `element.dragged`.
+
+Note that these can be read but not set directly (trying to set a value of a derived property throws an error). 
 
 
 ## Handling relationships between objects/models with derived properties
 
-Say you've got an observable that you're using to model data from a RESTful API. Say that you've got a `/users` endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we've already fetched and created models for. From our user model we want to be able to easily access the group model. So, when passed to a template we can just access related group information.
+Say you've got an observable that you're using to model data from a RESTful API. Say that you've got a `/users` endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we've already fetched and have created local models for. From our user model we want to be able to easily access the related group model so that when rendering a template we can just access related group information.
 
 Cached, derived properties are perfect for handling this relationship:
 

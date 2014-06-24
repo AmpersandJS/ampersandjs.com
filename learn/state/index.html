@@ -22,11 +22,11 @@
 <p>This is especially true when building user interfaces.</p>
 <p>Stringing together a spaghetti bowl of <code>if</code> statements is a painful way to build a state machine that handles this. </p>
 <p>Often times it&#39;d be easier if we could just declare: &quot;this thing is dependent on these two other things&quot; and from those two other values calculate a value.</p>
-<p>Turns out trackig relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not, if it has all the data it needs. </p>
+<p>Turns out tracking relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not or whether it has all the data it needs or not.</p>
 <p>It is for this purpose, that ampersand state was created.</p>
 <h2 id="in-pursuit-of-the-ultimate-observable-js-object-">In pursuit of the ultimate observable JS object.</h2>
-<p>Your code needs a single unadulterated <em>source of truth</em> for each piece of data it cares about. But in order to fully de-couple it from everything that cares about it, it needs to be observable.</p>
-<p>Typically that&#39;s done by allowing you to register handlers for when things change.</p>
+<p>Your app needs a single unadulterated <em>source of truth</em> for each piece of data it cares about. But in order to fully de-couple the state from everything that cares about it, our state needs to be observable.</p>
+<p>That&#39;s done by allowing you to register handlers on the state object to let you know when things change.</p>
 <p>In our case it looks like this:</p>
 <pre><code class="lang-js">// Require the lib
 var State = require(&#39;ampersand-state&#39;);
@@ -51,10 +51,10 @@ person.on(&#39;change:isDancing&#39;, function () {
 person.isDancing = true;
 </code></pre>
 <h2 id="so-what-that-s-boring-">So what?! That&#39;s boring.</h2>
-<p>Agreed. Though, there is some more subtle awesomeness in being able to observe changes that are set with a simple assigment: <code>person.isDancing = true</code> as opposed to <code>person.set(&#39;isDancing&#39;, true)</code> (either works, btw), but that&#39;s nothing groundbreaking.</p>
-<p>So, what else? Well, as it turns out, a <em>huge</em> amount of code that you write in a project is really in describing and tracking relationships between variables.</p>
+<p>Sure, you&#39;ve hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assigment: <code>person.isDancing = true</code> as opposed to having to do <code>person.set(&#39;isDancing&#39;, true)</code> (either works, btw).</p>
+<p>So, what else? Well, as we said there&#39;s a <em>huge</em> amount of code that you write in a project really just describes and tracks relationships between values.</p>
 <p>So, what if our observable layer did that for us too?</p>
-<p>Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if it&#39;s total delta is &gt; 10 pixels.</p>
+<p>Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if the total distance the touch event has moved is &gt; 10 pixels.</p>
 <pre><code class="lang-js">var DraggedElementModel = State.extend({
     props: {
         x: &#39;number&#39;,
@@ -85,10 +85,10 @@ element.on(&#39;change:dragged&#39;, function (model, val) {
     }
 });
 </code></pre>
-<h2 id="we-didn-t-invent-derived-properties-this-is-true-">We didn&#39;t invent derived properties, this is true.</h2>
-<p>True, derived properties aren&#39;t a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, they&#39;re just accessed without calling a method. For example, using the draggable example above, the derived property is just <code>element.dragged</code>.</p>
+<p>Derived properties aren&#39;t a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, the fact that they can be accessed without calling a method keeps things clean. For example, using the draggable example above, the derived property is just <code>element.dragged</code>.</p>
+<p>Note that these can be read but not set directly (trying to set a value of a derived property throws an error). </p>
 <h2 id="handling-relationships-between-objects-models-with-derived-properties">Handling relationships between objects/models with derived properties</h2>
-<p>Say you&#39;ve got an observable that you&#39;re using to model data from a RESTful API. Say that you&#39;ve got a <code>/users</code> endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we&#39;ve already fetched and created models for. From our user model we want to be able to easily access the group model. So, when passed to a template we can just access related group information.</p>
+<p>Say you&#39;ve got an observable that you&#39;re using to model data from a RESTful API. Say that you&#39;ve got a <code>/users</code> endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we&#39;ve already fetched and have created local models for. From our user model we want to be able to easily access the related group model so that when rendering a template we can just access related group information.</p>
 <p>Cached, derived properties are perfect for handling this relationship:</p>
 <pre><code class="lang-js">var UserModel = State.extend({
     props: {
