@@ -17,13 +17,11 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Data and bindings in views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/view-conventions" class="section-sub active">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="what-is-a-view-according-to-ampersand-">What is a view according to ampersand?</h1>
-<p>The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.</p>
+        <section><a name="what-is-a-view-according-to-ampersand" class="anchor" href="#what-is-a-view-according-to-ampersand"><h1><span class="header-link"></span>What is a view according to ampersand?</h1></a><p>The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.</p>
 <p>It doesn&#39;t matter if your &quot;view&quot; is an instance of <code>ampersand-view</code> or not. <em>Any</em> object can be a view if it follows a few rules.</p>
 <p>Following these rules ensure that that your view plays nicely with other views.</p>
-<h2 id="the-rules-are-most-easily-explained-by-an-example">The rules are most easily explained by an example</h2>
-<p>Here is an absolutely bare-minimum <code>view</code>. Please see the comments.</p>
-<pre><code class="lang-js">function MinimalView(options) {
+<a name="the-rules-are-most-easily-explained-by-an-example" class="anchor" href="#the-rules-are-most-easily-explained-by-an-example"><h2><span class="header-link"></span>The rules are most easily explained by an example</h2></a><p>Here is an absolutely bare-minimum <code>view</code>. Please see the comments.</p>
+<pre><code class="undefinedjs">function MinimalView(options) {
     // If given an element as part of an options object
     // the view *should* store an element as `this.el`.
     this.el = options.el;
@@ -51,8 +49,7 @@ MinimalView.prototype.remove = function () {
     $(this.el).remove();
 };
 </code></pre>
-<h2 id="that-s-it-">that&#39;s it!</h2>
-</section>
+<a name="that39s-it" class="anchor" href="#that39s-it"><h2><span class="header-link"></span>that&#39;s it!</h2></a></section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
     <footer class="footer-main">

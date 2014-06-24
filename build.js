@@ -1,4 +1,5 @@
 var pack = require('./package.json');
+var slugger = require('slugger');
 var path = require('path');
 var rimraf = require('rimraf');
 var fs = require('fs');
@@ -51,7 +52,22 @@ function build() {
 
 
     function parse(input) {
-        var file = metaMarked(fs.readFileSync(__dirname + '/learn_markdown/' + input, 'utf8'));
+        var fileContents = fs.readFileSync(__dirname + '/learn_markdown/' + input, 'utf8');
+        var file = metaMarked(fileContents);
+        var cleaned = fileContents.replace(/^---\n[^---]*---/gi, '').trim()
+        var lexed = marked.lexer(cleaned);
+
+
+        // add header link a. la. github
+        var renderer = new marked.Renderer();
+        renderer.heading = function (text, level) {
+            var linkableText = slugger(text.replace(/<.+>.*<\/.+>/, '').trim());
+            var atag = '<a name="' + linkableText +'" class="anchor" href="#' + linkableText + '">';
+            return atag + '<h' + level + '><span class="header-link"></span>' + text + '</h' + level + '></a>';
+        }
+
+        file.html = marked.parser(lexed, {renderer: renderer});
+
         var basename = path.basename(input, '.md');
         file.url = (basename === 'index') ? '' : basename;
         return file;

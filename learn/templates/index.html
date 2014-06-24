@@ -17,20 +17,17 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Data and bindings in views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub active">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="creating-and-compiling-templates">Creating and compiling templates</h1>
-<p>Templates and templating engines help you generate html that can be used by your views when they are being rendered.</p>
-<h2 id="templates-as-strings">Templates as Strings</h2>
-<p>The simplest possible &quot;template&quot; in a view is just a string containing html:</p>
-<pre><code class="lang-javascript">var ListItem = AmpersandView.extend({
+        <section><a name="creating-and-compiling-templates" class="anchor" href="#creating-and-compiling-templates"><h1><span class="header-link"></span>Creating and compiling templates</h1></a><p>Templates and templating engines help you generate html that can be used by your views when they are being rendered.</p>
+<a name="templates-as-strings" class="anchor" href="#templates-as-strings"><h2><span class="header-link"></span>Templates as Strings</h2></a><p>The simplest possible &quot;template&quot; in a view is just a string containing html:</p>
+<pre><code class="undefinedjavascript">var ListItem = AmpersandView.extend({
     template: &#39;&lt;li&gt;&lt;span role=&quot;name&quot;&gt;&lt;/span&gt;&lt;li&gt;&quot;
 });
 </code></pre>
 <p>Then, when you call render on your view, this string is converted into actual html elements, and the root node (in this example the <code>&lt;li&gt;</code> tag) is set as your view&#39;s <code>el</code>.</p>
 <p>For very simple views, strings are fine, but for larger templates, they can get unweildy (particularly since javascript makes it hard to write multi-line strings) and sometimes you want to programmatically insert values into the template, perhaps from your model.</p>
-<h2 id="templates-as-functions">Templates as Functions</h2>
-<p>To make it easier to write larger and more complex templates, AmpersandViews allow you to define the template as a function instead of as a string. This function will receive a context (typically the model and/or collection of the view) which it can use to get values to insert into the template, and calling the function should either return a string representing the html, or actual dom nodes.</p>
+<a name="templates-as-functions" class="anchor" href="#templates-as-functions"><h2><span class="header-link"></span>Templates as Functions</h2></a><p>To make it easier to write larger and more complex templates, AmpersandViews allow you to define the template as a function instead of as a string. This function will receive a context (typically the model and/or collection of the view) which it can use to get values to insert into the template, and calling the function should either return a string representing the html, or actual dom nodes.</p>
 <p>Here is an example:</p>
-<pre><code class="lang-javascript">var ListItem = AmpersandView.extend({
+<pre><code class="undefinedjavascript">var ListItem = AmpersandView.extend({
 
     template: function (context) {
         var html = [
@@ -50,19 +47,18 @@
 <li><strong>It&#39;s insecure:</strong> If you concatenate strings like this, and any of the data is user-generated, you are at risk of XSS attacks unless you properly escape all the user-generated data when inserting it into your template string.</li>
 <li><strong>It&#39;s hard to maintain:</strong> If all your templates are woven into your views like this it can be hard to find and edit templates. Not to mention that now to make basic edits to the html structure of your app, you have to understand how to write JavaScript functions, and be aware of the above issues.</li>
 </ul>
-<h2 id="template-engines">Template Engines</h2>
-<p>To help make life easier, there are a number of templating engines that you can use. These allow you to write your individual templates in separate files, and then precompile them for use in your views.</p>
+<a name="template-engines" class="anchor" href="#template-engines"><h2><span class="header-link"></span>Template Engines</h2></a><p>To help make life easier, there are a number of templating engines that you can use. These allow you to write your individual templates in separate files, and then precompile them for use in your views.</p>
 <p>Different templating engines have different philosophies and features. The nice thing about ampersand is, we don&#39;t specify which templating engine you use. As long as your templating engine can precompile your template into either a string, or a function, you can use it with ampersand.</p>
 <p>Here are a few templating engines as examples:</p>
 <ul>
 <li><p><a href="http://jade-lang.com">Jade</a> - makes writing html even easier by being whitespace sensitive, allowing you to omit closing tags and <code>&lt;&gt;</code></p>
-<pre><code class="lang-jade">  .entry
+<pre><code class="undefinedjade">  .entry
       h1= title
       .body= body
 </code></pre>
 </li>
 <li><p><a href="https://github.com/janl/mustache.js">mustache.js</a> &amp; <a href="http://handlebarsjs.com/">handlebars</a> - easy interpolation of data with <code>{{ }}</code></p>
-<pre><code class="lang-mustache">  &lt;div class=&quot;entry&quot;&gt;
+<pre><code class="undefinedmustache">  &lt;div class=&quot;entry&quot;&gt;
     &lt;h1&gt;{{title}}&lt;/h1&gt;
     &lt;div class=&quot;body&quot;&gt;
       {{body}}
@@ -71,7 +67,7 @@
 </code></pre>
 </li>
 <li><p><a href="http://gitub.com/latentflip/domthing">domthing</a> - a variant of mustache that makes it really easy to setup bindings to ampersand-state/ampersand-model&#39;s automagically in your template:</p>
-<pre><code class="lang-mustache">  &lt;div class=&quot;entry&quot;&gt;
+<pre><code class="undefinedmustache">  &lt;div class=&quot;entry&quot;&gt;
     &lt;h1&gt;{{title}}&lt;/h1&gt;
     &lt;div class=&quot;body&quot;&gt;
       {{body}}
@@ -80,15 +76,14 @@
 </code></pre>
 </li>
 </ul>
-<h3 id="compilation">Compilation</h3>
-<p>Compiling your template is the process of taking a template and converting it into (typically) a normal JavaScript function that will return the template string when called.</p>
+<a name="compilation" class="anchor" href="#compilation"><h3><span class="header-link"></span>Compilation</h3></a><p>Compiling your template is the process of taking a template and converting it into (typically) a normal JavaScript function that will return the template string when called.</p>
 <p>As an example, the jade template:</p>
-<pre><code class="lang-jade">div.entry
+<pre><code class="undefinedjade">div.entry
   h1= title
   p= bodyText
 </code></pre>
 <p>might compile down to something like the following JavaScript:</p>
-<pre><code class="lang-javascript">var myTemplate = function (context) {
+<pre><code class="undefinedjavascript">var myTemplate = function (context) {
     var template = &#39;&#39;;
     template += &#39;&lt;div&gt;&#39;;
     template += &#39;  &lt;h1&gt;&#39; + escape(context.title || &#39;&#39;) + &#39;&lt;/h1&gt;\n&#39;;
@@ -99,10 +94,8 @@
 </code></pre>
 <p>As you can see, the templating engine has done a lot of work for you. It has handled concatenating all the strings together for you correctly, and escaped the variables to make them safer from XSS attacks, as well as handling the case where <code>title</code> or <code>bodyText</code> are undefined by rendering nothing, rather than <code>&quot;undefined&quot;</code> into your template.</p>
 <p>It is <em>possible</em> to have this template compilation happen in the browser, but it&#39;s not ideal. For one, it&#39;s just extra work that has to happen in the browser before your app can run. You also have to ship all the code required to compile the templates, which isn&#39;t actually necessary to run your application once the templates have been compiled. For this reason, it&#39;s best to <em>precompile</em> your templates before you send them to the browser.</p>
-<h3 id="precompilation">Precompilation</h3>
-<p>Most templating engines designed for the browser have some way to precompile your templates. You might run the precompilation step as part of starting your webserver, as a grunt or gulp task, in the beforeBuildJS step if you are using <a href="https://github.com/HenrikJoreteg/moonboots">moonboots</a>, or directly as part of the browserify build step using browserify transforms.</p>
-<h4 id="precompiling-to-a-single-file">Precompiling to a single file</h4>
-<p>As an example, let&#39;s look at how we precompile Jade templates with a tool we wrote called <a href="https://github.com/HenrikJoreteg/templatizer">templatizer</a>.</p>
+<a name="precompilation" class="anchor" href="#precompilation"><h3><span class="header-link"></span>Precompilation</h3></a><p>Most templating engines designed for the browser have some way to precompile your templates. You might run the precompilation step as part of starting your webserver, as a grunt or gulp task, in the beforeBuildJS step if you are using <a href="https://github.com/HenrikJoreteg/moonboots">moonboots</a>, or directly as part of the browserify build step using browserify transforms.</p>
+<a name="precompiling-to-a-single-file" class="anchor" href="#precompiling-to-a-single-file"><h4><span class="header-link"></span>Precompiling to a single file</h4></a><p>As an example, let&#39;s look at how we precompile Jade templates with a tool we wrote called <a href="https://github.com/HenrikJoreteg/templatizer">templatizer</a>.</p>
 <p>Templatizer takes a directory of <code>.jade</code> files, like this:</p>
 <pre><code>templates
 ├── comment.jade
@@ -112,7 +105,7 @@
     ├── home.jade
     └── profile.jade
 </code></pre><p>and using the command line tool like so: <code>templatizer -d ./templates -o templates.js</code> compiles it down into a single file, typically <code>templates.js</code>, that will look something like this:</p>
-<pre><code class="lang-javascript">module.exports.comment = function (context) { /* ...template code... */ }
+<pre><code class="undefinedjavascript">module.exports.comment = function (context) { /* ...template code... */ }
 module.exports.comments = function (context) { /* ...template code... */ }
 module.exports.myProfile = function (context) { /* ...template code... */ }
 
@@ -121,7 +114,7 @@ module.exports.pages.home = function (context) { /* ...template code... */ }
 module.exports.pages.profile = function (context) { /* ...template code... */ }
 </code></pre>
 <p>You can then require this single file with browserify, and access the functions on it, e.g:</p>
-<pre><code class="lang-javascript">var templates = require(&#39;../path/to/templates.js&#39;)
+<pre><code class="undefinedjavascript">var templates = require(&#39;../path/to/templates.js&#39;)
 
 var ProfileView = AmpersandView.extend({
     template: templates.myProfile
@@ -132,10 +125,9 @@ var HomePageView = AmpersandView.extend({
 });
 </code></pre>
 <p>In the example app, you can see that we <a href="https://github.com/AmpersandJS/ampersand/blob/master/template/hapi/moonbootsConfig.js#L44">precompile your templates ion the moonbootsConfig</a> to ensure they are always up to date. There are plenty of grunt/gulp/etc plugins for precompiling your templates as part of that process if you&#39;re into that, for example <a href="https://github.com/gruntjs/grunt-contrib-handlebars">grunt-contrib-handlebars</a>.</p>
-<h4 id="precompiling-with-browserify-transforms">Precompiling with Browserify transforms</h4>
-<p>Another way to precompile your templates is with browserify transforms. For example, for jade templates you can use something like <a href="https://github.com/domenic/jadeify">jadeify</a>.</p>
+<a name="precompiling-with-browserify-transforms" class="anchor" href="#precompiling-with-browserify-transforms"><h4><span class="header-link"></span>Precompiling with Browserify transforms</h4></a><p>Another way to precompile your templates is with browserify transforms. For example, for jade templates you can use something like <a href="https://github.com/domenic/jadeify">jadeify</a>.</p>
 <p>With jadeify you can <code>require</code> the template file directly from your view file, and it will be precompiled by jadeify as part of the browserify build, for example:</p>
-<pre><code class="lang-javascript">var ProfileView = AmpersandView.extend({
+<pre><code class="undefinedjavascript">var ProfileView = AmpersandView.extend({
     template: require(&#39;../path/to/templates/myProfile.jade&#39;)
 });
 

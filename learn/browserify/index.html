@@ -17,20 +17,17 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Data and bindings in views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub active">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="browserify-npm-quickstart">Browserify &amp; npm Quickstart</h1>
-<p>You don&#39;t <em>have</em> to use ampersand with browserify (or some other commonjs loader) but that&#39;s how we build everything, and we love it.</p>
+        <section><a name="browserify-amp-npm-quickstart" class="anchor" href="#browserify-amp-npm-quickstart"><h1><span class="header-link"></span>Browserify &amp; npm Quickstart</h1></a><p>You don&#39;t <em>have</em> to use ampersand with browserify (or some other commonjs loader) but that&#39;s how we build everything, and we love it.</p>
 <p>This is a quick run down of npm and browserify if you haven&#39;t used them before.</p>
 <p>The below assumes you have <a href="http://nodejs.org/">installed npm and node.js</a> on your system already.</p>
-<h2 id="npm">npm</h2>
-<p><a href="http://npmjs.org">npm</a> is the official package manager for node.js.</p>
-<h3 id="starting-a-new-project">Starting a new project</h3>
-<p>If you are starting a project from scratch, create a directory for it on your system somewhere, and run <code>npm init</code> from inside it, and follow the instructions (don&#39;t worry too much about the answers if you aren&#39;t sure yet).</p>
-<pre><code class="lang-bash">mkdir my-new-project
+<a name="npm" class="anchor" href="#npm"><h2><span class="header-link"></span>npm</h2></a><p><a href="http://npmjs.org">npm</a> is the official package manager for node.js.</p>
+<a name="starting-a-new-project" class="anchor" href="#starting-a-new-project"><h3><span class="header-link"></span>Starting a new project</h3></a><p>If you are starting a project from scratch, create a directory for it on your system somewhere, and run <code>npm init</code> from inside it, and follow the instructions (don&#39;t worry too much about the answers if you aren&#39;t sure yet).</p>
+<pre><code class="undefinedbash">mkdir my-new-project
 cd my-new-project
 npm init
 </code></pre>
 <p>Once you&#39;ve done that you&#39;ll see a package.json file in your directory:</p>
-<pre><code class="lang-json">{
+<pre><code class="undefinedjson">{
   &quot;name&quot;: &quot;my-awesome-project&quot;,
   &quot;version&quot;: &quot;0.0.0&quot;,
   &quot;description&quot;: &quot;&quot;,
@@ -43,22 +40,20 @@ npm init
 }
 </code></pre>
 <p>This JSON file simply describes your project, and is where you can list any npm dependencies, and their versions, for your project. You&#39;ll also need this file if you want to publish your project to npm itself.</p>
-<h3 id="installing-dependencies">Installing Dependencies</h3>
-<p>Installing dependencies with npm is really easy. To install ampersand-state run:</p>
-<pre><code class="lang-bash">npm install ampersand-state --save
+<a name="installing-dependencies" class="anchor" href="#installing-dependencies"><h3><span class="header-link"></span>Installing Dependencies</h3></a><p>Installing dependencies with npm is really easy. To install ampersand-state run:</p>
+<pre><code class="undefinedbash">npm install ampersand-state --save
 </code></pre>
 <p>This will do a few things:</p>
 <ul>
 <li>Create a <code>node_modules</code> directory in your project (if one isn&#39;t there) and install <code>ampersand-state</code> into it, along with it&#39;s dependencies.</li>
 <li><p>Add a <code>dependencies</code> section to your package.json, and add ampersand-state to it:</p>
-<pre><code class="lang-json">  &quot;dependencies&quot;: {
+<pre><code class="undefinedjson">  &quot;dependencies&quot;: {
     &quot;ampersand-state&quot;: &quot;^4.2.7&quot;
   }
 </code></pre>
 </li>
 </ul>
-<h4 id="-save-and-save-dev">--save and --save-dev</h4>
-<p><code>npm install</code> takes a number of options, two are <code>--save</code> and <code>--save-dev</code>.</p>
+<a name="--save-and---save-dev" class="anchor" href="#--save-and---save-dev"><h4><span class="header-link"></span>--save and --save-dev</h4></a><p><code>npm install</code> takes a number of options, two are <code>--save</code> and <code>--save-dev</code>.</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>

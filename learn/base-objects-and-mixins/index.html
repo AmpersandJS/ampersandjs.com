@@ -17,16 +17,14 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Data and bindings in views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub active">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="using-base-objects-and-mixins">Using Base Objects and Mixins</h1>
-<p>Flexibility and composability are core values of ampersand.</p>
+        <section><a name="using-base-objects-and-mixins" class="anchor" href="#using-base-objects-and-mixins"><h1><span class="header-link"></span>Using Base Objects and Mixins</h1></a><p>Flexibility and composability are core values of ampersand.</p>
 <p>We accomplish this, in part, with base objects and mixins and it&#39;s a pattern that&#39;s very useful for adding the functionality that you need to your objects.</p>
 <p>Say you wanted a helper function that would always be available to all the views in your app. </p>
-<h2 id="base-view-example-adding-a-this-method">Base view example, adding a <code>this.$</code> method</h2>
-<p>Simply create a base view, by convention we&#39;d put it in <code>client/views/base.js</code>.</p>
+<a name="base-view-example-adding-a-method" class="anchor" href="#base-view-example-adding-a-method"><h2><span class="header-link"></span>Base view example, adding a <code>this.$</code> method</h2></a><p>Simply create a base view, by convention we&#39;d put it in <code>client/views/base.js</code>.</p>
 <p>Let&#39;s say that we wanted a <code>this.$()</code> in our views like what backbone has. It&#39;s a very handy feature in backbone, but we didn&#39;t want to force it on you. You don&#39;t have to use jQuery, Zepto, or any such library at all unless you want to. </p>
 <p>Where as backbone expects it to <a href="https://github.com/jashkenas/backbone/blob/f210ef68f3d8cfc0676577fe347ababf0aab4497/backbone.js#L25">exist as a global or AMD module</a> </p>
 <p>But we can accomplish the same thing by adding it to our base view like this:</p>
-<pre><code class="lang-js">var AmpersandView = require(&#39;ampersand-view&#39;);
+<pre><code class="undefinedjs">var AmpersandView = require(&#39;ampersand-view&#39;);
 // this could come from a global too, of course, if you&#39;d prefer
 // but it&#39;s on npm so why not :)
 var $ = require(&#39;jquery&#39;); 
@@ -40,7 +38,7 @@ module.exports = AmpersandView.extend({
 </code></pre>
 <p>So, now, your other views can just use that as a base:</p>
 <p><code>client/views/other-view.js</code></p>
-<pre><code class="lang-js">// instead of requiring ampersand view directly we just 
+<pre><code class="undefinedjs">// instead of requiring ampersand view directly we just 
 // require our base view to extend for other views
 var BaseView = require(&#39;./base&#39;);
 
@@ -51,14 +49,13 @@ module.exports = BaseView.extend({
     ...
 })
 </code></pre>
-<h2 id="using-and-re-using-mixins">Using (and re-using) mixins</h2>
-<p>If you&#39;ve got a particularly useful mixin, it&#39;s handy to not write it repeatedly. Or perhaps you only want to extend certain views instead of all.</p>
+<a name="using-and-re-using-mixins" class="anchor" href="#using-and-re-using-mixins"><h2><span class="header-link"></span>Using (and re-using) mixins</h2></a><p>If you&#39;ve got a particularly useful mixin, it&#39;s handy to not write it repeatedly. Or perhaps you only want to extend certain views instead of all.</p>
 <p>You can also just have objects of methods and mix them into an existing view. </p>
 <p>This is how we extend <a href="http://ampersandjs.com/docs#ampersand-rest-collection-api-reference">ampersand-collection</a> to become <a href="http://ampersandjs.com/docs#ampersand-rest-collection-api-reference">ampersand-collection</a> with RESTful methods.</p>
 <p>The <code>.extend</code> method <a href="https://github.com/AmpersandJS/ampersand-class-extend">that we use in ampersand</a>, allows you to pass in as many mixins as you want.</p>
 <p>So, using the example above we could also have created a mixin that looked like this:</p>
 <p><code>client/helpers/jquery-mixin.js</code></p>
-<pre><code class="lang-js">var $ = require(&#39;jquery&#39;);
+<pre><code class="undefinedjs">var $ = require(&#39;jquery&#39;);
 
 
 module.exports = {
@@ -70,7 +67,7 @@ module.exports = {
 <p><strong> note: it&#39;s not requiring or extending view here, it&#39;s simply exporting an object with a <code>$</code> method. </strong></p>
 <p>Now, when we&#39;re building a view we could do it like this instead:</p>
 <p><code>client/views/other-view.js</code></p>
-<pre><code class="lang-js">var AmpersandView = require(&#39;ampersand-view&#39;);
+<pre><code class="undefinedjs">var AmpersandView = require(&#39;ampersand-view&#39;);
 var jQueryMixin = require(&#39;../helpers/jquery-mixin&#39;);
 
 
@@ -83,8 +80,7 @@ module.exports = AmpersandView.extend(jQueryMixin, {
     ...
 })
 </code></pre>
-<h2 id="publish-mixins-to-npm">Publish mixins to npm</h2>
-<p>Nothing wrong with publishing little re-usable mixins to npm. For future use. Super handy way of providing interesting functionality without having to include a bunch of code in the base libraries that you don&#39;t end up using.</p>
+<a name="publish-mixins-to-npm" class="anchor" href="#publish-mixins-to-npm"><h2><span class="header-link"></span>Publish mixins to npm</h2></a><p>Nothing wrong with publishing little re-usable mixins to npm. For future use. Super handy way of providing interesting functionality without having to include a bunch of code in the base libraries that you don&#39;t end up using.</p>
 <p>Fast, light, flexible, FTW!</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>

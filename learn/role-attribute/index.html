@@ -17,13 +17,12 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Data and bindings in views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub active">Using the `role` attribute</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a>
       </nav>
       <div class="docs-content">
-        <section><h1 id="using-the-humble-role-attribute">Using the humble <code>role</code> attribute</h1>
-<p>Working with single page apps as a team has always required more collaboration between folks doing HTML/CSS and the JS developers. </p>
+        <section><a name="using-the-humble-attribute" class="anchor" href="#using-the-humble-attribute"><h1><span class="header-link"></span>Using the humble <code>role</code> attribute</h1></a><p>Working with single page apps as a team has always required more collaboration between folks doing HTML/CSS and the JS developers. </p>
 <p>Turns out, most of the challenge is that there&#39;s no obvious way to know whether a <code>class</code>, <code>id</code> or certain HTML tag types are being used by the JS or not. So someone working on design and markup can inadvertently break the JS app and vice versa. </p>
 <p>What we discovered at <a href="http://andyet.com">&amp;yet</a> using the <code>role</code> attribute works quite well for making this distinction.</p>
 <p>So, whenever selecting elements or registering event handlers within a view if the JS developer always uses the <code>role</code> attribute as a selector, an HTML/CSS dev can go change whatever else they want in the template without fear of breaking the JS.</p>
 <p>For example if you have a view like this:</p>
-<pre><code class="lang-js">var View = require(&#39;ampersand-view&#39;);
+<pre><code class="undefinedjs">var View = require(&#39;ampersand-view&#39;);
 
 
 module.exports = View.extend({
@@ -44,7 +43,7 @@ module.exports = View.extend({
 </code></pre>
 <p>In order to encourage this practice, because it&#39;s so helpful, there are several places within <a href="/docs/#ampersand-view">ampersand-view</a> where there&#39;s shortcuts for grabbing things by role. For example <code>this.getByRole(&#39;action-save&#39;)</code> would fetch the element from within the view with that role. </p>
 <p>There&#39;s also a shortcut for role-based selection when declaring bindings: </p>
-<pre><code class="lang-js">...
+<pre><code class="undefinedjs">...
 bindings: {
     &#39;model.saveable&#39;: {
         type: &#39;booleanClass&#39;,
