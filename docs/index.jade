@@ -2,7 +2,7 @@ block vars
   - var pageTitle = "Documentation"
   - var description = "Get started with Ampersand.js"
   - var bodyClass = "docs-page"
-  - var pageState = "active"
+  - var pageState = "docs"
 
 extends ../templates/layout
 
@@ -47,3 +47,5 @@ block content
               a(href='https://www.npmjs.org/package/#{module.name}') npm
 
           div!= module.html
+
+  script(src="/static/js/setup.js")

@@ -19,10 +19,10 @@ html(lang="en")
 
     nav.nav-main.cf
       a.logo.logo-ampersand(href="/") Ampersand.js
-      a.nav-item(class="#{pageState}", href="/learn") Learn
-      a.nav-item(class="#{pageState}", href="/docs") Docs
+      a.nav-item(class= pageState === 'learn' ? 'active' : '', href="/learn") Learn
+      a.nav-item(class= pageState === 'docs' ? 'active' : '', href="/docs") Docs
       a.nav-item.external(href="http://tools.ampersandjs.com") Find Modules
-      a.nav-item(class="#{pageState}", href="/contribute") Contribute
+      a.nav-item(class= pageState === 'contribute' ? 'active' : '', href="/contribute") Contribute
       a.button.button-primary(href="/learn/quick-start-guide/") Get Started
 
     block content
