@@ -55,11 +55,15 @@ The quickest way to build a starting point for a form in your project is to poin
 
 The code below will get you started, and we'll probably make a few more of these over time. But the idea is, if you want to write a color picker, or a date input view, or a username-checker-input that does server-side validation, or a password field with a strength indicator, you can write a view for that and as long as it follows the form view conventions in the list above, still have it work well with the rest of the form.
 
+## Examples
+
+There's a great example of how form-views work inside the app that we generate using as described in the [quick start guide](http://ampersandjs.com/learn/quick-start-guide). It shows how to create a single form view that is used on separate pages to creating new models and editing existing ones with intelligent, completely customizable validation.
+
 
 ## Getting the code itself
 
-[form-view](https://github.com/ampersandjs/ampersand-form-view) - The view for wrapping field views
-[ampersand-input-view](https://github.com/ampersandjs/ampersand-input-view) - Produces a text value, allows you to pass an array of validation tests it must pass, renders error messages. Everything is configurable. Can also render a textarea.
-[ampersand-select-view](https://github.com/AmpersandJS/ampersand-select-view) - Produces a select input, can take a collection or array as values.
-[ampersand-array-input-view](https://github.com/AmpersandJS/ampersand-array-input-view) - Produces an array value by specifying number of required answers. Renders `<input>`s for each, and generates controls for adding/removing the unneedd fields.
-[ampersand-checkbox-view](https://github.com/AmpersandJS/ampersand-checkbox-view) - Produces a boolean value
+- [form-view](https://github.com/ampersandjs/ampersand-form-view) - The view for wrapping field views
+- [ampersand-input-view](https://github.com/ampersandjs/ampersand-input-view) - Produces a text value, allows you to pass an array of validation tests it must pass, renders error messages. Everything is configurable. Can also render a textarea.
+- [ampersand-select-view](https://github.com/AmpersandJS/ampersand-select-view) - Produces a select input, can take a collection or array as values.
+- [ampersand-array-input-view](https://github.com/AmpersandJS/ampersand-array-input-view) - Produces an array value by specifying number of required answers. Renders `<input>`s for each, and generates controls for adding/removing the unneedd fields.
+- [ampersand-checkbox-view](https://github.com/AmpersandJS/ampersand-checkbox-view) - Produces a boolean value
