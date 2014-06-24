@@ -72,6 +72,7 @@ function build() {
 
     parsed.forEach(function (item) {
         renderJade(__dirname + '/templates/learn-page.jade', {
+            currentPageUrl: item.url,
             content: item.html,
             pages: parsed,
             pageTitle: item.meta.pagetitle,

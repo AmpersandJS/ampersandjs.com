@@ -546,6 +546,10 @@ nav.nav-main .button {
 .nav-docs .section-sub-sub:before {
   content: '- ';
 }
+.nav-docs .section-sub.active,
+.nav-docs .section-sub-sub.active {
+  color: #ec008c;
+}
 @media (max-width: 860px) {
   nav.nav-main {
     padding: 20px 20px 50px;
@@ -944,3 +948,4 @@ nav.nav-main .button {
   text-indent: -9999em;
   background-size: 17px auto;
 }
+

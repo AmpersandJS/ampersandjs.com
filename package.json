@@ -16,7 +16,8 @@
     "underscore": "^1.6.0"
   },
   "devDependencies": {
-    "http-server": "^0.6.1"
+    "http-server": "^0.6.1",
+    "stylus": "^0.46.3"
   },
   "featuredModules": [
     "bows",
@@ -30,8 +31,8 @@
     "url": "ampersandjs/ampersandjs.com"
   },
   "scripts": {
-    "build": "node build.js && echo 'built index.html'",
-    "start": "http-server . -p 8000"
+    "build": "make build",
+    "start": "make serve"
   },
   "coreContributors": [
     {
