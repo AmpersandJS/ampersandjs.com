@@ -39,8 +39,7 @@ block content
               | #{module.title}
           .module-card
             h4.module-name= module.name
-            for version, label in module['dist-tags']
-              p.module-version= label + ' v' + version
+            p.module-version= 'latest v' + module['dist-tags'].latest
             p.module-description= module.description
             p.module-links
               a(href= module.homepage) github
