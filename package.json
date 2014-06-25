@@ -22,7 +22,7 @@
   },
   "featuredModules": [
     "bows",
-    "emoji-images",
+    "bind-transforms",
     "getusermedia"
   ],
   "license": "MIT",
