@@ -792,6 +792,7 @@ nav.nav-main .button {
 }
 .docs-content .anchor {
   position: relative;
+  display: inline-block;
 }
 .docs-content .anchor .header-link {
   width: 20px;
