@@ -13,7 +13,7 @@ The simplest possible "template" in a view is just a string containing html:
 
 ```javascript
 var ListItem = AmpersandView.extend({
-    template: '<li><span role="name"></span><li>"
+    template: '<li><span role="name"></span><li>'
 });
 ```
 

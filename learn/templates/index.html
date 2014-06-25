@@ -20,7 +20,7 @@
         <section><a name="creating-and-compiling-templates" class="anchor" href="#creating-and-compiling-templates"><h1><span class="header-link"></span>Creating and compiling templates</h1></a><p>Templates and templating engines help you generate html that can be used by your views when they are being rendered.</p>
 <a name="templates-as-strings" class="anchor" href="#templates-as-strings"><h2><span class="header-link"></span>Templates as Strings</h2></a><p>The simplest possible &quot;template&quot; in a view is just a string containing html:</p>
 <pre><code class="undefinedjavascript">var ListItem = AmpersandView.extend({
-    template: &#39;&lt;li&gt;&lt;span role=&quot;name&quot;&gt;&lt;/span&gt;&lt;li&gt;&quot;
+    template: &#39;&lt;li&gt;&lt;span role=&quot;name&quot;&gt;&lt;/span&gt;&lt;li&gt;&#39;
 });
 </code></pre>
 <p>Then, when you call render on your view, this string is converted into actual html elements, and the root node (in this example the <code>&lt;li&gt;</code> tag) is set as your view&#39;s <code>el</code>.</p>
