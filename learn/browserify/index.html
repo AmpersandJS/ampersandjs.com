@@ -14,13 +14,67 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item active">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Data and bindings in views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub active">Browserify &amp; npm Quickstart</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/fetching-data-for-views" class="section-sub">Data and bindings in views</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/browserify" class="section-sub active">npm, Browserify &amp; Modules</a><a href="/learn/transition-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/forms" class="section-sub">Working with forms</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a>
       </nav>
       <div class="docs-content">
-        <section><a name="browserify-amp-npm-quickstart" class="anchor" href="#browserify-amp-npm-quickstart"><h1><span class="header-link"></span>Browserify &amp; npm Quickstart</h1></a><p>You don&#39;t <em>have</em> to use ampersand with browserify (or some other commonjs loader) but that&#39;s how we build everything, and we love it.</p>
+        <section><a name="npm-browserify-amp-modules" class="anchor" href="#npm-browserify-amp-modules"><h1><span class="header-link"></span>npm, Browserify &amp; Modules</h1></a><p>You don&#39;t <em>have</em> to use ampersand with browserify (or some other commonjs loader) but that&#39;s how we build everything, and we love it.</p>
 <p>This is a quick run down of npm and browserify if you haven&#39;t used them before.</p>
 <p>The below assumes you have <a href="http://nodejs.org/">installed npm and node.js</a> on your system already.</p>
+<a name="overview" class="anchor" href="#overview"><h2><span class="header-link"></span>Overview</h2></a><p><a href="#npm">npm</a> (along with it&#39;s command line tool, the npm-client) is the official package manager for node.js, but it works great for clientside JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.</p>
+<p><a href="#commonjs-modules">commonjs modules</a> are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.</p>
+<p><a href="#browserify">browserify</a> helps you bundle your application that uses commonjs modules up into a single JavaScript file that you can use in your application in the browser.</p>
+<p>Put together the flow of creating a very simple web application with these tools might look something like this:</p>
+<ul>
+<li><code>mkdir my-project &amp;&amp; cd my-project</code> - create a project directory</li>
+<li><code>npm init</code> - create a package.json for your project which stores your dependencies and their versions</li>
+<li><code>npm install browserify --save-dev</code> - install browserify as a development only dependency</li>
+<li><code>npm install underscore --save</code> - install a dependency you want to use in your application</li>
+<li><p>create a module in your application, say <code>square-numbers.js</code></p>
+<pre><code class="undefinedjavascript">  // ./my-project/square-numbers.js
+  // Squares a list of numbers
+
+  // Require the underscore npm module
+  var _ = require(&#39;underscore&#39;);
+
+  function squareNumbers (list) {
+      return _.map(list, function (n) { return n*n; });
+  }
+
+  //export squareNumbers as the module function
+  module.exports = squareNumbers;
+</code></pre>
+</li>
+<li><p>create the main app.js file for your application, which requires your module</p>
+<pre><code class="undefinedjavascript">  // ./my-project/app.js
+  console.log(&#39;Welcome to my application&#39;)
+
+  // require the local module
+  var squareNumbers = require(&#39;./square-numbers&#39;);
+
+  var input = [1,2,3,4];
+  console.log(&#39;Input is:&#39;, input);
+  console.log(&#39;Squared is:&#39;, squareNumbers(input));
+</code></pre>
+</li>
+<li><p><code>./node_modules/.bin/browserify app.js -o app.bundle.js</code> - use browserify to compile your application down into a single file.</p>
+</li>
+<li><p>create a very simple index.html that loads your bundle:</p>
+<pre><code class="undefinedhtml">  &lt;!-- index.html --&gt;
+  &lt;script src=&#39;app.bundle.js&#39;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li><p><code>open index.html</code> - open index.html in a browser, and check the console output.</p>
+</li>
+</ul>
+<p>The following sections go into more detail about the components, and tools you might use. If you&#39;ve experience with node.js and writing commonjs modules, you can skip straight to <a href="#browserify">browserify</a>.</p>
 <a name="npm" class="anchor" href="#npm"><h2><span class="header-link"></span>npm</h2></a><p><a href="http://npmjs.org">npm</a> is the official package manager for node.js.</p>
+<p>The various components of npm are:</p>
+<ul>
+<li><strong>A registry</strong>. The main one is <a href="https://www.npmjs.org/">http://npmjs.org</a>, but there are others and you can even install private registries if you wish. This is where you can publish modules to, and install modules from. All the ampersand modules are available on the public npm registry. e.g.: <a href="https://www.npmjs.org/package/ampersand-view">https://www.npmjs.org/package/ampersand-view</a></li>
+<li><strong>The npm cli (command line tool)</strong>. This is what you install locally, and run from your command line as <code>npm</code>. This helps you <code>npm install</code> dependencies from the registry, <code>npm publish</code> dependencies, and so on.</li>
+<li><strong>package.json</strong>. Every project that is either published to an npm registry, or installs dependencies from it, should have a package.json. This file defines a few things about the project (name, versions, maintainers, etc) as well as listing any npm modules that the project depends on, and their versions.</li>
+<li><strong>node_modules</strong>. This is a directory that will be created in your project, and is where your npm modules will be installed into. It&#39;s also where node looks for modules when you <code>require()</code> them.</li>
+</ul>
 <a name="starting-a-new-project" class="anchor" href="#starting-a-new-project"><h3><span class="header-link"></span>Starting a new project</h3></a><p>If you are starting a project from scratch, create a directory for it on your system somewhere, and run <code>npm init</code> from inside it, and follow the instructions (don&#39;t worry too much about the answers if you aren&#39;t sure yet).</p>
 <pre><code class="undefinedbash">mkdir my-new-project
 cd my-new-project
@@ -53,7 +107,59 @@ npm init
 </code></pre>
 </li>
 </ul>
-<a name="--save-and---save-dev" class="anchor" href="#--save-and---save-dev"><h4><span class="header-link"></span>--save and --save-dev</h4></a><p><code>npm install</code> takes a number of options, two are <code>--save</code> and <code>--save-dev</code>.</p>
+<a name="--save-and---save-dev" class="anchor" href="#--save-and---save-dev"><h4><span class="header-link"></span>--save and --save-dev</h4></a><p><code>npm install &lt;module-name&gt;</code> takes a number of options, two are <code>--save</code> and <code>--save-dev</code>. Both automatically add the module name and version to your project&#39;s package.json, either in <code>&quot;dependencies&quot;</code> or <code>&quot;devDependencies&quot;</code>. Use <code>--save</code> for application dependencies, i.e. anything you <code>require()</code> in your application/module. Use <code>--save-dev</code> for anything you use to develop your application, e.g. browserify, or tests, etc.</p>
+<a name="commonjs-modules" class="anchor" href="#commonjs-modules"><h2><span class="header-link"></span>commonjs modules</h2></a><p>All npm modules that you install will use the commonjs module specification. You can (and should!) use commonjs modules to break up your application code even if you don&#39;t publish them to npm individually.</p>
+<a name="writing-commonjs-modules" class="anchor" href="#writing-commonjs-modules"><h3><span class="header-link"></span>Writing commonjs modules</h3></a><p>A commonjs module is simply a file with some javascript in it. It might look something like this:</p>
+<pre><code class="undefinedjavascript">//A simple function as a module
+var something = require(&#39;some-dependency&#39;);
+
+function doSomethingSweet (input) {
+    return something(input);
+}
+module.exports = doSomethingSweet;
+</code></pre>
+<pre><code class="undefinedjavascript">//A module which exports a constructor
+var AmpersandModel = require(&#39;ampersand-model&#39;);
+var MyClass = AmpersandModel.extend({
+    //...
+});
+
+module.exports = MyClass;
+</code></pre>
+<p>or like this:</p>
+<pre><code class="undefinedjavascript">//A hypothetical underscore like module
+module.exports.map = function (list, fn) { ... }
+module.exports.filter = function (list, fn) { ... }
+module.exports.each = function (list, fn) { ... }
+//...
+</code></pre>
+<p>A few things to note about the examples:</p>
+<ul>
+<li>All local variables defined in commonjs module files are local to that file only, so you needn&#39;t worry about wrapping your files in IIFE&#39;s <code>(function () { /*my code here*/ })()</code></li>
+<li>Within a module, attaching code to <code>module.exports</code> allows it to be accessible by any other module that <code>require()</code>&#39;s your module. By default <code>module.exports</code> is an empty object. You can either set properties on it to properties/functions, like the last example above; or replace it with a function/constructor like the first two.</li>
+</ul>
+<a name="requiring-commonjs-modules" class="anchor" href="#requiring-commonjs-modules"><h3><span class="header-link"></span>Requiring commonjs modules</h3></a><p>Requiring modules is easy. From a file, just use require, like so:</p>
+<pre><code class="undefinedjavascript">//require a module from npm, by specifying it&#39;s module name
+var _ = require(&#39;underscore&#39;);
+_.each([1,2,3], function () { /*...*/ });
+
+//require a local file, by relative file path, (you an omit the .js)
+var MyView = require(&#39;./views/my-view&#39;);
+var view = new MyView( /*...*/ );
+
+//You can even require json files
+var package = require(&#39;./package.json&#39;);
+console.log(package.version);
+</code></pre>
+<p>Everything that was <code>module.export</code>ed will be available as the result of the <code>require()</code> statement in the parent file.</p>
+<a name="browserify" class="anchor" href="#browserify"><h2><span class="header-link"></span>Browserify</h2></a><p>Npm and commonjs modules are how almost all backend node.js developers write and manage javascript code. Unfortunately for browsers we can&#39;t just point our index.html at the main <code>app.js</code> file, as browser&#39;s don&#39;t understand how <code>require()</code> works. And even if they did, if it had to grab a file over the network every time it got to a <code>require</code> statement, your application would take forever to load.</p>
+<p>Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.</p>
+<p>It also, provides shims for most of the core node.js functionality, so that <em>in theory</em> you can use any npm module, in the browser, even if it was initially written for backend code. However, in general, we use it more for it&#39;s ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.</p>
+<p>Browserify itself is an npm module, which installs a command-line script (<code>browserify</code>), so using it is something like this:</p>
+<pre><code class="undefinedbash">    npm install -g browserify #installs browserify as a globally available command line script
+    browserify path/to/app.js -o path/to/app.bundle.js
+</code></pre>
+<p>You point browserify at your &quot;main&quot; javascript file, the one which <code>require()</code>&#39;s everything else your app needs, and browserify bundles it all into a single <code>app.bundle.js</code> file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal javascript file in the browser like: <code>&lt;script src=&#39;path/to/app.bundle.js&#39;&gt;&lt;/script&gt;</code>.</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
