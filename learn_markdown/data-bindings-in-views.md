@@ -1,6 +1,6 @@
 ---
 pagetitle: Data and bindings in views
-order: 1
+order: 4
 ---
 
 # Data and bindings in views

@@ -1,6 +1,6 @@
 ---
 pagetitle: npm, Browserify & Modules
-order: 2
+order: 1
 ---
 
 # npm, Browserify & Modules

@@ -1,6 +1,6 @@
 ---
 pagetitle: View Conventions
-order: 6
+order: 8
 ---
 
 # Ampersand View Conventions

@@ -1,6 +1,6 @@
 ---
 pagetitle: Transitioning from Backbone
-order: 4
+order: 2
 ---
 
 # Transitioning from Backbone

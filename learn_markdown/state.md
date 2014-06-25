@@ -1,6 +1,6 @@
 ---
 pagetitle: Understanding State
-order: 1
+order: 3
 ---
 
 # Undersanding State

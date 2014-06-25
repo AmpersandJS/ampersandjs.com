@@ -1,5 +1,6 @@
 ---
 pagetitle: Templates
+order: 5
 ---
 
 # Creating and compiling templates
