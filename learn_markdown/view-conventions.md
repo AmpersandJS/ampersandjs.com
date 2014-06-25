@@ -3,13 +3,23 @@ pagetitle: View Conventions
 order: 6
 ---
 
-# What is a view according to ampersand?
+# Ampersand View Conventions
+
+## What is a view according to ampersand?
 
 The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.
 
 It doesn't matter if your "view" is an instance of `ampersand-view` or not. *Any* object can be a view if it follows a few rules.
 
 Following these rules ensure that that your view plays nicely with other views.
+
+The rules are:
+
+* All views accepts an `options` object as the first argument to their constructor.
+* All views should have an `el` property, that is the dom element that the view manages.
+* If the constructor's options object has an `el` property, it should be used as the view's `el`.
+* All views should have a `render` method that creates, replaces, or fills in the `el` property.
+* It should have a `remove` method that tears down the view, removes any event handlers, and ideally removes `el` from it's parent (if that's a reasonable thing to do).
 
 
 ## The rules are most easily explained by an example
@@ -46,5 +56,5 @@ MinimalView.prototype.remove = function () {
 };
 
 ```
- 
+
 ## that's it!

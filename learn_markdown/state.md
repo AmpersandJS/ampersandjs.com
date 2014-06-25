@@ -138,7 +138,7 @@ user.on('change:groupModel', function (model, newGroupModel) {
 ```
 
 
-## Cached, derived properties are da shiznit
+## Cached, derived properties are awesome
 
 So, say you have a more "expensive" computation for model. Say you're parsing a long string for URLs and turning them into HTML and then wanting to reference that later. Again, this is built in.
 

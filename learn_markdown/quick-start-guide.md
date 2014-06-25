@@ -3,7 +3,7 @@ pagetitle: Quick Start Guide
 order: 0
 ---
 
-# Jump right in
+# Quick Start Guide
 
 1. Make sure you've got [node.js installed](http://nodejs.org/).
 2. Install the ampersand command line and running by running this in a terminal:

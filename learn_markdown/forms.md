@@ -3,7 +3,7 @@ pagetitle: Working with forms
 order: 5
 ---
 
-# Ampersand Forms
+# Working with Ampersand Forms
 
 Let's be honest, forms are a pain!
 
@@ -130,6 +130,7 @@ module.exports = PageView.extend({
     render: function () {
         this.renderWithTemplate();
         this.form = new PersonForm({
+            model: this.model,
             el: el,
             submitCallback: function (data) {
                 // here you'll get clean data object with
@@ -153,7 +154,7 @@ module.exports = PageView.extend({
 
 ## How to use it
 
-The quickest way to build out a starting point for a form in your project is to point the [ampersand-cli's at a model file](/docs#ampersand-generating-forms-from-models) to generate a form for editing it.
+The quickest way to build out a starting point for a form in your project is to point [ampersand-cli at a model file](/docs#ampersand-generating-forms-from-models) to generate a form for editing it.
 
 We'll eventually make more "official" input views types. But the idea is, if you want to write a color picker, or a date input view, or a username-checker-input that does server-side validation, or a password field with a strength indicator, you can write a view for that and as long as it follows the form view conventions in the list above and it will still work happily with the rest of the form.
 

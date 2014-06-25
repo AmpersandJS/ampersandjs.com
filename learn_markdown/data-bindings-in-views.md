@@ -5,7 +5,7 @@ order: 1
 
 # Data and bindings in views
 
-Also, a common question we hear from devs building backbone apps is what a good pattern is for fetching and rendering a single model from a collection for a "detail" page. 
+Also, a common question we hear from devs building backbone apps is what a good pattern is for fetching and rendering a single model from a collection for a "detail" page.
 
 We may want to render the page and get pixels on the screen as soon as possible, but what happens when we don't have all our data yet. Somehow we have to coordinate this, so that the view is updated as relevant data arrives or properties change.
 
