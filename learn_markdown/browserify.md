@@ -11,6 +11,8 @@ This is a quick run down of npm and browserify if you haven't used them before.
 
 The below assumes you have [installed npm and node.js](http://nodejs.org/) on your system already.
 
+Another great source of information about all this is the [browserify handbook](https://github.com/substack/browserify-handbook), written by the [guy who wrote browserify](http://twitter.com/substack).
+
 ## Overview
 
 [npm](#npm) (along with it's command line tool, the npm-client) is the official package manager for node.js, but it works great for clientside JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.
@@ -212,9 +214,36 @@ Browserify itself is an npm module, which installs a command-line script (`brows
 
 You point browserify at your "main" javascript file, the one which `require()`'s everything else your app needs, and browserify bundles it all into a single `app.bundle.js` file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal javascript file in the browser like: `<script src='path/to/app.bundle.js'></script>`.
 
+### How and when to run browserify?
+
+There are a number of different way to run browserify, depending on your setup.
+
+#### browserify/watchify cli
+
+The simplest, as explained above is just to install [browserify](http://browserify.org), and run something like: `browserify path/to/main/app/file.js -o path/to/output/bundle.js`.
+
+If you're doing it this way, you may find [watchify](https://github.com/substack/watchify) useful, which watches your source files, and automatically rebuilds you browserify bundle when necessary.
+
+#### as part of grunt/gulp
+
+If you use grunt or gulp, there are plenty of browserify plugins for each to run browserify as part of your build. e.g: [grunt-browserify](https://github.com/jmreidy/grunt-browserify) and [gulp-browserify](https://github.com/deepak1556/gulp-browserify)
+
+#### beefy
+
+[beefy](https://github.com/chrisdickinson/beefy) is a great little tool for developing small apps or modules. It's basically a simple static web-server that will browserify your source on the fly. From the docs:
+
+* can live reload your browser when your code changes (if you want)
+* works with whatever version of browserify or watchify; globally installed or locally installed to `node\_modules/`.
+* will spit compile errors out into the browser so you don't have that 1-2 seconds of cognitive dissonance and profound ennui that follows refreshing the page only to get a blank screen.
+* will spit out a default index.html for missing routes so you don't need to even muck about with HTML to get started
+
+#### moonboots
+
+We wrote (and love) [moonboots](https://github.com/HenrikJoreteg/moonboots). It's kind of like a production-grade version of beefy. You can use it standalone, or as part of your [express](https://www.npmjs.org/package/moonboots-express) or [hapi](https://www.npmjs.org/package/moonboots_hapi) server, and it wil handle compiling and serving your js and css code, including things like autoreload in development, and caching and minifying in production.
+
+It is installed as a part of the example [ampersand app](/learn/quick-start-guide) so you can check it out there.
 
 
+## Summary
 
-
-
-
+There is a lot more to npm and browserify than we covered here. Again, [the browserify handbook](https://github.com/substack/browserify-handbook) is a great reference to take a look at.
