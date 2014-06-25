@@ -89,7 +89,8 @@ block content
             p.module-author by #{module.author.name}
             p.module-description= module.description
             p.module-links
-              a(href= module.homepage) github
+              if module.homepage
+                a(href= module.homepage) github
               a(href= module.npmlink) npm
       a.button.button-primary(href="/contribute") View all modules
 

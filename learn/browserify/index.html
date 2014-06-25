@@ -20,6 +20,7 @@
         <section><a name="npm-browserify-amp-modules" class="anchor" href="#npm-browserify-amp-modules"><h1><span class="header-link"></span>npm, Browserify &amp; Modules</h1></a><p>You don&#39;t <em>have</em> to use ampersand with browserify (or some other commonjs loader) but that&#39;s how we build everything, and we love it.</p>
 <p>This is a quick run down of npm and browserify if you haven&#39;t used them before.</p>
 <p>The below assumes you have <a href="http://nodejs.org/">installed npm and node.js</a> on your system already.</p>
+<p>Another great source of information about all this is the <a href="https://github.com/substack/browserify-handbook">browserify handbook</a>, written by the <a href="http://twitter.com/substack">guy who wrote browserify</a>.</p>
 <a name="overview" class="anchor" href="#overview"><h2><span class="header-link"></span>Overview</h2></a><p><a href="#npm">npm</a> (along with it&#39;s command line tool, the npm-client) is the official package manager for node.js, but it works great for clientside JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.</p>
 <p><a href="#commonjs-modules">commonjs modules</a> are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.</p>
 <p><a href="#browserify">browserify</a> helps you bundle your application that uses commonjs modules up into a single JavaScript file that you can use in your application in the browser.</p>
@@ -160,6 +161,20 @@ console.log(package.version);
     browserify path/to/app.js -o path/to/app.bundle.js
 </code></pre>
 <p>You point browserify at your &quot;main&quot; javascript file, the one which <code>require()</code>&#39;s everything else your app needs, and browserify bundles it all into a single <code>app.bundle.js</code> file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal javascript file in the browser like: <code>&lt;script src=&#39;path/to/app.bundle.js&#39;&gt;&lt;/script&gt;</code>.</p>
+<a name="how-and-when-to-run-browserify" class="anchor" href="#how-and-when-to-run-browserify"><h3><span class="header-link"></span>How and when to run browserify?</h3></a><p>There are a number of different way to run browserify, depending on your setup.</p>
+<a name="browserifywatchify-cli" class="anchor" href="#browserifywatchify-cli"><h4><span class="header-link"></span>browserify/watchify cli</h4></a><p>The simplest, as explained above is just to install <a href="http://browserify.org">browserify</a>, and run something like: <code>browserify path/to/main/app/file.js -o path/to/output/bundle.js</code>.</p>
+<p>If you&#39;re doing it this way, you may find <a href="https://github.com/substack/watchify">watchify</a> useful, which watches your source files, and automatically rebuilds you browserify bundle when necessary.</p>
+<a name="as-part-of-gruntgulp" class="anchor" href="#as-part-of-gruntgulp"><h4><span class="header-link"></span>as part of grunt/gulp</h4></a><p>If you use grunt or gulp, there are plenty of browserify plugins for each to run browserify as part of your build. e.g: <a href="https://github.com/jmreidy/grunt-browserify">grunt-browserify</a> and <a href="https://github.com/deepak1556/gulp-browserify">gulp-browserify</a></p>
+<a name="beefy" class="anchor" href="#beefy"><h4><span class="header-link"></span>beefy</h4></a><p><a href="https://github.com/chrisdickinson/beefy">beefy</a> is a great little tool for developing small apps or modules. It&#39;s basically a simple static web-server that will browserify your source on the fly. From the docs:</p>
+<ul>
+<li>can live reload your browser when your code changes (if you want)</li>
+<li>works with whatever version of browserify or watchify; globally installed or locally installed to <code>node\_modules/</code>.</li>
+<li>will spit compile errors out into the browser so you don&#39;t have that 1-2 seconds of cognitive dissonance and profound ennui that follows refreshing the page only to get a blank screen.</li>
+<li>will spit out a default index.html for missing routes so you don&#39;t need to even muck about with HTML to get started</li>
+</ul>
+<a name="moonboots" class="anchor" href="#moonboots"><h4><span class="header-link"></span>moonboots</h4></a><p>We wrote (and love) <a href="https://github.com/HenrikJoreteg/moonboots">moonboots</a>. It&#39;s kind of like a production-grade version of beefy. You can use it standalone, or as part of your <a href="https://www.npmjs.org/package/moonboots-express">express</a> or <a href="https://www.npmjs.org/package/moonboots_hapi">hapi</a> server, and it wil handle compiling and serving your js and css code, including things like autoreload in development, and caching and minifying in production.</p>
+<p>It is installed as a part of the example <a href="/learn/quick-start-guide">ampersand app</a> so you can check it out there.</p>
+<a name="summary" class="anchor" href="#summary"><h2><span class="header-link"></span>Summary</h2></a><p>There is a lot more to npm and browserify than we covered here. Again, <a href="https://github.com/substack/browserify-handbook">the browserify handbook</a> is a great reference to take a look at.</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
