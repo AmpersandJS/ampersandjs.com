@@ -75,7 +75,7 @@ Here are a few templating engines as examples:
     </div>
     ```
 
-* [domthing](http://gitub.com/latentflip/domthing) - a variant of mustache that makes it really easy to setup bindings to ampersand-state/ampersand-model's automagically in your template:
+* [domthing](http://github.com/latentflip/domthing) - a variant of mustache that makes it really easy to setup bindings to ampersand-state/ampersand-model's automagically in your template:
     ```mustache
     <div class="entry">
       <h1>{{title}}</h1>
