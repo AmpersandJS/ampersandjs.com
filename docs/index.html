@@ -643,7 +643,7 @@ people.filter(function (person) {
             <h1><span class="header-link"></span>ampersand-rest-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-rest-collection</h4>
-            <p class="module-version">latest v1.1.0</p>
+            <p class="module-version">latest v1.1.1</p>
             <p class="module-description">ampersand-collection with REST and Underscore mixins.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-rest-collection">github</a><a href="https://www.npmjs.org/package/ampersand-rest-collection">npm</a></p>
           </div>
@@ -651,9 +651,9 @@ people.filter(function (person) {
 <p>This makes ampersand-collection work and act a lot like Backbone.Collection, if youre planning on hitting a REST-ful API this is probably what you want to use.</p>
 <a name="ampersand-rest-collection-install" class="anchor" href="#ampersand-rest-collection-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-rest-collection
 </code></pre><a name="ampersand-rest-collection-api-reference" class="anchor" href="#ampersand-rest-collection-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><p>The ampersand-rest-collection is simply an <a href="#ampersand-collection">ampersand-collection</a> extended with two mixins: ampersand-collection-rest-mixin and ampersand-collection-underscore-mixin.</p>
-<pre><code class="undefinedjavascript">var Collection = require(ampersand-collection);
-var underscoreMixin = require(ampersand-collection-underscore-mixin);
-var restMixins = require(ampersand-collection-rest-mixin);
+<pre><code class="undefinedjavascript">var Collection = require(&quot;ampersand-collection&quot;);
+var underscoreMixin = require(&quot;ampersand-collection-underscore-mixin&quot;);
+var restMixins = require(&quot;ampersand-collection-rest-mixin&quot;);
 
 module.exports = Collection.extend(underscoreMixin, restMixins);
 </code></pre>

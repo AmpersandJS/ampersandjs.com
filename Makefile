@@ -7,12 +7,18 @@ STYLUS_FILES := $(shell find ./static/css -name \*.styl -print)
 HTML_SOURCE_FILES := $(shell find . -not -name "*.css" -not -name "*.html" -not -path "./node_modules/*" -not -path "./.git/*" -type f -print)
 
 
+
 # Tasks
+.PHONY: update-contributors dist
 
 all: build
 
 serve: all
 	http-server . -p 8000
+
+# Force rebuild
+dist: update-contributors static/css/main.css
+	node build.js
 
 build: index.html static/css/main.css
 
@@ -21,3 +27,7 @@ index.html: $(HTML_SOURCE_FILES)
 
 static/css/main.css: static/css/main.styl $(STYLUS_FILES)
 	stylus -I static/css < $< > $@
+
+update-contributors:
+	node lib/calculate-contributions.js
+	node lib/get-core-contributors.js
