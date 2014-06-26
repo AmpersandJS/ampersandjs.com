@@ -75,7 +75,7 @@ var DraggedElementModel = State.extend({
             // how it's calculated
             fn: function () {
                 // the distance formula
-                return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) > 10;
+                return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2)) > 10;
             }
         }
     }
