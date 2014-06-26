@@ -68,7 +68,13 @@ These are all in markdown in the `learn_markdown` directory. There's a bit of me
 
 This is the page title (used to generate what the nav calls it) and an `order` value that will be used to sort them all. 
 
-These don't have to be sequential and nothing will blow up if there are two that are the same or whatnot, they're simply run through a sorter that uses that value to attempt to sort them. 
+These don't have to be sequential and nothing will blow up if there are two that are the same or whatnot, they're simply run through a sorter that uses that value to attempt to sort them.
+
+#### Adding a video
+
+To add a video embed from Vimeo or YouTube, please wrap the `iframe` with a `div.video-container`.
+
+Be sure the iframe does not have a set `width` or `height`.
 
 ## Running that fabled "build" script
 
