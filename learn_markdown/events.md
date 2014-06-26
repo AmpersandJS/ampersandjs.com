@@ -76,7 +76,7 @@ model.name = 'something else'; // callback doesn't run
 model.name = 'you'; // still no
 
 // but if we change the greating type so the value is actually different, we'll get the event
-model.greetingType = 'short'; // callback runs and prints: "greeting is now: hi you"
+model.greetingType = 'full'; // callback runs and prints: "greeting is now: hi you"
 ```
 
 In addition to derived properties, state lets you listen for changes to child models, etc.
