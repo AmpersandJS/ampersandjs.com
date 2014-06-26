@@ -1,0 +1,35 @@
+block vars
+  - var pageTitle = "404"
+  - var description = "Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5"
+
+extends templates/layout
+
+block content
+
+  header.hero
+    .illustration.boat
+      img(src="/static/images/ampersand-on-a-boat.svg")
+    h1 Whoops! That page is out to sea.
+      br
+      | Head back 
+      a(href="/") home
+      = ' '
+      | or visit the 
+      a(href="/docs") docs
+      | . (Get it?)
+
+  hr
+
+  section.splash
+
+    .callout.human-javascript
+      h2 A foundation for building simple but powerful JS apps with Ampersand.js
+      img.humanjs-ipad(src="/static/images/human-javascript.png")
+      //- Needs svg and png fallback
+      a.logo.logo-humanjs(href="http://humanjavascript.com/") Human JavaScript
+      p Henrik Joreteg introduces practical patterns for powerfully simple application development. 
+        a(href="http://humanjavascript.com/")
+          em Human Javascript 
+        | is a saner way to write JS.
+      a.button.button-secondary(href="https://gumroad.com/l/humanjs") Buy the book for $39
+      a.button.button-secondary(href="http://read.humanjavascript.com/") Read it free online

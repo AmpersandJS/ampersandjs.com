@@ -172,10 +172,6 @@ hr {
 }
 .illustration img {
   width: 100%;
-}
-.illustration.beach img,
-.illustration.house img,
-.illustration.guide img {
   max-width: 400px;
 }
 .illustration.guide {
@@ -971,4 +967,3 @@ nav.nav-main .button {
   text-indent: -9999em;
   background-size: 17px auto;
 }
-
