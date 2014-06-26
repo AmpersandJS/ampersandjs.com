@@ -479,7 +479,7 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
             <h1><span class="header-link"></span>ampersand-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-collection</h4>
-            <p class="module-version">latest v1.3.8</p>
+            <p class="module-version">latest v1.3.9</p>
             <p class="module-description">A way to store/manage objects or models.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-collection">github</a><a href="https://www.npmjs.org/package/ampersand-collection">npm</a></p>
           </div>
@@ -490,12 +490,12 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
 </code></pre><a name="ampersand-collection-api-reference" class="anchor" href="#ampersand-collection-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-collection-extend" class="anchor" href="#ampersand-collection-extend"><h3><span class="header-link"></span>extend <code>AmpersandCollection.extend([attributes])</code></h3></a><p>Create a collection class of your own by extending AmpersandCollection, providing the required instance properties to be attached instances of your class.</p>
 <p>Typically you will specify a <code>model</code> constructor (if you are storing <a href="#ampersand-state">ampersand-state</a> or <a href="#ampersand-model">ampersand-model</a> objects.</p>
 <a name="ampersand-collection-model" class="anchor" href="#ampersand-collection-model"><h3><span class="header-link"></span>model <code>collection.model</code></h3></a><p>Override this property to specify the model class that the collection contains. If defined, you can pass raw attributes objects (and arrays) to <code>add</code> and <code>reset</code>, and the attributes will be converted into a model of the proper type.</p>
-<pre><code class="undefinedjavascript">var Library = AmeprsandCollection.extend({
+<pre><code class="undefinedjavascript">var Library = AmpersandCollection.extend({
     model: Book
 });
 </code></pre>
 <p>A collection can also contain polymorphic models by overriding this property with a function that returns a model.</p>
-<pre><code class="undefinedjavascript">var Library = Backbone.Collection.extend({
+<pre><code class="undefinedjavascript">var Library = AmpersandCollection.extend({
 
   model: function(attrs, options) {
     if (condition) {
