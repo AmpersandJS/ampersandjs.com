@@ -60,7 +60,7 @@ If you've got a particularly useful mixin, it's handy to not write it repeatedly
 
 You can also just have objects of methods and mix them into an existing view. 
 
-This is how we extend [ampersand-collection](http://ampersandjs.com/docs#ampersand-rest-collection-api-reference) to become [ampersand-collection](http://ampersandjs.com/docs#ampersand-rest-collection-api-reference) with RESTful methods.
+This is how we extend [ampersand-collection](http://ampersandjs.com/docs#ampersand-collection-api-reference) to become [ampersand-rest-collection](http://ampersandjs.com/docs#ampersand-rest-collection-api-reference) with RESTful methods.
 
 The `.extend` method [that we use in ampersand](https://github.com/AmpersandJS/ampersand-class-extend), allows you to pass in as many mixins as you want.
 
