@@ -297,8 +297,8 @@ var Person = State.extend({
 
 var person = new Person();
 
-// so meetings exists as an empty collection
-person.meetings instanceof Meetings; // true
+// so messages exists as an empty collection
+person.messages instanceof Messages; // true
 
 // and profile exists as an empty `ProfileModel`
 person.profile instanceof ProfileModel; // true
