@@ -793,6 +793,7 @@ nav.nav-main .button {
 .docs-content .anchor {
   position: relative;
   display: block;
+  margin-top: 45px;
 }
 .docs-content .anchor .header-link {
   width: 20px;
