@@ -42,7 +42,7 @@ var model = new Backbone.Model();
 model.set('name', 'henrik');
 
 // getting properties
-model.get('name', 'henrik'); // returns 'henrik'
+model.get('name'); // returns 'henrik'
 ```
 
 ampersand: 
