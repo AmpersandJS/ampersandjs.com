@@ -15,7 +15,7 @@ Another great source of information about all this is the [browserify handbook](
 
 ## Overview
 
-[npm](#npm) (along with it's command line tool, the npm-client) is the official package manager for node.js, but it works great for clientside JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.
+[npm](#npm) (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for clientside JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.
 
 [commonjs modules](#commonjs-modules) are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.
 
@@ -239,7 +239,7 @@ If you use grunt or gulp, there are plenty of browserify plugins for each to run
 
 #### moonboots
 
-We wrote (and love) [moonboots](https://github.com/HenrikJoreteg/moonboots). It's kind of like a production-grade version of beefy. You can use it standalone, or as part of your [express](https://www.npmjs.org/package/moonboots-express) or [hapi](https://www.npmjs.org/package/moonboots_hapi) server, and it wil handle compiling and serving your js and css code, including things like autoreload in development, and caching and minifying in production.
+We wrote (and love) [moonboots](https://github.com/HenrikJoreteg/moonboots). It's kind of like a production-grade version of beefy. You can use it standalone, or as part of your [express](https://www.npmjs.org/package/moonboots-express) or [hapi](https://www.npmjs.org/package/moonboots_hapi) server, and it will handle compiling and serving your js and css code, including things like autoreload in development, and caching and minifying in production.
 
 It is installed as a part of the example [ampersand app](/learn/quick-start-guide) so you can check it out there.
 
