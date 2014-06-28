@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
+    <meta name="author" content="Get started with Ampersand.js">
+    <title>Ampersand.js - Learn</title>
+    <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
+    <link rel="stylesheet" href="/static/css/plugins/normalize.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+  </head>
+  <body class="docs-page">
+    <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item active">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
+    <div class="docs cf">
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub">Data and bindings in views</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub active">Migrating from HumanModel/View</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a><a href="/learn/forms" class="section-sub">Working with forms</a>
+      </nav>
+      <div class="docs-content">
+        <section><a name="migrating-from-humanmodelhumanview-to-ampersand" class="anchor" href="#migrating-from-humanmodelhumanview-to-ampersand"><h1><span class="header-link"></span>Migrating from HumanModel/HumanView to Ampersand</h1></a><p>If you&#39;ve been using HumanModel and HumanView, there&#39;s just a few little things that you&#39;d need to change to switch to Ampersand.</p>
+<a name="breaking-changes-from-humanmodel---ampersandmodel" class="anchor" href="#breaking-changes-from-humanmodel---ampersandmodel"><h2><span class="header-link"></span>Breaking changes from HumanModel - AmpersandModel:</h2></a><a name="1" class="anchor" href="#1"><h3><span class="header-link"></span>1. <code>HumanModel.define()</code> -&gt; <code>AmpersandModel.extend()</code></h3></a><p>This was originally made to be <code>define</code> because HumanModel doesn&#39;t support re-extending. This was a bit tricky because backbone&#39;s <code>extend</code> method directly extends the prototype, but since we&#39;re using <code>props</code> definitions to create getters/setters we wanted to make the distinction. But now AmpersandModel does support extending a model repeatedly, and it does so by merging in new property definitions.</p>
+<p>Also, if you look at the code you notice that AmpersandModel is now a thin layer on top of <a href="http://ampersandjs.com/docs#ampersand-state">AmpersandState</a>. Model simply extends State with the RESTful methods: <code>save</code>, <code>fetch</code>, <code>destroy</code>, <code>sync</code>, and <code>url</code>. This also means that if you want to use State by itself just to get evented and derived properties, you can easily do that.</p>
+<a name="2-no-umdamd-support-out-of-the-box" class="anchor" href="#2-no-umdamd-support-out-of-the-box"><h3><span class="header-link"></span>2. No UMD/AMD support out of the box</h3></a><p>This is part of Ampersand&#39;s goal of simplifying things as much as possible. But tools exist to convert to AMD or globals if that&#39;s what you prefer. We just won&#39;t do it in core.</p>
+<a name="3-no-more-collection-monkey-patching" class="anchor" href="#3-no-more-collection-monkey-patching"><h3><span class="header-link"></span>3. No more Collection monkey patching</h3></a><p>This is only relevant if you add HumanModels that are <em>already instantiated</em> to a <code>Backbone.Collection</code>.</p>
+<p>In order to fix this, <code>HumanModel</code> had to <a href="https://github.com/HenrikJoreteg/human-model/blob/bc418381eaa5d73df46d08cb6fb094d503178940/human-model.js#L33-L54">require and overwrite <code>_prepareModel</code></a> from <code>Backbone.Collection</code> in order to support non-backbone models for a while. </p>
+<p>Since then, <a href="https://github.com/jashkenas/backbone/pull/3052">that has been fixed and merged</a> but hasn&#39;t been released as of this writing.</p>
+<a name="breaking-changes-from-humanview--gt-ampersandview" class="anchor" href="#breaking-changes-from-humanview--gt-ampersandview"><h2><span class="header-link"></span>Breaking changes from HumanView -&gt; AmpersandView</h2></a><p>The leap from HumanView is a bit bigger since it now inherits from <a href="/docs/#ampersand-state">ampersand-state</a> instead of Backbone.View and no longer has jQuery as a dependency. </p>
+<p>But, it should still feel quite familiar coming from Backbone/HumanView.</p>
+<a name="1-no-jquery-by-default" class="anchor" href="#1-no-jquery-by-default"><h3><span class="header-link"></span>1. No jQuery by default</h3></a><p>Since there&#39;s no jQuery by default, there is no <code>this.$</code> or <code>this.$el</code> (though it&#39;s <a href="/learn/base-objects-and-mixins#base-view-example-adding-a-method">very easy to add back</a>). </p>
+<p>Instead, there&#39;s <a href="/docs#ampersand-view-get"><code>get</code></a>, <a href="/docs#ampersand-view-getall"><code>getAll</code></a>, and <a href="/docs#ampersand-view-getbyrole"><code>getByRole</code></a>. Which basically accomplish the same thing: they search for an element within <code>this.el</code>. It&#39;s important to note these will also match the <code>this.el</code> root element itself, if it matches the query. </p>
+<p>If you&#39;re transitioning an existing app that used <code>HumanView</code>, the easiest way to get up and running is just to create a <a href="/learn/base-objects-and-mixins#base-view-example-adding-a-method">base view that mixes in the <code>$</code> of your choice</a>.</p>
+<a name="2-not-guarenteed-to-have" class="anchor" href="#2-not-guarenteed-to-have"><h3><span class="header-link"></span>2. Not guarenteed to have <code>this.el</code></h3></a><p>There is no longer a guarantee that <code>this.el</code> will <em>always</em> exist. In Backbone, if you don&#39;t hand a view an <code>el</code> when you instantiate it, it creates an empty one based on the view&#39;s <code>tagName</code>, <code>className</code>, <code>id</code>, and <code>attributes</code>. AmpersandView doesn&#39;t do that. So your view isn&#39;t guaranteed to have an <code>el</code> property until after you render. We did this because it feels better to us to include the root element in template for a given view because that also makes it easier to set custom attributes on it, etc. The parent view doesn&#39;t have to know how it should set up a child view.</p>
+<a name="3-new-binding-declaration-format" class="anchor" href="#3-new-binding-declaration-format"><h3><span class="header-link"></span>3. New binding declaration format</h3></a><p>We changed the binding declarations to be more explicit:</p>
+<p>HumanView:</p>
+<pre><code class="undefinedjs">module.exports = HumanView.extend({
+    bindings: {
+        // these were nice and concise but
+        // not particularly readable
+        // They also assumed `this.model`
+        // which meant you couldn&#39;t declare
+        // bindings for other models if you
+        // had more than one.
+        name: &#39;#someID&#39;,
+        avatar: [&#39;img&#39;, &#39;src&#39;]
+    }
+});
+</code></pre>
+<p>AmpersandView:</p>
+<pre><code class="undefinedjs">module.exports = AmpersandView.extend({
+    bindings: {
+        // now we simply assume `this` as
+        // a base. Which means you can bind
+        // to anything, even the view itself
+        // since it&#39;s now stateful.
+        &#39;model.name&#39;: {
+            type: &#39;text&#39;,
+            selector: &#39;#someID&#39;
+        },
+        &#39;model.avatar&#39;: {
+            type: &#39;attribute&#39;,
+            selector: &#39;img&#39;,
+            name: &#39;src&#39;
+        }
+    }
+})
+</code></pre>
+<p>This also means that we no longer have to try to imply what type of binding you want to do on a class, based on the type of the model property. So, if you want to toggle a class called &quot;active&quot; based on a string property named &quot;somethingelse&quot; you can:</p>
+<pre><code>&#39;model.somethingelse&#39;: {
+    type: &#39;booleanClass&#39;,
+    selector: &#39;#someID&#39;,
+    name: &#39;active&#39;
+}
+</code></pre><p>For a reference of the new binding types see the <a href="/docs#ampersand-dom-bindings">ampersand-dom-bindings docs</a>.</p>
+<a name="4-no-more-registerbindings-or-renderandbind" class="anchor" href="#4-no-more-registerbindings-or-renderandbind"><h3><span class="header-link"></span>4. No more registerBindings() or renderAndBind</h3></a><p>Since bindings can now be declared before the views have their model(s), or have been rendered, and since the new binding syntax supports bindings to multiple &quot;base models&quot; in a view there&#39;s no longer any reason for these two methods to exist. So they have been removed in AmpersandView.</p>
+<p>Any time you were using <code>renderAndBind()</code> use <a href="/docs/#ampersand-view-renderwithtemplate"><code>renderWithTemplate</code></a>. And any time you were using <code>registerBindings()</code> just add those bindings to the <code>bindings</code> hash using the new format.</p>
+</section>
+      </div><a href="/learn" class="back">Back to Guides</a>
+    </div>
+    <footer class="footer-main">
+      <nav class="nav-footer"><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></nav>
+      <p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br>with the help of our <a href="/contribute">contributors</a></p><a href="/" class="logo logo-ampersand-gray">&amp;</a>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-44685415-1', 'humanjavascript.com');
+      ga('send', 'pageview');
+      
+    </script>
+    <script src="/static/js/highlight.pack.js"></script>
+    <script>
+      // init code highlighting
+      Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
+        var codeEl = pre.firstChild;
+        codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['javascript']).value;
+      });
+    </script>
+  </body>
+</html>

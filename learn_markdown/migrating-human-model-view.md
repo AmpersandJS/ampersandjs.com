@@ -1,9 +1,9 @@
 ---
-pagetitle: Upgrading from HumanModel/HumanView
+pagetitle: Migrating from HumanModel/View
 order: 9
 ---
 
-# Upgrading from HumanModel/HumanView to Ampersand
+# Migrating from HumanModel/HumanView to Ampersand
 
 If you've been using HumanModel and HumanView, there's just a few little things that you'd need to change to switch to Ampersand.
 
