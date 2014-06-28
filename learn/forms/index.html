@@ -39,7 +39,7 @@
 <li>When rendered by a form-view it the form view creates a <code>parent</code> property that is a reference to the containing form view.</li>
 <li>It reports changes to its parent when it deems appropriate by calling <code>this.parent.update(this)</code> **note that it passes itsef to the parent. You would typically do this when the <code>this.value</code> has changed or the <code>this.valid</code> has changed.</li>
 <li>It has a <code>setValue</code> method, that can be used to programmatically set the value. </li>
-<li>If a field as a <code>beforeSubmit</code> method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as <code>invalid</code> as a result of some other condition that only matters pre-submit.</li>
+<li>If a field has a <code>beforeSubmit</code> method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as <code>invalid</code> as a result of some other condition that only matters pre-submit.</li>
 </ul>
 <a name="creating-a-form-view" class="anchor" href="#creating-a-form-view"><h2><span class="header-link"></span>Creating a form view</h2></a><p>You end up a creating a form view that looks something like this.</p>
 <pre><code class="undefinedjs">var FormView = require(&#39;ampersand-form-view&#39;);
@@ -121,12 +121,12 @@ module.exports = PageView.extend({
                 // that field. So for the sample form the
                 // data might look like this:
                 // {
-                //    name: &quot;holly&quot;, 
-                //    awesome: true, 
+                //    name: &quot;holly&quot;,
+                //    awesome: true,
                 //    coolnessFactor: 11,
                 //    colors: [&#39;red&#39;, &#39;green&#39;]
                 // }
-                console.log(data); 
+                console.log(data);
             }
         });
 
@@ -157,7 +157,7 @@ module.exports = PageView.extend({
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-44685415-1', 'humanjavascript.com');
       ga('send', 'pageview');
-      
+
     </script>
     <script src="/static/js/highlight.pack.js"></script>
     <script>

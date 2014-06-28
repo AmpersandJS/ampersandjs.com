@@ -42,7 +42,7 @@ var person = new Person({name: &#39;henrik&#39;});
 
 // watch it
 person.on(&#39;change:isDancing&#39;, function () {
-    console.log(&#39;shake it!&#39;); 
+    console.log(&#39;shake it!&#39;);
 });
 
 // set the value and the callback will fire
@@ -95,7 +95,7 @@ element.on(&#39;change:dragged&#39;, function (model, val) {
         groupModel: {
             deps: [&#39;groupId&#39;],
             fn: function () {
-                // we access our group collection from within 
+                // we access our group collection from within
                 // the derived property to grab the right group model.
                 return ourGroupCollection.get(this.groupId);
             }
@@ -136,7 +136,7 @@ var myDescription = new MySmartDescriptionModel({
     description: &quot;Some text with a link. http://twitter.com/henrikjoreteg&quot;
 });
 
-// Now i can just reference this as many times as I want but it 
+// Now i can just reference this as many times as I want but it
 // will never run it through the expensive function again.
 
 myDescription.linkified;
@@ -171,7 +171,7 @@ var increment = function () {
 setInterval(increment, 50);
 
 data.on(&#39;change:thousandTweets&#39;, function () {
-    // will only get called every time is passes another 
+    // will only get called every time is passes another
     // thousand tweets.
 });
 </code></pre>
@@ -232,7 +232,7 @@ var Person = State.extend({
     }
 });
 
-// When we instantiate an instance of a Person 
+// When we instantiate an instance of a Person
 // the Messages collection and ProfileModels
 // are instantiated as well
 
@@ -254,7 +254,7 @@ var otherPerson = new Person({
         {from: &#39;someoneElse&#39;, message: &#39;yo!&#39;},
     ],
     profile: {
-        name: &#39;Joe&#39;, 
+        name: &#39;Joe&#39;,
         hairColor: &#39;black&#39;
     }
 });
@@ -266,13 +266,13 @@ otherPerson.messages.length === 2; // true
 // populated
 otherPerson.profile.name === &#39;Joe&#39;; // true
 
-// The same works for `set`, it will apply it 
-// to children as well. 
+// The same works for `set`, it will apply it
+// to children as well.
 otherPerson.set({profile: {name: &#39;Mary&#39;}});
 
-// Since this a state object it triggers a `change:name` on 
-// the `profile` object. 
-// In addition, since it&#39;s a child that event propagates 
+// Since this is a state object it triggers a `change:name` on
+// the `profile` object.
+// In addition, since it&#39;s a child that event propagates
 // up. More on that below.
 </code></pre>
 <a name="event-bubbling-derived-properties-based-on-children" class="anchor" href="#event-bubbling-derived-properties-based-on-children"><h2><span class="header-link"></span>Event bubbling, derived properties based on children</h2></a><p>Say you want a simple way to listen for any changes that are represented in a tempalate.</p>
@@ -323,7 +323,7 @@ me.profile.name = &#39;henrik&#39;;
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-44685415-1', 'humanjavascript.com');
       ga('send', 'pageview');
-      
+
     </script>
     <script src="/static/js/highlight.pack.js"></script>
     <script>
