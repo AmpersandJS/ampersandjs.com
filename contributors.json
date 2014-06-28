@@ -3,7 +3,7 @@
     "user": "HenrikJoreteg",
     "avatar": "https://avatars.githubusercontent.com/u/67925?",
     "url": "https://github.com/HenrikJoreteg",
-    "contributions": 810
+    "contributions": 815
   },
   {
     "user": "latentflip",
@@ -42,10 +42,10 @@
     "contributions": 5
   },
   {
-    "user": "bear",
-    "avatar": "https://avatars.githubusercontent.com/u/1267?",
-    "url": "https://github.com/bear",
-    "contributions": 4
+    "user": "chadxz",
+    "avatar": "https://avatars.githubusercontent.com/u/309219?",
+    "url": "https://github.com/chadxz",
+    "contributions": 5
   },
   {
     "user": "svnlto",
@@ -54,40 +54,16 @@
     "contributions": 4
   },
   {
+    "user": "bear",
+    "avatar": "https://avatars.githubusercontent.com/u/1267?",
+    "url": "https://github.com/bear",
+    "contributions": 4
+  },
+  {
     "user": "qmx",
     "avatar": "https://avatars.githubusercontent.com/u/66734?",
     "url": "https://github.com/qmx",
     "contributions": 3
-  },
-  {
-    "user": "chadxz",
-    "avatar": "https://avatars.githubusercontent.com/u/309219?",
-    "url": "https://github.com/chadxz",
-    "contributions": 3
-  },
-  {
-    "user": "aaronmccall",
-    "avatar": "https://avatars.githubusercontent.com/u/464531?",
-    "url": "https://github.com/aaronmccall",
-    "contributions": 2
-  },
-  {
-    "user": "stongo",
-    "avatar": "https://avatars.githubusercontent.com/u/1449748?",
-    "url": "https://github.com/stongo",
-    "contributions": 2
-  },
-  {
-    "user": "fiveisprime",
-    "avatar": "https://avatars.githubusercontent.com/u/1186948?",
-    "url": "https://github.com/fiveisprime",
-    "contributions": 2
-  },
-  {
-    "user": "adambrault",
-    "avatar": "https://avatars.githubusercontent.com/u/110551?",
-    "url": "https://github.com/adambrault",
-    "contributions": 2
   },
   {
     "user": "sorensen",
@@ -108,6 +84,30 @@
     "contributions": 2
   },
   {
+    "user": "adambrault",
+    "avatar": "https://avatars.githubusercontent.com/u/110551?",
+    "url": "https://github.com/adambrault",
+    "contributions": 2
+  },
+  {
+    "user": "aaronmccall",
+    "avatar": "https://avatars.githubusercontent.com/u/464531?",
+    "url": "https://github.com/aaronmccall",
+    "contributions": 2
+  },
+  {
+    "user": "stongo",
+    "avatar": "https://avatars.githubusercontent.com/u/1449748?",
+    "url": "https://github.com/stongo",
+    "contributions": 2
+  },
+  {
+    "user": "fiveisprime",
+    "avatar": "https://avatars.githubusercontent.com/u/1186948?",
+    "url": "https://github.com/fiveisprime",
+    "contributions": 2
+  },
+  {
     "user": "DanielBarnes",
     "avatar": "https://avatars.githubusercontent.com/u/1105843?",
     "url": "https://github.com/DanielBarnes",
@@ -117,24 +117,6 @@
     "user": "STRML",
     "avatar": "https://avatars.githubusercontent.com/u/1197375?",
     "url": "https://github.com/STRML",
-    "contributions": 1
-  },
-  {
-    "user": "seancron",
-    "avatar": "https://avatars.githubusercontent.com/u/233573?",
-    "url": "https://github.com/seancron",
-    "contributions": 1
-  },
-  {
-    "user": "pmmatchen",
-    "avatar": "https://avatars.githubusercontent.com/u/3920573?",
-    "url": "https://github.com/pmmatchen",
-    "contributions": 1
-  },
-  {
-    "user": "normanrz",
-    "avatar": "https://avatars.githubusercontent.com/u/335438?",
-    "url": "https://github.com/normanrz",
     "contributions": 1
   },
   {
@@ -183,6 +165,24 @@
     "user": "sdepold",
     "avatar": "https://avatars.githubusercontent.com/u/79163?",
     "url": "https://github.com/sdepold",
+    "contributions": 1
+  },
+  {
+    "user": "normanrz",
+    "avatar": "https://avatars.githubusercontent.com/u/335438?",
+    "url": "https://github.com/normanrz",
+    "contributions": 1
+  },
+  {
+    "user": "seancron",
+    "avatar": "https://avatars.githubusercontent.com/u/233573?",
+    "url": "https://github.com/seancron",
+    "contributions": 1
+  },
+  {
+    "user": "pmmatchen",
+    "avatar": "https://avatars.githubusercontent.com/u/3920573?",
+    "url": "https://github.com/pmmatchen",
     "contributions": 1
   }
 ]
