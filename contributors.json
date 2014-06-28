@@ -36,22 +36,16 @@
     "contributions": 12
   },
   {
-    "user": "evilpacket",
-    "avatar": "https://avatars.githubusercontent.com/u/115769?",
-    "url": "https://github.com/evilpacket",
-    "contributions": 5
-  },
-  {
     "user": "chadxz",
     "avatar": "https://avatars.githubusercontent.com/u/309219?",
     "url": "https://github.com/chadxz",
     "contributions": 5
   },
   {
-    "user": "svnlto",
-    "avatar": "https://avatars.githubusercontent.com/u/103989?",
-    "url": "https://github.com/svnlto",
-    "contributions": 4
+    "user": "evilpacket",
+    "avatar": "https://avatars.githubusercontent.com/u/115769?",
+    "url": "https://github.com/evilpacket",
+    "contributions": 5
   },
   {
     "user": "bear",
@@ -60,34 +54,16 @@
     "contributions": 4
   },
   {
+    "user": "svnlto",
+    "avatar": "https://avatars.githubusercontent.com/u/103989?",
+    "url": "https://github.com/svnlto",
+    "contributions": 4
+  },
+  {
     "user": "qmx",
     "avatar": "https://avatars.githubusercontent.com/u/66734?",
     "url": "https://github.com/qmx",
     "contributions": 3
-  },
-  {
-    "user": "sorensen",
-    "avatar": "https://avatars.githubusercontent.com/u/458289?",
-    "url": "https://github.com/sorensen",
-    "contributions": 2
-  },
-  {
-    "user": "francismakes",
-    "avatar": "https://avatars.githubusercontent.com/u/2647488?",
-    "url": "https://github.com/francismakes",
-    "contributions": 2
-  },
-  {
-    "user": "zefhemel",
-    "avatar": "https://avatars.githubusercontent.com/u/59073?",
-    "url": "https://github.com/zefhemel",
-    "contributions": 2
-  },
-  {
-    "user": "adambrault",
-    "avatar": "https://avatars.githubusercontent.com/u/110551?",
-    "url": "https://github.com/adambrault",
-    "contributions": 2
   },
   {
     "user": "aaronmccall",
@@ -108,6 +84,30 @@
     "contributions": 2
   },
   {
+    "user": "adambrault",
+    "avatar": "https://avatars.githubusercontent.com/u/110551?",
+    "url": "https://github.com/adambrault",
+    "contributions": 2
+  },
+  {
+    "user": "sorensen",
+    "avatar": "https://avatars.githubusercontent.com/u/458289?",
+    "url": "https://github.com/sorensen",
+    "contributions": 2
+  },
+  {
+    "user": "francismakes",
+    "avatar": "https://avatars.githubusercontent.com/u/2647488?",
+    "url": "https://github.com/francismakes",
+    "contributions": 2
+  },
+  {
+    "user": "zefhemel",
+    "avatar": "https://avatars.githubusercontent.com/u/59073?",
+    "url": "https://github.com/zefhemel",
+    "contributions": 2
+  },
+  {
     "user": "DanielBarnes",
     "avatar": "https://avatars.githubusercontent.com/u/1105843?",
     "url": "https://github.com/DanielBarnes",
@@ -117,6 +117,24 @@
     "user": "STRML",
     "avatar": "https://avatars.githubusercontent.com/u/1197375?",
     "url": "https://github.com/STRML",
+    "contributions": 1
+  },
+  {
+    "user": "normanrz",
+    "avatar": "https://avatars.githubusercontent.com/u/335438?",
+    "url": "https://github.com/normanrz",
+    "contributions": 1
+  },
+  {
+    "user": "seancron",
+    "avatar": "https://avatars.githubusercontent.com/u/233573?",
+    "url": "https://github.com/seancron",
+    "contributions": 1
+  },
+  {
+    "user": "pmmatchen",
+    "avatar": "https://avatars.githubusercontent.com/u/3920573?",
+    "url": "https://github.com/pmmatchen",
     "contributions": 1
   },
   {
@@ -165,24 +183,6 @@
     "user": "sdepold",
     "avatar": "https://avatars.githubusercontent.com/u/79163?",
     "url": "https://github.com/sdepold",
-    "contributions": 1
-  },
-  {
-    "user": "normanrz",
-    "avatar": "https://avatars.githubusercontent.com/u/335438?",
-    "url": "https://github.com/normanrz",
-    "contributions": 1
-  },
-  {
-    "user": "seancron",
-    "avatar": "https://avatars.githubusercontent.com/u/233573?",
-    "url": "https://github.com/seancron",
-    "contributions": 1
-  },
-  {
-    "user": "pmmatchen",
-    "avatar": "https://avatars.githubusercontent.com/u/3920573?",
-    "url": "https://github.com/pmmatchen",
     "contributions": 1
   }
 ]

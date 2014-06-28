@@ -124,7 +124,7 @@ var HomePageView = AmpersandView.extend({
     template: templates.pages.home
 });
 </code></pre>
-<p>In the example app, you can see that we <a href="https://github.com/AmpersandJS/ampersand/blob/master/template/hapi/moonbootsConfig.js#L44">precompile your templates in the moonbootsConfig</a> to ensure they are always up to date. There are plenty of grunt/gulp/etc plugins for precompiling your templates as part of that process if you&#39;re into that, for example <a href="https://github.com/gruntjs/grunt-contrib-handlebars">grunt-contrib-handlebars</a>.</p>
+<p>In the example app, you can see that we <a href="https://github.com/AmpersandJS/ampersand/blob/master/template/hapi/moonbootsConfig.js#L44">precompile your templates ion the moonbootsConfig</a> to ensure they are always up to date. There are plenty of grunt/gulp/etc plugins for precompiling your templates as part of that process if you&#39;re into that, for example <a href="https://github.com/gruntjs/grunt-contrib-handlebars">grunt-contrib-handlebars</a>.</p>
 <a name="precompiling-with-browserify-transforms" class="anchor" href="#precompiling-with-browserify-transforms"><h4><span class="header-link"></span>Precompiling with Browserify transforms</h4></a><p>Another way to precompile your templates is with browserify transforms. For example, for jade templates you can use something like <a href="https://github.com/domenic/jadeify">jadeify</a>.</p>
 <p>With jadeify you can <code>require</code> the template file directly from your view file, and it will be precompiled by jadeify as part of the browserify build, for example:</p>
 <pre><code class="undefinedjavascript">var ProfileView = AmpersandView.extend({
@@ -152,7 +152,7 @@ var HomePageView = AmpersandView.extend({
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-44685415-1', 'humanjavascript.com');
       ga('send', 'pageview');
-
+      
     </script>
     <script src="/static/js/highlight.pack.js"></script>
     <script>
