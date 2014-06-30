@@ -43,7 +43,7 @@ Instead, there's [`get`](/docs#ampersand-view-get), [`getAll`](/docs#ampersand-v
 If you're transitioning an existing app that used `HumanView`, the easiest way to get up and running is just to create a [base view that mixes in the `$` of your choice](/learn/base-objects-and-mixins#base-view-example-adding-a-method).
 
 
-### 2. Not guarenteed to have `this.el`
+### 2. Not guaranteed to have `this.el`
 
 There is no longer a guarantee that `this.el` will *always* exist. In Backbone, if you don't hand a view an `el` when you instantiate it, it creates an empty one based on the view's `tagName`, `className`, `id`, and `attributes`. AmpersandView doesn't do that. So your view isn't guaranteed to have an `el` property until after you render. We did this because it feels better to us to include the root element in template for a given view because that also makes it easier to set custom attributes on it, etc. The parent view doesn't have to know how it should set up a child view.
 
