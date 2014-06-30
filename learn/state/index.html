@@ -17,7 +17,7 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub active">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub">Data and bindings in views</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub">Migrating from HumanModel/View</a><a href="/learn/ampersand-and-jquery" class="section-sub">Ampersand and jQuery</a><a href="/learn/forms" class="section-sub">Working with forms</a>
       </nav>
       <div class="docs-content">
-        <section><a name="undersanding-state" class="anchor" href="#undersanding-state"><h1><span class="header-link"></span>Undersanding State</h1></a><p>So much of application development is managing relationship between object properties. If you take a step back from your code you can often see that most of it is saying &quot;when this condition and this other condition are met, then this value should be &#39;x&#39;.&quot;</p>
+        <section><a name="understanding-state" class="anchor" href="#understanding-state"><h1><span class="header-link"></span>Understanding State</h1></a><p>So much of application development is managing relationship between object properties. If you take a step back from your code you can often see that most of it is saying &quot;when this condition and this other condition are met, then this value should be &#39;x&#39;.&quot;</p>
 <p>This is especially true when building user interfaces.</p>
 <p>Stringing together a spaghetti bowl of <code>if</code> statements is a painful way to build a state machine that handles this. </p>
 <p>Often times it&#39;d be easier if we could just declare: &quot;this thing is dependent on these two other things&quot; and from those two other values calculate a value.</p>
@@ -48,7 +48,7 @@ person.on(&#39;change:isDancing&#39;, function () {
 // set the value and the callback will fire
 person.isDancing = true;
 </code></pre>
-<a name="so-what-that39s-boring" class="anchor" href="#so-what-that39s-boring"><h2><span class="header-link"></span>So what?! That&#39;s boring.</h2></a><p>Sure, you&#39;ve hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assigment: <code>person.isDancing = true</code> as opposed to having to do <code>person.set(&#39;isDancing&#39;, true)</code> (either works, btw).</p>
+<a name="so-what-that39s-boring" class="anchor" href="#so-what-that39s-boring"><h2><span class="header-link"></span>So what?! That&#39;s boring.</h2></a><p>Sure, you&#39;ve hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assignment: <code>person.isDancing = true</code> as opposed to having to do <code>person.set(&#39;isDancing&#39;, true)</code> (either works, btw).</p>
 <p>So, what else? Well, as we said there&#39;s a <em>huge</em> amount of code that you write in a project really just describes and tracks relationships between values.</p>
 <p>So, what if our observable layer did that for us too?</p>
 <p>Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if the total distance the touch event has moved is &gt; 10 pixels.</p>
@@ -141,10 +141,10 @@ var myDescription = new MySmartDescriptionModel({
 
 myDescription.linkified;
 </code></pre>
-<p>With the model above, the descrition will only be run through that linkifier method once, unless of course the description changes.</p>
+<p>With the model above, the description will only be run through that linkifier method once, unless of course the description changes.</p>
 <a name="derived-properties-are-intelligently-triggered" class="anchor" href="#derived-properties-are-intelligently-triggered"><h2><span class="header-link"></span>Derived properties are intelligently triggered</h2></a><p>Just because an underlying property has changed, <em>doesn&#39;t mean the derived property has</em>. </p>
 <p>Cached derived properties will <em>only</em> trigger a <code>change</code> if the resulting calculated value has changed.</p>
-<p>This is <em>super</em> useful if you&#39;ve bound a derived property to a DOM property. This ensures that you won&#39;t ever touch the DOM unless the resulting value is <em>actually</em> different. Avoiding unecessary DOM changes is a huge boon for performance.</p>
+<p>This is <em>super</em> useful if you&#39;ve bound a derived property to a DOM property. This ensures that you won&#39;t ever touch the DOM unless the resulting value is <em>actually</em> different. Avoiding unnecessary DOM changes is a huge boon for performance.</p>
 <p>This is also important for cases where you&#39;re dealing with fast changing attributes.</p>
 <p>Say you&#39;re drawing a realtime graph of tweets from the Twitter firehose, instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.</p>
 <pre><code class="undefinedjs">var MyGraphDataModel = State.extend({
@@ -275,7 +275,7 @@ otherPerson.set({profile: {name: &#39;Mary&#39;}});
 // In addition, since it&#39;s a child that event propagates 
 // up. More on that below.
 </code></pre>
-<a name="event-bubbling-derived-properties-based-on-children" class="anchor" href="#event-bubbling-derived-properties-based-on-children"><h2><span class="header-link"></span>Event bubbling, derived properties based on children</h2></a><p>Say you want a simple way to listen for any changes that are represented in a tempalate.</p>
+<a name="event-bubbling-derived-properties-based-on-children" class="anchor" href="#event-bubbling-derived-properties-based-on-children"><h2><span class="header-link"></span>Event bubbling, derived properties based on children</h2></a><p>Say you want a simple way to listen for any changes that are represented in a template.</p>
 <p>Let&#39;s say you&#39;ve got a <code>person</code> state object with a <code>profile</code> child. You want an easy way to listen for changes to either the base <code>person</code> object or the <code>profile</code>. In fact, you want to listen to anything related to the person object. </p>
 <p>Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain. </p>
 <p>Now we can listen for deeply nested changes to properties.</p>

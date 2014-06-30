@@ -37,7 +37,7 @@
 <li>It maintains a <code>valid</code> property that is a boolean. The parent form checks this property on each field to determine whether the form as a whole is valid.</li>
 <li>It has a <code>name</code> property that is a string of the name of the field.</li>
 <li>When rendered by a form-view it the form view creates a <code>parent</code> property that is a reference to the containing form view.</li>
-<li>It reports changes to its parent when it deems appropriate by calling <code>this.parent.update(this)</code> **note that it passes itsef to the parent. You would typically do this when the <code>this.value</code> has changed or the <code>this.valid</code> has changed.</li>
+<li>It reports changes to its parent when it deems appropriate by calling <code>this.parent.update(this)</code> **note that it passes itself to the parent. You would typically do this when the <code>this.value</code> has changed or the <code>this.valid</code> has changed.</li>
 <li>It has a <code>setValue</code> method, that can be used to programmatically set the value. </li>
 <li>If a field as a <code>beforeSubmit</code> method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as <code>invalid</code> as a result of some other condition that only matters pre-submit.</li>
 </ul>

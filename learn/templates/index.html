@@ -24,7 +24,7 @@
 });
 </code></pre>
 <p>Then, when you call render on your view, this string is converted into actual html elements, and the root node (in this example the <code>&lt;li&gt;</code> tag) is set as your view&#39;s <code>el</code>.</p>
-<p>For very simple views, strings are fine, but for larger templates, they can get unweildy (particularly since javascript makes it hard to write multi-line strings) and sometimes you want to programmatically insert values into the template, perhaps from your model.</p>
+<p>For very simple views, strings are fine, but for larger templates, they can get unwieldy (particularly since javascript makes it hard to write multi-line strings) and sometimes you want to programmatically insert values into the template, perhaps from your model.</p>
 <a name="templates-as-functions" class="anchor" href="#templates-as-functions"><h2><span class="header-link"></span>Templates as Functions</h2></a><p>To make it easier to write larger and more complex templates, AmpersandViews allow you to define the template as a function instead of as a string. This function will receive a context (typically the model and/or collection of the view) which it can use to get values to insert into the template, and calling the function should either return a string representing the html, or actual dom nodes.</p>
 <p>Here is an example:</p>
 <pre><code class="undefinedjavascript">var ListItem = AmpersandView.extend({

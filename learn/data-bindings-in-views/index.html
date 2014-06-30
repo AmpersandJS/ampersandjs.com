@@ -21,7 +21,7 @@
 <p>We may want to render the page and get pixels on the screen as soon as possible, but what happens when we don&#39;t have all our data yet. Somehow we have to coordinate this, so that the view is updated as relevant data arrives or properties change.</p>
 <p>Ampersand-view handles this with declarative bindings. The binding declarations are <em>completely</em> decoupled from the data models.</p>
 <p>In the same you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data. </p>
-<p>This gives you complete flexiliby over when you render what.</p>
+<p>This gives you complete flexibility over when you render what.</p>
 <p>You can most certainly use whatever template language you want with ampersand-views, but the nice things is <strong>no template engine is actually necessary in order to get bindings</strong>! </p>
 <p>Your can simply have an HTML string as your <code>template</code> property and declare your bindings and everything Just Works™.</p>
 <a name="example" class="anchor" href="#example"><h3><span class="header-link"></span>Example</h3></a><p>Here&#39;s an example view pulled from a real app.</p>

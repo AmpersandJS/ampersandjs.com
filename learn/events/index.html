@@ -31,7 +31,7 @@ model.on(&#39;change:name&#39;, function () {
     // this will run if the name changes
 });
 </code></pre>
-<p>But, the neat thing about ampersand-state (which both ampersand-view and ampersand-model are built on) is how you can also effeciently listen to changes to derived properties.</p>
+<p>But, the neat thing about ampersand-state (which both ampersand-view and ampersand-model are built on) is how you can also efficiently listen to changes to derived properties.</p>
 <p>For example, if we have a model like this:</p>
 <pre><code class="undefinedjs">var AmpersandModel = require(&#39;ampersand-model&#39;);
 
@@ -70,7 +70,7 @@ model.greetingType = &#39;short&#39;; // callback runs and prints: &quot;greetin
 model.name = &#39;something else&#39;; // callback doesn&#39;t run
 model.name = &#39;you&#39;; // still no
 
-// but if we change the greating type so the value is actually different, we&#39;ll get the event
+// but if we change the greeting type so the value is actually different, we&#39;ll get the event
 model.greetingType = &#39;full&#39;; // callback runs and prints: &quot;greeting is now: hi you&quot;
 </code></pre>
 <p>In addition to derived properties, state lets you listen for changes to child models, etc.</p>

@@ -19,14 +19,14 @@
       <div class="docs-content">
         <section><a name="transitioning-from-backbone" class="anchor" href="#transitioning-from-backbone"><h1><span class="header-link"></span>Transitioning from Backbone</h1></a><p>If you&#39;re used to backbone, you&#39;ll feel right at home with ampersand. There are a few key differences.</p>
 <a name="everything-is-decoupled" class="anchor" href="#everything-is-decoupled"><h2><span class="header-link"></span>Everything is decoupled</h2></a><p>The <a href="/learn/events/">event system</a> is simply a standalone version of the backbone one, the <a href="/docs/#ampersand-router">ampersand-router</a> is 95% the same, <a href="/docs/#ampersand-rest-collection">ampersand-rest-collection</a> has a nearly identical API, even though internally it&#39;s built on the slimmer, simpler <a href="/docs/#ampersand-collection">ampersand-collection</a>.</p>
-<p>We didn&#39;t want to make anything mandatory, so we decoupled the various backbone pieces from eachother.</p>
+<p>We didn&#39;t want to make anything mandatory, so we decoupled the various backbone pieces from each other.</p>
 <p>This has some nice benefits, like being able to use the convenient event features of ampersand-collection on their own. For example, writing a multi-touch library that tracks active &quot;touches&quot; currently on the screen. Where you want an evented collection, but don&#39;t want to have to bundle in all of backbone in order to use that functionality.</p>
-<p>You&#39;ll see the same patterns throughout ampersand. Everything is, as much as possible, de-coupled from eachother. </p>
+<p>You&#39;ll see the same patterns throughout ampersand. Everything is, as much as possible, de-coupled from each other. </p>
 <p>You can easily write your own views and use everything else. In addition, just by <a href="/learn/view-conventions/">following a few conventions</a>, you can even have those view still play nicely with other views.</p>
 <a name="models" class="anchor" href="#models"><h2><span class="header-link"></span>Models</h2></a><p>Models in ampersand require explicit definition of properties. </p>
 <p>Backbone allows you to instantiate a model and simply set any value on it. </p>
 <p>Ampersand, not so. We intentionally made it strict so that you have to declare what properties you&#39;re going to store in a model. This means your models end up serving as a form of documentation for the project. A new developer can read the models and the router files and have a pretty good idea of how your app is structured.</p>
-<p>In additon, ampersand-model properties don&#39;t require using <code>.set()</code> and <code>.get()</code>. Instead, you can simply change a property by explicitly assigning it a new value and it will still fire a <code>change</code> event if appropriate. </p>
+<p>In addition, ampersand-model properties don&#39;t require using <code>.set()</code> and <code>.get()</code>. Instead, you can simply change a property by explicitly assigning it a new value and it will still fire a <code>change</code> event if appropriate. </p>
 <p>backbone:</p>
 <pre><code class="undefinedjs">// instantiating (no property definitions required)
 var model = new Backbone.Model();
