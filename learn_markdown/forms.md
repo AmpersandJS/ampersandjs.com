@@ -44,7 +44,7 @@ So, how does this work? Well, in addition to following [the contract for what a 
 - It maintains a `valid` property that is a boolean. The parent form checks this property on each field to determine whether the form as a whole is valid.
 - It has a `name` property that is a string of the name of the field.
 - When rendered by a form-view it the form view creates a `parent` property that is a reference to the containing form view.
-- It reports changes to its parent when it deems appropriate by calling `this.parent.update(this)` **note that it passes itsef to the parent. You would typically do this when the `this.value` has changed or the `this.valid` has changed.
+- It reports changes to its parent when it deems appropriate by calling `this.parent.update(this)` **note that it passes itself to the parent. You would typically do this when the `this.value` has changed or the `this.valid` has changed.
 - It has a `setValue` method, that can be used to programmatically set the value. 
 - If a field as a `beforeSubmit` method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as `invalid` as a result of some other condition that only matters pre-submit.
 

@@ -19,7 +19,7 @@ var ListItem = AmpersandView.extend({
 
 Then, when you call render on your view, this string is converted into actual html elements, and the root node (in this example the `<li>` tag) is set as your view's `el`.
 
-For very simple views, strings are fine, but for larger templates, they can get unweildy (particularly since javascript makes it hard to write multi-line strings) and sometimes you want to programmatically insert values into the template, perhaps from your model.
+For very simple views, strings are fine, but for larger templates, they can get unwieldy (particularly since javascript makes it hard to write multi-line strings) and sometimes you want to programmatically insert values into the template, perhaps from your model.
 
 ## Templates as Functions
 

@@ -30,7 +30,7 @@ model.on('change:name', function () {
 });
 ```
 
-But, the neat thing about ampersand-state (which both ampersand-view and ampersand-model are built on) is how you can also effeciently listen to changes to derived properties.
+But, the neat thing about ampersand-state (which both ampersand-view and ampersand-model are built on) is how you can also efficiently listen to changes to derived properties.
 
 For example, if we have a model like this:
 
@@ -75,7 +75,7 @@ model.greetingType = 'short'; // callback runs and prints: "greeting is now: hi"
 model.name = 'something else'; // callback doesn't run
 model.name = 'you'; // still no
 
-// but if we change the greating type so the value is actually different, we'll get the event
+// but if we change the greeting type so the value is actually different, we'll get the event
 model.greetingType = 'full'; // callback runs and prints: "greeting is now: hi you"
 ```
 

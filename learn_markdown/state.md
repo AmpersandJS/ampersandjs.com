@@ -3,7 +3,7 @@ pagetitle: Understanding State
 order: 3
 ---
 
-# Undersanding State
+# Understanding State
 
 So much of application development is managing relationship between object properties. If you take a step back from your code you can often see that most of it is saying "when this condition and this other condition are met, then this value should be 'x'."
 
@@ -53,7 +53,7 @@ person.isDancing = true;
 
 ## So what?! That's boring.
 
-Sure, you've hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assigment: `person.isDancing = true` as opposed to having to do `person.set('isDancing', true)` (either works, btw).
+Sure, you've hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assignment: `person.isDancing = true` as opposed to having to do `person.set('isDancing', true)` (either works, btw).
 
 So, what else? Well, as we said there's a *huge* amount of code that you write in a project really just describes and tracks relationships between values.
 
@@ -172,7 +172,7 @@ myDescription.linkified;
 
 ```
 
-With the model above, the descrition will only be run through that linkifier method once, unless of course the description changes.
+With the model above, the description will only be run through that linkifier method once, unless of course the description changes.
 
 
 ## Derived properties are intelligently triggered
@@ -181,7 +181,7 @@ Just because an underlying property has changed, *doesn't mean the derived prope
 
 Cached derived properties will *only* trigger a `change` if the resulting calculated value has changed.
 
-This is *super* useful if you've bound a derived property to a DOM property. This ensures that you won't ever touch the DOM unless the resulting value is *actually* different. Avoiding unecessary DOM changes is a huge boon for performance.
+This is *super* useful if you've bound a derived property to a DOM property. This ensures that you won't ever touch the DOM unless the resulting value is *actually* different. Avoiding unnecessary DOM changes is a huge boon for performance.
 
 This is also important for cases where you're dealing with fast changing attributes.
 
@@ -337,7 +337,7 @@ otherPerson.set({profile: {name: 'Mary'}});
 
 ## Event bubbling, derived properties based on children
 
-Say you want a simple way to listen for any changes that are represented in a tempalate.
+Say you want a simple way to listen for any changes that are represented in a template.
 
 Let's say you've got a `person` state object with a `profile` child. You want an easy way to listen for changes to either the base `person` object or the `profile`. In fact, you want to listen to anything related to the person object. 
 
