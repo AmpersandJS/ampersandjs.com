@@ -519,7 +519,7 @@ nav.nav-main .button {
   top: 20px;
   bottom: 20px;
   z-index: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
   font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
   font-size: 0.95em;
 }
@@ -986,4 +986,3 @@ nav.nav-main .button {
   text-indent: -9999em;
   background-size: 17px auto;
 }
-
