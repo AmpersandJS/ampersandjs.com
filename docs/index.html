@@ -8,7 +8,7 @@
     <meta name="author" content="Get started with Ampersand.js">
     <title>Ampersand.js - Documentation</title>
     <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
-    <link rel="stylesheet" href="/static/css/plugins/normalize.css">
+    <link rel="stylesheet" href="/static/css/normalize.min.css">
     <link rel="stylesheet" href="/static/css/main.css">
   </head>
   <body class="docs-page">
@@ -82,16 +82,16 @@ my-model-collection.js
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.3.1</p>
+            <p class="module-version">latest v4.3.2</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
           <div><p>An observable, extensible state object with derived watchable properties.</p>
 <p>Ampersand-state serves as a base object for <a href="http://github.com/ampersandjs/ampersand-model">ampersand-model</a> but is useful any time you want to track complex state.</p>
-<p><a href="https://github.com/ampersandjs/ampersand-model">ampersand-model</a> extends ampersand-state to include assumptions that you&#39;d want if you&#39;re using models to model date from a REST API. But by itself ampersand-state is useful for anytime you want something to model state, that fires events for changes and lets you define and listen to derived properties.</p>
+<p><a href="https://github.com/ampersandjs/ampersand-model">ampersand-model</a> extends ampersand-state to include assumptions that you&#39;d want if you&#39;re using models to model data from a REST API. But by itself ampersand-state is useful for anytime you want something to model state, that fires events for changes and lets you define and listen to derived properties.</p>
 <p>For further explanation see the <a href="http://ampersandjs.com/learn/state">learn ampersand-state</a> guide.</p>
 <a name="ampersand-state-install" class="anchor" href="#ampersand-state-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-state --save
-</code></pre><a name="ampersand-state-api-reference" class="anchor" href="#ampersand-state-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-state-extend" class="anchor" href="#ampersand-state-extend"><h3><span class="header-link"></span>extend <code>AmpersandState.extend({ })</code></h3></a><p>To create a <strong>State</strong> class of your own, you extend <strong>AmpersandState</strong> and provide instance properties an options for your class. Typically here you will pass any properties (<code>props</code>, <code>session</code> and <code>derived</code> of your state class, and any instance methods to be attached to instances of your class.</p>
+</code></pre><a name="ampersand-state-api-reference" class="anchor" href="#ampersand-state-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-state-extend" class="anchor" href="#ampersand-state-extend"><h3><span class="header-link"></span>extend <code>AmpersandState.extend({ })</code></h3></a><p>To create a <strong>State</strong> class of your own, you extend <strong>AmpersandState</strong> and provide instance properties and options for your class. Typically here you will pass any properties (<code>props</code>, <code>session</code> and <code>derived</code> of your state class, and any instance methods to be attached to instances of your class.</p>
 <p><strong>extend</strong> correctly sets up the prototype chain, so that subclasses created with <strong>extend</strong> can be further extended as many times as you like.</p>
 <p>Definitions like <code>props</code>, <code>session</code>, <code>derived</code> etc will be merged with superclass definitions.</p>
 <pre><code class="undefinedjavascript">var Person = AmpersandState.extend({
@@ -147,7 +147,7 @@ console.log(me.url()) //=&gt; &quot;/people/123&quot;
 <a name="ampersand-state-typeattribute" class="anchor" href="#ampersand-state-typeattribute"><h3><span class="header-link"></span>typeAttribute</h3></a><p>The property name that should be used to specify what type of model this is. This is optional, but specifying a model type types provides a standard, yet configurable way to determine what type of model it is.</p>
 <p>Defaults to <code>&#39;modelType&#39;</code>.</p>
 <a name="ampersand-state-gettype" class="anchor" href="#ampersand-state-gettype"><h3><span class="header-link"></span>getType <code>model.getType()</code></h3></a><p>Get type of model per <code>typeAttribute</code> configuration. Should <em>always</em> be how type is determined by other code.</p>
-<a name="ampersand-state-extraproperties" class="anchor" href="#ampersand-state-extraproperties"><h3><span class="header-link"></span>extraProperties <code>AmpersandState.extend({ extraProperties: &#39;allow&#39; })</code></h3></a><p>Defines how properties that aren&#39;t defined in <code>props</code>, <code>session</code> or <code>derived</code> are handled. May be set to <code>&#39;allow&#39;</code>, <code>&#39;reject&#39;</code> or <code>&#39;allow&#39;</code>.</p>
+<a name="ampersand-state-extraproperties" class="anchor" href="#ampersand-state-extraproperties"><h3><span class="header-link"></span>extraProperties <code>AmpersandState.extend({ extraProperties: &#39;allow&#39; })</code></h3></a><p>Defines how properties that aren&#39;t defined in <code>props</code>, <code>session</code> or <code>derived</code> are handled. May be set to <code>&#39;allow&#39;</code>, <code>&#39;ignore&#39;</code> or <code>&#39;reject&#39;</code>.</p>
 <pre><code class="undefinedjavascript">var StateA = AmpersandState.extend({
     extraProperties: &#39;allow&#39;,
 });
@@ -378,7 +378,7 @@ JSON.stringify(me) //=&gt; &quot;{\&quot;firstName\&quot;:\&quot;Phil\&quot;,\&q
             <h1><span class="header-link"></span>ampersand-model</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-model</h4>
-            <p class="module-version">latest v3.0.3</p>
+            <p class="module-version">latest v3.0.4</p>
             <p class="module-description">An extension to ampersand-state that adds methods and properties for working with a RESTful API.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-model">github</a><a href="https://www.npmjs.org/package/ampersand-model">npm</a></p>
           </div>
