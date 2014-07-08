@@ -11,7 +11,7 @@ We may want to render the page and get pixels on the screen as soon as possible,
 
 Ampersand-view handles this with declarative bindings. The binding declarations are *completely* decoupled from the data models.
 
-In the same you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data. 
+In the same way you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data. 
 
 This gives you complete flexibility over when you render what.
 

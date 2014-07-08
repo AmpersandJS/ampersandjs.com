@@ -21,7 +21,7 @@ This is just for "simple" single-line text entry.
 
 On the developer side, it's hard to do forms right. No matter what library we use, it seems to never *quite* do what we want it to. 
 
-On the other hand for simple cases if we've got an model that describes exactly what data we ultimately need in order to talk to the API, it's annoying to have to write a bunch of form fields each time to just be able to request that data from the users.
+On the other hand for simple cases if we've got a model that describes exactly what data we ultimately need in order to talk to the API, it's annoying to have to write a bunch of form fields each time to just be able to request that data from the users.
 
 
 ## So what do we do in ampersand for this?

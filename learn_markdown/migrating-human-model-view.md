@@ -45,7 +45,7 @@ If you're transitioning an existing app that used `HumanView`, the easiest way t
 
 ### 2. Not guaranteed to have `this.el`
 
-There is no longer a guarantee that `this.el` will *always* exist. In Backbone, if you don't hand a view an `el` when you instantiate it, it creates an empty one based on the view's `tagName`, `className`, `id`, and `attributes`. AmpersandView doesn't do that. So your view isn't guaranteed to have an `el` property until after you render. We did this because it feels better to us to include the root element in template for a given view because that also makes it easier to set custom attributes on it, etc. The parent view doesn't have to know how it should set up a child view.
+There is no longer a guarantee that `this.el` will *always* exist. In Backbone, if you don't hand a view an `el` when you instantiate it, it creates an empty one based on the view's `tagName`, `className`, `id`, and `attributes`. AmpersandView doesn't do that. So your view isn't guaranteed to have an `el` property until after you render. We did this because it feels better to us to include the root element in template for a given view because that also makes it easier to set custom attributes on it, etc. The parent view shouldn't have to know how to set up a child view.
 
 ### 3. New binding declaration format
 

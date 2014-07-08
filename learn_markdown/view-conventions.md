@@ -15,7 +15,7 @@ Following these rules ensure that that your view plays nicely with other views.
 
 The rules are:
 
-* All views accepts an `options` object as the first argument to their constructor.
+* All views accept an `options` object as the first argument to their constructor.
 * All views should have an `el` property, that is the dom element that the view manages.
 * If the constructor's options object has an `el` property, it should be used as the view's `el`.
 * All views should have a `render` method that creates, replaces, or fills in the `el` property.
