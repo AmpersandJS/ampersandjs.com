@@ -512,7 +512,7 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
     model: Person
 });
 </code></pre>
-<a name="ampersand-collection-mainindex-collectionmainindex" class="anchor" href="#ampersand-collection-mainindex-collectionmainindex"><h3><span class="header-link"></span>mainIndex `collection.mainIndex</h3></a><p>Specify which key on your models should be used as their main unique identifier. Defaults to <code>id</code>. This is the default key that <a href="#ampersand-collection-get"><code>get</code></a> will use to retrieve models by, as well as the key add/set/remove will compare to determine whether a model exists in the collection or not.</p>
+<a name="ampersand-collection-mainindex-collectionmainindex" class="anchor" href="#ampersand-collection-mainindex-collectionmainindex"><h3><span class="header-link"></span>mainIndex <code>collection.mainIndex</code></h3></a><p>Specify which key on your models should be used as their main unique identifier. Defaults to <code>id</code>. This is the default key that <a href="#ampersand-collection-get"><code>get</code></a> will use to retrieve models by, as well as the key add/set/remove will compare to determine whether a model exists in the collection or not.</p>
 <p>If your server does not use <code>id</code> as the model identifier, you would typically override this when extending AmpersandCollection, like so:</p>
 <pre><code class="undefinedjavascript">var People = AmpersandColletion.extend({
     mainIndex: &#39;_id&#39;
