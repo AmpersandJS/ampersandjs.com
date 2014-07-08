@@ -409,7 +409,7 @@ JSON.stringify(me) //=&gt; &quot;{\&quot;firstName\&quot;:\&quot;Phil\&quot;,\&q
     }
 });
 </code></pre>
-<a name="ampersand-model-constructorinitialize" class="anchor" href="#ampersand-model-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new ExtendedAmpersandModel([attrs], [options])</code></h3></a><p>This works exactly like <a href="http://ampersandjs.com/docs/#ampersand-state-constructorinitialize">state</a> with a minor addition: If you pass <code>collection</code> as part of options it&#39;ll be stored for reference.</p>
+<a name="ampersand-model-constructorinitialize" class="anchor" href="#ampersand-model-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new ExtendedAmpersandModel([attrs], [options])</code></h3></a><p>This works exactly like <a href="http://ampersandjs.com/docs/#ampersand-state-constructorinitialize">state</a> with a minor addition: If you pass a <code>collection</code> as part of options it&#39;ll be stored for reference.</p>
 <p>As with AmpersandState, if you have defined an <strong>initialize</strong> function for your subclass of State, it will be invoked at creation time.</p>
 <pre><code class="undefinedjavascript">var me = new Person({
     firstName: &#39;Phil&#39;
