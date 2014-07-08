@@ -36,7 +36,7 @@
 <p>The CLI will walk you through some basic questions and kick out an app, that runs, out of the box.</p>
 <p>It&#39;s meant as a loose guide, not an edict. Just delete whatever isn&#39;t relevant.</p>
 <a name="ampersand-generating-stuff" class="anchor" href="#ampersand-generating-stuff"><h2><span class="header-link"></span>Generating stuff</h2></a><pre><code>ampersand gen {{type}}
-</code></pre><p>Type can be <code>form</code>, <code>view</code>, <code>model</code> or <code>collection</code></p>
+</code></pre><p>Type can be <code>form</code>, <code>view</code>, <code>model</code> or <code>collection</code>.</p>
 <a name="ampersand-generating-models-from-json" class="anchor" href="#ampersand-generating-models-from-json"><h2><span class="header-link"></span>Generating models (from JSON)</h2></a><p>You can use the CLI to generate a model and collection for that model. If you already know what the JSON is going to look like you can pipe it into the generator to create a model with matching properties.</p>
 <p>On a mac, if you&#39;ve copied some JSON to your clipboard you can do this from anywhere within your project folder:</p>
 <pre><code>pbpaste | ampersand gen model MyModel
@@ -68,7 +68,7 @@ my-model-collection.js
     collectionfolder: &#39;models&#39;,
     // whether to create collection when making a model
     makecollection: true,
-    // if it was called without the &#39;gen&#39; argument we&#39;re we&#39;re building a new one
+    // if it was called without the &#39;gen&#39; argument we&#39;re building a new one
     // so we won&#39;t look for an application root
     approot: &#39;&#39;, // starts walking up folders looking for package.json
     f: false, // overwrite
