@@ -53,8 +53,6 @@ html(lang="en")
     script(src='/public/js/highlight.pack.js')
 
     script.
-      // init code highlighting
-      Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
-        var codeEl = pre.firstChild;
-        codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['javascript']).value;
-      });
+      hljs.configure({classPrefix: ''});
+      hljs.initHighlightingOnLoad();
+

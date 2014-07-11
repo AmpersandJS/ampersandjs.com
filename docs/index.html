@@ -52,7 +52,7 @@ my-model-collection.js
 <a name="ampersand-configuring-the-generated-code" class="anchor" href="#ampersand-configuring-the-generated-code"><h2><span class="header-link"></span>Configuring the generated code</h2></a><p>The cli looks for config options from a number of sources, starting with default, applying configs from a <code>.ampersandrc</code> in your home folder, then your project root, then by parsing option flags from stdin. </p>
 <p>Those files can be JSON or ini format.</p>
 <p>The available options and defaults are as follows:</p>
-<pre><code class="undefinedjs">{
+<pre><code class="javascript">{
     framework: &#39;hapi&#39;,
     indent: 4,
     view: &#39;&#39;, // default template
@@ -94,7 +94,7 @@ my-model-collection.js
 </code></pre><a name="ampersand-state-api-reference" class="anchor" href="#ampersand-state-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-state-extend" class="anchor" href="#ampersand-state-extend"><h3><span class="header-link"></span>extend <code>AmpersandState.extend({ })</code></h3></a><p>To create a <strong>State</strong> class of your own, you extend <strong>AmpersandState</strong> and provide instance properties and options for your class. Typically here you will pass any properties (<code>props</code>, <code>session</code> and <code>derived</code> of your state class, and any instance methods to be attached to instances of your class.</p>
 <p><strong>extend</strong> correctly sets up the prototype chain, so that subclasses created with <strong>extend</strong> can be further extended as many times as you like.</p>
 <p>Definitions like <code>props</code>, <code>session</code>, <code>derived</code> etc will be merged with superclass definitions.</p>
-<pre><code class="undefinedjavascript">var Person = AmpersandState.extend({
+<pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         firstName: &#39;string&#39;,
         lastName: &#39;string&#39;
@@ -114,7 +114,7 @@ my-model-collection.js
 </code></pre>
 <a name="ampersand-state-constructorinitialize" class="anchor" href="#ampersand-state-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new AmpersandState([attrs], [options])</code></h3></a><p>When creating an instance of a state object, you can pass in the initial values of the <strong>attributes</strong> which will be <a href="#ampersand-state-set">set</a> on the model. Unless <a href="#amperand-state-extra-properties">extraProperties</a> is set to <code>allow</code>, you will need to have defined these attributes in <code>props</code> or <code>session</code>.</p>
 <p>If you have defined an <strong>initialize</strong> function for your subclass of State, it will be invoked at creation time.</p>
-<pre><code class="undefinedjavascript">var me = new Person({
+<pre><code class="javascript">var me = new Person({
     firstName: &#39;Phil&#39;
     lastName: &#39;Roberts&#39;
 });
@@ -148,7 +148,7 @@ console.log(me.url()) //=&gt; &quot;/people/123&quot;
 <p>Defaults to <code>&#39;modelType&#39;</code>.</p>
 <a name="ampersand-state-gettype" class="anchor" href="#ampersand-state-gettype"><h3><span class="header-link"></span>getType <code>model.getType()</code></h3></a><p>Get type of model per <code>typeAttribute</code> configuration. Should <em>always</em> be how type is determined by other code.</p>
 <a name="ampersand-state-extraproperties" class="anchor" href="#ampersand-state-extraproperties"><h3><span class="header-link"></span>extraProperties <code>AmpersandState.extend({ extraProperties: &#39;allow&#39; })</code></h3></a><p>Defines how properties that aren&#39;t defined in <code>props</code>, <code>session</code> or <code>derived</code> are handled. May be set to <code>&#39;allow&#39;</code>, <code>&#39;ignore&#39;</code> or <code>&#39;reject&#39;</code>.</p>
-<pre><code class="undefinedjavascript">var StateA = AmpersandState.extend({
+<pre><code class="javascript">var StateA = AmpersandState.extend({
     extraProperties: &#39;allow&#39;,
 });
 
@@ -174,7 +174,7 @@ var stateC = new StateC({ foo: &#39;bar&#39; })
 <a name="ampersand-state-collection" class="anchor" href="#ampersand-state-collection"><h3><span class="header-link"></span>collection <code>state.collection</code></h3></a><p>A reference to the collection a state is in, if in a collection.</p>
 <p>This is used for building the default <code>url</code> property, etc. </p>
 <p>Which is why you can do this:</p>
-<pre><code class="undefinedjs">// some ampersand-rest-collection instance
+<pre><code class="javascript">// some ampersand-rest-collection instance
 // with a `url` property
 widgets.url //=&gt; &#39;/api/widgets&#39;
 
@@ -187,7 +187,7 @@ var badWidget = widgets.get(&#39;47&#39;);
 badWidget.destroy(); // does a DELETE /api/widgets/47
 </code></pre>
 <a name="ampersand-state-cid" class="anchor" href="#ampersand-state-cid"><h3><span class="header-link"></span>cid <code>state.cid</code></h3></a><p>A special property of states, the <strong>cid</strong>, or a client id, is a unique identifier automatically assigned to all states when they are first created. Client ids are handy when the state has not been saved to the server, and so does not yet have it&#39;s true <strong>id</strong> but needs a unique id so it can be rendered in the UI etc.</p>
-<pre><code class="undefinedjavascript">var userA = new User();
+<pre><code class="javascript">var userA = new User();
 console.log(userA.cid) //=&gt; &quot;state-1&quot;
 
 var userB = new User();
@@ -213,7 +213,7 @@ document.body.innerHTML = hacker.escape(&#39;name&#39;);
 <li>Trying to set a property to an invalid type will raise an exception.</li>
 <li>See <a href="#ampersand-state-get">get</a> and <a href="#ampersand-state-set">set</a> for more information about getting and setting properties.</li>
 </ul>
-<pre><code class="undefinedjavascript">var Person = AmpersandState.extend({
+<pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         name: &#39;string&#39;,
         age: &#39;number&#39;,
@@ -226,7 +226,7 @@ document.body.innerHTML = hacker.escape(&#39;name&#39;);
 });
 </code></pre>
 <a name="ampersand-state-session" class="anchor" href="#ampersand-state-session"><h3><span class="header-link"></span>session <code>AmpersandView.extend({ session: { name: &#39;string&#39; } })</code></h3></a><p>Session properties are defined and work in exactly the same way as <a href="#ampersand-state-props">props</a>, but generally only exist for the lifetime of the page. They would not typically be persisted to the server, and are not returned by calls to <code>toJSON()</code> or <code>serialize()</code>.</p>
-<pre><code class="undefinedjavascript">var Person = AmpersandState.extend({
+<pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         name: &#39;string&#39;,
     },
@@ -236,7 +236,7 @@ document.body.innerHTML = hacker.escape(&#39;name&#39;);
 );
 </code></pre>
 <a name="ampersand-state-derived" class="anchor" href="#ampersand-state-derived"><h3><span class="header-link"></span>derived</h3></a><p>Derived properties (also known as computed properties) are properties of the state object that depend on the other (<code>props</code>, <code>session</code>  or even <code>derived</code> properties to determine their value. Best demonstrated with an example:</p>
-<pre><code class="undefinedjavascript">var Person = AmpersandState.extend({
+<pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         firstName: &#39;string&#39;,
         lastName: &#39;string&#39;
@@ -265,7 +265,7 @@ console.log(person.fullName) //=&gt; &quot;Bob Roberts&quot;
 </ul>
 <p>Derived properties are retrieved and fire change events just like any other property. They cannot be set directly. Caching ensures that the <code>fn</code> function is only run when any of the dependencies change, and change events are only fired if the result of calling <code>fn()</code> has actually changed.</p>
 <a name="ampersand-state-children" class="anchor" href="#ampersand-state-children"><h3><span class="header-link"></span>children <code>AmpersandState.extend({ children: { profile: Profile } })</code></h3></a><p>Define child state objects to attach to the object. Attributes passed to the constructor or to <code>set()</code> will be proxied to the children/collections. Change events on the child will be proxied through the parent:</p>
-<pre><code class="undefinedjavascript">var AmpersandState = require(&#39;ampersand-state&#39;);
+<pre><code class="javascript">var AmpersandState = require(&#39;ampersand-state&#39;);
 var Hat = AmpersandState.extend({
     props: {
         color: &#39;string&#39;
@@ -296,7 +296,7 @@ me.set({ hat: { color: &#39;green&#39; } });
 console.log(me.hat) //=&gt; Hat{color: &#39;green&#39;}
 </code></pre>
 <a name="ampersand-state-parse" class="anchor" href="#ampersand-state-parse"><h3><span class="header-link"></span>parse</h3></a><p><strong>parse</strong> is called when the model is initialized allowing the attributes to be modified/remapped/renamed/etc before they are actually applied to the model. In ampersand-state, parse is only called when the model is first initialized, and only if <code>{ parse: true }</code> is passed to the constructor options:</p>
-<pre><code class="undefinedjavascript">var Person = AmpersandState.extend({
+<pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         id: &#39;number&#39;,
         name: &#39;string&#39;
@@ -318,14 +318,14 @@ console.log(me.personID) //=&gt; undefined
 <p><strong>parse</strong> is arguably more useful in ampersand-model, where data typically comes from the server.</p>
 <a name="ampersand-state-serialize" class="anchor" href="#ampersand-state-serialize"><h3><span class="header-link"></span>serialize <code>state.serialize()</code></h3></a><p>Serialize the state object into a plain object, ready for sending to the server (typically called via <a href="#ampersand-state-tojson">toJSON</a>). Of the model&#39;s properties, only <code>props</code> is returned, <code>session</code> and <code>derived</code> are omitted. Will also serialize any <code>children</code> or <code>collections</code> by calling their serialize methods.</p>
 <a name="ampersand-state-get" class="anchor" href="#ampersand-state-get"><h3><span class="header-link"></span>get <code>state.get(attribute); state[attribute]; state.firstName</code></h3></a><p>Get the current value of an attribute from the state object. Attributes can be accessed directly, or a call to the Backbone style <code>get</code>. So these are all equivalent:</p>
-<pre><code class="undefinedjavascript">person.get(&#39;firstName&#39;);
+<pre><code class="javascript">person.get(&#39;firstName&#39;);
 person[&#39;firstName&#39;];
 person.firstName
 </code></pre>
 <p>Get will retrieve <code>props</code>, <code>session</code> or <code>derived</code> properties all in the same way.</p>
 <a name="ampersand-state-set" class="anchor" href="#ampersand-state-set"><h3><span class="header-link"></span>set <code>state.set(attributes, [options]); state.firstName = &#39;Henrik&#39;;</code></h3></a><p>Set an attribute, or multiple attributes, on the state object. If any of the attributes change the state of the object, a <code>&quot;change&quot;</code> event will be triggered on it. Change events for specific attributes are also triggered, which you can listen to as well. For example: <code>&quot;change:firstName&quot;</code> and <code>&quot;change:content&quot;</code>. If the changes update any <code>derived</code> properties on the object, their values will be updated, and change events fired as well.</p>
 <p>Attributes can be set directly, or via a call to the backbone style <code>set</code> (useful if you wish to update multiple attributes at once):</p>
-<pre><code class="undefinedjavascript">person.set({firstName: &#39;Phil&#39;, lastName: &#39;Roberts&#39;});
+<pre><code class="javascript">person.set({firstName: &#39;Phil&#39;, lastName: &#39;Roberts&#39;});
 person.set(&#39;firstName&#39;, &#39;Phil&#39;);
 person.firstName = &#39;Phil&#39;;
 </code></pre>
@@ -336,10 +336,10 @@ person.firstName = &#39;Phil&#39;;
 </ul>
 <a name="ampersand-state-unset" class="anchor" href="#ampersand-state-unset"><h3><span class="header-link"></span>unset <code>state.unset(attribute, [options])</code></h3></a><p>Clear the named attribute from the state object. Fires a <code>&quot;change&quot;</code> event and a <code>&quot;change:attributeName&quot;</code> event unless <code>silent</code> is passed as an option.</p>
 <p>If the attribute being unset is <code>required</code> and has a <code>default</code> value as defined in either <code>props</code> or <code>session</code>, it will be set to that value, otherwise it will be <code>undefined</code>.</p>
-<pre><code class="undefinedjavascript">person.unset(&#39;firstName&#39;)
+<pre><code class="javascript">person.unset(&#39;firstName&#39;)
 </code></pre>
 <a name="ampersand-state-toggle" class="anchor" href="#ampersand-state-toggle"><h3><span class="header-link"></span>toggle <code>state.toggle(&#39;active&#39;)</code></h3></a><p>Shortcut to toggle boolean properties, or cycle through &quot;ENUM&quot; type properties that have a <code>values</code> array in it&#39;s definition. Fires change events as you would expect from set.</p>
-<pre><code class="undefinedjavascript">var Person = AmpersandState.extend({
+<pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         active: &#39;boolean&#39;,
         color: {
@@ -365,7 +365,7 @@ console.log(me.color) //=&gt; &#39;red&#39;
 <a name="ampersand-state-changedattributes" class="anchor" href="#ampersand-state-changedattributes"><h3><span class="header-link"></span>changedAttributes <code>state.changedAttributes([objectToDiff])</code></h3></a><p>Return an object containing all the attributes that have changed, or false if there are no changed attributes. Useful for determining what parts of a view need to be updated and/or what attributes need to be persisted to the server. Unset attributes will be set to undefined.  You can also pass an attributes object to diff against the model, determining if there <em>would be</em> a change.</p>
 <a name="ampersand-state-tojson" class="anchor" href="#ampersand-state-tojson"><h3><span class="header-link"></span>toJSON <code>state.toJSON()</code></h3></a><p>Return a shallow copy of the model&#39;s attributes for JSON stringification. This can be used for persistence, serialization, or for augmentation before being sent to the server. The name of this method is a bit confusing, as it doesn&#39;t actually return a JSON string — but I&#39;m afraid that it&#39;s the way that the JavaScript API for JSON.stringify works.</p>
 <p>Calls <a href="#ampersand-state-serialize">serialize</a> to determine which values to return in the object. Will be called implicitly by JSON.stringify.</p>
-<pre><code class="undefinedjavascript">var me = new Person({ firstName: &#39;Phil&#39;, lastName: &#39;Roberts&#39; });
+<pre><code class="javascript">var me = new Person({ firstName: &#39;Phil&#39;, lastName: &#39;Roberts&#39; });
 
 me.toJSON() //=&gt; { firstName: &#39;Phil&#39;, lastName: &#39;Roberts&#39; }
 
@@ -391,7 +391,7 @@ JSON.stringify(me) //=&gt; &quot;{\&quot;firstName\&quot;:\&quot;Phil\&quot;,\&q
 <a name="ampersand-model-extend" class="anchor" href="#ampersand-model-extend"><h3><span class="header-link"></span>extend <code>AmpersandModel.extend({ })</code></h3></a><p>To create a <strong>Model</strong> class of your own, you extend <strong>AmpersandModel</strong> and provide instance properties and options for your class. Typically here you will pass any properties (<code>props</code>, <code>session</code>, and <code>derived</code>) of your model class, and any instance methods to be attached to instances of your class.</p>
 <p><strong>extend</strong> correctly sets up the prototype chain, so that subclasses created with <strong>extend</strong> can be further extended as many times as you like.</p>
 <p>As with AmpersandState, definitions like <code>props</code>, <code>session</code>, <code>derived</code> etc will be merged with superclass definitions.</p>
-<pre><code class="undefinedjavascript">var Person = AmpersandModel.extend({
+<pre><code class="javascript">var Person = AmpersandModel.extend({
     props: {
         firstName: &#39;string&#39;,
         lastName: &#39;string&#39;
@@ -411,7 +411,7 @@ JSON.stringify(me) //=&gt; &quot;{\&quot;firstName\&quot;:\&quot;Phil\&quot;,\&q
 </code></pre>
 <a name="ampersand-model-constructorinitialize" class="anchor" href="#ampersand-model-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new ExtendedAmpersandModel([attrs], [options])</code></h3></a><p>This works exactly like <a href="http://ampersandjs.com/docs/#ampersand-state-constructorinitialize">state</a> with a minor addition: If you pass <code>collection</code> as part of options it&#39;ll be stored for reference.</p>
 <p>As with AmpersandState, if you have defined an <strong>initialize</strong> function for your subclass of State, it will be invoked at creation time.</p>
-<pre><code class="undefinedjavascript">var me = new Person({
+<pre><code class="javascript">var me = new Person({
     firstName: &#39;Phil&#39;
     lastName: &#39;Roberts&#39;
 });
@@ -427,7 +427,7 @@ me.firstName //=&gt; Phil
 <a name="ampersand-model-save" class="anchor" href="#ampersand-model-save"><h3><span class="header-link"></span>save <code>model.save([attributes], [options])</code></h3></a><p>Save a model to your database (or alternative persistence layer), by delegating to <a href="https://github.com/ampersandjs/ampersand-sync">ampersand-sync</a>. Returns a xhr object if validation is successful and false otherwise. The attributes hash (as in set) should contain the attributes you&#39;d like to change — keys that aren&#39;t mentioned won&#39;t be altered — but, a <em>complete representation</em> of the resource will be sent to the server. As with <code>set</code>, you may pass individual keys and values instead of a hash. If the model has a validate method, and validation fails, the model will not be saved. If the model <code>isNew</code>, the save will be a &quot;create&quot; (HTTP POST), if the model already exists on the server, the save will be an &quot;update&quot; (HTTP PUT).</p>
 <p>If instead, you&#39;d only like the changed attributes to be sent to the server, call <code>model.save(attrs, {patch: true})</code>. You&#39;ll get an HTTP PATCH request to the server with just the passed-in attributes.</p>
 <p>Calling save with new attributes will cause a <code>&quot;change&quot;</code> event immediately, a <code>&quot;request&quot;</code> event as the Ajax request begins to go to the server, and a <code>&quot;sync&quot;</code> event after the server has acknowledged the successful change. Pass <code>{wait: true}</code> if you&#39;d like to wait for the server before setting the new attributes on the model.</p>
-<pre><code class="undefinedjavascript">var book = new Backbone.Model({
+<pre><code class="javascript">var book = new Backbone.Model({
   title: &quot;The Rough Riders&quot;,
   author: &quot;Theodore Roosevelt&quot;
 });
@@ -440,7 +440,7 @@ book.save({author: &quot;Teddy&quot;});
 </code></pre>
 <p><strong>save</strong> accepts <code>success</code> and <code>error</code> callbacks in the options hash, which will be passed the arguments <code>(model, response, options)</code>. If a server-side validation fails, return a non-<code>200</code> HTTP response code, along with an error response in text or JSON.</p>
 <a name="ampersand-model-fetch" class="anchor" href="#ampersand-model-fetch"><h3><span class="header-link"></span>fetch <code>model.fetch([options])</code></h3></a><p>Resets the model&#39;s state from the server by delegating to ampersand-sync. Returns a xhr. Useful if the model has yet to be populated with data, or you want to ensure you have the latest server state. A <code>&quot;change&quot;</code> event will be triggered if the retrieved state from the server differs from the current attributes. Accepts <code>success</code> and <code>error</code> callbacks in the options hash, which are both passed <code>(model, response, options)</code> as arguments.</p>
-<pre><code class="undefinedjavascript">var me = new Person({id: 123});
+<pre><code class="javascript">var me = new Person({id: 123});
 me.fetch();
 </code></pre>
 <a name="ampersand-model-destroy" class="anchor" href="#ampersand-model-destroy"><h3><span class="header-link"></span>destroy <code>model.destroy([options])</code></h3></a><p>Destroys the model on the server by delegating an HTTP <code>DELETE</code> request to ampersand-sync. Returns the xhr object, or <code>false</code> if the model <a href="#ampersand-model-isnew">isNew</a>. Accepts <code>success</code> and <code>error</code> callbacks in the options hash, which are both passed <code>(model, response, options)</code> as arguments.</p>
@@ -451,7 +451,7 @@ me.fetch();
 <li>a <code>&quot;sync&quot;</code> event, after the server has successfully acknowledged the model&#39;s deletion.</li>
 </ul>
 <p>Pass <code>{wait: true}</code> if you&#39;d like to wait for the server to respond before removing the model from the collection.</p>
-<pre><code class="undefinedjavascript">var task = new Task({ id: 123 });
+<pre><code class="javascript">var task = new Task({ id: 123 });
 task.destroy({
     success: function () { alert(&#39;Task destroyed!&#39;); },
     error: function () { alert(&#39;There was an error destroying the task&#39;); },
@@ -461,7 +461,7 @@ task.destroy({
 <a name="ampersand-model-url" class="anchor" href="#ampersand-model-url"><h3><span class="header-link"></span>url <code>model.url</code> or <code>model.url()</code></h3></a><p>The relative url the model should use to edit the resource on the server. </p>
 <a name="ampersand-model-urlroot" class="anchor" href="#ampersand-model-urlroot"><h3><span class="header-link"></span>urlRoot <code>model.urlRoot or model.urlRoot()</code></h3></a><p>The base url to use for fetching this model. This is useful if the model is <em>not</em> in a collection and you still want to set a fixed &quot;root&quot; but have a dynamic model.url(). Can also be a function.</p>
 <p>If your model is in a collection that has a <code>url</code> you won&#39;t need this, because the model will try to build the URL from its collection.</p>
-<pre><code class="undefinedjs">var Person = AmpersandModel.extend({
+<pre><code class="javascript">var Person = AmpersandModel.extend({
     props: {
         id: &#39;string&#39;,
         name: &#39;string&#39;
@@ -490,12 +490,12 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
 </code></pre><a name="ampersand-collection-api-reference" class="anchor" href="#ampersand-collection-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-collection-extend" class="anchor" href="#ampersand-collection-extend"><h3><span class="header-link"></span>extend <code>AmpersandCollection.extend([attributes])</code></h3></a><p>Create a collection class of your own by extending AmpersandCollection, providing the required instance properties to be attached instances of your class.</p>
 <p>Typically you will specify a <code>model</code> constructor (if you are storing <a href="#ampersand-state">ampersand-state</a> or <a href="#ampersand-model">ampersand-model</a> objects.</p>
 <a name="ampersand-collection-model" class="anchor" href="#ampersand-collection-model"><h3><span class="header-link"></span>model <code>collection.model</code></h3></a><p>Override this property to specify the model class that the collection contains. If defined, you can pass raw attributes objects (and arrays) to <code>add</code> and <code>reset</code>, and the attributes will be converted into a model of the proper type.</p>
-<pre><code class="undefinedjavascript">var Library = AmpersandCollection.extend({
+<pre><code class="javascript">var Library = AmpersandCollection.extend({
     model: Book
 });
 </code></pre>
 <p>A collection can also contain polymorphic models by overriding this property with a function that returns a model.</p>
-<pre><code class="undefinedjavascript">var Library = AmpersandCollection.extend({
+<pre><code class="javascript">var Library = AmpersandCollection.extend({
 
   model: function(attrs, options) {
     if (condition) {
@@ -508,19 +508,19 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
 });
 </code></pre>
 <a name="ampersand-collection-constructorinitialize" class="anchor" href="#ampersand-collection-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new AmpersandCollection([models], [options])</code></h3></a><p>When creating an AmpersandCollection, you may choose to pass in the initial array of <strong>models</strong>. The collection&#39;s <a href="#ampersand-collection-compator">comparator</a> may be included as an option. Passing <code>false</code> as the comparator option will prevent sorting. If you define an <strong>initialize</strong> function, it will be invoked when the collection is created. There are a couple of options that, if provided, are attached to the collection directly: <code>model</code> and <code>comparator</code>.</p>
-<pre><code class="undefinedjavascript">var people = new AmpersandCollection([{ name: &#39;phil&#39; }, { name: &#39;bob&#39; }, { name: &#39;jane&#39; }], {
+<pre><code class="javascript">var people = new AmpersandCollection([{ name: &#39;phil&#39; }, { name: &#39;bob&#39; }, { name: &#39;jane&#39; }], {
     model: Person
 });
 </code></pre>
 <a name="ampersand-collection-mainindex-collectionmainindex" class="anchor" href="#ampersand-collection-mainindex-collectionmainindex"><h3><span class="header-link"></span>mainIndex `collection.mainIndex</h3></a><p>Specify which key on your models should be used as their main unique identifier. Defaults to <code>id</code>. This is the default key that <a href="#ampersand-collection-get"><code>get</code></a> will use to retrieve models by, as well as the key add/set/remove will compare to determine whether a model exists in the collection or not.</p>
 <p>If your server does not use <code>id</code> as the model identifier, you would typically override this when extending AmpersandCollection, like so:</p>
-<pre><code class="undefinedjavascript">var People = AmpersandColletion.extend({
+<pre><code class="javascript">var People = AmpersandColletion.extend({
     mainIndex: &#39;_id&#39;
 });
 </code></pre>
 <a name="ampersand-collection-indexes" class="anchor" href="#ampersand-collection-indexes"><h3><span class="header-link"></span>indexes <code>collections.indexes</code></h3></a><p>Specify an optional array of keys by which to additionally index the models in your collection (in addition to the <code>mainIndex</code>. This allows you to quickly retrieve models by specifying the key to use with <a href="#ampersand-collection-get">get</a>.</p>
 <p>Note that <code>get</code> will only ever return a single model, so the values of these indexes should be unique across the models in the collection:</p>
-<pre><code class="undefinedjavascript">var People = AmpersandCollection.extend({
+<pre><code class="javascript">var People = AmpersandCollection.extend({
     mainIndex: &#39;_id&#39;,
 
     indexes: [&#39;otherId&#39;]
@@ -546,7 +546,7 @@ people.get(&#39;b&#39;, &#39;otherId&#39;) //=&gt; { _id: 2, otherId: &#39;b&#39
 <li>Pass <code>{at: index}</code> to splice the model into the collection at the specified index.</li>
 <li>If you&#39;re adding models to the collection that are already in the collection, they&#39;ll be ignored, unless you pass <code>{merge: true}</code>, in which case their attributes will be merged into the corresponding models, firing any appropriate <code>&quot;change&quot;</code> events.</li>
 </ul>
-<pre><code class="undefinedjavascript">var ships = new AmpersandCollection();
+<pre><code class="javascript">var ships = new AmpersandCollection();
 
 ships.on(&quot;add&quot;, function(ship) {
   console.log(&quot;Ahoy &quot; + ship.name + &quot;!&quot;);
@@ -564,7 +564,7 @@ ships.add([
 <p>Note that adding the same model (a model with the same id) to a collection more than once is a no-op.</p>
 <a name="ampersand-collection-serialize" class="anchor" href="#ampersand-collection-serialize"><h3><span class="header-link"></span>serialize <code>collection.serialize()</code></h3></a><p>Serialize the collection into a plain javascript array, ready for sending to the server (typically called via <a href="#ampersand-collection-tojson">toJSON</a>). Will also call <code>serialize()</code> on each model in the collection.</p>
 <a name="ampersand-collection-tojson" class="anchor" href="#ampersand-collection-tojson"><h3><span class="header-link"></span>toJSON <code>collection.toJSON()</code></h3></a><p>Returns a plain javascript array of the models in the collection (which are also serialized) ready for sending to the server. The name of this method is a bit confusing, as it doesn&#39;t actually return a JSON string — but I&#39;m afraid that it&#39;s the way that the JavaScript API for JSON.stringify works.</p>
-<pre><code class="undefinedjavascript">var collection = new AmpersandCollection([
+<pre><code class="javascript">var collection = new AmpersandCollection([
     {name: &quot;Tim&quot;, age: 5},
     {name: &quot;Ida&quot;, age: 26},
     {name: &quot;Rob&quot;, age: 55}
@@ -574,7 +574,7 @@ console.log(JSON.stringify(collection));
 //=&gt; &quot;[{\&quot;name\&quot;:\&quot;Tim\&quot;,\&quot;age\&quot;:5},{\&quot;name\&quot;:\&quot;Ida\&quot;,\&quot;age\&quot;:26},{\&quot;name\&quot;:\&quot;Rob\&quot;,\&quot;age\&quot;:55}]&quot;
 </code></pre>
 <a name="ampersand-collection-set" class="anchor" href="#ampersand-collection-set"><h3><span class="header-link"></span>set <code>collection.set(models, [options])</code></h3></a><p>The <strong>set</strong> method performs a &quot;smart&quot; update of the collection with the passed list of models. If a model in the list isn&#39;t yet in the collection it will be added; if the model is already in the collection its attributes will be merged; and if the collection contains any models that aren&#39;t present in the list, they&#39;ll be removed. All of the appropriate <code>&quot;add&quot;</code>, <code>&quot;remove&quot;</code>, and <code>&quot;change&quot;</code> events are fired as this happens. Returns the touched models in the collection. If you&#39;d like to customize the behavior, you can disable it with options: <code>{add: false}</code>, <code>{remove: false}</code>, or <code>{merge: false}</code>.</p>
-<pre><code class="undefinedjavascript">var vanHalen = new AmpersandCollection([eddie, alex, stone, roth]);
+<pre><code class="javascript">var vanHalen = new AmpersandCollection([eddie, alex, stone, roth]);
 
 vanHalen.set([eddie, alex, stone, hagar]);
 
@@ -585,7 +585,7 @@ vanHalen.set([eddie, alex, stone, hagar]);
 <a name="ampersand-collection-get" class="anchor" href="#ampersand-collection-get"><h3><span class="header-link"></span>get <code>collection.get(query, [indexName])</code></h3></a><p>Retrieve a model from the collection by index.</p>
 <p>With an unspecified <code>indexName</code> (<code>collection.get(123)</code>) retrieves the model by it&#39;s <a href="#ampersand-collection-mainindex">mainIndex</a> attribute.</p>
 <p>Or specify an <code>indexName</code> to retrieve a model by any of the other listed <a href="#ampersand-collection-indexes">indexes</a>.</p>
-<pre><code class="undefinedjavascript">var People = AmpersandCollection.extend({
+<pre><code class="javascript">var People = AmpersandCollection.extend({
     mainIndex: &#39;_id&#39;,
 
     indexes: [&#39;otherId&#39;]
@@ -624,7 +624,7 @@ people.get(&#39;b&#39;, &#39;otherId&#39;) //=&gt; { _id: 2, otherId: &#39;b&#39
 <li>reduceRight</li>
 </ul>
 <p>Unlike a backbone collection it does not include underscore and all the array methods from underscore, though if you wish more functions than those built into modern browsers, you can mixin <a href="#ampersand-collection-underscore-mixin">ampersand-collection-underscore-mixin</a> to get them.</p>
-<pre><code class="undefinedjavascript">var people = People([
+<pre><code class="javascript">var people = People([
     { name: &#39;Phil&#39;, hatColor: &#39;red&#39; },
     { name: &#39;Jenn&#39;, hatColor: &#39;green&#39; },
     { name: &#39;Henrik&#39;, hatColor: &#39;blue&#39; },
@@ -651,7 +651,7 @@ people.filter(function (person) {
 <p>This makes ampersand-collection work and act a lot like Backbone.Collection, if youre planning on hitting a REST-ful API this is probably what you want to use.</p>
 <a name="ampersand-rest-collection-install" class="anchor" href="#ampersand-rest-collection-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-rest-collection
 </code></pre><a name="ampersand-rest-collection-api-reference" class="anchor" href="#ampersand-rest-collection-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><p>The ampersand-rest-collection is simply an <a href="#ampersand-collection">ampersand-collection</a> extended with two mixins: ampersand-collection-rest-mixin and ampersand-collection-underscore-mixin.</p>
-<pre><code class="undefinedjavascript">var Collection = require(&quot;ampersand-collection&quot;);
+<pre><code class="javascript">var Collection = require(&quot;ampersand-collection&quot;);
 var underscoreMixin = require(&quot;ampersand-collection-underscore-mixin&quot;);
 var restMixins = require(&quot;ampersand-collection-rest-mixin&quot;);
 
@@ -659,7 +659,7 @@ module.exports = Collection.extend(underscoreMixin, restMixins);
 </code></pre>
 <a name="ampersand-rest-collection-ajaxconfig" class="anchor" href="#ampersand-rest-collection-ajaxconfig"><h3><span class="header-link"></span>ajaxConfig <code>AmpersandRestCollection.extend({ ajaxConfig: function () { ... } })</code></h3></a><p>ampersand-sync will call ajaxConfig on your collection before it makes the request to the server, passing it the request parameters. When extending your own collection, set an ajaxConfig function to modify the request before it goes to the server. Useful for setting headers/CORS options etc.</p>
 <p>The function will be called with <code>params</code> as the first argument, which is the object which will be passed to the underling <code>jQuery.ajax</code> call by ampersand-sync.</p>
-<pre><code class="undefinedjavascript">var MyCollection = AmpersandRestCollection.extend({
+<pre><code class="javascript">var MyCollection = AmpersandRestCollection.extend({
     url: &#39;http://otherdomain.example.com/stuff&#39;,
 
     ajaxConfig: function (params) {
@@ -690,7 +690,7 @@ collection.fetch();
 <p>You can also pass any options that <code>jQuery.ajax</code> expects to modify the query. For example: to fetch a specific page of a paginated collection: <code>collection.fetch({ data: { page: 3 } })</code></p>
 <a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method for gets a model from the server or from the collection if it&#39;s already has a model with that id. </p>
 <p>By default it will only fetch and add the model with the ID you pass in.</p>
-<pre><code class="undefinedjs">collection.getOrFetch(&#39;42&#39;, function (err, model) {
+<pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, function (err, model) {
     if (err) {
         console.log(&#39;handle&#39;);
     } else {
@@ -702,7 +702,7 @@ collection.fetch();
 });
 </code></pre>
 <p>If you pass <code>{all: true}</code> it will fetch the entire collection (by calling its <code>fetch</code> method) and then do a <code>get</code> to attempt to pull out the model by the <code>id</code> you specified.</p>
-<pre><code class="undefinedjs">collection.getOrFetch(&#39;42&#39;, {all: true}, function (err, model) {
+<pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, {all: true}, function (err, model) {
     if (err) {
         console.log(&#39;handle&#39;);
     } else {
@@ -712,7 +712,7 @@ collection.fetch();
 });
 </code></pre>
 <a name="ampersand-rest-collection-fetchbyid" class="anchor" href="#ampersand-rest-collection-fetchbyid"><h3><span class="header-link"></span>fetchById <code>collection.fetchById(&#39;id&#39;, callback)</code></h3></a><p>Fetches and adds a model by id to the collection. This is what <code>getOrFetch</code> uses if it doesn&#39;t have a model already.</p>
-<pre><code class="undefinedjs">collection.fetchById(&#39;42&#39;, function (err, model) {
+<pre><code class="javascript">collection.fetchById(&#39;42&#39;, function (err, model) {
     // returns inflated, added model with a `null` error
     // or an error object.
 });
@@ -731,7 +731,7 @@ var othello = library.create({
 });
 </code></pre><a name="ampersand-rest-collection-sync" class="anchor" href="#ampersand-rest-collection-sync"><h3><span class="header-link"></span>sync <code>model.sync(method, collection, [options])</code></h3></a><p>Simple delegation to ampersand-sync to persist the collection to the server. Can be overridden for custom behaviour.</p>
 <a name="ampersand-rest-collection-underscore-methods-42" class="anchor" href="#ampersand-rest-collection-underscore-methods-42"><h3><span class="header-link"></span>underscore methods (42)</h3></a><p>The ampersand-collection-underscore-mixin proxies the collection methods in underscore onto the underlying models array for the collection. For example:</p>
-<pre><code class="undefinedjavascript">books.each(function(book) {
+<pre><code class="javascript">books.each(function(book) {
   book.publish();
 });
 
@@ -814,7 +814,7 @@ var alphabetical = books.sortBy(function(book) {
 <a name="ampersand-view-install" class="anchor" href="#ampersand-view-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-view
 </code></pre><a name="ampersand-view-api-reference" class="anchor" href="#ampersand-view-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><p>Note that this is a fork of Backbone&#39;s view so most of the public methods/properties here still exist: <a href="http://backbonejs.org/#View">http://backbonejs.org/#View</a>.</p>
 <a name="ampersand-view-extend" class="anchor" href="#ampersand-view-extend"><h3><span class="header-link"></span>extend <code>AmpersandView.extend([properties])</code></h3></a><p>Get started with views by creating a custom view class. Ampersand views have a sane default render function, which you don&#39;t necessarily have to override, but you probably will wish to specify a <a href="#ampersand-view-template"><code>template</code></a>, your declarative <a href="#ampersand-view-events">event handlers</a> and your <a href="#ampersand-view-bindings">view bindings</a>.</p>
-<pre><code class="undefinedjavascript">var PersonRowView = AmpersandView.extend({
+<pre><code class="javascript">var PersonRowView = AmpersandView.extend({
     template: &quot;&lt;li&gt; &lt;span role=&#39;name&#39;&gt;&lt;/span&gt; &lt;span role=&#39;age&#39;&gt;&lt;/span&gt; &lt;a role=&#39;edit&#39;&gt;edit&lt;/a&gt; &lt;/li&gt;&quot;,
 
     events: {
@@ -843,7 +843,7 @@ var alphabetical = books.sortBy(function(book) {
 <p>For more information about creating, and compiling templates, <a href="http://ampersandjs.com/learn/templates">read the templating guide</a>.</p>
 <a name="ampersand-view-autorender" class="anchor" href="#ampersand-view-autorender"><h3><span class="header-link"></span>autoRender <code>AmpersandView.extend({ autoRender: true })</code></h3></a><p>The <code>.autoRender</code> property lets you optionally specify that the view should just automatically render with all the defaults. This requires that you at minimum specify a <a href="#template">template</a> string of function.</p>
 <p>By setting <code>autoRender: true</code> the view will simply call <code>.renderWithTemplate</code> for you (after your <code>initialize</code> method if present). So for simple views, if you&#39;ve got a few bindings and a template your whole view could just be really and declarative like this:</p>
-<pre><code class="undefinedjavascript">var AmpersandView = require(&#39;ampersand-view&#39;);
+<pre><code class="javascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 
 
 module.exports = AmpersandView.extend({
@@ -855,7 +855,7 @@ module.exports = AmpersandView.extend({
 });
 </code></pre>
 <p><strong>Note:</strong> if you are using a template function (and not a string) the template function will get called with a context argument that looks like this, giving you access to <code>.model</code>, <code>.collection</code> and any other props you have defined on the view from the template.</p>
-<pre><code class="undefinedjavascript">this.renderWithTemplate(this, this.template);
+<pre><code class="javascript">this.renderWithTemplate(this, this.template);
 </code></pre>
 <a name="ampersand-view-events" class="anchor" href="#ampersand-view-events"><h3><span class="header-link"></span>events <code>AmpersandView.extend({ events: { /* ...events hash... */ } })</code></h3></a><p>The events hash allows you to specify declarative callbacks for DOM events within the view. This is much clearer and less complex than calling <code>$(&#39;selector&#39;).on(&#39;click&#39;, ...)</code> or <code>el.addEventListener(&#39;click&#39;, ...)</code> everywhere.</p>
 <ul>
@@ -899,7 +899,7 @@ module.exports = AmpersandView.extend({
 </code></pre><a name="ampersand-view-bindings" class="anchor" href="#ampersand-view-bindings"><h3><span class="header-link"></span>bindings</h3></a><p>The bindings hash gives you a declarative way of specifying which elements in your view should be updated when the view&#39;s model is changed.</p>
 <p>For a full reference of available binding types see the <a href="#ampersand-dom-bindings">ampersand-dom-bindings</a> section.</p>
 <p>For example, with a model like this:</p>
-<pre><code class="undefinedjavascript">var Person = AmpersandModel.extend({
+<pre><code class="javascript">var Person = AmpersandModel.extend({
     props: {
         name: &#39;string&#39;,
         age: &#39;number&#39;,
@@ -919,7 +919,7 @@ module.exports = AmpersandView.extend({
 &lt;/li&gt;
 </code></pre>
 <p>you might have a binding hash in your view like this:</p>
-<pre><code class="undefinedjavascript">var PersonView = AmpersandView.extend({
+<pre><code class="javascript">var PersonView = AmpersandView.extend({
     templates: templates.person,
 
     bindings: {
@@ -964,7 +964,7 @@ document.querySelector(&#39;#viewContainer&#39;).appendChild(view.el);
 <li>To perform extra work when initializing a new view, override the <code>initialize</code> function in the extend call, rather than modifying the constructor, it&#39;s easier.</li>
 </ul>
 <a name="ampersand-view-initialize" class="anchor" href="#ampersand-view-initialize"><h3><span class="header-link"></span>initialize <code>new AmpersandView([options])</code></h3></a><p>Called by the default view constructor after the view is initialized. Overwrite initialize in your views to perform some extra work when the view is initialized. Initially it&#39;s a noop:</p>
-<pre><code class="undefinedjavascript">var MyView = AmpersandView.extend({
+<pre><code class="javascript">var MyView = AmpersandView.extend({
     initialize: function (options) {
         console.log(&quot;The options are:&quot;, options);
     }
@@ -980,7 +980,7 @@ var view = new MyView({ foo: &#39;bar&#39; });
 <li>Not be a problem if it&#39;s called more than once.</li>
 </ul>
 <p>The default render looks like this:</p>
-<pre><code class="undefinedjavascript">render: function () {
+<pre><code class="javascript">render: function () {
     this.renderWithTemplate(this);
     return this;
 }
@@ -999,7 +999,7 @@ var view = new MyView({ foo: &#39;bar&#39; });
 <p>This method will maintain this collection within that container element. Including proper handling of add, remove, sort, reset, etc.</p>
 <p>Also, when the parent view gets <code>.remove()</code>&#39;ed any event handlers registered by the individual item views will be properly removed as well.</p>
 <p>Each item view will only be <code>.render()</code>&#39;ed once (unless you change that within the item view itself).</p>
-<a name="ampersand-view-example" class="anchor" href="#ampersand-view-example"><h4><span class="header-link"></span>Example:</h4></a><pre><code class="undefinedjavascript">// some view for individual items in the collection
+<a name="ampersand-view-example" class="anchor" href="#ampersand-view-example"><h4><span class="header-link"></span>Example:</h4></a><pre><code class="javascript">// some view for individual items in the collection
 var ItemView = AmpersandView.extend({ ... });
 
 // the main view
@@ -1032,7 +1032,7 @@ var MainView = AmpersandView.extend({
 <li><code>template</code> {Function | String} [optional] A function that returns HTML or a string of HTML.</li>
 </ul>
 <p>This is shortcut for the default rendering you&#39;re going to do in most every render method, which is: use the template property of the view to replace <code>this.el</code> of the view and re-register all handlers from the event hash and any other binding as described above.</p>
-<pre><code class="undefinedjavascript">var view = AmpersandView.extend({
+<pre><code class="javascript">var view = AmpersandView.extend({
     template: &#39;&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;&#39;,
     bindings: {
         &#39;name&#39;: &#39;a&#39;
@@ -1051,7 +1051,7 @@ var MainView = AmpersandView.extend({
 });
 </code></pre>
 <a name="ampersand-view-get" class="anchor" href="#ampersand-view-get"><h3><span class="header-link"></span>get <code>view.get(&#39;.classname&#39;)</code></h3></a><p>Runs a <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector"><code>querySelector</code></a> scoped within the view&#39;s current element (<code>view.el</code>), returning the first matching element in the dom-tree.</p>
-<pre><code class="undefinedjavascript">var view = AmpersandView.extend({
+<pre><code class="javascript">var view = AmpersandView.extend({
     template: &#39;&lt;li&gt;&lt;img role=&quot;avatar&quot; src=&quot;&quot;&gt;&lt;/li&gt;&#39;,
     render: function () {
         this.renderWithTemplate(this);
@@ -1064,7 +1064,7 @@ var MainView = AmpersandView.extend({
 });
 </code></pre>
 <a name="ampersand-view-getbyrole" class="anchor" href="#ampersand-view-getbyrole"><h3><span class="header-link"></span>getByRole <code>view.getByRole(&#39;rolename&#39;)</code></h3></a><p>A convenience method for retrieving an element from the current view by role. Using the role attribute is a nice way to separate javascript view hooks/bindings from class/id selectors that are being used by css:</p>
-<pre><code class="undefinedjavascript">var view = AmpersandView.extend({
+<pre><code class="javascript">var view = AmpersandView.extend({
     template: &#39;&lt;li&gt;&lt;img class=&#39;avatar-rounded&#39; role=&quot;avatar&quot; src=&quot;&quot;&gt;&lt;/li&gt;&#39;,
     render: function () {
         this.renderWithTemplate(this);
@@ -1079,7 +1079,7 @@ var MainView = AmpersandView.extend({
 <a name="ampersand-view-getall" class="anchor" href="#ampersand-view-getall"><h3><span class="header-link"></span>getAll <code>view.getAll(&#39;.classname&#39;)</code></h3></a><p>Runs a <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll"><code>querySelectorAll</code></a> scoped within the view&#39;s current element (<code>view.el</code>), returning all the matching elements in the dom-tree.</p>
 <a name="ampersand-view-cacheelements" class="anchor" href="#ampersand-view-cacheelements"><h3><span class="header-link"></span>cacheElements <code>view.cacheElements(hash)</code></h3></a><p>A shortcut for adding reference to specific elements within your view for access later. This is avoids excessive DOM queries and makes it easier to update your view if your template changes.</p>
 <p>In your <code>render</code> method. Use it like so:</p>
-<pre><code class="undefinedjavascript">render: function () {
+<pre><code class="javascript">render: function () {
   this.renderWithTemplate(this);
 
   this.cacheElements({
@@ -1113,7 +1113,7 @@ var MainView = AmpersandView.extend({
 <li>append it to the container</li>
 <li>return the subview</li>
 </ol>
-<pre><code class="undefinedjavascript">var view = AmpersandView.extend({
+<pre><code class="javascript">var view = AmpersandView.extend({
     template: &#39;&lt;li&gt;&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;/li&gt;&#39;,
     render: function () {
         this.renderWithTemplate();
@@ -1133,7 +1133,7 @@ var MainView = AmpersandView.extend({
 <a name="ampersand-view-subviews" class="anchor" href="#ampersand-view-subviews"><h3><span class="header-link"></span>subviews <code>view.subviews</code></h3></a><p>You can declare subviews that you want to render within a view, much like you would bindings. Useful for cases where the data you need for a subview may not be available on first render. Also, simplifies cases wehre you have lots of subviews.</p>
 <p>When the parent view is removed the <code>remove</code> method of all subviews will be called as well. </p>
 <p>You declare them as follows:</p>
-<pre><code class="undefinedjavascript">var AmpersandView = require(&#39;ampersand-view&#39;);
+<pre><code class="javascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 var CollectionRenderer = require(&#39;ampersand-collection-view&#39;);
 var ViewSwitcher = require(&#39;ampersand-view-switcher&#39;);
 
@@ -1170,7 +1170,7 @@ module.exports = AmpersandView.extend({
 <p>Generally you won&#39;t need to call <code>delegateEvents</code> yourself, if you define an <code>event</code> hash when extending AmpersandView, <code>delegateEvents</code> will be called for you when the view is initialize.</p>
 <p>Events is a hash of  <code>{&quot;event selector&quot;: &quot;callback&quot;}*</code></p>
 <p>Will unbind existing events by calling <code>undelegateEvents</code> before binding new ones when called. Allowing you to switch events for different view contexts, or different views bound to the same element.</p>
-<pre><code class="undefinedjavascript">{
+<pre><code class="javascript">{
   &#39;mousedown .title&#39;:  &#39;edit&#39;,
   &#39;click .button&#39;:     &#39;save&#39;,
   &#39;click .open&#39;:       function (e) { ... }
@@ -1213,7 +1213,7 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
 <a name="ampersand-view-switcher-install" class="anchor" href="#ampersand-view-switcher-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-view-switcher
 </code></pre><a name="ampersand-view-switcher-example" class="anchor" href="#ampersand-view-switcher-example"><h2><span class="header-link"></span>Example</h2></a><p>Here&#39;s an example of how you might use the view switcher to handle page views within your ampersand app.</p>
 <p><code>mainview.js</code></p>
-<pre><code class="undefinedjs">var AmpersandView = require(&#39;ampersand-view&#39;);
+<pre><code class="javascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 var ViewSwitcher = require(&#39;ampersand-view-switcher&#39;);
 var templates = require(&#39;./templates&#39;);
 
@@ -1244,7 +1244,7 @@ module.exports = AmpersandView.extend({
 });
 </code></pre>
 <p>Or if you wanted to animate them you can do it asynchronously like so:</p>
-<pre><code class="undefinedjs">// set up our page switcher for that element
+<pre><code class="javascript">// set up our page switcher for that element
 this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
     // whether or not to wait for remove to be done before starting show
     waitForRemove: true,
@@ -1283,7 +1283,7 @@ this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
 </ul>
 </li>
 </ul>
-<pre><code class="undefinedjavascript">var switcher = new ViewSwitcher(document.querySelector(&#39;#pageContainer&#39;));
+<pre><code class="javascript">var switcher = new ViewSwitcher(document.querySelector(&#39;#pageContainer&#39;));
 
 var view = new MyView({ model: model });
 
@@ -1294,7 +1294,7 @@ switcher.set(view);
 </ul>
 <p>The instantiated view switcher has this one main method. Simply call it with the new view you wish to show.</p>
 <p>This is most likely going to be an instantiated <a href="https://github.com/ampersandjs/ampersand-view">ampersand-view</a> or Backbone.View, but can be anything that has a <code>.el</code> property that represents that view&#39;s root element and <code>.remove()</code> method that cleans up after itself. In addition if your custom view object has a <code>.render()</code> method it will get called before the view is added to the DOM.</p>
-<pre><code class="undefinedjavascript">var switcher = new ViewSwitcher(document.querySelector(&#39;#pageContainer&#39;));
+<pre><code class="javascript">var switcher = new ViewSwitcher(document.querySelector(&#39;#pageContainer&#39;));
 
 var view = new MyView({ model: model });
 
@@ -1304,7 +1304,7 @@ switcher.set(view);
 <li><code>callback</code> {Function} [optional] An optional callback when removed. Useful if you&#39;re doing custom animations.</li>
 </ul>
 <p>Removes the current view from the view switcher. Calls <code>callback</code> when done if one was provided.`</p>
-<pre><code class="undefinedjavascript">var switcher = new ViewSwitcher(document.querySelector(&#39;#pageContainer&#39;));
+<pre><code class="javascript">var switcher = new ViewSwitcher(document.querySelector(&#39;#pageContainer&#39;));
 
 var view = new MyView({ model: model });
 
@@ -1326,7 +1326,7 @@ switcher.clear();
 <p>Ampersand-router also adds a <code>redirectTo</code> method which is handy for doing &quot;internal&quot; redirects without breaking backbutton functionality in the browser.</p>
 <a name="ampersand-router-install" class="anchor" href="#ampersand-router-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-router
 </code></pre><a name="ampersand-router-api-reference" class="anchor" href="#ampersand-router-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-router-extend" class="anchor" href="#ampersand-router-extend"><h3><span class="header-link"></span>extend <code>AmpersandRouter.extend(properties)</code></h3></a><p>Get started by creating a custom router class. Define actions that are triggered when certain URL fragments are matched, and provide a <a href="#ampersand-router-routes">routes</a> hash that pairs routes to actions. Note that you&#39;ll want to avoid using a leading slash in your route definitions:</p>
-<pre><code class="undefinedjavascript">var AppRouter = AmpersandRouter.extend({
+<pre><code class="javascript">var AppRouter = AmpersandRouter.extend({
 
   routes: {
     &quot;help&quot;:                 &quot;help&quot;,    // #help
@@ -1350,7 +1350,7 @@ switcher.clear();
 <p>A route of <code>&quot;docs/:section(/:subsection)&quot;</code> will match #docs/faq and #docs/faq/installing, passing <code>&quot;faq&quot;</code> to the action in the first case, and passing <code>&quot;faq&quot;</code> and <code>&quot;installing&quot;</code> to the action in the second.</p>
 <p>Trailing slashes are treated as part of the URL, and (correctly) treated as a unique route when accessed. <code>docs</code> and <code>docs/</code> will fire different callbacks. If you can&#39;t avoid generating both types of URLs, you can define a <code>&quot;docs(/)&quot;</code> matcher to capture both cases.</p>
 <p>When the visitor presses the back button, or enters a URL, and a particular route is matched, the name of the action will be fired as an event, so that other objects can listen to the router, and be notified. In the following example, visiting <code>#help/uploading</code> will fire a <code>route:help</code> event from the router.</p>
-<pre><code class="undefinedjavascript">routes: {
+<pre><code class="javascript">routes: {
   &quot;help/:page&quot;:         &quot;help&quot;,
   &quot;download/*path&quot;:     &quot;download&quot;,
   &quot;folder/:name&quot;:       &quot;openFolder&quot;,
@@ -1363,7 +1363,7 @@ router.on(&quot;route:help&quot;, function(page) {
 </code></pre>
 <a name="ampersand-router-constructor-initialize" class="anchor" href="#ampersand-router-constructor-initialize"><h3><span class="header-link"></span>constructor / initialize <code>new Router([options])</code></h3></a><p>When creating a new router, you may pass its routes hash directly as an option, if you choose. All options will also be passed to your <code>initialize</code> function, if defined.</p>
 <a name="ampersand-router-route" class="anchor" href="#ampersand-router-route"><h3><span class="header-link"></span>route <code>router.route(route, name, [callback])</code></h3></a><p>Manually create a route for the router, The <code>route</code> argument may be a routing string or regular expression. Each matching capture from the route or regular expression will be passed as an argument to the callback. The <code>name</code> argument will be triggered as a <code>&quot;route:name&quot;</code> event whenever the route is matched. If the <code>callback</code> argument is omitted <code>router[name]</code> will be used instead. Routes added later may override previously declared routes.</p>
-<pre><code class="undefinedjavascript">initialize: function(options) {
+<pre><code class="javascript">initialize: function(options) {
 
   // Matches #page/10, passing &quot;10&quot;
   this.route(&quot;page/:number&quot;, &quot;page&quot;, function(number){ ... });
@@ -1376,7 +1376,7 @@ router.on(&quot;route:help&quot;, function(page) {
 open: function(id) { ... }
 </code></pre>
 <a name="ampersand-router-navigate" class="anchor" href="#ampersand-router-navigate"><h3><span class="header-link"></span>navigate <code>router.navigate(fragment, [options])</code></h3></a><p>Whenever you reach a point in your application that you&#39;d like to save as a URL, call <em>navigate</em> in order to update the URL. If you wish to also call the route function, set the <code>trigger</code> option to <code>true</code>. To update the URL without creating an entry in the browser&#39;s history, set the <code>replace</code> option to <code>true</code>.</p>
-<pre><code class="undefinedjavascript">openPage: function(pageNumber) {
+<pre><code class="javascript">openPage: function(pageNumber) {
   this.document.pages.at(pageNumber).open();
   this.navigate(&quot;page/&quot; + pageNumber);
 }
@@ -1390,7 +1390,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true});
 app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 </code></pre>
 <a name="ampersand-router-redirectto" class="anchor" href="#ampersand-router-redirectto"><h3><span class="header-link"></span>redirectTo <code>router.redirectTo(fragment)</code></h3></a><p>Sometimes you want to be able to redirect to a different route in your application without adding an entry in the browser&#39;s history. RedirectTo is just a shorthand for calling <a href="#ampersand-router-navigate">navigate</a> with both <code>trigger</code> and <code>replace</code> set to <code>true</code>.</p>
-<pre><code class="undefinedjavascript">var AppRouter = AmpersandRouter.extend({
+<pre><code class="javascript">var AppRouter = AmpersandRouter.extend({
     routes: {
         &#39;login&#39;: &#39;login&#39;,
         &#39;dashboard&#39;: &#39;dashboard&#39;
@@ -1404,7 +1404,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 });
 </code></pre>
 <a name="ampersand-router-execute" class="anchor" href="#ampersand-router-execute"><h3><span class="header-link"></span>execute <code>router.execute(callback, args)</code></h3></a><p>This method is called internally within the router, whenever a route matches and its corresponding callback is about to be executed. Override it to perform custom parsing or wrapping of your routes, for example, to parse query strings before handing them to your route callback, like so:</p>
-<pre><code class="undefinedjavascript">var Router = AmpersandRouter.extend({
+<pre><code class="javascript">var Router = AmpersandRouter.extend({
   execute: function(callback, args) {
     args.push(parseQueryString(args.pop()));
     if (callback) callback.apply(this, args);
@@ -1422,7 +1422,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 </ul>
 <p>When called, if a route succeeds with a match for the current URL, <code>router.history.start()</code> returns <code>true</code>. If no defined route matches the current URL, it returns <code>false</code>.</p>
 <p>Because hash-based history in Internet Explorer relies on an <code>&lt;iframe&gt;</code>, be sure to only call <code>start()</code> after the DOM is ready.</p>
-<pre><code class="undefinedjavascript">$(function(){
+<pre><code class="javascript">$(function(){
   new WorkspaceRouter();
   new HelpPaneRouter();
   Backbone.history.start({pushState: true});
@@ -1443,7 +1443,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 <p>The returned functions should be called with these arguments: The root element, the current value of the property, and a name for the binding types where that is relevant.</p>
 <a name="ampersand-dom-bindings-install" class="anchor" href="#ampersand-dom-bindings-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-dom-bindings
 </code></pre><a name="ampersand-dom-bindings-binding-types" class="anchor" href="#ampersand-dom-bindings-binding-types"><h2><span class="header-link"></span>Binding types</h2></a><a name="ampersand-dom-bindings-text" class="anchor" href="#ampersand-dom-bindings-text"><h3><span class="header-link"></span>text</h3></a><p>sets/maintains <code>textContent</code> of selected element. treats <code>undefined</code>, <code>null</code>, and <code>NaN</code> as <code>&#39;&#39;</code></p>
-<pre><code class="undefinedjs">&#39;model.key&#39;: {
+<pre><code class="javascript">&#39;model.key&#39;: {
     type: &#39;text&#39;,
     selector: &#39;.someSelector&#39; // or role
 }
@@ -1453,20 +1453,20 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 <li>handles removing previous class if there was one</li>
 <li>treats <code>undefined</code>, <code>null</code>, and <code>NaN</code> as <code>&#39;&#39;</code> (empty string).</li>
 </ul>
-<pre><code class="undefinedjs">&#39;model.key&#39;: {
+<pre><code class="javascript">&#39;model.key&#39;: {
     type: &#39;class&#39;,
     selector: // or role
 }
 </code></pre>
 <a name="ampersand-dom-bindings-attribute" class="anchor" href="#ampersand-dom-bindings-attribute"><h3><span class="header-link"></span>attribute</h3></a><p>sets the whole attribute to match value of property. treats <code>undefined</code>, <code>null</code>, and <code>NaN</code> as <code>&#39;&#39;</code> (empty string).</p>
-<pre><code class="undefinedjs">&#39;model.key&#39;: {
+<pre><code class="javascript">&#39;model.key&#39;: {
     type: &#39;attribute&#39;,
     selector: &#39;#something&#39;, // or role
     name: &#39;width&#39;
 }
 </code></pre>
 <a name="ampersand-dom-bindings-booleanclass" class="anchor" href="#ampersand-dom-bindings-booleanclass"><h3><span class="header-link"></span>booleanClass</h3></a><p>add/removes class based on boolean interpretation of property name.</p>
-<pre><code class="undefinedjs">&#39;model.active&#39;: {
+<pre><code class="javascript">&#39;model.active&#39;: {
     type: &#39;booleanClass&#39;,
     selector: &#39;#something&#39;, // or role
     // to specify name of class to toggle (if different than key name)
@@ -1478,14 +1478,14 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 }
 </code></pre>
 <a name="ampersand-dom-bindings-booleanattribute" class="anchor" href="#ampersand-dom-bindings-booleanattribute"><h3><span class="header-link"></span>booleanAttribute</h3></a><p>toggles whole attribute on the element (think <code>checked</code>) based on boolean interpretation of property name.</p>
-<pre><code class="undefinedjs">&#39;model.isAwesome&#39;: {
+<pre><code class="javascript">&#39;model.isAwesome&#39;: {
     type: &#39;booleanAttribute&#39;,
     selector: &#39;#something&#39;, // or role
     name: &#39;checked&#39;
 }
 </code></pre>
 <a name="ampersand-dom-bindings-toggle" class="anchor" href="#ampersand-dom-bindings-toggle"><h3><span class="header-link"></span>toggle</h3></a><p>toggles existance of entire element (uses a comment node as placeholder if gone) based on boolean interpretation of property name.</p>
-<pre><code class="undefinedjs">// simple show/hide of single element
+<pre><code class="javascript">// simple show/hide of single element
 &#39;model.key&#39;: {
     type: &#39;toggle&#39;,
     selector: &#39;#something&#39; // or role
@@ -1499,7 +1499,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 }
 </code></pre>
 <a name="ampersand-dom-bindings-switch" class="anchor" href="#ampersand-dom-bindings-switch"><h3><span class="header-link"></span>switch</h3></a><p>Toggles existance of multiple items based on value of property.</p>
-<pre><code class="undefinedjs">&#39;model.activetab&#39;: {
+<pre><code class="javascript">&#39;model.activetab&#39;: {
     type: &#39;switch&#39;,
     cases: {
         &#39;edit&#39;: &#39;#edit_tab&#39;,
@@ -1509,13 +1509,13 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 }
 </code></pre>
 <a name="ampersand-dom-bindings-innerhtml" class="anchor" href="#ampersand-dom-bindings-innerhtml"><h3><span class="header-link"></span>innerHTML</h3></a><p>renders innerHTML, can be a string or DOM, based on property value of model</p>
-<pre><code class="undefinedjs">&#39;model.key&#39;: {
+<pre><code class="javascript">&#39;model.key&#39;: {
     type: &#39;innerHTML&#39;,
     selector: &#39;#something&#39; // or role
 }
 </code></pre>
 <a name="ampersand-dom-bindings-handling-multiple-bindings-for-a-given-key" class="anchor" href="#ampersand-dom-bindings-handling-multiple-bindings-for-a-given-key"><h2><span class="header-link"></span>Handling multiple bindings for a given key</h2></a><p>If given an array, then treat each contained item as separate binding</p>
-<pre><code class="undefinedjs">&#39;model.key&#39;: [
+<pre><code class="javascript">&#39;model.key&#39;: [
     {
         type: &#39;booleanClass&#39;,
         selector: &#39;#something&#39;, // or role
@@ -1530,7 +1530,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 </code></pre>
 <a name="ampersand-dom-bindings-binding-using-attribute" class="anchor" href="#ampersand-dom-bindings-binding-using-attribute"><h2><span class="header-link"></span>binding using <code>role</code> attribute</h2></a><p>We&#39;ve started using this convention a lot, rather than using classes and IDs in JS to select elements within a view, we use the <code>role</code> attribute. This lets designers edit templates without fear of breaking something by changing a class. It works wonderfully, but the only thing that sucks about that is the syntax of attribute selectors: <code>[role=some-role]</code> is a bit annoying to type a million types, and also in JS-land when coding and we see <code>[</code> we always assume arrays.</p>
 <p>I&#39;m proposing that for each of these bindings you can either use <code>selector</code> or <code>role</code>, so these two would be equivalent:</p>
-<pre><code class="undefinedjs">&#39;model.key&#39;: {
+<pre><code class="javascript">&#39;model.key&#39;: {
     selector: &#39;[role=my-element]&#39;
 }
 
@@ -1538,14 +1538,14 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
     role: &#39;my-element&#39;
 }
 </code></pre>
-<a name="ampersand-dom-bindings-handling-simplest-cases-text" class="anchor" href="#ampersand-dom-bindings-handling-simplest-cases-text"><h2><span class="header-link"></span>handling simplest cases: text</h2></a><pre><code class="undefinedjs">&#39;model.key&#39;: &#39;#something&#39; // creates `text` binding for that selector and property
+<a name="ampersand-dom-bindings-handling-simplest-cases-text" class="anchor" href="#ampersand-dom-bindings-handling-simplest-cases-text"><h2><span class="header-link"></span>handling simplest cases: text</h2></a><pre><code class="javascript">&#39;model.key&#39;: &#39;#something&#39; // creates `text` binding for that selector and property
 
 // `type` defaults to `text` so we can also do
 &#39;model.key&#39;: {
     role: &#39;role-name&#39;
 }
 </code></pre>
-<a name="ampersand-dom-bindings-real-life-example" class="anchor" href="#ampersand-dom-bindings-real-life-example"><h2><span class="header-link"></span>real life example</h2></a><pre><code class="undefinedjs">var View = require(&#39;ampersand-view&#39;);
+<a name="ampersand-dom-bindings-real-life-example" class="anchor" href="#ampersand-dom-bindings-real-life-example"><h2><span class="header-link"></span>real life example</h2></a><pre><code class="javascript">var View = require(&#39;ampersand-view&#39;);
 var templates = require(&#39;../templates&#39;);
 
 
@@ -1565,7 +1565,7 @@ module.exports = View.extend({
 </code></pre>
 <a name="ampersand-dom-bindings-other-benefits" class="anchor" href="#ampersand-dom-bindings-other-benefits"><h2><span class="header-link"></span>other benefits</h2></a><p>Previously after having given views the ability to have their own properties (since view inherits from state) it was awkward to bind those to the DOM. Also, for binding things that were not just <code>this.model</code> the syntax had to change. </p>
 <p>Now this is fairly simple/obvious:</p>
-<pre><code class="undefinedjs">module.exports = View.extend({
+<pre><code class="javascript">module.exports = View.extend({
     template: templates.includes.app,
     props: {
         activetab: &#39;string&#39;,
@@ -1609,11 +1609,9 @@ module.exports = View.extend({
     </script>
     <script src="/public/js/highlight.pack.js"></script>
     <script>
-      // init code highlighting
-      Array.prototype.forEach.call(document.querySelectorAll('pre'), function (pre) {
-        var codeEl = pre.firstChild;
-        codeEl.innerHTML = hljs.highlightAuto(codeEl.innerText, ['javascript']).value;
-      });
+      hljs.configure({classPrefix: ''});
+      hljs.initHighlightingOnLoad();
+      
     </script>
   </body>
 </html>
