@@ -798,7 +798,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v6.0.6</p>
+            <p class="module-version">latest v6.0.7</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -1113,7 +1113,7 @@ var MainView = AmpersandView.extend({
 <li>append it to the container</li>
 <li>return the subview</li>
 </ol>
-<pre><code class="undefinedjs">var view = AmpersandView.extend({
+<pre><code class="undefinedjavascript">var view = AmpersandView.extend({
     template: &#39;&lt;li&gt;&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;/li&gt;&#39;,
     render: function () {
         this.renderWithTemplate();
@@ -1133,7 +1133,7 @@ var MainView = AmpersandView.extend({
 <a name="ampersand-view-subviews" class="anchor" href="#ampersand-view-subviews"><h3><span class="header-link"></span>subviews <code>view.subviews</code></h3></a><p>You can declare subviews that you want to render within a view, much like you would bindings. Useful for cases where the data you need for a subview may not be available on first render. Also, simplifies cases wehre you have lots of subviews.</p>
 <p>When the parent view is removed the <code>remove</code> method of all subviews will be called as well. </p>
 <p>You declare them as follows:</p>
-<pre><code class="undefinedjs">var AmpersandView = require(&#39;ampersand-view&#39;);
+<pre><code class="undefinedjavascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 var CollectionRenderer = require(&#39;ampersand-collection-view&#39;);
 var ViewSwitcher = require(&#39;ampersand-view-switcher&#39;);
 
