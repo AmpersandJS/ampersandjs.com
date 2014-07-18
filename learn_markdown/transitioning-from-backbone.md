@@ -84,5 +84,5 @@ model.name;
 
 Backbone views are pretty sparse, by design. But data binding is something you're going to have to solve if you don't want to re-render the whole view, or if you ever want to do individual bindings.
 
-Ampersand handles this with declarative bindings and subviews. You can read more about that in the [view guide](/learn/fetching-data-for-views/).
+Ampersand handles this with declarative bindings and subviews. You can read more about that in the [view guide](/learn/data-bindings-in-views/).
 
