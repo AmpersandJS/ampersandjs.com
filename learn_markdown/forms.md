@@ -146,7 +146,6 @@ module.exports = PageView.extend({
                 console.log(data); 
             }
         });
-
     }
 });
 
@@ -167,5 +166,5 @@ There's an example of a working form-view inside the app that gets generated whe
 - [form-view](https://github.com/ampersandjs/ampersand-form-view) - The view for wrapping field views
 - [ampersand-input-view](https://github.com/ampersandjs/ampersand-input-view) - Produces a text value, allows you to pass an array of validation tests it must pass, renders error messages. Everything is configurable. Can also render a textarea.
 - [ampersand-select-view](https://github.com/AmpersandJS/ampersand-select-view) - Produces a select input, can take a collection or array as values.
-- [ampersand-array-input-view](https://github.com/AmpersandJS/ampersand-array-input-view) - Produces an array value by specifying a number of required answers. Renders `<input>`s for each, and generates controls for adding/removing the unneedd fields.
+- [ampersand-array-input-view](https://github.com/AmpersandJS/ampersand-array-input-view) - Produces an array value by specifying a number of required answers. Renders `<input>`s for each, and generates controls for adding/removing the unneeded fields.
 - [ampersand-checkbox-view](https://github.com/AmpersandJS/ampersand-checkbox-view) - Produces a boolean value.
