@@ -20,10 +20,10 @@
         <section><a name="data-and-bindings-in-views" class="anchor" href="#data-and-bindings-in-views"><h1><span class="header-link"></span>Data and bindings in views</h1></a><p>Also, a common question we hear from devs building backbone apps is what a good pattern is for fetching and rendering a single model from a collection for a &quot;detail&quot; page.</p>
 <p>We may want to render the page and get pixels on the screen as soon as possible, but what happens when we don&#39;t have all our data yet. Somehow we have to coordinate this, so that the view is updated as relevant data arrives or properties change.</p>
 <p>Ampersand-view handles this with declarative bindings. The binding declarations are <em>completely</em> decoupled from the data models.</p>
-<p>In the same way you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data. </p>
+<p>In the same way you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data.</p>
 <p>This gives you complete flexibility over when you render what.</p>
-<p>You can most certainly use whatever template language you want with ampersand-views, but the nice things is <strong>no template engine is actually necessary in order to get bindings</strong>! </p>
-<p>Your can simply have an HTML string as your <code>template</code> property and declare your bindings and everything Just Works™.</p>
+<p>You can most certainly use whatever template language you want with ampersand-views, but the nice things is <strong>no template engine is actually necessary in order to get bindings</strong>!</p>
+<p>You can simply have an HTML string as your <code>template</code> property and declare your bindings and everything Just Works™.</p>
 <a name="example" class="anchor" href="#example"><h3><span class="header-link"></span>Example</h3></a><p>Here&#39;s an example view pulled from a real app.</p>
 <pre><code class="undefinedjs">var View = require(&#39;ampersand-view&#39;);
 var templates = require(&#39;../templates&#39;);
@@ -60,7 +60,7 @@ module.exports = View.extend({
 </code></pre>
 <p>The nice thing about this approach is, it doesn&#39;t matter if you swap out the <code>model</code> or if you don&#39;t have a <code>model</code> yet. It will still just work.</p>
 <p>This works because ampersand-view also inherits from <a href="http://ampersandjs.com/docs#ampersand-state">ampersand-state</a> and so its <code>model</code> and <code>el</code> properties are evented properties tracked by ampersand-state.</p>
-<a name="subviews" class="anchor" href="#subviews"><h3><span class="header-link"></span>Subviews</h3></a><p>Ampersand-view also has the concept of subviews. Which you can render within a parent view and it will get gracefully removed when the parent is. This makes it easier to split up your views into smaller more reusable pieces. </p>
+<a name="subviews" class="anchor" href="#subviews"><h3><span class="header-link"></span>Subviews</h3></a><p>Ampersand-view also has the concept of subviews. Which you can render within a parent view and it will get gracefully removed when the parent is. This makes it easier to split up your views into smaller more reusable pieces.</p>
 <p>Many internal tools like all the <a href="http://ampersandjs.com/learn/forms">ampersand form tools</a> are meant to work well as subviews. And again, anything can be subview as long as it follows the <a href="http://ampersandjs.com/learn/view-conventions">ampersand view conventions</a> ultimate flexibility and composability, FTW! :)</p>
 <p>You can read more about subviews in the <a href="http://ampersandjs.com/docs#ampersand-view">ampersand-view documentation</a>.</p>
 </section>
