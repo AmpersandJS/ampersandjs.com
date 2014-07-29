@@ -9,7 +9,7 @@ HTML_SOURCE_FILES := $(shell find . -not -name "*.css" -not -name "*.html" -not 
 
 
 # Tasks
-.PHONY: update-contributors dist
+.PHONY: update-contributors dist index.html
 
 all: build
 
