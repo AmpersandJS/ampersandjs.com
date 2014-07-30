@@ -4,7 +4,7 @@ This generates the static site that lives here: http://ampersandjs.com/
 
 ## How it works
 
-The dynamic portions of the site are pulled down from The Internet™. 
+The dynamic portions of the site are pulled down from The Internet™.
 
 Specifically, we use [module-details](https://github.com/HenrikJoreteg/module-details) to fetch and parse complete info about a module from the npm registry.
 
@@ -39,7 +39,7 @@ As of this writing the relevant portion looks like this:
   ...
 ```
 
-The core and form modules are all fetched and dates compared to figure out which are in fact, the most "recent" for use in the home page "recently released" seciton. 
+The core and form modules are all fetched and dates compared to figure out which are in fact, the most "recent" for use in the home page "recently released" section.
 
 The featured modules are grabbed and rendered in order listed in the "featuredModules" section.
 
@@ -58,7 +58,7 @@ This text will not show up in generated docs
 <!-- endhide -->
 ```
 
-It's then converted to HTML and rendered using the jade templates. 
+It's then converted to HTML and rendered using the jade templates.
 
 Perhaps a bit convoluted, but works well enough.
 
@@ -66,7 +66,7 @@ Perhaps a bit convoluted, but works well enough.
 
 These are all in markdown in the `learn_markdown` directory. There's a bit of metadata at the top.
 
-This is the page title (used to generate what the nav calls it) and an `order` value that will be used to sort them all. 
+This is the page title (used to generate what the nav calls it) and an `order` value that will be used to sort them all.
 
 These don't have to be sequential and nothing will blow up if there are two that are the same or whatnot, they're simply run through a sorter that uses that value to attempt to sort them.
 
@@ -93,7 +93,7 @@ npm i -g http-server
 There's a quick and dirty `-w` option that will rebuild if anything changes:
 
 ```
-npm run build -w 
+npm run build -w
 ```
 
 So you can have that in one terminal tab, and just run `http-server` in the root project directory in another tab and you're up and running.

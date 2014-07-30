@@ -11,13 +11,13 @@ We may want to render the page and get pixels on the screen as soon as possible,
 
 Ampersand-view handles this with declarative bindings. The binding declarations are *completely* decoupled from the data models.
 
-In the same way you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data. 
+In the same way you declare a hash of events to listen to from the DOM, ampersand-view lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data.
 
 This gives you complete flexibility over when you render what.
 
-You can most certainly use whatever template language you want with ampersand-views, but the nice things is **no template engine is actually necessary in order to get bindings**! 
+You can most certainly use whatever template language you want with ampersand-views, but the nice things is **no template engine is actually necessary in order to get bindings**!
 
-Your can simply have an HTML string as your `template` property and declare your bindings and everything Just Works™.
+You can simply have an HTML string as your `template` property and declare your bindings and everything Just Works™.
 
 ### Example
 
@@ -65,7 +65,7 @@ This works because ampersand-view also inherits from [ampersand-state](http://am
 
 ### Subviews
 
-Ampersand-view also has the concept of subviews. Which you can render within a parent view and it will get gracefully removed when the parent is. This makes it easier to split up your views into smaller more reusable pieces. 
+Ampersand-view also has the concept of subviews. Which you can render within a parent view and it will get gracefully removed when the parent is. This makes it easier to split up your views into smaller more reusable pieces.
 
 Many internal tools like all the [ampersand form tools](http://ampersandjs.com/learn/forms) are meant to work well as subviews. And again, anything can be subview as long as it follows the [ampersand view conventions](http://ampersandjs.com/learn/view-conventions) ultimate flexibility and composability, FTW! :)
 

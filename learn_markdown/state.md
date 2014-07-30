@@ -9,7 +9,7 @@ So much of application development is managing relationship between object prope
 
 This is especially true when building user interfaces.
 
-Stringing together a spaghetti bowl of `if` statements is a painful way to build a state machine that handles this. 
+Stringing together a spaghetti bowl of `if` statements is a painful way to build a state machine that handles this.
 
 Often times it'd be easier if we could just declare: "this thing is dependent on these two other things" and from those two other values calculate a value.
 
@@ -43,7 +43,7 @@ var person = new Person({name: 'henrik'});
 
 // watch it
 person.on('change:isDancing', function () {
-    console.log('shake it!'); 
+    console.log('shake it!');
 });
 
 // set the value and the callback will fire
@@ -97,7 +97,7 @@ element.on('change:dragged', function (model, val) {
 
 Derived properties aren't a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, the fact that they can be accessed without calling a method keeps things clean. For example, using the draggable example above, the derived property is just `element.dragged`.
 
-Note that these can be read but not set directly (trying to set a value of a derived property throws an error). 
+Note that these can be read but not set directly (trying to set a value of a derived property throws an error).
 
 
 ## Handling relationships between objects/models with derived properties
@@ -116,7 +116,7 @@ var UserModel = State.extend({
         groupModel: {
             deps: ['groupId'],
             fn: function () {
-                // we access our group collection from within 
+                // we access our group collection from within
                 // the derived property to grab the right group model.
                 return ourGroupCollection.get(this.groupId);
             }
@@ -142,15 +142,17 @@ user.on('change:groupModel', function (model, newGroupModel) {
 
 So, say you have a more "expensive" computation for model. Say you're parsing a long string for URLs and turning them into HTML and then wanting to reference that later. Again, this is built in.
 
-By default, derived properties are cached. 
+By default, derived properties are cached.
 
 ```js
 // assume this linkifies strings
 var linkify = require('urlify');
 
 var MySmartDescriptionModel = State.extend({
-    // assume this is a long string of text
-    description: 'string',
+    props: {
+      // assume this is a long string of text
+      description: 'string',
+    },
     derived: {
         linkified: {
             deps: ['description'],
@@ -165,7 +167,7 @@ var myDescription = new MySmartDescriptionModel({
     description: "Some text with a link. http://twitter.com/henrikjoreteg"
 });
 
-// Now i can just reference this as many times as I want but it 
+// Now i can just reference this as many times as I want but it
 // will never run it through the expensive function again.
 
 myDescription.linkified;
@@ -177,7 +179,7 @@ With the model above, the description will only be run through that linkifier me
 
 ## Derived properties are intelligently triggered
 
-Just because an underlying property has changed, *doesn't mean the derived property has*. 
+Just because an underlying property has changed, *doesn't mean the derived property has*.
 
 Cached derived properties will *only* trigger a `change` if the resulting calculated value has changed.
 
@@ -212,7 +214,7 @@ var increment = function () {
 setInterval(increment, 50);
 
 data.on('change:thousandTweets', function () {
-    // will only get called every time is passes another 
+    // will only get called every time is passes another
     // thousand tweets.
 });
 
@@ -291,7 +293,7 @@ var Person = State.extend({
     }
 });
 
-// When we instantiate an instance of a Person 
+// When we instantiate an instance of a Person
 // the Messages collection and ProfileModels
 // are instantiated as well
 
@@ -313,7 +315,7 @@ var otherPerson = new Person({
         {from: 'someoneElse', message: 'yo!'},
     ],
     profile: {
-        name: 'Joe', 
+        name: 'Joe',
         hairColor: 'black'
     }
 });
@@ -325,13 +327,13 @@ otherPerson.messages.length === 2; // true
 // populated
 otherPerson.profile.name === 'Joe'; // true
 
-// The same works for `set`, it will apply it 
-// to children as well. 
+// The same works for `set`, it will apply it
+// to children as well.
 otherPerson.set({profile: {name: 'Mary'}});
 
-// Since this a state object it triggers a `change:name` on 
-// the `profile` object. 
-// In addition, since it's a child that event propagates 
+// Since this a state object it triggers a `change:name` on
+// the `profile` object.
+// In addition, since it's a child that event propagates
 // up. More on that below.
 ```
 
@@ -339,9 +341,9 @@ otherPerson.set({profile: {name: 'Mary'}});
 
 Say you want a simple way to listen for any changes that are represented in a template.
 
-Let's say you've got a `person` state object with a `profile` child. You want an easy way to listen for changes to either the base `person` object or the `profile`. In fact, you want to listen to anything related to the person object. 
+Let's say you've got a `person` state object with a `profile` child. You want an easy way to listen for changes to either the base `person` object or the `profile`. In fact, you want to listen to anything related to the person object.
 
-Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain. 
+Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain.
 
 Now we can listen for deeply nested changes to properties.
 
@@ -379,6 +381,6 @@ me.profile.name = 'henrik';
 
 ## A quick note about instanceof checks
 
-With npm and browserify for module deps you can sometimes end up with a situation where, the same `state` constructor wasn't used to build a `state` object. As a result `instanceof` checks will fail. 
+With npm and browserify for module deps you can sometimes end up with a situation where, the same `state` constructor wasn't used to build a `state` object. As a result `instanceof` checks will fail.
 
-In order to deal with this (because sometimes this is a legitimate scenario), `state` simply creates a read-only `isState` property on all state objects that can be used to check 
+In order to deal with this (because sometimes this is a legitimate scenario), `state` simply creates a read-only `isState` property on all state objects that can be used to check
