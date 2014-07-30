@@ -152,7 +152,7 @@ var MySmartDescriptionModel = State.extend({
     props: {
       // assume this is a long string of text
       description: 'string',
-    }
+    },
     derived: {
         linkified: {
             deps: ['description'],
