@@ -2,6 +2,8 @@
 
 This generates the static site that lives here: http://ampersandjs.com/
 
+![](http://badger.andyet.com/autodeploy/ampersandjs.com)
+
 ## How it works
 
 The dynamic portions of the site are pulled down from The Internet™.
