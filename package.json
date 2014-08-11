@@ -82,5 +82,8 @@
     "ampersand-checkbox-view",
     "ampersand-array-input-view",
     "ampersand-select-view"
+  ],
+  "excludedOrgModules": [
+    "ubersicht"
   ]
 }
