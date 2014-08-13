@@ -32,7 +32,7 @@
     template: function (context) {
         var html = [
             &#39;&lt;li&gt;&#39;,
-            &#39;  &lt;span role=&quot;name&quot;&gt;&#39; + context.model.name + &#39;&lt;/span&gt;&#39;
+            &#39;  &lt;span role=&quot;name&quot;&gt;&#39; + context.model.name + &#39;&lt;/span&gt;&#39;,
             &#39;&lt;/li&gt;&#39;
         ].join(&#39;\n&#39;);
 
@@ -136,7 +136,7 @@ var HomePageView = AmpersandView.extend({
 });
 </code></pre>
 <p>Then if you run browserify with the transform:</p>
-<pre><code>browserify -t jadeify app.js -o bundle.js`
+<pre><code>browserify -t jadeify app.js -o bundle.js
 </code></pre><p>The template will get precompiled and inlined into your JavaScript bundle. This is a nice way to do it, because a) your templates will always be up to date, you can&#39;t forget to run the template precompilation script, and b) it will only require the templates that you have actually <code>require()</code>&#39;d from your JavaScript files, rather than all the templates in the templates directory, which you may only actually be using some of.</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
