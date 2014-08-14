@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
     <link rel="stylesheet" href="/public/css/normalize.min.css">
     <link rel="stylesheet" href="/public/css/main.css">
+    <script>
+      !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+      arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+      d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+      insertBefore(d,q)}(window,document,'script','_gs');
+      _gs('GSN-375569-B', false);
+      _gs('set', 'cookieDomain', '.humanjavascript.com');
+      _gs('track');
+    </script>
   </head>
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item active">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
@@ -524,7 +533,7 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
             <h1><span class="header-link"></span>ampersand-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-collection</h4>
-            <p class="module-version">latest v1.3.11</p>
+            <p class="module-version">latest v1.3.13</p>
             <p class="module-description">A way to store/manage objects or models.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-collection">github</a><a href="https://www.npmjs.org/package/ampersand-collection">npm</a></p>
           </div>
@@ -540,6 +549,7 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
 });
 </code></pre>
 <p>A collection can also contain polymorphic models by overriding this property with a function that returns a model.</p>
+<p><em>Please note</em> that if you do this, you&#39;ll also want to overwrite <code>isModel</code> method with your own so you can describe the logic that should be used to determine whether an object is already an instantiated model or not.</p>
 <pre><code class="javascript">var Library = AmpersandCollection.extend({
 
   model: function(attrs, options) {
@@ -548,6 +558,10 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
     } else {
       return new PrivateDocument(attrs, options);
     }
+  },
+
+  isModel: function (model) {
+    return model instanceof PublicDocument || model instanceof PrivateDocument;
   }
 
 });
@@ -1504,7 +1518,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
             <h1><span class="header-link"></span>ampersand-dom-bindings</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-dom-bindings</h4>
-            <p class="module-version">latest v2.3.2</p>
+            <p class="module-version">latest v2.4.0</p>
             <p class="module-description">Takes binding declarations and returns key-tree-store of functions that can be used to apply those bindings.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-dom-bindings">github</a><a href="https://www.npmjs.org/package/ampersand-dom-bindings">npm</a></p>
           </div>
@@ -1528,7 +1542,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
     selector: // or role
 }
 </code></pre>
-<a name="ampersand-dom-bindings-attribute" class="anchor" href="#ampersand-dom-bindings-attribute"><h3><span class="header-link"></span>attribute</h3></a><p>sets the whole attribute to match value of property. treats <code>undefined</code>, <code>null</code>, and <code>NaN</code> as <code>&#39;&#39;</code> (empty string).</p>
+<a name="ampersand-dom-bindings-attribute" class="anchor" href="#ampersand-dom-bindings-attribute"><h3><span class="header-link"></span>attribute</h3></a><p>sets the whole attribute to match value of property. treats <code>undefined</code>, <code>null</code>, and <code>NaN</code> as <code>&#39;&#39;</code> (empty string). <code>name</code> can also be an array to set multiple attributes to the same value.</p>
 <pre><code class="javascript">&#39;model.key&#39;: {
     type: &#39;attribute&#39;,
     selector: &#39;#something&#39;, // or role
@@ -1541,7 +1555,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
     selector: &#39;#something&#39;, // or role
 }
 </code></pre>
-<a name="ampersand-dom-bindings-booleanclass" class="anchor" href="#ampersand-dom-bindings-booleanclass"><h3><span class="header-link"></span>booleanClass</h3></a><p>add/removes class based on boolean interpretation of property name.</p>
+<a name="ampersand-dom-bindings-booleanclass" class="anchor" href="#ampersand-dom-bindings-booleanclass"><h3><span class="header-link"></span>booleanClass</h3></a><p>add/removes class based on boolean interpretation of property name. <code>name</code>, <code>yes</code>, or <code>no</code> can also be an array of class names where all the values will be toggled.</p>
 <pre><code class="javascript">&#39;model.active&#39;: {
     type: &#39;booleanClass&#39;,
     selector: &#39;#something&#39;, // or role
@@ -1553,7 +1567,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
     no: &#39;not-active&#39;
 }
 </code></pre>
-<a name="ampersand-dom-bindings-booleanattribute" class="anchor" href="#ampersand-dom-bindings-booleanattribute"><h3><span class="header-link"></span>booleanAttribute</h3></a><p>toggles whole attribute on the element (think <code>checked</code>) based on boolean interpretation of property name.</p>
+<a name="ampersand-dom-bindings-booleanattribute" class="anchor" href="#ampersand-dom-bindings-booleanattribute"><h3><span class="header-link"></span>booleanAttribute</h3></a><p>toggles whole attribute on the element (think <code>checked</code>) based on boolean interpretation of property name. <code>name</code> can also be an array of attribute names where all the values will be toggled.</p>
 <pre><code class="javascript">&#39;model.isAwesome&#39;: {
     type: &#39;booleanAttribute&#39;,
     selector: &#39;#something&#39;, // or role
@@ -1603,6 +1617,15 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
         name: &#39;width&#39;
     }
 ]
+</code></pre>
+<p>The <code>attribute</code>, <code>booleanAttribute</code> and <code>booleanClass</code> types also accept an array for the <code>name</code> property (and <code>yes</code>/<code>no</code> for <code>booleanClass</code>). All the values in the array will be set the same as if each were bound separately.</p>
+<pre><code class="javascript">&#39;model.key&#39;: {
+    // Also works with booleanAttribute and booleanClass
+    type: &#39;attribute&#39;,
+    selector: &#39;#avatar&#39;,
+    // Both height and width will be bound to model.key
+    name: [&#39;height&#39;, &#39;width&#39;]
+}
 </code></pre>
 <a name="ampersand-dom-bindings-binding-using-attribute" class="anchor" href="#ampersand-dom-bindings-binding-using-attribute"><h2><span class="header-link"></span>binding using <code>role</code> attribute</h2></a><p>We&#39;ve started using this convention a lot, rather than using classes and IDs in JS to select elements within a view, we use the <code>role</code> attribute. This lets designers edit templates without fear of breaking something by changing a class. It works wonderfully, but the only thing that sucks about that is the syntax of attribute selectors: <code>[role=some-role]</code> is a bit annoying to type a million types, and also in JS-land when coding and we see <code>[</code> we always assume arrays.</p>
 <p>I&#39;m proposing that for each of these bindings you can either use <code>selector</code> or <code>role</code>, so these two would be equivalent:</p>
