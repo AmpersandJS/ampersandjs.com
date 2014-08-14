@@ -67,7 +67,7 @@ Using it from another file
 `client/some-other-file.js`
 
 ```js
-var MyModel = require('./models/model');
+var MyModel = require('./models/my-model');
 
 
 var model = new MyModel();
