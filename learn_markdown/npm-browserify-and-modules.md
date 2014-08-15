@@ -29,7 +29,7 @@ Put together the flow of creating a very simple web application with these tools
 * `npm install underscore --save` - install a dependency you want to use in your application
 * create a module in your application, say `square-numbers.js`
 
-    ```javascript
+    ```js
     // ./my-project/square-numbers.js
     // Squares a list of numbers
 
@@ -46,7 +46,7 @@ Put together the flow of creating a very simple web application with these tools
 
 * create the main app.js file for your application, which requires your module
 
-    ```javascript
+    ```js
     // ./my-project/app.js
     console.log('Welcome to my application')
 
@@ -141,7 +141,7 @@ All npm modules that you install will use the commonjs module specification. You
 
 A commonjs module is simply a file with some javascript in it. It might look something like this:
 
-```javascript
+```js
 //A simple function as a module
 var something = require('some-dependency');
 
@@ -151,7 +151,7 @@ function doSomethingSweet (input) {
 module.exports = doSomethingSweet;
 ```
 
-```javascript
+```js
 //A module which exports a constructor
 var AmpersandModel = require('ampersand-model');
 var MyClass = AmpersandModel.extend({
@@ -163,7 +163,7 @@ module.exports = MyClass;
 
 or like this:
 
-```javascript
+```js
 //A hypothetical underscore like module
 module.exports.map = function (list, fn) { ... }
 module.exports.filter = function (list, fn) { ... }
@@ -180,7 +180,7 @@ A few things to note about the examples:
 
 Requiring modules is easy. From a file, just use require, like so:
 
-```javascript
+```js
 //require a module from npm, by specifying it's module name
 var _ = require('underscore');
 _.each([1,2,3], function () { /*...*/ });

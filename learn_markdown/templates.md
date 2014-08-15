@@ -11,7 +11,7 @@ Templates and templating engines help you generate html that can be used by your
 
 The simplest possible "template" in a view is just a string containing html:
 
-```javascript
+```js
 var ListItem = AmpersandView.extend({
     template: '<li><span role="name"></span><li>'
 });
@@ -27,7 +27,7 @@ To make it easier to write larger and more complex templates, AmpersandViews all
 
 Here is an example:
 
-```javascript
+```js
 var ListItem = AmpersandView.extend({
 
     template: function (context) {
@@ -101,7 +101,7 @@ div.entry
 
 might compile down to something like the following JavaScript:
 
-```javascript
+```js
 var myTemplate = function (context) {
     var template = '';
     template += '<div>';
@@ -140,7 +140,7 @@ templates
 
 and using the command line tool like so: `templatizer -d ./templates -o templates.js` compiles it down into a single file, typically `templates.js`, that will look something like this:
 
-```javascript
+```js
 module.exports.comment = function (context) { /* ...template code... */ }
 module.exports.comments = function (context) { /* ...template code... */ }
 module.exports.myProfile = function (context) { /* ...template code... */ }
@@ -152,7 +152,7 @@ module.exports.pages.profile = function (context) { /* ...template code... */ }
 
 You can then require this single file with browserify, and access the functions on it, e.g:
 
-```javascript
+```js
 var templates = require('../path/to/templates.js')
 
 var ProfileView = AmpersandView.extend({
@@ -172,7 +172,7 @@ Another way to precompile your templates is with browserify transforms. For exam
 
 With jadeify you can `require` the template file directly from your view file, and it will be precompiled by jadeify as part of the browserify build, for example:
 
-```javascript
+```js
 var ProfileView = AmpersandView.extend({
     template: require('../path/to/templates/myProfile.jade')
 });
