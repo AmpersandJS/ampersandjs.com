@@ -189,7 +189,7 @@ _.each([1,2,3], function () { /*...*/ });
 var MyView = require('./views/my-view');
 var view = new MyView( /*...*/ );
 
-//You can even require json files
+//You can even require JSON files
 var package = require('./package.json');
 console.log(package.version);
 ```
