@@ -52,7 +52,7 @@ Updating featured, just requires picking 3 modules, they will be shown in the or
 
 ## The "docs" pages
 
-These are built entirely from README.md files of the listed projects. They're run through a filter that removes hidden sections (such as "browser support" and "license"), and we also remove anything in between html comments in README's that look like this:
+These are built entirely from README.md files of the listed projects. They're run through a filter that removes hidden sections (such as "browser support" and "license"), and we also remove anything in between HTML comments in README's that look like this:
 
 ```html
 <!-- starthide -->

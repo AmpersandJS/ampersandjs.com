@@ -5,11 +5,11 @@ order: 5
 
 # Creating and compiling templates
 
-Templates and templating engines help you generate html that can be used by your views when they are being rendered.
+Templates and templating engines help you generate HTML that can be used by your views when they are being rendered.
 
 ## Templates as Strings
 
-The simplest possible "template" in a view is just a string containing html:
+The simplest possible "template" in a view is just a string containing HTML:
 
 ```js
 var ListItem = AmpersandView.extend({
@@ -17,13 +17,13 @@ var ListItem = AmpersandView.extend({
 });
 ```
 
-Then, when you call render on your view, this string is converted into actual html elements, and the root node (in this example the `<li>` tag) is set as your view's `el`.
+Then, when you call render on your view, this string is converted into actual HTML elements, and the root node (in this example the `<li>` tag) is set as your view's `el`.
 
 For very simple views, strings are fine, but for larger templates, they can get unwieldy (particularly since JavaScript makes it hard to write multi-line strings) and sometimes you want to programmatically insert values into the template, perhaps from your model.
 
 ## Templates as Functions
 
-To make it easier to write larger and more complex templates, AmpersandViews allow you to define the template as a function instead of as a string. This function will receive a context (typically the model and/or collection of the view) which it can use to get values to insert into the template, and calling the function should either return a string representing the html, or actual dom nodes.
+To make it easier to write larger and more complex templates, AmpersandViews allow you to define the template as a function instead of as a string. This function will receive a context (typically the model and/or collection of the view) which it can use to get values to insert into the template, and calling the function should either return a string representing the HTML, or actual dom nodes.
 
 Here is an example:
 
@@ -47,7 +47,7 @@ This may be better, but writing templates like this still has a number of signif
 * **It's annoying:** JavaScript doesn't support multi-line strings, so you have to do ugly things like `[ ].join('\n')`.
 * **It's ugly:** JavaScript doesn't have good string interpolation built in, so you have to manually concatenate strings with data. Meaning you end up doing the quote-dance: `<li class="' + model.activeClass + '">"`.
 * **It's insecure:** If you concatenate strings like this, and any of the data is user-generated, you are at risk of XSS attacks unless you properly escape all the user-generated data when inserting it into your template string.
-* **It's hard to maintain:** If all your templates are woven into your views like this it can be hard to find and edit templates. Not to mention that now to make basic edits to the html structure of your app, you have to understand how to write JavaScript functions, and be aware of the above issues.
+* **It's hard to maintain:** If all your templates are woven into your views like this it can be hard to find and edit templates. Not to mention that now to make basic edits to the HTML structure of your app, you have to understand how to write JavaScript functions, and be aware of the above issues.
 
 
 ## Template Engines
@@ -58,7 +58,7 @@ Different templating engines have different philosophies and features. The nice 
 
 Here are a few templating engines as examples:
 
-* [Jade](http://jade-lang.com) - makes writing html even easier by being whitespace sensitive, allowing you to omit closing tags and `<>`
+* [Jade](http://jade-lang.com) - makes writing HTML even easier by being whitespace sensitive, allowing you to omit closing tags and `<>`
 
     ```jade
     .entry
