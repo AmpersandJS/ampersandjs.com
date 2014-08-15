@@ -15,7 +15,7 @@ Another great source of information about all this is the [browserify handbook](
 
 ## Overview
 
-[npm](#npm) (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for clientside JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.
+[npm](#npm) (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for client-side JavaScript too. It helps you publish, consume, and manage modules of JavaScript code in your applications.
 
 [commonjs modules](#commonjs-modules) are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.
 
@@ -29,7 +29,7 @@ Put together the flow of creating a very simple web application with these tools
 * `npm install underscore --save` - install a dependency you want to use in your application
 * create a module in your application, say `square-numbers.js`
 
-    ```javascript
+    ```js
     // ./my-project/square-numbers.js
     // Squares a list of numbers
 
@@ -46,7 +46,7 @@ Put together the flow of creating a very simple web application with these tools
 
 * create the main app.js file for your application, which requires your module
 
-    ```javascript
+    ```js
     // ./my-project/app.js
     console.log('Welcome to my application')
 
@@ -139,9 +139,9 @@ All npm modules that you install will use the commonjs module specification. You
 
 ### Writing commonjs modules
 
-A commonjs module is simply a file with some javascript in it. It might look something like this:
+A commonjs module is simply a file with some JavaScript in it. It might look something like this:
 
-```javascript
+```js
 //A simple function as a module
 var something = require('some-dependency');
 
@@ -151,7 +151,7 @@ function doSomethingSweet (input) {
 module.exports = doSomethingSweet;
 ```
 
-```javascript
+```js
 //A module which exports a constructor
 var AmpersandModel = require('ampersand-model');
 var MyClass = AmpersandModel.extend({
@@ -163,7 +163,7 @@ module.exports = MyClass;
 
 or like this:
 
-```javascript
+```js
 //A hypothetical underscore like module
 module.exports.map = function (list, fn) { ... }
 module.exports.filter = function (list, fn) { ... }
@@ -180,7 +180,7 @@ A few things to note about the examples:
 
 Requiring modules is easy. From a file, just use require, like so:
 
-```javascript
+```js
 //require a module from npm, by specifying it's module name
 var _ = require('underscore');
 _.each([1,2,3], function () { /*...*/ });
@@ -189,7 +189,7 @@ _.each([1,2,3], function () { /*...*/ });
 var MyView = require('./views/my-view');
 var view = new MyView( /*...*/ );
 
-//You can even require json files
+//You can even require JSON files
 var package = require('./package.json');
 console.log(package.version);
 ```
@@ -199,7 +199,7 @@ Everything that was `module.export`ed will be available as the result of the `re
 
 ## Browserify
 
-Npm and commonjs modules are how almost all backend node.js developers write and manage javascript code. Unfortunately for browsers we can't just point our index.html at the main `app.js` file, as browser's don't understand how `require()` works. And even if they did, if it had to grab a file over the network every time it got to a `require` statement, your application would take forever to load.
+Npm and commonjs modules are how almost all backend node.js developers write and manage JavaScript code. Unfortunately for browsers we can't just point our index.html at the main `app.js` file, as browser's don't understand how `require()` works. And even if they did, if it had to grab a file over the network every time it got to a `require` statement, your application would take forever to load.
 
 Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.
 
@@ -212,7 +212,7 @@ Browserify itself is an npm module, which installs a command-line script (`brows
     browserify path/to/app.js -o path/to/app.bundle.js
 ```
 
-You point browserify at your "main" javascript file, the one which `require()`'s everything else your app needs, and browserify bundles it all into a single `app.bundle.js` file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal javascript file in the browser like: `<script src='path/to/app.bundle.js'></script>`.
+You point browserify at your "main" JavaScript file, the one which `require()`'s everything else your app needs, and browserify bundles it all into a single `app.bundle.js` file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal JavaScript file in the browser like: `<script src='path/to/app.bundle.js'></script>`.
 
 ### How and when to run browserify?
 
@@ -239,7 +239,7 @@ If you use grunt or gulp, there are plenty of browserify plugins for each to run
 
 #### moonboots
 
-We wrote (and love) [moonboots](https://github.com/HenrikJoreteg/moonboots). It's kind of like a production-grade version of beefy. You can use it standalone, or as part of your [express](https://www.npmjs.org/package/moonboots-express) or [hapi](https://www.npmjs.org/package/moonboots_hapi) server, and it will handle compiling and serving your js and css code, including things like autoreload in development, and caching and minifying in production.
+We wrote (and love) [moonboots](https://github.com/HenrikJoreteg/moonboots). It's kind of like a production-grade version of beefy. You can use it standalone, or as part of your [express](https://www.npmjs.org/package/moonboots-express) or [hapi](https://www.npmjs.org/package/moonboots_hapi) server, and it will handle compiling and serving your JS and CSS code, including things like autoreload in development, and caching and minifying in production.
 
 It is installed as a part of the example [ampersand app](/learn/quick-start-guide) so you can check it out there.
 

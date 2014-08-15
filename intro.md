@@ -2,18 +2,18 @@
 
 Ampersand.js is a highly modular, loosely coupled, non-frameworky framework for building complex JavaScript apps.
 
-We call it Ampersand because it’s not a monolothic framework but a well-defined approach for combining (get it?) a series of tiny modules.
+We call it Ampersand because it’s not a monolithic framework but a well-defined approach for combining (get it?) a series of tiny modules.
 
 
 ### Post-Backbone
 
-We love Backbone.js at [&yet](http://andyet.com). It’s brilliantly simple code and it solves many common problems in developing clientside applications with proper separation of concerns. It’s been praised for its flexibility and modularity. The fact that Backbone’s author [Jeremy Ashkenas](http://twitter.com/jashkenas) and his fellow maintainers haven’t tried to solve *every* problem has kept it usable for a broad range of application types. Its effectiveness is evidenced by its incredible popularity.
+We love Backbone.js at [&yet](http://andyet.com). It’s brilliantly simple code and it solves many common problems in developing client-side applications with proper separation of concerns. It’s been praised for its flexibility and modularity. The fact that Backbone’s author [Jeremy Ashkenas](http://twitter.com/jashkenas) and his fellow maintainers haven’t tried to solve *every* problem has kept it usable for a broad range of application types. Its effectiveness is evidenced by its incredible popularity.
 
 We built our first app on Backbone 0.3.1 and have been a user/supporter of the project for quite some time and was honored to have spoken at the first BackboneConf.
 
 Shortly after discovering Backbone, we also got into node.js which brought with it a module approach and eventually an awesome way of managing dependencies that we've have fallen deeply in like with: [npm](https://npmjs.org).
 
-Nothing has done more for our team’s ability to write clean, maintainable clientside applications than having a really awesome dependency management system and [substack’s](http://twitter.com/substack) [browserify](http://browserify.org/) that allows us to quickly declare/install external dependencies and know that things will Just Work™.
+Nothing has done more for our team’s ability to write clean, maintainable client-side applications than having a really awesome dependency management system and [substack’s](http://twitter.com/substack) [browserify](http://browserify.org/) that allows us to quickly declare/install external dependencies and know that things will Just Work™.
 
 npm has also been the catalyst that enables what has been referred to as the "tiny modules movement", the basic philosophy of which is that no matter how small or insignificant the problem, you shouldn’t have to solve it more than once. 
 
@@ -75,7 +75,7 @@ But again, remember this isn’t an all-or-nothing "framework". In fact, very ar
 
 If you’re unfamiliar with semver, [the homepage](http://semver.org/) summarizes it in about three sentences. In short, it’s a strict adherence to a versioning scheme for modules that, if followed, allows you to trust minor and patch version updates to not break your code. So, for a dependency you can specify a version like this: "1.x.x" and know that your code will not break if the underlying dependency is upgraded from 1.1.0 to 1.2.8 because the versioning scheme prohibits breaking changes without bumping the major version number. 
 
-This flexibility is very important in clientside code because we don’t want to send 5 different versions of the same dependency to the browser. Loosely declaring dependencies of the building blocks and strictly declaring them in your app’s main package.json can help you avoid a lot of these problems. With the way npm manages dependencies, with this approach, we get minimal duplication of shared dependencies.
+This flexibility is very important in client-side code because we don’t want to send 5 different versions of the same dependency to the browser. Loosely declaring dependencies of the building blocks and strictly declaring them in your app’s main package.json can help you avoid a lot of these problems. With the way npm manages dependencies, with this approach, we get minimal duplication of shared dependencies.
 
 #### 5. Tiny module all the things!
 
@@ -85,9 +85,9 @@ The smaller the feature set of the low-level modules, the easier it is to avoid 
 
 Simplicity is a core value. If you don’t actively fight for simplicity in software, complexity will win, and it will suck. This means things like pruning unneeded features and giving everything descriptive names even if they’re longer. That’s what minification is for. We are not compilers, so we should optimize for readability and use tools for optimizations.
 
-While this is going to be a bit controversial, for us the focus on simplicity also means avoiding using promises. There are enough things that are new and intimidating to those building clientside apps. Adding promises makes for an unnecessarily tall cognitive leap. 
+While this is going to be a bit controversial, for us the focus on simplicity also means avoiding using promises. There are enough things that are new and intimidating to those building client-side apps. Adding promises makes for an unnecessarily tall cognitive leap. 
 
-Not that promises are bad, but the truth is there isn’t as much need for complex flow-control for most clientside things. Most of the cases where you may feel a need for promises are for managing multiple asynchronous operations. While this can be needed in clientside code, it’s far less prominent than in server code. 
+Not that promises are bad, but the truth is there isn’t as much need for complex flow-control for most client-side things. Most of the cases where you may feel a need for promises are for managing multiple asynchronous operations. While this can be needed in client-side code, it’s far less prominent than in server code. 
 
 And, if you want to use promises it’d be easy enough to write a version of "ampersand-sync" or "ampersand-router" that used "bluebird" or another promise library and slip that into your app. That’s the whole point of the modularity concept and still, you only include what you ultimately are using!
 
@@ -95,7 +95,7 @@ And, if you want to use promises it’d be easy enough to write a version of "am
 
 It should be easy to create rich user experiences. 
 
-There’s a lot of buzz and talk around rendering performance for JS apps. Mostly the answer to these types of performance issues is: "Don’t touch the DOM any more than you have to". 
+There’s a lot of buzz and talk around rendering performance for JavaScript apps. Mostly the answer to these types of performance issues is: "Don’t touch the DOM any more than you have to". 
 
 That’s one of the core premises of libraries like Facebook’s React:  only performing minimal changes and batching those changes into RAF loops. 
 
@@ -111,7 +111,7 @@ Think small and light. Optimize and build tools for touch interfaces.  Help buil
 
 These ain’t no websites, pal. If you’re building content sites or sites you want thoroughly crawled this is not the tool for you. 
 
-This is for clientside javascript applications where the browser is treated as a runtime, not as a document viewer. For more on that, you can read about how we believe [the web has outgrown the browser](https://blog.andyet.com/2014/01/17/web-has-outgrown-the-browser).
+This is for client-side JavaScript applications where the browser is treated as a runtime, not as a document viewer. For more on that, you can read about how we believe [the web has outgrown the browser](https://blog.andyet.com/2014/01/17/web-has-outgrown-the-browser).
 
 #### 10. Embrace offline-first mentality and ServiceWorker all the things as soon as we can.
 
@@ -164,4 +164,4 @@ For simplicity all the "core" stuff is on github as its own organization: [https
 
 Send pull requests, file issues, and tell us that we’re crazy on twitter: [@HenrikJoreteg](http://twitter.com/henrikjoreteg), [@lukekarrys](http://twitter.com/lukekarrys), [@philip_roberts](https://twitter.com/philip_roberts), [@wraithgar](http://twitter.com/wraithgar), [@aaronmccall](https://twitter.com/aaronmccall). 
 
-For more cool stuff, follow the whole [@andyet](http://twitter.com/andyet) team and stay tuned for more info on our upcoming JS training: [JS For Teams](http://jsforteams.com/).
+For more cool stuff, follow the whole [@andyet](http://twitter.com/andyet) team and stay tuned for more info on our upcoming JavaScript training: [JS For Teams](http://jsforteams.com/).

@@ -52,7 +52,7 @@ Updating featured, just requires picking 3 modules, they will be shown in the or
 
 ## The "docs" pages
 
-These are built entirely from README.md files of the listed projects. They're run through a filter that removes hidden sections (such as "browser support" and "license"), and we also remove anything in between html comments in README's that look like this:
+These are built entirely from README.md files of the listed projects. They're run through a filter that removes hidden sections (such as "browser support" and "license"), and we also remove anything in between HTML comments in README's that look like this:
 
 ```html
 <!-- starthide -->
@@ -84,7 +84,7 @@ Be sure the iframe does not have a set `width` or `height`.
 npm run build
 ```
 
-Using something like `http-server` from npm will make working on the docs a bit easiser, because links will work properly.
+Using something like `http-server` from npm will make working on the docs a bit easier, because links will work properly.
 
 install it like so:
 

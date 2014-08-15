@@ -5,13 +5,13 @@ order: 8
 
 # Using the humble `role` attribute
 
-Working with single page apps as a team has always required more collaboration between folks doing HTML/CSS and the JS developers. 
+Working with single page apps as a team has always required more collaboration between folks doing HTML/CSS and the JavaScript developers. 
 
-Turns out, most of the challenge is that there's no obvious way to know whether a `class`, `id` or certain HTML tag types are being used by the JS or not. So someone working on design and markup can inadvertently break the JS app and vice versa. 
+Turns out, most of the challenge is that there's no obvious way to know whether a `class`, `id` or certain HTML tag types are being used by the JavaScript or not. So someone working on design and markup can inadvertently break the JavaScript app and vice versa. 
 
 What we discovered at [&yet](http://andyet.com) using the `role` attribute works quite well for making this distinction.
 
-So, whenever selecting elements or registering event handlers within a view if the JS developer always uses the `role` attribute as a selector, an HTML/CSS dev can go change whatever else they want in the template without fear of breaking the JS.
+So, whenever selecting elements or registering event handlers within a view if the JavaScript developer always uses the `role` attribute as a selector, an HTML/CSS dev can go change whatever else they want in the template without fear of breaking the JavaScript.
 
 For example if you have a view like this:
 
@@ -23,7 +23,7 @@ module.exports = View.extend({
     // note there's a `class` and a `role`
     template: '<div><a class="save-button" role="action-save">save result</a></div>',
     events: {
-        // by using the role to reference it from JS
+        // by using the role to reference it from JavaScript
         // the designer can change classes at will
         // without breaking the behavior
         'click [role=action-save]': 'handleSaveClick'

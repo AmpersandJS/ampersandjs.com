@@ -18,7 +18,7 @@ Turns out tracking relationships between values is useful not just for state tha
 It is for this purpose, that ampersand state was created.
 
 
-## In pursuit of the ultimate observable JS object.
+## In pursuit of the ultimate observable JavaScript object.
 
 Your app needs a single unadulterated *source of truth* for each piece of data it cares about. But in order to fully de-couple the state from everything that cares about it, our state needs to be observable.
 
