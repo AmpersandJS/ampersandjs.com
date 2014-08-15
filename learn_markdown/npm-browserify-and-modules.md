@@ -139,7 +139,7 @@ All npm modules that you install will use the commonjs module specification. You
 
 ### Writing commonjs modules
 
-A commonjs module is simply a file with some javascript in it. It might look something like this:
+A commonjs module is simply a file with some JavaScript in it. It might look something like this:
 
 ```js
 //A simple function as a module
@@ -199,7 +199,7 @@ Everything that was `module.export`ed will be available as the result of the `re
 
 ## Browserify
 
-Npm and commonjs modules are how almost all backend node.js developers write and manage javascript code. Unfortunately for browsers we can't just point our index.html at the main `app.js` file, as browser's don't understand how `require()` works. And even if they did, if it had to grab a file over the network every time it got to a `require` statement, your application would take forever to load.
+Npm and commonjs modules are how almost all backend node.js developers write and manage JavaScript code. Unfortunately for browsers we can't just point our index.html at the main `app.js` file, as browser's don't understand how `require()` works. And even if they did, if it had to grab a file over the network every time it got to a `require` statement, your application would take forever to load.
 
 Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.
 
@@ -212,7 +212,7 @@ Browserify itself is an npm module, which installs a command-line script (`brows
     browserify path/to/app.js -o path/to/app.bundle.js
 ```
 
-You point browserify at your "main" javascript file, the one which `require()`'s everything else your app needs, and browserify bundles it all into a single `app.bundle.js` file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal javascript file in the browser like: `<script src='path/to/app.bundle.js'></script>`.
+You point browserify at your "main" JavaScript file, the one which `require()`'s everything else your app needs, and browserify bundles it all into a single `app.bundle.js` file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal JavaScript file in the browser like: `<script src='path/to/app.bundle.js'></script>`.
 
 ### How and when to run browserify?
 

@@ -111,7 +111,7 @@ Think small and light. Optimize and build tools for touch interfaces.  Help buil
 
 These ain’t no websites, pal. If you’re building content sites or sites you want thoroughly crawled this is not the tool for you. 
 
-This is for client-side javascript applications where the browser is treated as a runtime, not as a document viewer. For more on that, you can read about how we believe [the web has outgrown the browser](https://blog.andyet.com/2014/01/17/web-has-outgrown-the-browser).
+This is for client-side JavaScript applications where the browser is treated as a runtime, not as a document viewer. For more on that, you can read about how we believe [the web has outgrown the browser](https://blog.andyet.com/2014/01/17/web-has-outgrown-the-browser).
 
 #### 10. Embrace offline-first mentality and ServiceWorker all the things as soon as we can.
 
