@@ -15,7 +15,7 @@ Another great source of information about all this is the [browserify handbook](
 
 ## Overview
 
-[npm](#npm) (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for client-side JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.
+[npm](#npm) (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for client-side JavaScript too. It helps you publish, consume, and manage modules of JavaScript code in your applications.
 
 [commonjs modules](#commonjs-modules) are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.
 

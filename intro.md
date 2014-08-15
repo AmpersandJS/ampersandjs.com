@@ -95,7 +95,7 @@ And, if you want to use promises it’d be easy enough to write a version of "am
 
 It should be easy to create rich user experiences. 
 
-There’s a lot of buzz and talk around rendering performance for JS apps. Mostly the answer to these types of performance issues is: "Don’t touch the DOM any more than you have to". 
+There’s a lot of buzz and talk around rendering performance for JavaScript apps. Mostly the answer to these types of performance issues is: "Don’t touch the DOM any more than you have to". 
 
 That’s one of the core premises of libraries like Facebook’s React:  only performing minimal changes and batching those changes into RAF loops. 
 
@@ -164,4 +164,4 @@ For simplicity all the "core" stuff is on github as its own organization: [https
 
 Send pull requests, file issues, and tell us that we’re crazy on twitter: [@HenrikJoreteg](http://twitter.com/henrikjoreteg), [@lukekarrys](http://twitter.com/lukekarrys), [@philip_roberts](https://twitter.com/philip_roberts), [@wraithgar](http://twitter.com/wraithgar), [@aaronmccall](https://twitter.com/aaronmccall). 
 
-For more cool stuff, follow the whole [@andyet](http://twitter.com/andyet) team and stay tuned for more info on our upcoming JS training: [JS For Teams](http://jsforteams.com/).
+For more cool stuff, follow the whole [@andyet](http://twitter.com/andyet) team and stay tuned for more info on our upcoming JavaScript training: [JS For Teams](http://jsforteams.com/).
