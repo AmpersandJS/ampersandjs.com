@@ -30,7 +30,7 @@
 <p>This is a quick run down of npm and browserify if you haven&#39;t used them before.</p>
 <p>The below assumes you have <a href="http://nodejs.org/">installed npm and node.js</a> on your system already.</p>
 <p>Another great source of information about all this is the <a href="https://github.com/substack/browserify-handbook">browserify handbook</a>, written by the <a href="http://twitter.com/substack">guy who wrote browserify</a>.</p>
-<a name="overview" class="anchor" href="#overview"><h2><span class="header-link"></span>Overview</h2></a><p><a href="#npm">npm</a> (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for clientside JavaScript too. It helps you publish, consume, and manage modules of JS code in your applications.</p>
+<a name="overview" class="anchor" href="#overview"><h2><span class="header-link"></span>Overview</h2></a><p><a href="#npm">npm</a> (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for client-side JavaScript too. It helps you publish, consume, and manage modules of JavaScript code in your applications.</p>
 <p><a href="#commonjs-modules">commonjs modules</a> are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.</p>
 <p><a href="#browserify">browserify</a> helps you bundle your application that uses commonjs modules up into a single JavaScript file that you can use in your application in the browser.</p>
 <p>Put together the flow of creating a very simple web application with these tools might look something like this:</p>
@@ -40,7 +40,7 @@
 <li><code>npm install browserify --save-dev</code> - install browserify as a development only dependency</li>
 <li><code>npm install underscore --save</code> - install a dependency you want to use in your application</li>
 <li><p>create a module in your application, say <code>square-numbers.js</code></p>
-<pre><code class="undefinedjavascript">  // ./my-project/square-numbers.js
+<pre><code class="undefinedjs">  // ./my-project/square-numbers.js
   // Squares a list of numbers
 
   // Require the underscore npm module
@@ -55,7 +55,7 @@
 </code></pre>
 </li>
 <li><p>create the main app.js file for your application, which requires your module</p>
-<pre><code class="undefinedjavascript">  // ./my-project/app.js
+<pre><code class="undefinedjs">  // ./my-project/app.js
   console.log(&#39;Welcome to my application&#39;)
 
   // require the local module
@@ -119,8 +119,8 @@ npm init
 </ul>
 <a name="--save-and---save-dev" class="anchor" href="#--save-and---save-dev"><h4><span class="header-link"></span>--save and --save-dev</h4></a><p><code>npm install &lt;module-name&gt;</code> takes a number of options, two are <code>--save</code> and <code>--save-dev</code>. Both automatically add the module name and version to your project&#39;s package.json, either in <code>&quot;dependencies&quot;</code> or <code>&quot;devDependencies&quot;</code>. Use <code>--save</code> for application dependencies, i.e. anything you <code>require()</code> in your application/module. Use <code>--save-dev</code> for anything you use to develop your application, e.g. browserify, or tests, etc.</p>
 <a name="commonjs-modules" class="anchor" href="#commonjs-modules"><h2><span class="header-link"></span>commonjs modules</h2></a><p>All npm modules that you install will use the commonjs module specification. You can (and should!) use commonjs modules to break up your application code even if you don&#39;t publish them to npm individually.</p>
-<a name="writing-commonjs-modules" class="anchor" href="#writing-commonjs-modules"><h3><span class="header-link"></span>Writing commonjs modules</h3></a><p>A commonjs module is simply a file with some javascript in it. It might look something like this:</p>
-<pre><code class="undefinedjavascript">//A simple function as a module
+<a name="writing-commonjs-modules" class="anchor" href="#writing-commonjs-modules"><h3><span class="header-link"></span>Writing commonjs modules</h3></a><p>A commonjs module is simply a file with some JavaScript in it. It might look something like this:</p>
+<pre><code class="undefinedjs">//A simple function as a module
 var something = require(&#39;some-dependency&#39;);
 
 function doSomethingSweet (input) {
@@ -128,7 +128,7 @@ function doSomethingSweet (input) {
 }
 module.exports = doSomethingSweet;
 </code></pre>
-<pre><code class="undefinedjavascript">//A module which exports a constructor
+<pre><code class="undefinedjs">//A module which exports a constructor
 var AmpersandModel = require(&#39;ampersand-model&#39;);
 var MyClass = AmpersandModel.extend({
     //...
@@ -137,7 +137,7 @@ var MyClass = AmpersandModel.extend({
 module.exports = MyClass;
 </code></pre>
 <p>or like this:</p>
-<pre><code class="undefinedjavascript">//A hypothetical underscore like module
+<pre><code class="undefinedjs">//A hypothetical underscore like module
 module.exports.map = function (list, fn) { ... }
 module.exports.filter = function (list, fn) { ... }
 module.exports.each = function (list, fn) { ... }
@@ -149,7 +149,7 @@ module.exports.each = function (list, fn) { ... }
 <li>Within a module, attaching code to <code>module.exports</code> allows it to be accessible by any other module that <code>require()</code>&#39;s your module. By default <code>module.exports</code> is an empty object. You can either set properties on it to properties/functions, like the last example above; or replace it with a function/constructor like the first two.</li>
 </ul>
 <a name="requiring-commonjs-modules" class="anchor" href="#requiring-commonjs-modules"><h3><span class="header-link"></span>Requiring commonjs modules</h3></a><p>Requiring modules is easy. From a file, just use require, like so:</p>
-<pre><code class="undefinedjavascript">//require a module from npm, by specifying it&#39;s module name
+<pre><code class="undefinedjs">//require a module from npm, by specifying it&#39;s module name
 var _ = require(&#39;underscore&#39;);
 _.each([1,2,3], function () { /*...*/ });
 
@@ -157,19 +157,19 @@ _.each([1,2,3], function () { /*...*/ });
 var MyView = require(&#39;./views/my-view&#39;);
 var view = new MyView( /*...*/ );
 
-//You can even require json files
+//You can even require JSON files
 var package = require(&#39;./package.json&#39;);
 console.log(package.version);
 </code></pre>
 <p>Everything that was <code>module.export</code>ed will be available as the result of the <code>require()</code> statement in the parent file.</p>
-<a name="browserify" class="anchor" href="#browserify"><h2><span class="header-link"></span>Browserify</h2></a><p>Npm and commonjs modules are how almost all backend node.js developers write and manage javascript code. Unfortunately for browsers we can&#39;t just point our index.html at the main <code>app.js</code> file, as browser&#39;s don&#39;t understand how <code>require()</code> works. And even if they did, if it had to grab a file over the network every time it got to a <code>require</code> statement, your application would take forever to load.</p>
+<a name="browserify" class="anchor" href="#browserify"><h2><span class="header-link"></span>Browserify</h2></a><p>Npm and commonjs modules are how almost all backend node.js developers write and manage JavaScript code. Unfortunately for browsers we can&#39;t just point our index.html at the main <code>app.js</code> file, as browser&#39;s don&#39;t understand how <code>require()</code> works. And even if they did, if it had to grab a file over the network every time it got to a <code>require</code> statement, your application would take forever to load.</p>
 <p>Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.</p>
 <p>It also, provides shims for most of the core node.js functionality, so that <em>in theory</em> you can use any npm module, in the browser, even if it was initially written for backend code. However, in general, we use it more for it&#39;s ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.</p>
 <p>Browserify itself is an npm module, which installs a command-line script (<code>browserify</code>), so using it is something like this:</p>
 <pre><code class="undefinedbash">    npm install -g browserify #installs browserify as a globally available command line script
     browserify path/to/app.js -o path/to/app.bundle.js
 </code></pre>
-<p>You point browserify at your &quot;main&quot; javascript file, the one which <code>require()</code>&#39;s everything else your app needs, and browserify bundles it all into a single <code>app.bundle.js</code> file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal javascript file in the browser like: <code>&lt;script src=&#39;path/to/app.bundle.js&#39;&gt;&lt;/script&gt;</code>.</p>
+<p>You point browserify at your &quot;main&quot; JavaScript file, the one which <code>require()</code>&#39;s everything else your app needs, and browserify bundles it all into a single <code>app.bundle.js</code> file that is entirely self contained with all the dependencies you need in it. You can then use that like a normal JavaScript file in the browser like: <code>&lt;script src=&#39;path/to/app.bundle.js&#39;&gt;&lt;/script&gt;</code>.</p>
 <a name="how-and-when-to-run-browserify" class="anchor" href="#how-and-when-to-run-browserify"><h3><span class="header-link"></span>How and when to run browserify?</h3></a><p>There are a number of different way to run browserify, depending on your setup.</p>
 <a name="browserifywatchify-cli" class="anchor" href="#browserifywatchify-cli"><h4><span class="header-link"></span>browserify/watchify cli</h4></a><p>The simplest, as explained above is just to install <a href="http://browserify.org">browserify</a>, and run something like: <code>browserify path/to/main/app/file.js -o path/to/output/bundle.js</code>.</p>
 <p>If you&#39;re doing it this way, you may find <a href="https://github.com/substack/watchify">watchify</a> useful, which watches your source files, and automatically rebuilds you browserify bundle when necessary.</p>
@@ -181,7 +181,7 @@ console.log(package.version);
 <li>will spit compile errors out into the browser so you don&#39;t have that 1-2 seconds of cognitive dissonance and profound ennui that follows refreshing the page only to get a blank screen.</li>
 <li>will spit out a default index.html for missing routes so you don&#39;t need to even muck about with HTML to get started</li>
 </ul>
-<a name="moonboots" class="anchor" href="#moonboots"><h4><span class="header-link"></span>moonboots</h4></a><p>We wrote (and love) <a href="https://github.com/HenrikJoreteg/moonboots">moonboots</a>. It&#39;s kind of like a production-grade version of beefy. You can use it standalone, or as part of your <a href="https://www.npmjs.org/package/moonboots-express">express</a> or <a href="https://www.npmjs.org/package/moonboots_hapi">hapi</a> server, and it will handle compiling and serving your js and css code, including things like autoreload in development, and caching and minifying in production.</p>
+<a name="moonboots" class="anchor" href="#moonboots"><h4><span class="header-link"></span>moonboots</h4></a><p>We wrote (and love) <a href="https://github.com/HenrikJoreteg/moonboots">moonboots</a>. It&#39;s kind of like a production-grade version of beefy. You can use it standalone, or as part of your <a href="https://www.npmjs.org/package/moonboots-express">express</a> or <a href="https://www.npmjs.org/package/moonboots_hapi">hapi</a> server, and it will handle compiling and serving your JS and CSS code, including things like autoreload in development, and caching and minifying in production.</p>
 <p>It is installed as a part of the example <a href="/learn/quick-start-guide">ampersand app</a> so you can check it out there.</p>
 <a name="summary" class="anchor" href="#summary"><h2><span class="header-link"></span>Summary</h2></a><p>There is a lot more to npm and browserify than we covered here. Again, <a href="https://github.com/substack/browserify-handbook">the browserify handbook</a> is a great reference to take a look at.</p>
 </section>

@@ -32,7 +32,7 @@
 <p>Often times it&#39;d be easier if we could just declare: &quot;this thing is dependent on these two other things&quot; and from those two other values calculate a value.</p>
 <p>Turns out tracking relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not or whether it has all the data it needs or not.</p>
 <p>It is for this purpose, that ampersand state was created.</p>
-<a name="in-pursuit-of-the-ultimate-observable-js-object" class="anchor" href="#in-pursuit-of-the-ultimate-observable-js-object"><h2><span class="header-link"></span>In pursuit of the ultimate observable JS object.</h2></a><p>Your app needs a single unadulterated <em>source of truth</em> for each piece of data it cares about. But in order to fully de-couple the state from everything that cares about it, our state needs to be observable.</p>
+<a name="in-pursuit-of-the-ultimate-observable-javascript-object" class="anchor" href="#in-pursuit-of-the-ultimate-observable-javascript-object"><h2><span class="header-link"></span>In pursuit of the ultimate observable JavaScript object.</h2></a><p>Your app needs a single unadulterated <em>source of truth</em> for each piece of data it cares about. But in order to fully de-couple the state from everything that cares about it, our state needs to be observable.</p>
 <p>That&#39;s done by allowing you to register handlers on the state object to let you know when things change.</p>
 <p>In our case it looks like this:</p>
 <pre><code class="undefinedjs">// Require the lib
