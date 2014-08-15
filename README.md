@@ -84,7 +84,7 @@ Be sure the iframe does not have a set `width` or `height`.
 npm run build
 ```
 
-Using something like `http-server` from npm will make working on the docs a bit easiser, because links will work properly.
+Using something like `http-server` from npm will make working on the docs a bit easier, because links will work properly.
 
 install it like so:
 
