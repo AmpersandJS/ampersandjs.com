@@ -104,7 +104,7 @@ might compile down to something like the following JavaScript:
 ```js
 var myTemplate = function (context) {
     var template = '';
-    template += '<div>';
+    template += '<div class="entry">';
     template += '  <h1>' + escape(context.title || '') + '</h1>\n';
     template += '  <p>' + escape(context.bodyText || '') + '</p>';
     template += '</div>';
