@@ -164,7 +164,7 @@ var HomePageView = AmpersandView.extend({
 });
 ```
 
-In the example app, you can see that we [precompile your templates ion the moonbootsConfig](https://github.com/AmpersandJS/ampersand/blob/master/template/hapi/moonbootsConfig.js#L44) to ensure they are always up to date. There are plenty of grunt/gulp/etc plugins for precompiling your templates as part of that process if you're into that, for example [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars).
+In the example app, you can see that we [precompile your templates in the moonbootsConfig](https://github.com/AmpersandJS/ampersand/blob/master/template/hapi/moonbootsConfig.js#L44) to ensure they are always up to date. There are plenty of grunt/gulp/etc plugins for precompiling your templates as part of that process if you're into that, for example [grunt-contrib-handlebars](https://github.com/gruntjs/grunt-contrib-handlebars).
 
 #### Precompiling with Browserify transforms
 
