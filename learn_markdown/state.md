@@ -55,7 +55,7 @@ person.isDancing = true;
 
 Sure, you've hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assignment: `person.isDancing = true` as opposed to having to do `person.set('isDancing', true)` (either works, btw).
 
-So, what else? Well, as we said there's a *huge* amount of code that you write in a project really just describes and tracks relationships between values.
+So, what else? Well, as we said there's a *huge* amount of code in a project that really just describes and tracks relationships between values.
 
 So, what if our observable layer did that for us too?
 
@@ -140,7 +140,7 @@ user.on('change:groupModel', function (model, newGroupModel) {
 
 ## Cached, derived properties are awesome
 
-So, say you have a more "expensive" computation for model. Say you're parsing a long string for URLs and turning them into HTML and then wanting to reference that later. Again, this is built in.
+So, say you have a more "expensive" computation in a model. Maybe you're parsing a long string for URLs, turning them into HTML, then wanting to reference that later. Again, this is built in.
 
 By default, derived properties are cached.
 
@@ -229,7 +229,7 @@ If you say `cache: false` then it will fire a `change` event anytime any of the 
 
 ## State can be extended as many times as you want
 
-Each state object you define will have and `extend` method on the constructor.
+Each state object you define will have an `extend` method on the constructor.
 
 That means you can extend as much as you want and the definitions will get merged.
 
@@ -333,8 +333,8 @@ otherPerson.set({profile: {name: 'Mary'}});
 
 // Since this a state object it triggers a `change:name` on
 // the `profile` object.
-// In addition, since it's a child that event propagates
-// up. More on that below.
+// In addition, since profile is a child the event will
+//propagate up. More on that below.
 ```
 
 ## Event bubbling, derived properties based on children
