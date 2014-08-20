@@ -6,7 +6,7 @@ order: 0
 # Quick Start Guide
 
 1. Make sure you've got [node.js installed](http://nodejs.org/).
-2. Install the ampersand command line and running by running this in a terminal:
+2. Install the ampersand command line by running this in a terminal:
 ```
 npm install ampersand -g
 ```
