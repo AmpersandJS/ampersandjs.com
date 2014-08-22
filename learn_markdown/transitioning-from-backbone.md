@@ -18,7 +18,7 @@ This has some nice benefits, like being able to use the convenient event feature
 
 You'll see the same patterns throughout ampersand. Everything is, as much as possible, de-coupled from each other. 
 
-You can easily write your own views and use everything else. In addition, just by [following a few conventions](/learn/view-conventions/), you can even have those view still play nicely with other views.
+You can easily write your own views and use everything else. In addition, just by [following a few conventions](/learn/view-conventions/), you can even have those views still play nicely with other views.
 
 
 ## Models
