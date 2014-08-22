@@ -32,8 +32,8 @@
 <p>Another great source of information about all this is the <a href="https://github.com/substack/browserify-handbook">browserify handbook</a>, written by the <a href="http://twitter.com/substack">guy who wrote browserify</a>.</p>
 <a name="overview" class="anchor" href="#overview"><h2><span class="header-link"></span>Overview</h2></a><p><a href="#npm">npm</a> (along with its command line tool, the npm-client) is the official package manager for node.js, but it works great for client-side JavaScript too. It helps you publish, consume, and manage modules of JavaScript code in your applications.</p>
 <p><a href="#commonjs-modules">commonjs modules</a> are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.</p>
-<p><a href="#browserify">browserify</a> helps you bundle your application that uses commonjs modules up into a single JavaScript file that you can use in your application in the browser.</p>
-<p>Put together the flow of creating a very simple web application with these tools might look something like this:</p>
+<p><a href="#browserify">browserify</a> helps you write your application using commonjs modules, bundle it up into a single JavaScript file, and use in your application in the browser.</p>
+<p>Put together, the flow of creating a very simple web application with these tools might look something like this:</p>
 <ul>
 <li><code>mkdir my-project &amp;&amp; cd my-project</code> - create a project directory</li>
 <li><code>npm init</code> - create a package.json for your project which stores your dependencies and their versions</li>

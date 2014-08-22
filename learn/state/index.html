@@ -58,7 +58,7 @@ person.on(&#39;change:isDancing&#39;, function () {
 person.isDancing = true;
 </code></pre>
 <a name="so-what-that39s-boring" class="anchor" href="#so-what-that39s-boring"><h2><span class="header-link"></span>So what?! That&#39;s boring.</h2></a><p>Sure, you&#39;ve hopefully seen something like this before, though there is some more subtle awesomeness in being able to observe changes that are set by a simple assignment: <code>person.isDancing = true</code> as opposed to having to do <code>person.set(&#39;isDancing&#39;, true)</code> (either works, btw).</p>
-<p>So, what else? Well, as we said there&#39;s a <em>huge</em> amount of code that you write in a project really just describes and tracks relationships between values.</p>
+<p>So, what else? Well, as we said there&#39;s a <em>huge</em> amount of code in a project that really just describes and tracks relationships between values.</p>
 <p>So, what if our observable layer did that for us too?</p>
 <p>Say you wanted to describe a draggable element on a page so you wanted it to follow a set of a rules. You want it to only be considered to have been dragged if the total distance the touch event has moved is &gt; 10 pixels.</p>
 <pre><code class="undefinedjs">var DraggedElementModel = State.extend({
@@ -123,7 +123,7 @@ user.on(&#39;change:groupModel&#39;, function (model, newGroupModel) {
     console.log(&#39;group changed!&#39;, newGroupModel);
 });
 </code></pre>
-<a name="cached-derived-properties-are-awesome" class="anchor" href="#cached-derived-properties-are-awesome"><h2><span class="header-link"></span>Cached, derived properties are awesome</h2></a><p>So, say you have a more &quot;expensive&quot; computation for model. Say you&#39;re parsing a long string for URLs and turning them into HTML and then wanting to reference that later. Again, this is built in.</p>
+<a name="cached-derived-properties-are-awesome" class="anchor" href="#cached-derived-properties-are-awesome"><h2><span class="header-link"></span>Cached, derived properties are awesome</h2></a><p>So, say you have a more &quot;expensive&quot; computation in a model. Maybe you&#39;re parsing a long string for URLs, turning them into HTML, then wanting to reference that later. Again, this is built in.</p>
 <p>By default, derived properties are cached.</p>
 <pre><code class="undefinedjs">// assume this linkifies strings
 var linkify = require(&#39;urlify&#39;);
@@ -188,7 +188,7 @@ data.on(&#39;change:thousandTweets&#39;, function () {
 </code></pre>
 <a name="derived-properties-don39t-to-be-cached" class="anchor" href="#derived-properties-don39t-to-be-cached"><h2><span class="header-link"></span>Derived properties don&#39;t <em>have</em> to be cached.</h2></a><p>Say you want to calculate a value whenever it&#39;s accessed. Sure, you can create a non-cached derived property.</p>
 <p>If you say <code>cache: false</code> then it will fire a <code>change</code> event anytime any of the <code>deps</code> changes and it will be re-calculated each time its accessed.</p>
-<a name="state-can-be-extended-as-many-times-as-you-want" class="anchor" href="#state-can-be-extended-as-many-times-as-you-want"><h2><span class="header-link"></span>State can be extended as many times as you want</h2></a><p>Each state object you define will have and <code>extend</code> method on the constructor.</p>
+<a name="state-can-be-extended-as-many-times-as-you-want" class="anchor" href="#state-can-be-extended-as-many-times-as-you-want"><h2><span class="header-link"></span>State can be extended as many times as you want</h2></a><p>Each state object you define will have an <code>extend</code> method on the constructor.</p>
 <p>That means you can extend as much as you want and the definitions will get merged.</p>
 <pre><code class="undefinedjs">var Person = State.extend({
     props: {
@@ -283,8 +283,8 @@ otherPerson.set({profile: {name: &#39;Mary&#39;}});
 
 // Since this a state object it triggers a `change:name` on
 // the `profile` object.
-// In addition, since it&#39;s a child that event propagates
-// up. More on that below.
+// In addition, since profile is a child the event will
+// propagate up. More on that below.
 </code></pre>
 <a name="event-bubbling-derived-properties-based-on-children" class="anchor" href="#event-bubbling-derived-properties-based-on-children"><h2><span class="header-link"></span>Event bubbling, derived properties based on children</h2></a><p>Say you want a simple way to listen for any changes that are represented in a template.</p>
 <p>Let&#39;s say you&#39;ve got a <code>person</code> state object with a <code>profile</code> child. You want an easy way to listen for changes to either the base <code>person</code> object or the <code>profile</code>. In fact, you want to listen to anything related to the person object.</p>

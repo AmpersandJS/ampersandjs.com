@@ -31,7 +31,7 @@
 <p>We didn&#39;t want to make anything mandatory, so we decoupled the various backbone pieces from each other.</p>
 <p>This has some nice benefits, like being able to use the convenient event features of ampersand-collection on their own. For example, writing a multi-touch library that tracks active &quot;touches&quot; currently on the screen. Where you want an evented collection, but don&#39;t want to have to bundle in all of backbone in order to use that functionality.</p>
 <p>You&#39;ll see the same patterns throughout ampersand. Everything is, as much as possible, de-coupled from each other. </p>
-<p>You can easily write your own views and use everything else. In addition, just by <a href="/learn/view-conventions/">following a few conventions</a>, you can even have those view still play nicely with other views.</p>
+<p>You can easily write your own views and use everything else. In addition, just by <a href="/learn/view-conventions/">following a few conventions</a>, you can even have those views still play nicely with other views.</p>
 <a name="models" class="anchor" href="#models"><h2><span class="header-link"></span>Models</h2></a><p>Models in ampersand require explicit definition of properties. </p>
 <p>Backbone allows you to instantiate a model and simply set any value on it. </p>
 <p>Ampersand, not so. We intentionally made it strict so that you have to declare what properties you&#39;re going to store in a model. This means your models end up serving as a form of documentation for the project. A new developer can read the models and the router files and have a pretty good idea of how your app is structured.</p>
