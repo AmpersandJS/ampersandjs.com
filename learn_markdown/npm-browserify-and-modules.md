@@ -19,9 +19,9 @@ Another great source of information about all this is the [browserify handbook](
 
 [commonjs modules](#commonjs-modules) are a specification and implementation of a module system in JavaScript. They allow you to separate functionality into separate files or npm modules, that can then require each other. This makes it much easier to break the functionality of your application up into smaller chunks, that can depend on each other, rather than writing your code in one giant file.
 
-[browserify](#browserify) helps you bundle your application that uses commonjs modules up into a single JavaScript file that you can use in your application in the browser.
+[browserify](#browserify) helps you write your application using commonjs modules, bundle it up into a single JavaScript file, and use in your application in the browser.
 
-Put together the flow of creating a very simple web application with these tools might look something like this:
+Put together, the flow of creating a very simple web application with these tools might look something like this:
 
 * `mkdir my-project && cd my-project` - create a project directory
 * `npm init` - create a package.json for your project which stores your dependencies and their versions
