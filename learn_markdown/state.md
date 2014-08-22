@@ -334,7 +334,7 @@ otherPerson.set({profile: {name: 'Mary'}});
 // Since this a state object it triggers a `change:name` on
 // the `profile` object.
 // In addition, since profile is a child the event will
-//propagate up. More on that below.
+// propagate up. More on that below.
 ```
 
 ## Event bubbling, derived properties based on children
