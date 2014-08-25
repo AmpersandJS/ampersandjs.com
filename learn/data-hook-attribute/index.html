@@ -42,7 +42,7 @@ module.exports = View.extend({
     // note there&#39;s a `class` and a `data-hook`
     template: &#39;&lt;div&gt;&lt;button class=&quot;save-button&quot; data-hook=&quot;action-save&quot;&gt;save result&lt;/button&gt;&lt;/div&gt;&#39;,
     events: {
-        // by using the role to reference it from JavaScript
+        // by using the data-hook to reference it from JavaScript
         // the designer can change classes at will
         // without breaking the behavior
         &#39;click [data-hook=action-save]&#39;: &#39;handleSaveClick&#39;
@@ -54,8 +54,8 @@ module.exports = View.extend({
     }
 });
 </code></pre>
-<p>In order to encourage this practice, because it&#39;s so helpful, there are several places within <a href="/docs/#ampersand-view">ampersand-view</a> where there&#39;s shortcuts for grabbing things by it&#39;s hook. For example <code>this.getByHook(&#39;action-save&#39;)</code> would fetch the element from within the view with that role.</p>
-<p>There&#39;s also a shortcut for role-based selection when declaring bindings:</p>
+<p>In order to encourage this practice, because it&#39;s so helpful, there are several places within <a href="/docs/#ampersand-view">ampersand-view</a> where there&#39;s shortcuts for grabbing things by it&#39;s hook. For example <code>this.queryByHook(&#39;action-save&#39;)</code> would fetch the element from within the view with that data-hook attribute.</p>
+<p>There&#39;s also a shortcut for hook-based selection when declaring bindings:</p>
 <pre><code class="undefinedjs">...
 bindings: {
     &#39;model.saveable&#39;: {
@@ -69,7 +69,7 @@ bindings: {
 </code></pre>
 <p>From our experience this makes collaboration and fast iteration between CSS and JS folks much easier.</p>
 <script>
-    //Show the role note if redirected
+    //Show the note if redirected
     try {
         if (window.location.search.match(/role-redirect/)) {
             document.querySelector('[data-hook="role-note"]').style.display = 'block';

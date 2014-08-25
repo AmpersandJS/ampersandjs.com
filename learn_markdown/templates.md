@@ -13,7 +13,7 @@ The simplest possible "template" in a view is just a string containing HTML:
 
 ```js
 var ListItem = AmpersandView.extend({
-    template: '<li><span role="name"></span><li>'
+    template: '<li><span data-hook="name"></span><li>'
 });
 ```
 
@@ -33,7 +33,7 @@ var ListItem = AmpersandView.extend({
     template: function (context) {
         var html = [
             '<li>',
-            '  <span role="name">' + context.model.name + '</span>'
+            '  <span data-hook="name">' + context.model.name + '</span>'
             '</li>'
         ].join('\n');
 

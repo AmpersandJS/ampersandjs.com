@@ -38,7 +38,7 @@ But, it should still feel quite familiar coming from Backbone/HumanView.
 
 Since there's no jQuery by default, there is no `this.$` or `this.$el` (though it's [very easy to add back](/learn/base-objects-and-mixins#base-view-example-adding-a-method)). 
 
-Instead, there's [`get`](/docs#ampersand-view-get), [`getAll`](/docs#ampersand-view-getall), and [`getByRole`](/docs#ampersand-view-getbyrole). Which basically accomplish the same thing: they search for an element within `this.el`. It's important to note these will also match the `this.el` root element itself, if it matches the query. 
+Instead, there's [`query`](/docs#ampersand-view-query), [`queryAll`](/docs#ampersand-view-query), and [`queryByHook`](/docs#ampersand-view-querybyhook). Which basically accomplish the same thing: they search for an element within `this.el`. It's important to note these will also match the `this.el` root element itself, if it matches the query.
 
 If you're transitioning an existing app that used `HumanView`, the easiest way to get up and running is just to create a [base view that mixes in the `$` of your choice](/learn/base-objects-and-mixins#base-view-example-adding-a-method).
 

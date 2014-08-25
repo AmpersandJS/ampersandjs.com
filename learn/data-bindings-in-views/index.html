@@ -41,25 +41,25 @@ var templates = require(&#39;../templates&#39;);
 module.exports = View.extend({
     template: templates.includes.person,
     bindings: {
-        &#39;model.fullName&#39;: &#39;[role=name]&#39;,
+        &#39;model.fullName&#39;: &#39;[data-hook=name]&#39;,
         &#39;model.avatar&#39;: {
             type: &#39;attribute&#39;,
-            role: &#39;avatar&#39;,
+            hook: &#39;avatar&#39;,
             name: &#39;src&#39;
         },
         &#39;model.editUrl&#39;: {
             type: &#39;attribute&#39;,
-            role: &#39;action-edit&#39;,
+            hook: &#39;action-edit&#39;,
             name: &#39;href&#39;
         },
         &#39;model.viewUrl&#39;: {
             type: &#39;attribute&#39;,
-            role: &#39;name&#39;,
+            hook: &#39;name&#39;,
             name: &#39;href&#39;
         }
     },
     events: {
-        &#39;click [role=action-delete]&#39;: &#39;handleRemoveClick&#39;
+        &#39;click [data-hook=action-delete]&#39;: &#39;handleRemoveClick&#39;
     },
     handleRemoveClick: function () {
         this.model.destroy();
