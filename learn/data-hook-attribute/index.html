@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
+    <meta name="author" content="Get started with Ampersand.js">
+    <title>Ampersand.js - Learn</title>
+    <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
+    <link rel="stylesheet" href="/public/css/normalize.min.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <script>
+      !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+      arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+      d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+      insertBefore(d,q)}(window,document,'script','_gs');
+      _gs('GSN-375569-B', false);
+      _gs('set', 'cookieDomain', '.ampersandjs.com');
+      _gs('track');
+    </script>
+  </head>
+  <body class="docs-page">
+    <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item active">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
+    <div class="docs cf">
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub">Data and bindings in views</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/data-hook-attribute" class="section-sub active">Using the `data-hook` Attribute</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub">Migrating from HumanModel/View</a><a href="/learn/forms" class="section-sub">Working with forms</a>
+      </nav>
+      <div class="docs-content">
+        <section><a name="using-the-humble-attribute" class="anchor" href="#using-the-humble-attribute"><h1><span class="header-link"></span>Using the humble <code>data-hook</code> attribute</h1></a><div data-hook="role-note" class='alert alert-info' style='display: none'>
+    <p><strong>Note: </strong>We used to use the role attribute for this, but it&#39;s not a suitable use for <code>role</code> as it has a number of accessibility considerations. To understand the background for the change you can <a href="https://github.com/ampersandjs/ampersand/issues/21">read the discussion at github</a>.</p>
+</div>
+
+<p>Working with single page apps as a team has always required more collaboration between folks doing HTML/CSS and the JavaScript developers.</p>
+<p>Turns out, most of the challenge is that there&#39;s no obvious way to know whether a <code>class</code>, <code>id</code> or certain HTML tag types are being used by the JavaScript or not. So someone working on design and markup can inadvertently break the JavaScript app and vice versa.</p>
+<p>What we discovered at <a href="http://andyet.com">&amp;yet</a> is that instead of using classes to provide selectors for JavaScript to use, using a data-attribute works quite well for making this distinction. In particular we&#39;ve gone with &quot;data-hook&quot; as the attribute we always use for providing selectors.</p>
+<p>So, whenever selecting elements or registering event handlers within a view if the JavaScript developer always uses the <code>data-hook</code> attribute as a selector, an HTML/CSS dev can go change whatever else they want in the template without fear of breaking the JavaScript.</p>
+<p>For example if you have a view like this:</p>
+<pre><code class="undefinedjs">var View = require(&#39;ampersand-view&#39;);
+
+
+module.exports = View.extend({
+    // note there&#39;s a `class` and a `data-hook`
+    template: &#39;&lt;div&gt;&lt;button class=&quot;save-button&quot; data-hook=&quot;action-save&quot;&gt;save result&lt;/button&gt;&lt;/div&gt;&#39;,
+    events: {
+        // by using the role to reference it from JavaScript
+        // the designer can change classes at will
+        // without breaking the behavior
+        &#39;click [data-hook=action-save]&#39;: &#39;handleSaveClick&#39;
+        // as opposed to: &#39;click .save-button&#39;: &#39;handleSaveClick&#39;
+    },
+    handleSaveClick: function (e) {
+        e.preventDefault();
+        this.model.save();
+    }
+});
+</code></pre>
+<p>In order to encourage this practice, because it&#39;s so helpful, there are several places within <a href="/docs/#ampersand-view">ampersand-view</a> where there&#39;s shortcuts for grabbing things by it&#39;s hook. For example <code>this.getByHook(&#39;action-save&#39;)</code> would fetch the element from within the view with that role.</p>
+<p>There&#39;s also a shortcut for role-based selection when declaring bindings:</p>
+<pre><code class="undefinedjs">...
+bindings: {
+    &#39;model.saveable&#39;: {
+        type: &#39;booleanClass&#39;,
+        // doing this
+        hook: &#39;action-save&#39;
+        // is equivalent to:
+        // selector: &#39;[data-hook=action-save]&#39;
+    }
+}
+</code></pre>
+<p>From our experience this makes collaboration and fast iteration between CSS and JS folks much easier.</p>
+<script>
+    //Show the role note if redirected
+    try {
+        if (window.location.search.match(/role-redirect/)) {
+            document.querySelector('[data-hook="role-note"]').style.display = 'block';
+        }
+
+    } catch (e) { }
+</script></section>
+      </div><a href="/learn" class="back">Back to Guides</a>
+    </div>
+    <footer class="footer-main">
+      <nav class="nav-footer"><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></nav>
+      <p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br>with the help of our <a href="/contribute">contributors</a></p><a href="/" class="logo logo-ampersand-gray">&amp;</a>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-44685415-1', 'humanjavascript.com');
+      ga('send', 'pageview');
+      
+    </script>
+    <script src="/public/js/highlight.pack.js"></script>
+    <script>
+      hljs.configure({classPrefix: ''});
+      hljs.initHighlightingOnLoad();
+      
+    </script>
+  </body>
+</html>

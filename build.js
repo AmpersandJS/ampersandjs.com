@@ -15,6 +15,7 @@ var getModules = require('./lib/get-modules');
 var _ = require('underscore');
 var contributors = require('./contributors.json');
 var coreContributors = require('./core-contributors.json');
+var stripMarkdownMetadata = require('./lib/strip-markdown-metadata');
 
 
 function build() {
@@ -54,7 +55,8 @@ function build() {
     function parse(input) {
         var fileContents = fs.readFileSync(__dirname + '/learn_markdown/' + input, 'utf8');
         var file = metaMarked(fileContents);
-        var cleaned = fileContents.replace(/^---\n[^---]*---/gi, '').trim()
+
+        var cleaned = stripMarkdownMetadata(fileContents).trim();
         var lexed = marked.lexer(cleaned);
 
 
