@@ -23,13 +23,13 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item active">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub">Data and bindings in views</a><a href="/learn/templates" class="section-sub active">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub">Migrating from HumanModel/View</a><a href="/learn/forms" class="section-sub">Working with forms</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub">Data and bindings in views</a><a href="/learn/templates" class="section-sub active">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/data-hook-attribute" class="section-sub">Using the `data-hook` Attribute</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub">Migrating from HumanModel/View</a><a href="/learn/forms" class="section-sub">Working with forms</a>
       </nav>
       <div class="docs-content">
         <section><a name="creating-and-compiling-templates" class="anchor" href="#creating-and-compiling-templates"><h1><span class="header-link"></span>Creating and compiling templates</h1></a><p>Templates and templating engines help you generate HTML that can be used by your views when they are being rendered.</p>
 <a name="templates-as-strings" class="anchor" href="#templates-as-strings"><h2><span class="header-link"></span>Templates as Strings</h2></a><p>The simplest possible &quot;template&quot; in a view is just a string containing HTML:</p>
 <pre><code class="undefinedjs">var ListItem = AmpersandView.extend({
-    template: &#39;&lt;li&gt;&lt;span role=&quot;name&quot;&gt;&lt;/span&gt;&lt;li&gt;&#39;
+    template: &#39;&lt;li&gt;&lt;span data-hook=&quot;name&quot;&gt;&lt;/span&gt;&lt;li&gt;&#39;
 });
 </code></pre>
 <p>Then, when you call render on your view, this string is converted into actual HTML elements, and the root node (in this example the <code>&lt;li&gt;</code> tag) is set as your view&#39;s <code>el</code>.</p>
@@ -41,7 +41,7 @@
     template: function (context) {
         var html = [
             &#39;&lt;li&gt;&#39;,
-            &#39;  &lt;span role=&quot;name&quot;&gt;&#39; + context.model.name + &#39;&lt;/span&gt;&#39;
+            &#39;  &lt;span data-hook=&quot;name&quot;&gt;&#39; + context.model.name + &#39;&lt;/span&gt;&#39;
             &#39;&lt;/li&gt;&#39;
         ].join(&#39;\n&#39;);
 

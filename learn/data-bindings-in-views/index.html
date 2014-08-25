@@ -23,7 +23,7 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item active">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub active">Data and bindings in views</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/role-attribute" class="section-sub">Using the `role` attribute</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub">Migrating from HumanModel/View</a><a href="/learn/forms" class="section-sub">Working with forms</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub active">Data and bindings in views</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/data-hook-attribute" class="section-sub">Using the `data-hook` Attribute</a><a href="/learn/view-conventions" class="section-sub">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub">Migrating from HumanModel/View</a><a href="/learn/forms" class="section-sub">Working with forms</a>
       </nav>
       <div class="docs-content">
         <section><a name="data-and-bindings-in-views" class="anchor" href="#data-and-bindings-in-views"><h1><span class="header-link"></span>Data and bindings in views</h1></a><p>Also, a common question we hear from devs building backbone apps is what a good pattern is for fetching and rendering a single model from a collection for a &quot;detail&quot; page.</p>
@@ -41,25 +41,25 @@ var templates = require(&#39;../templates&#39;);
 module.exports = View.extend({
     template: templates.includes.person,
     bindings: {
-        &#39;model.fullName&#39;: &#39;[role=name]&#39;,
+        &#39;model.fullName&#39;: &#39;[data-hook=name]&#39;,
         &#39;model.avatar&#39;: {
             type: &#39;attribute&#39;,
-            role: &#39;avatar&#39;,
+            hook: &#39;avatar&#39;,
             name: &#39;src&#39;
         },
         &#39;model.editUrl&#39;: {
             type: &#39;attribute&#39;,
-            role: &#39;action-edit&#39;,
+            hook: &#39;action-edit&#39;,
             name: &#39;href&#39;
         },
         &#39;model.viewUrl&#39;: {
             type: &#39;attribute&#39;,
-            role: &#39;name&#39;,
+            hook: &#39;name&#39;,
             name: &#39;href&#39;
         }
     },
     events: {
-        &#39;click [role=action-delete]&#39;: &#39;handleRemoveClick&#39;
+        &#39;click [data-hook=action-delete]&#39;: &#39;handleRemoveClick&#39;
     },
     handleRemoveClick: function () {
         this.model.destroy();
