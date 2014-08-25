@@ -1293,7 +1293,7 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
             <h1><span class="header-link"></span>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v1.0.2</p>
+            <p class="module-version">latest v1.0.3</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
@@ -1332,8 +1332,8 @@ module.exports = AmpersandView.extend({
         // render our template
         this.renderAndBind();
 
-        // grab the element without our template based on its &quot;role&quot; attribute
-        this.pageContainer = this.getByRole(&#39;page-container&#39;);
+        // grab the element without our template based on its &quot;data-hook&quot; attribute
+        this.pageContainer = this.queryByHook(&#39;page-container&#39;);
 
         // set up our page switcher for that element
         this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
@@ -1346,7 +1346,7 @@ module.exports = AmpersandView.extend({
                 document.body.scrollTop = 0;
                 // perhaps store a reference to our current page on our
                 // app global for easy access from the browser console.
-                app.currentPage = view;
+                app.currentPage = newView;
             }
         });
     } 
@@ -1362,13 +1362,13 @@ this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
     hide: function (oldView, newView, cb) {
         // it&#39;s inserted and rendered for me so we&#39;ll add a class 
         // that has a corresponding CSS transition.
-        view.el.classList.add(&#39;animateOut&#39;);
+        oldView.el.classList.add(&#39;animateOut&#39;);
         // give it time to finish (yes there are other ways to do this)
         setTimeout(cb, 1000);
     },
     // here we provide a few things we&#39;d like to do each time
     // we switch pages in the app.
-    show: function (view, oldView) {
+    show: function (newView, oldView) {
         // it&#39;s inserted and rendered for me
         document.title = newView.pageTitle || &#39;app name&#39;;
         document.body.scrollTop = 0;
@@ -1376,7 +1376,7 @@ this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
         // store an additional reference, just because
         app.currentPage = newView;
 
-        view.el.classList.add(&#39;animateIn&#39;);
+        newView.el.classList.add(&#39;animateIn&#39;);
         setTimeout(cb, 2000)
     }
 });
