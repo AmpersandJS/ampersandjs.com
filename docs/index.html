@@ -1293,7 +1293,7 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
             <h1><span class="header-link"></span>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v1.0.3</p>
+            <p class="module-version">latest v1.0.4</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
@@ -1330,7 +1330,7 @@ module.exports = AmpersandView.extend({
     template: templates.body,
     render: function () {
         // render our template
-        this.renderAndBind();
+        this.renderWithTemplate();
 
         // grab the element without our template based on its &quot;data-hook&quot; attribute
         this.pageContainer = this.queryByHook(&#39;page-container&#39;);
