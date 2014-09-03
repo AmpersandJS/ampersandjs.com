@@ -35,7 +35,7 @@
             <h1><span class="header-link"></span>The Ampersand CLI</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand</h4>
-            <p class="module-version">latest v1.10.1</p>
+            <p class="module-version">latest v2.0.0</p>
             <p class="module-description">CLI tool for generating single page apps a. la. http://humanjavascript.com</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand">github</a><a href="https://www.npmjs.org/package/ampersand">npm</a></p>
           </div>
@@ -1536,7 +1536,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
             <h1><span class="header-link"></span>ampersand-dom-bindings</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-dom-bindings</h4>
-            <p class="module-version">latest v3.0.0</p>
+            <p class="module-version">latest v3.1.0</p>
             <p class="module-description">Takes binding declarations and returns key-tree-store of functions that can be used to apply those bindings.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-dom-bindings">github</a><a href="https://www.npmjs.org/package/ampersand-dom-bindings">npm</a></p>
           </div>
@@ -1568,6 +1568,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 }
 </code></pre>
 <a name="ampersand-dom-bindings-value" class="anchor" href="#ampersand-dom-bindings-value"><h3><span class="header-link"></span>value</h3></a><p>sets the value of the element to match value of the property. works well for <code>input</code>, <code>select</code>, and <code>textarea</code> elements. treats <code>undefined</code>, <code>null</code>, and <code>NaN</code> as <code>&#39;&#39;</code> (empty string).</p>
+<p><strong>note</strong>: The binding will only be applied if the element is not currently in focus. This is done by checking to see if the element is the <code>document.activeElement</code> first. The reason it works this way is because if you&#39;ve set up two-way data bindings you get a circular event: the input changes, which sets the bound model property, which in turn updates the value of the input. This might sound OK but results in the cursor always jumping to the end of the input/textarea. So if you&#39;re editing the middle of a bound text field, the cursor keeps jumping to the end. We avoid this by making sure it&#39;s not already in focus thus avoiding the bad loop.</p>
 <pre><code class="javascript">&#39;model.key&#39;: {
     type: &#39;value&#39;,
     selector: &#39;#something&#39;, // or hook
