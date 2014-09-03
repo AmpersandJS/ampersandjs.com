@@ -184,6 +184,9 @@ hr {
   background-image: url("../images/logo-andbang.png");
   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzI4IiBoZWlnaHQ9IjI5MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyI+PHRpdGxlPmFuZGJhbmctbG9nbzwvdGl0bGU+PGcgc2tldGNoOnR5cGU9Ik1TTGF5ZXJHcm91cCIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTE3Mi40MzkgMTg2LjcxOGMxNy45NTktMTguNjkxIDMzLjUzNC0zMy4zNzUgNDAuMDY2LTQyLjQ0MWwzMC4xMDQgMzEuNTJjLTEwLjU1NyAxMy44MzUtMjguOTAxIDMxLjQ1NS00MS4wMiA0NC4wN2w1MC43NzYgNjEuMjU4aC02Mi45NDJsLTIzLjgwMi0yNy41MTdjLTI5LjE5OSAyOS42NzQtNTAuNTEgMzMuNjItNzguNjU4IDMzLjYyLTQ3LjMwNiAwLTg2LjY4MS0zMS45NTktODYuNzE1LTc3LjUzNC0uMDI5LTQwLjQxMiAyNy42NjQtNjMuNDQ3IDU4LjE1OC04Mi45OC0xOS41NDgtMjIuNzg3LTI3LjU4Ni0zNy44NDMtMjcuNTg2LTU2Ljk2OCAwLTM5LjA2NSAzMS43MTUtNjUuMTQxIDczLjE1NS02NS4xNDEgNDAuNjYgMCA3Mi4xNTQgMjIuNjY2IDcyLjE1NCA1OS42OTYgMCAyNi40NDktMTcuNDY4IDQ2Ljc5Ni01MC42OTggNjcuMTQybDQ3LjAwOCA1NS4yNzV6bS0xMTkuOTc1IDE3LjQ2NmMwIDIxLjU2NiAxNi4yMDEgMzcuMjQ5IDM5LjI2NyAzNy4yNDkgMTIuOTAyIDAgMjguNjkxLTIuOTAxIDQ1Ljc0Mi0yMS42bC01Mi4yNjMtNjEuMDA0Yy0yNy43NTggMTkuMTI1LTMyLjc0NiAzMS41MTktMzIuNzQ2IDQ1LjM1NXptNzcuNDM5LTEzNi4yODZjMC0xNS44Ny0xMC45NDctMjguODU4LTI3LjM2Ny0yOC44NTgtMTQuNDY1IDAtMjUuMDIxIDEzLjM5NS0yNS4wMjEgMjguNDUxIDAgMTUuODcgMTMuMDc0IDI1LjQ4MSAyMS42NzUgMzYuODc2IDIyLjI4My0xNS40NjMgMzAuNzEzLTIyLjYzNCAzMC43MTMtMzYuNDY5em0wIDAiIGZpbGw9IiNFRTA3ODgiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiLz48cGF0aCBkPSJNMjk0Ljg2MyAyMjMuMjc4YzE4LjEwNiAwIDMyLjUwOSAxNC43MDUgMzIuNTA5IDMzLjE5MiAwIDE4LjA2Ny0xNC40MDMgMzIuNzczLTMyLjUwOSAzMi43NzMtMTcuNjk3IDAtMzIuMS0xNC43MDYtMzIuMS0zMi43NzMgMC0xOC40ODcgMTQuNDAzLTMzLjE5MiAzMi4xLTMzLjE5MnptLTI3Ljc3MS0yMjMuMDAxaDU0LjgwMXYxOTQuMDc2aC01NC44MDF2LTE5NC4wNzZ6bTAgMCIgZmlsbD0iIzAwQjBFOSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIvPjwvZz48L3N2Zz4="), none;
 }
+.logo.logo-yahoo {
+  background-image: url("../images/logo-yahoo.png");
+}
 .container {
   position: relative;
 }
@@ -649,25 +652,33 @@ nav.nav-main .button {
   margin-left: 0;
   margin-right: 0;
 }
-.splash .projects-list .project {
-  width: 33.33%;
-  padding: 0 10px;
-  float: left;
+.splash .users-list {
+  padding-bottom: 20px;
 }
-.splash .projects-list .logo {
+.splash .users-list .logo {
   height: 40px;
-  margin: 0 auto 20px;
+  margin: 30px 40px 0;
+  display: inline-block;
   text-indent: -9999em;
   background-size: auto 40px;
 }
-.splash .projects-list .logo.logo-talky {
+.splash .users-list .logo.logo-talky {
   width: 65px;
 }
-.splash .projects-list .logo.logo-andbang {
+.splash .users-list .logo.logo-andbang {
   width: 45px;
 }
-.splash .projects-list .logo.logo-otalk {
+.splash .users-list .logo.logo-otalk {
   width: 100px;
+}
+.splash .users-list .logo.logo-yahoo {
+  width: 165px;
+}
+@media (max-width: 768px) {
+  .splash .users-list .logo {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 @media (max-width: 700px) {
   .splash .splash-intro {
@@ -959,4 +970,3 @@ nav.nav-main .button {
   text-indent: -9999em;
   background-size: 17px auto;
 }
-

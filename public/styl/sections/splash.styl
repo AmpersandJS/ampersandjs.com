@@ -79,18 +79,15 @@
         margin-left: 0
         margin-right: 0
 
-  //- List of projects using Ampersand.js
+  //- List of users & companies using Ampersand.js
 
-  .projects-list
-
-    .project
-      width: 33.33%
-      padding: 0 10px
-      float: left
+  .users-list
+    padding-bottom: 20px
 
     .logo
       height: 40px
-      margin: 0 auto 20px
+      margin: 30px 40px 0
+      display: inline-block
       text-indent: -9999em
       background-size: auto 40px
       &.logo-talky
@@ -99,6 +96,12 @@
         width: 45px
       &.logo-otalk
         width: 100px
+      &.logo-yahoo
+        width: 165px
+      //- Adjusting margin between logos
+      @media (max-width: 768px)
+        margin-left: 20px
+        margin-right: 20px
 
 @media (max-width: 700px)
 

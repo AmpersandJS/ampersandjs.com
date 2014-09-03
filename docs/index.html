@@ -533,7 +533,7 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
             <h1><span class="header-link"></span>ampersand-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-collection</h4>
-            <p class="module-version">latest v1.3.13</p>
+            <p class="module-version">latest v1.3.14</p>
             <p class="module-description">A way to store/manage objects or models.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-collection">github</a><a href="https://www.npmjs.org/package/ampersand-collection">npm</a></p>
           </div>
@@ -571,9 +571,12 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
     model: Person
 });
 </code></pre>
-<a name="ampersand-collection-mainindex" class="anchor" href="#ampersand-collection-mainindex"><h3><span class="header-link"></span>mainIndex <code>collection.mainIndex</code></h3></a><p>Specify which key on your models should be used as their main unique identifier. Defaults to <code>id</code>. This is the default key that <a href="#ampersand-collection-get"><code>get</code></a> will use to retrieve models by, as well as the key add/set/remove will compare to determine whether a model exists in the collection or not.</p>
-<p>If your server does not use <code>id</code> as the model identifier, you would typically override this when extending AmpersandCollection, like so:</p>
-<pre><code class="javascript">var People = AmpersandColletion.extend({
+<a name="ampersand-collection-mainindex" class="anchor" href="#ampersand-collection-mainindex"><h3><span class="header-link"></span>mainIndex <code>collection.mainIndex</code></h3></a><p>Specify which property on your models should be used by the collection as the main index and unique identifier for the models/objects it holds. This is the property that <a href="#ampersand-collection-get"><code>get</code></a> will use to retrieve models by and what <code>add</code>, <code>set</code>, and <code>remove</code> will use to determine whether a model already exists in the collection or not. </p>
+<p>If you specify a <a href="http://ampersandjs.com/docs#ampersand-collection-model"><code>model</code></a> property in the collection and that model specifies an <a href="http://ampersandjs.com/docs#ampersand-state-idattribute"><code>idAttribute</code></a> the collection will use <em>that</em> as the <code>mainIndex</code> unless you set it to something else explicitly.</p>
+<p>If <em>no</em> <code>mainIndex</code> or <code>model</code> is specified <code>&quot;id&quot;</code> is used as the default <code>mainIndex</code>.</p>
+<p>This means, that <em>most</em> of the time you don&#39;t need to set <code>mainIndex</code> and things will still Just Work™.</p>
+<p>But if you wish, you may set it while extending AmpersandCollection like so:</p>
+<pre><code class="javascript">var People = AmpersandCollection.extend({
     mainIndex: &#39;_id&#39;
 });
 </code></pre>
