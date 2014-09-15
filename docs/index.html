@@ -91,7 +91,7 @@ my-model-collection.js
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.3.9</p>
+            <p class="module-version">latest v4.3.10</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
@@ -403,7 +403,7 @@ JSON.stringify(me) //=&gt; &quot;{\&quot;firstName\&quot;:\&quot;Phil\&quot;,\&q
             <h1><span class="header-link"></span>ampersand-model</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-model</h4>
-            <p class="module-version">latest v4.0.1</p>
+            <p class="module-version">latest v4.0.2</p>
             <p class="module-description">An extension to ampersand-state that adds methods and properties for working with a RESTful API.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-model">github</a><a href="https://www.npmjs.org/package/ampersand-model">npm</a></p>
           </div>
@@ -437,7 +437,7 @@ JSON.stringify(me) //=&gt; &quot;{\&quot;firstName\&quot;:\&quot;Phil\&quot;,\&q
 <a name="ampersand-model-constructorinitialize" class="anchor" href="#ampersand-model-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new ExtendedAmpersandModel([attrs], [options])</code></h3></a><p>This works exactly like <a href="http://ampersandjs.com/docs/#ampersand-state-constructorinitialize">state</a> with a minor addition: If you pass <code>collection</code> as part of options it&#39;ll be stored for reference.</p>
 <p>As with AmpersandState, if you have defined an <strong>initialize</strong> function for your subclass of State, it will be invoked at creation time.</p>
 <pre><code class="javascript">var me = new Person({
-    firstName: &#39;Phil&#39;
+    firstName: &#39;Phil&#39;,
     lastName: &#39;Roberts&#39;
 });
 
@@ -476,10 +476,14 @@ me.fetch();
 <li>a <code>&quot;sync&quot;</code> event, after the server has successfully acknowledged the model&#39;s deletion.</li>
 </ul>
 <p>Pass <code>{wait: true}</code> if you&#39;d like to wait for the server to respond before removing the model from the collection.</p>
-<pre><code class="javascript">var task = new Task({ id: 123 });
+<pre><code class="javascript">var task = new Task({id: 123});
 task.destroy({
-    success: function () { alert(&#39;Task destroyed!&#39;); },
-    error: function () { alert(&#39;There was an error destroying the task&#39;); },
+    success: function () {
+        alert(&#39;Task destroyed!&#39;);
+    },
+    error: function () {
+        alert(&#39;There was an error destroying the task&#39;);
+    },
 });
 </code></pre>
 <a name="ampersand-model-sync" class="anchor" href="#ampersand-model-sync"><h3><span class="header-link"></span>sync <code>model.sync(method, model, [options])</code></h3></a><p>Uses ampersand-sync to persist the state of a model to the server. Usually you won&#39;t call this directly, you&#39;d use <code>save</code> or <code>destroy</code> instead, but it can be overriden for custom behaviour.</p>
@@ -533,7 +537,7 @@ console.log(bob.url()); //=&gt; &quot;/api/persons/1234&quot;
             <h1><span class="header-link"></span>ampersand-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-collection</h4>
-            <p class="module-version">latest v1.3.14</p>
+            <p class="module-version">latest v1.3.16</p>
             <p class="module-description">A way to store/manage objects or models.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-collection">github</a><a href="https://www.npmjs.org/package/ampersand-collection">npm</a></p>
           </div>
@@ -711,7 +715,7 @@ people.filter(function (person) {
             <h1><span class="header-link"></span>ampersand-rest-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-rest-collection</h4>
-            <p class="module-version">latest v2.0.1</p>
+            <p class="module-version">latest v2.0.3</p>
             <p class="module-description">ampersand-collection with REST and Underscore mixins.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-rest-collection">github</a><a href="https://www.npmjs.org/package/ampersand-rest-collection">npm</a></p>
           </div>
@@ -745,7 +749,7 @@ module.exports = Collection.extend(underscoreMixin, restMixins);
                 &#39;Access-Token&#39;: this.accessToken
             },
             xhrFields: {
-                &#39;withCredentials: true
+                withCredentials: true
             }
         };
     }
@@ -765,7 +769,7 @@ collection.fetch();
 <li><code>merge</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{merge: false}</code> prevents the call to <code>set</code> from updating models in the local collection which have changed on the server. <em>Defaults to false</em></li>
 </ul>
 <p>You can also pass any options that <a href="https://github.com/Raynos/xhr">xhr</a> expects to modify the query. For example: to fetch a specific page of a paginated collection: <code>collection.fetch({ data: { page: 3 } })</code></p>
-<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method for gets a model from the server or from the collection if it&#39;s already has a model with that id. </p>
+<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method for gets a model from the server or from the collection if it&#39;s already has a model with that id.</p>
 <p>By default it will only fetch and add the model with the ID you pass in.</p>
 <pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, function (err, model) {
     if (err) {
@@ -784,7 +788,7 @@ collection.fetch();
         console.log(&#39;handle&#39;);
     } else {
         // `model` here is a fully inflated model
-        // It gets added to the collection automatically. 
+        // It gets added to the collection automatically.
     }
 });
 </code></pre>
@@ -826,48 +830,48 @@ var alphabetical = books.sortBy(function(book) {
 </code></pre>
 <p>The full list of proxied methods is:</p>
 <ul>
-<li><a href="http://underscorejs.org/forEach">forEach</a></li>
-<li><a href="http://underscorejs.org/each">each</a></li>
-<li><a href="http://underscorejs.org/map">map</a></li>
-<li><a href="http://underscorejs.org/collect">collect</a></li>
-<li><a href="http://underscorejs.org/reduce">reduce</a></li>
-<li><a href="http://underscorejs.org/foldl">foldl</a></li>
-<li><a href="http://underscorejs.org/inject">inject</a></li>
-<li><a href="http://underscorejs.org/reduceRight">reduceRight</a></li>
-<li><a href="http://underscorejs.org/foldr">foldr</a></li>
-<li><a href="http://underscorejs.org/find">find</a></li>
-<li><a href="http://underscorejs.org/detect">detect</a></li>
-<li><a href="http://underscorejs.org/filter">filter</a></li>
-<li><a href="http://underscorejs.org/select">select</a></li>
-<li><a href="http://underscorejs.org/reject">reject</a></li>
-<li><a href="http://underscorejs.org/every">every</a></li>
-<li><a href="http://underscorejs.org/all">all</a></li>
-<li><a href="http://underscorejs.org/some">some</a></li>
-<li><a href="http://underscorejs.org/any">any</a></li>
-<li><a href="http://underscorejs.org/include">include</a></li>
-<li><a href="http://underscorejs.org/contains">contains</a></li>
-<li><a href="http://underscorejs.org/invoke">invoke</a></li>
-<li><a href="http://underscorejs.org/max">max</a></li>
-<li><a href="http://underscorejs.org/min">min</a></li>
-<li><a href="http://underscorejs.org/toArray">toArray</a></li>
-<li><a href="http://underscorejs.org/size">size</a></li>
-<li><a href="http://underscorejs.org/first">first</a></li>
-<li><a href="http://underscorejs.org/head">head</a></li>
-<li><a href="http://underscorejs.org/take">take</a></li>
-<li><a href="http://underscorejs.org/initial">initial</a></li>
-<li><a href="http://underscorejs.org/rest">rest</a></li>
-<li><a href="http://underscorejs.org/tail">tail</a></li>
-<li><a href="http://underscorejs.org/drop">drop</a></li>
-<li><a href="http://underscorejs.org/last">last</a></li>
-<li><a href="http://underscorejs.org/without">without</a></li>
-<li><a href="http://underscorejs.org/difference">difference</a></li>
-<li><a href="http://underscorejs.org/indexOf">indexOf</a></li>
-<li><a href="http://underscorejs.org/shuffle">shuffle</a></li>
-<li><a href="http://underscorejs.org/lastIndexOf">lastIndexOf</a></li>
-<li><a href="http://underscorejs.org/isEmpty">isEmpty</a></li>
-<li><a href="http://underscorejs.org/chain">chain</a></li>
-<li><a href="http://underscorejs.org/sample">sample</a></li>
-<li><a href="http://underscorejs.org/partition">partition</a></li>
+<li><a href="http://underscorejs.org#forEach">forEach</a></li>
+<li><a href="http://underscorejs.org#each">each</a></li>
+<li><a href="http://underscorejs.org#map">map</a></li>
+<li><a href="http://underscorejs.org#collect">collect</a></li>
+<li><a href="http://underscorejs.org#reduce">reduce</a></li>
+<li><a href="http://underscorejs.org#foldl">foldl</a></li>
+<li><a href="http://underscorejs.org#inject">inject</a></li>
+<li><a href="http://underscorejs.org#reduceRight">reduceRight</a></li>
+<li><a href="http://underscorejs.org#foldr">foldr</a></li>
+<li><a href="http://underscorejs.org#find">find</a></li>
+<li><a href="http://underscorejs.org#detect">detect</a></li>
+<li><a href="http://underscorejs.org#filter">filter</a></li>
+<li><a href="http://underscorejs.org#select">select</a></li>
+<li><a href="http://underscorejs.org#reject">reject</a></li>
+<li><a href="http://underscorejs.org#every">every</a></li>
+<li><a href="http://underscorejs.org#all">all</a></li>
+<li><a href="http://underscorejs.org#some">some</a></li>
+<li><a href="http://underscorejs.org#any">any</a></li>
+<li><a href="http://underscorejs.org#include">include</a></li>
+<li><a href="http://underscorejs.org#contains">contains</a></li>
+<li><a href="http://underscorejs.org#invoke">invoke</a></li>
+<li><a href="http://underscorejs.org#max">max</a></li>
+<li><a href="http://underscorejs.org#min">min</a></li>
+<li><a href="http://underscorejs.org#toArray">toArray</a></li>
+<li><a href="http://underscorejs.org#size">size</a></li>
+<li><a href="http://underscorejs.org#first">first</a></li>
+<li><a href="http://underscorejs.org#head">head</a></li>
+<li><a href="http://underscorejs.org#take">take</a></li>
+<li><a href="http://underscorejs.org#initial">initial</a></li>
+<li><a href="http://underscorejs.org#rest">rest</a></li>
+<li><a href="http://underscorejs.org#tail">tail</a></li>
+<li><a href="http://underscorejs.org#drop">drop</a></li>
+<li><a href="http://underscorejs.org#last">last</a></li>
+<li><a href="http://underscorejs.org#without">without</a></li>
+<li><a href="http://underscorejs.org#difference">difference</a></li>
+<li><a href="http://underscorejs.org#indexOf">indexOf</a></li>
+<li><a href="http://underscorejs.org#shuffle">shuffle</a></li>
+<li><a href="http://underscorejs.org#lastIndexOf">lastIndexOf</a></li>
+<li><a href="http://underscorejs.org#isEmpty">isEmpty</a></li>
+<li><a href="http://underscorejs.org#chain">chain</a></li>
+<li><a href="http://underscorejs.org#sample">sample</a></li>
+<li><a href="http://underscorejs.org#partition">partition</a></li>
 </ul>
 </div>
         </section>
@@ -875,7 +879,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v7.0.2</p>
+            <p class="module-version">latest v7.1.3</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -1065,7 +1069,7 @@ var view = new MyView({ foo: &#39;bar&#39; });
 <a name="ampersand-view-rendercollection" class="anchor" href="#ampersand-view-rendercollection"><h3><span class="header-link"></span>renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></h3></a><ul>
 <li><code>collection</code> {Backbone Collection} The instantiated collection we wish to render.</li>
 <li><code>ItemView</code> {View Constructor | Function} The view constructor that will be instantiated for each model in the collection or a function that will return an instance of a given constructor. <code>options</code> object is passed as a first argument to a function, which can be used to access <code>options.model</code> and determine which view should be instantiated. This view will be used with a reference to the model and collection and the item view&#39;s <code>render</code> method will be called with an object containing a reference to the containerElement as follows: <code>.render({containerEl: &lt;&lt; element &gt;&gt;})</code>.</li>
-<li><code>containerEl</code> {Element} The element that should hold the collection of views.</li>
+<li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the collection of views. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
 <li><code>viewOptions</code> {Object} [optional] Additional options <ul>
 <li><code>viewOptions</code> {Object} Options object that will get passed to the <code>initialize</code> method of the individual item views.</li>
 <li><code>filter</code> {Function} [optional] Function that will be used to determine if a model should be rendered in this collection view. It will get called with a model and you simply return <code>true</code> or <code>false</code>.</li>
@@ -1076,6 +1080,7 @@ var view = new MyView({ foo: &#39;bar&#39; });
 <p>This method will maintain this collection within that container element. Including proper handling of add, remove, sort, reset, etc.</p>
 <p>Also, when the parent view gets <code>.remove()</code>&#39;ed any event handlers registered by the individual item views will be properly removed as well.</p>
 <p>Each item view will only be <code>.render()</code>&#39;ed once (unless you change that within the item view itself).</p>
+<p>The collection view instance will be returned from the function.</p>
 <a name="ampersand-view-example" class="anchor" href="#ampersand-view-example"><h4><span class="header-link"></span>Example:</h4></a><pre><code class="javascript">// some views for individual items in the collection
 var ItemView = AmpersandView.extend({ ... });
 var AlternativeItemView = AmpersandView.extend({ ... });
@@ -1100,7 +1105,8 @@ var MainView = AmpersandView.extend({
         //          // view options object (just gets passed to item view&#39;s `initialize` method)
         //          viewOptions: {}
         //      }
-        this.renderCollection(this.collection, ItemView, this.el.querySelector(&#39;.itemContainer&#39;), opts);
+        // returns the collection view instance
+        var collectionView = this.renderCollection(this.collection, ItemView, this.el.querySelector(&#39;.itemContainer&#39;), opts);
         return this;
     }
 });
@@ -1152,7 +1158,7 @@ var AlternativeMainView = AmpersandView.extend({
 <li>If no match is found it returns <code>undefined</code></li>
 </ul>
 <pre><code class="javascript">var view = AmpersandView.extend({
-    template: &#39;&lt;li&gt;&lt;img data-hook=&quot;avatar&quot; src=&quot;&quot;&gt;&lt;/li&gt;&#39;,
+    template: &#39;&lt;li&gt;&lt;img class=&quot;avatar&quot; src=&quot;&quot;&gt;&lt;/li&gt;&#39;,
     render: function () {
         this.renderWithTemplate(this);
 
@@ -1214,7 +1220,7 @@ var AlternativeMainView = AmpersandView.extend({
 </ul>
 <a name="ampersand-view-rendersubview" class="anchor" href="#ampersand-view-rendersubview"><h3><span class="header-link"></span>renderSubview <code>view.renderSubview(viewInstance, containerEl)</code></h3></a><ul>
 <li>viewInstance {Object} Any object with a <code>.remove()</code>, <code>.render()</code> and an <code>.el</code> property that is the DOM element for that view. Typically this is just an instantiated view.</li>
-<li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed human view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the sub view.</li>
+<li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the sub view. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
 </ul>
 <p>This method is just sugar for the common use case of instantiating a view and putting in an element within the parent.</p>
 <p>It will:</p>
@@ -1296,7 +1302,7 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
             <h1><span class="header-link"></span>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v1.0.4</p>
+            <p class="module-version">latest v1.0.5</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
@@ -1430,7 +1436,7 @@ switcher.clear();
             <h1><span class="header-link"></span>ampersand-router</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-router</h4>
-            <p class="module-version">latest v1.0.2</p>
+            <p class="module-version">latest v1.0.5</p>
             <p class="module-description">Clientside router with fallbacks for browsers that don't support pushState. Mostly lifted from Backbone.js.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-router">github</a><a href="https://www.npmjs.org/package/ampersand-router">npm</a></p>
           </div>
@@ -1539,7 +1545,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
             <h1><span class="header-link"></span>ampersand-dom-bindings</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-dom-bindings</h4>
-            <p class="module-version">latest v3.1.0</p>
+            <p class="module-version">latest v3.1.1</p>
             <p class="module-description">Takes binding declarations and returns key-tree-store of functions that can be used to apply those bindings.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-dom-bindings">github</a><a href="https://www.npmjs.org/package/ampersand-dom-bindings">npm</a></p>
           </div>
