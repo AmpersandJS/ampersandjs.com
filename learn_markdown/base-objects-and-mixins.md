@@ -16,11 +16,9 @@ Say you wanted a helper function that would always be available to all the views
 
 Simply create a base view, by convention we'd put it in `client/views/base.js`.
 
-Let's say that we wanted a `this.$()` in our views like what backbone has. It's a very handy feature in backbone, but we didn't want to force it on you. You don't have to use jQuery, Zepto, or any such library at all unless you want to. 
+Let's say that we want a `this.$()` in our views like Backbone provides. It's a very handy feature in Backbone, but we didn't want to force it on you. Whereas Backbone expects jQuery, Zepto or any such library to [exist as a global or AMD module](https://github.com/jashkenas/backbone/blob/f210ef68f3d8cfc0676577fe347ababf0aab4497/backbone.js#L25), with Ampersand you don't have to use one at all unless you want to.
 
-Where as backbone expects it to [exist as a global or AMD module](https://github.com/jashkenas/backbone/blob/f210ef68f3d8cfc0676577fe347ababf0aab4497/backbone.js#L25) 
-
-But we can accomplish the same thing by adding it to our base view like this:
+We can accomplish the same thing by adding it to our base view like this:
 
 ```js
 var AmpersandView = require('ampersand-view');
