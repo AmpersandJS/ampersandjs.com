@@ -5,18 +5,19 @@ order: 0
 
 # Quick Start Guide
 
-1. Make sure you've got [node.js installed](http://nodejs.org/).
+1. Install [node.js](http://nodejs.org/) if necessary.
 2. Install the ampersand command line by running this in a terminal:
 ```
 npm install ampersand -g
 ```
-3. Change into whatever directory you normally put your projects and just run this:
+3. Change into your preferred project directory and run this:
+
 ```
 ampersand
 ```
 
-From here, you should be able to follow the prompts to generate a working app.
+Follow the prompts to generate a working app.
 
-This app contains what is considered to be best practices for building ampersand apps.
+The generated app contains best practices for building Ampersand.js apps.
 
-If you hit any snags or want more info [see the docs for the CLI tool](/docs/#ampersand).
+If you hit any snags or want more info, review the [CLI tool docs](/docs/#ampersand).
