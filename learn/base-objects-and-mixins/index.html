@@ -30,9 +30,8 @@
 <p>We accomplish this, in part, with base objects and mixins and it&#39;s a pattern that&#39;s very useful for adding the functionality that you need to your objects.</p>
 <p>Say you wanted a helper function that would always be available to all the views in your app. </p>
 <a name="base-view-example-adding-a-method" class="anchor" href="#base-view-example-adding-a-method"><h2><span class="header-link"></span>Base view example, adding a <code>this.$</code> method</h2></a><p>Simply create a base view, by convention we&#39;d put it in <code>client/views/base.js</code>.</p>
-<p>Let&#39;s say that we wanted a <code>this.$()</code> in our views like what backbone has. It&#39;s a very handy feature in backbone, but we didn&#39;t want to force it on you. You don&#39;t have to use jQuery, Zepto, or any such library at all unless you want to. </p>
-<p>Where as backbone expects it to <a href="https://github.com/jashkenas/backbone/blob/f210ef68f3d8cfc0676577fe347ababf0aab4497/backbone.js#L25">exist as a global or AMD module</a> </p>
-<p>But we can accomplish the same thing by adding it to our base view like this:</p>
+<p>Let&#39;s say that we want a <code>this.$()</code> in our views like Backbone provides. It&#39;s a very handy feature in Backbone, but we didn&#39;t want to force it on you. Whereas Backbone expects jQuery, Zepto or any such library to <a href="https://github.com/jashkenas/backbone/blob/f210ef68f3d8cfc0676577fe347ababf0aab4497/backbone.js#L25">exist as a global or AMD module</a>, with Ampersand you don&#39;t have to use one at all unless you want to.</p>
+<p>We can accomplish the same thing by adding it to our base view like this:</p>
 <pre><code class="undefinedjs">var AmpersandView = require(&#39;ampersand-view&#39;);
 // this could come from a global too, of course, if you&#39;d prefer
 // but it&#39;s on npm so why not :)
