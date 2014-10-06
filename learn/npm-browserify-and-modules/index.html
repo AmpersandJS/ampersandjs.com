@@ -153,7 +153,7 @@ module.exports.each = function (list, fn) { ... }
 var _ = require(&#39;underscore&#39;);
 _.each([1,2,3], function () { /*...*/ });
 
-//require a local file, by relative file path, (you an omit the .js)
+//require a local file, by relative file path, (you can omit the .js)
 var MyView = require(&#39;./views/my-view&#39;);
 var view = new MyView( /*...*/ );
 
@@ -164,7 +164,7 @@ console.log(package.version);
 <p>Everything that was <code>module.export</code>ed will be available as the result of the <code>require()</code> statement in the parent file.</p>
 <a name="browserify" class="anchor" href="#browserify"><h2><span class="header-link"></span>Browserify</h2></a><p>Npm and commonjs modules are how almost all backend node.js developers write and manage JavaScript code. Unfortunately for browsers we can&#39;t just point our index.html at the main <code>app.js</code> file, as browser&#39;s don&#39;t understand how <code>require()</code> works. And even if they did, if it had to grab a file over the network every time it got to a <code>require</code> statement, your application would take forever to load.</p>
 <p>Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.</p>
-<p>It also, provides shims for most of the core node.js functionality, so that <em>in theory</em> you can use any npm module, in the browser, even if it was initially written for backend code. However, in general, we use it more for it&#39;s ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.</p>
+<p>It also provides shims for most of the core node.js functionality, so that <em>in theory</em> you can use any npm module in the browser, even if it was initially written for backend code. However, in general, we use it more for it&#39;s ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.</p>
 <p>Browserify itself is an npm module, which installs a command-line script (<code>browserify</code>), so using it is something like this:</p>
 <pre><code class="undefinedbash">    npm install -g browserify #installs browserify as a globally available command line script
     browserify path/to/app.js -o path/to/app.bundle.js
