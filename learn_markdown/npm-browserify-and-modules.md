@@ -185,7 +185,7 @@ Requiring modules is easy. From a file, just use require, like so:
 var _ = require('underscore');
 _.each([1,2,3], function () { /*...*/ });
 
-//require a local file, by relative file path, (you an omit the .js)
+//require a local file, by relative file path, (you can omit the .js)
 var MyView = require('./views/my-view');
 var view = new MyView( /*...*/ );
 
@@ -203,7 +203,7 @@ Npm and commonjs modules are how almost all backend node.js developers write and
 
 Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.
 
-It also, provides shims for most of the core node.js functionality, so that _in theory_ you can use any npm module, in the browser, even if it was initially written for backend code. However, in general, we use it more for it's ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.
+It also provides shims for most of the core node.js functionality, so that _in theory_ you can use any npm module in the browser, even if it was initially written for backend code. However, in general, we use it more for it's ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.
 
 Browserify itself is an npm module, which installs a command-line script (`browserify`), so using it is something like this:
 
