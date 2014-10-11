@@ -11,7 +11,7 @@ We love Backbone.js at [&yet](http://andyet.com). It’s brilliantly simple code
 
 We built our first app on Backbone 0.3.1 and have been a user/supporter of the project for quite some time and was honored to have spoken at the first BackboneConf.
 
-Shortly after discovering Backbone, we also got into node.js which brought with it a module approach and eventually an awesome way of managing dependencies that we've have fallen deeply in like with: [npm](https://npmjs.org).
+Shortly after discovering Backbone, we also got into node.js which brought with it a module approach and eventually an awesome way of managing dependencies that we've have fallen deeply in like with: [npm](https://www.npmjs.org).
 
 Nothing has done more for our team’s ability to write clean, maintainable client-side applications than having a really awesome dependency management system and [substack’s](http://twitter.com/substack) [browserify](http://browserify.org/) that allows us to quickly declare/install external dependencies and know that things will Just Work™.
 

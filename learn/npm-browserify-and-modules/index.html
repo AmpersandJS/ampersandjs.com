@@ -77,10 +77,10 @@
 </li>
 </ul>
 <p>The following sections go into more detail about the components, and tools you might use. If you&#39;ve experience with node.js and writing commonjs modules, you can skip straight to <a href="#browserify">browserify</a>.</p>
-<a name="npm" class="anchor" href="#npm"><h2><span class="header-link"></span>npm</h2></a><p><a href="http://npmjs.org">npm</a> is the official package manager for node.js.</p>
+<a name="npm" class="anchor" href="#npm"><h2><span class="header-link"></span>npm</h2></a><p><a href="http://www.npmjs.org">npm</a> is the official package manager for node.js.</p>
 <p>The various components of npm are:</p>
 <ul>
-<li><strong>A registry</strong>. The main one is <a href="https://www.npmjs.org/">http://npmjs.org</a>, but there are others and you can even install private registries if you wish. This is where you can publish modules to, and install modules from. All the ampersand modules are available on the public npm registry. e.g.: <a href="https://www.npmjs.org/package/ampersand-view">https://www.npmjs.org/package/ampersand-view</a></li>
+<li><strong>A registry</strong>. The main one is <a href="https://www.npmjs.org/">http://www.npmjs.org</a>, but there are others and you can even install private registries if you wish. This is where you can publish modules to, and install modules from. All the ampersand modules are available on the public npm registry. e.g.: <a href="https://www.npmjs.org/package/ampersand-view">https://www.npmjs.org/package/ampersand-view</a></li>
 <li><strong>The npm cli (command line tool)</strong>. This is what you install locally, and run from your command line as <code>npm</code>. This helps you <code>npm install</code> dependencies from the registry, <code>npm publish</code> dependencies, and so on.</li>
 <li><strong>package.json</strong>. Every project that is either published to an npm registry, or installs dependencies from it, should have a package.json. This file defines a few things about the project (name, versions, maintainers, etc) as well as listing any npm modules that the project depends on, and their versions.</li>
 <li><strong>node_modules</strong>. This is a directory that will be created in your project, and is where your npm modules will be installed into. It&#39;s also where node looks for modules when you <code>require()</code> them.</li>
