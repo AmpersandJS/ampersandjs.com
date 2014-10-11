@@ -68,7 +68,7 @@ Put together, the flow of creating a very simple web application with these tool
 
 * `open index.html` - open index.html in a browser, and check the console output.
 
-The following sections go into more detail about the components, and tools you might use. If you've experience with node.js and writing commonjs modules, you can skip straight to [browserify](#browserify).
+The following sections go into more detail about the components, and tools you might use. If you have experience with node.js and writing commonjs modules, you can skip straight to [browserify](#browserify).
 
 
 ## npm
