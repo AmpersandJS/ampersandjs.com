@@ -26,7 +26,7 @@
       <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="/learn/" class="section-top">Guides</a><a href="/learn/quick-start-guide" class="section-sub">Quick Start Guide</a><a href="/learn/npm-browserify-and-modules" class="section-sub">npm, Browserify &amp; Modules</a><a href="/learn/transitioning-from-backbone" class="section-sub">Transitioning from Backbone</a><a href="/learn/state" class="section-sub">Understanding State</a><a href="/learn/data-bindings-in-views" class="section-sub">Data and bindings in views</a><a href="/learn/templates" class="section-sub">Templates</a><a href="/learn/events" class="section-sub">Events in Ampersand</a><a href="/learn/base-objects-and-mixins" class="section-sub">Base Objects &amp; Mixins</a><a href="/learn/data-hook-attribute" class="section-sub">Using the `data-hook` Attribute</a><a href="/learn/view-conventions" class="section-sub active">View Conventions</a><a href="/learn/migrating-human-model-view" class="section-sub">Migrating from HumanModel/View</a><a href="/learn/forms" class="section-sub">Working with forms</a>
       </nav>
       <div class="docs-content">
-        <section><a name="ampersand-view-conventions" class="anchor" href="#ampersand-view-conventions"><h1><span class="header-link"></span>Ampersand View Conventions</h1></a><a name="what-is-a-view-according-to-ampersand" class="anchor" href="#what-is-a-view-according-to-ampersand"><h2><span class="header-link"></span>What is a view according to ampersand?</h2></a><p>The core purpose of a view is to manage the contents, events, and behavior of a single DOM element.</p>
+        <section><a name="ampersand-view-conventions" class="anchor" href="#ampersand-view-conventions"><h1><span class="header-link"></span>Ampersand View Conventions</h1></a><a name="what-is-a-view-according-to-ampersand" class="anchor" href="#what-is-a-view-according-to-ampersand"><h2><span class="header-link"></span>What is a view according to ampersand?</h2></a><p>The core purpose of a view is to manage the contents, events, and behavior or a single DOM element.</p>
 <p>It doesn&#39;t matter if your &quot;view&quot; is an instance of <code>ampersand-view</code> or not. <em>Any</em> object can be a view if it follows a few rules.</p>
 <p>Following these rules ensure that that your view plays nicely with other views.</p>
 <p>The rules are:</p>
@@ -35,7 +35,7 @@
 <li>All views should have an <code>el</code> property, that is the dom element that the view manages.</li>
 <li>If the constructor&#39;s options object has an <code>el</code> property, it should be used as the view&#39;s <code>el</code>.</li>
 <li>All views should have a <code>render</code> method that creates, replaces, or fills in the <code>el</code> property.</li>
-<li>It should have a <code>remove</code> method that tears down the view, removes any event handlers, and ideally removes <code>el</code> from its parent (if that&#39;s a reasonable thing to do).</li>
+<li>It should have a <code>remove</code> method that tears down the view, removes any event handlers, and ideally removes <code>el</code> from it&#39;s parent (if that&#39;s a reasonable thing to do).</li>
 </ul>
 <a name="the-rules-are-most-easily-explained-by-an-example" class="anchor" href="#the-rules-are-most-easily-explained-by-an-example"><h2><span class="header-link"></span>The rules are most easily explained by an example</h2></a><p>Here is an absolutely bare-minimum <code>view</code>. Please see the comments.</p>
 <pre><code class="undefinedjs">function MinimalView(options) {
