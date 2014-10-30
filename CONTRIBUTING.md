@@ -8,7 +8,7 @@ Thanks for helping out! Just a couple things to know about how this site is put 
 
  - Other stuff is built from jade files in various folders. 
 
- - Hop on the #&yet IRC channel on freenode if you have questions, or just to hang out and talk about Ampersand.js
+ - Hop into the [chat room on gitter](https://gitter.im/AmpersandJS/AmpersandJS) if you have questions, or just to hang out and talk about Ampersand.js
 
  - Don't worry about re-building anything, just send pull requests with edited markdown files, we'll rebuild when we merge and publish, thanks!
 
