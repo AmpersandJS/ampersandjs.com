@@ -73,10 +73,10 @@ The following sections go into more detail about the components, and tools you m
 
 ## npm
 
-[npm](http://npmjs.org) is the official package manager for node.js.
+[npm](http://www.npmjs.org) is the official package manager for node.js.
 
 The various components of npm are:
-* **A registry**. The main one is [http://npmjs.org](https://www.npmjs.org/), but there are others and you can even install private registries if you wish. This is where you can publish modules to, and install modules from. All the ampersand modules are available on the public npm registry. e.g.: [https://www.npmjs.org/package/ampersand-view](https://www.npmjs.org/package/ampersand-view)
+* **A registry**. The main one is [http://www.npmjs.org](https://www.npmjs.org/), but there are others and you can even install private registries if you wish. This is where you can publish modules to, and install modules from. All the ampersand modules are available on the public npm registry. e.g.: [https://www.npmjs.org/package/ampersand-view](https://www.npmjs.org/package/ampersand-view)
 * **The npm cli (command line tool)**. This is what you install locally, and run from your command line as `npm`. This helps you `npm install` dependencies from the registry, `npm publish` dependencies, and so on.
 * **package.json**. Every project that is either published to an npm registry, or installs dependencies from it, should have a package.json. This file defines a few things about the project (name, versions, maintainers, etc) as well as listing any npm modules that the project depends on, and their versions.
 * **node_modules**. This is a directory that will be created in your project, and is where your npm modules will be installed into. It's also where node looks for modules when you `require()` them.
