@@ -111,6 +111,9 @@ function build() {
         contributors: contributors,
         coreContributors: coreContributors
     });
+
+    // Render security page
+    renderJade(__dirname + '/security.jade', {}, __dirname + '/security/index.html');
 }
 
 // optional watcher
