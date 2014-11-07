@@ -35,7 +35,7 @@
             <h1><span class="header-link"></span>The Ampersand CLI</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand</h4>
-            <p class="module-version">latest v2.0.1</p>
+            <p class="module-version">latest v2.0.2</p>
             <p class="module-description">CLI tool for generating single page apps a. la. http://humanjavascript.com</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand">github</a><a href="https://www.npmjs.org/package/ampersand">npm</a></p>
           </div>
@@ -751,7 +751,7 @@ people.filter(function (person) {
             <h1><span class="header-link"></span>ampersand-rest-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-rest-collection</h4>
-            <p class="module-version">latest v2.0.3</p>
+            <p class="module-version">latest v2.0.4</p>
             <p class="module-description">ampersand-collection with REST and Underscore mixins.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-rest-collection">github</a><a href="https://www.npmjs.org/package/ampersand-rest-collection">npm</a></p>
           </div>
@@ -805,8 +805,8 @@ collection.fetch();
 <li><code>merge</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{merge: false}</code> prevents the call to <code>set</code> from updating models in the local collection which have changed on the server. <em>Defaults to false</em></li>
 </ul>
 <p>You can also pass any options that <a href="https://github.com/Raynos/xhr">xhr</a> expects to modify the query. For example: to fetch a specific page of a paginated collection: <code>collection.fetch({ data: { page: 3 } })</code></p>
-<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method for gets a model from the server or from the collection if it&#39;s already has a model with that id.</p>
-<p>By default it will only fetch and add the model with the ID you pass in.</p>
+<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method. Gets a model from the server or from the collection if a model with that id already exists.</p>
+<p>By default it will only fetch and add the model with the id you pass in.</p>
 <pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, function (err, model) {
     if (err) {
         console.log(&#39;handle&#39;);
@@ -818,7 +818,7 @@ collection.fetch();
     }
 });
 </code></pre>
-<p>If you pass <code>{all: true}</code> it will fetch the entire collection (by calling its <code>fetch</code> method) and then do a <code>get</code> to attempt to pull out the model by the <code>id</code> you specified.</p>
+<p>If you pass <code>{all: true}</code> it will fetch the entire collection (by calling its <code>fetch</code> method) and then do a <code>get</code> to attempt to pull out the model by the id you specified.</p>
 <pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, {all: true}, function (err, model) {
     if (err) {
         console.log(&#39;handle&#39;);
@@ -915,7 +915,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v7.1.4</p>
+            <p class="module-version">latest v7.1.5</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -1338,7 +1338,7 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
             <h1><span class="header-link"></span>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v1.1.0</p>
+            <p class="module-version">latest v1.1.2</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
@@ -1581,7 +1581,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
             <h1><span class="header-link"></span>ampersand-dom-bindings</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-dom-bindings</h4>
-            <p class="module-version">latest v3.3.1</p>
+            <p class="module-version">latest v3.3.2</p>
             <p class="module-description">Takes binding declarations and returns key-tree-store of functions that can be used to apply those bindings.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-dom-bindings">github</a><a href="https://www.npmjs.org/package/ampersand-dom-bindings">npm</a></p>
           </div>
@@ -1638,7 +1638,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
     name: &#39;checked&#39;
 }
 </code></pre>
-<a name="ampersand-dom-bindings-toggle" class="anchor" href="#ampersand-dom-bindings-toggle"><h3><span class="header-link"></span>toggle</h3></a><p>toggles existence of entire element (uses a comment node as placeholder if gone) based on boolean interpretation of property name.</p>
+<a name="ampersand-dom-bindings-toggle" class="anchor" href="#ampersand-dom-bindings-toggle"><h3><span class="header-link"></span>toggle</h3></a><p>toggles visibility (using display: none) of entire element based on boolean interpretation of property.</p>
 <pre><code class="javascript">// simple show/hide of single element
 &#39;model.key&#39;: {
     type: &#39;toggle&#39;,
