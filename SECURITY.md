@@ -18,7 +18,7 @@ Security bugs in third party modules should be reported to their respective main
 Thank you for improving the security of AmpersandJS. Your efforts and coordinated disclosure are greatly appreciated and will be acknowledged.
 
 
-# Disclosure Policy
+## Disclosure Policy
 
 Here is the security disclosure policy for AmpersandJS
 
@@ -33,18 +33,18 @@ Here is the security disclosure policy for AmpersandJS
 - This process can take some time, especially when coordination is required with maintainers of other projects. Every effort will be made to handle the bug in as timely a manner as possible, however, it’s important that we follow the release process above to ensure that the disclosure is handled in a consistent manner.
 
 
-# Receiving Security Updates
+## Receiving Security Updates
 
 Security notifications will be distributed via the following methods.
 
 - A message will be posted in the [chatroom](https://gitter.im/AmpersandJS/AmpersandJS)
 - A security advisory will be published at nodesecurity.io and will be identifiable by the [nsp](https://www.npmjs.org/package/nsp) utility.
 
-# Comments on this Policy
+## Comments on this Policy
 
 If you have suggestions on how this process could be improved please submit a [pull request](https://github.com/AmpersandJS/ampersandjs.com) or email [security@ampersandjs.com](mailto:security@ampersandjs.com) to discuss.
 
 
-# History
+## History
 
 No security issues have been reported for this project yet.

@@ -35,7 +35,7 @@
             <h1><span class="header-link"></span>The Ampersand CLI</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand</h4>
-            <p class="module-version">latest v2.0.2</p>
+            <p class="module-version">latest v2.0.3</p>
             <p class="module-description">CLI tool for generating single page apps a. la. http://humanjavascript.com</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand">github</a><a href="https://www.npmjs.org/package/ampersand">npm</a></p>
           </div>
@@ -62,6 +62,7 @@ my-model-collection.js
 <p>Those files can be JSON or ini format.</p>
 <p>The available options and defaults are as follows:</p>
 <pre><code class="javascript">{
+    // default framework to be prompted with, options are express or hapi
     framework: &#39;hapi&#39;,
     indent: 4,
     view: &#39;&#39;, // default template
@@ -91,7 +92,7 @@ my-model-collection.js
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.3.14</p>
+            <p class="module-version">latest v4.3.15</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
@@ -121,7 +122,13 @@ my-model-collection.js
     }
 });
 </code></pre>
-<a name="ampersand-state-constructorinitialize" class="anchor" href="#ampersand-state-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new AmpersandState([attrs], [options])</code></h3></a><p>When creating an instance of a state object, you can pass in the initial values of the <strong>attributes</strong> which will be <a href="#ampersand-state-set">set</a> on the state. Unless <a href="#amperand-state-extra-properties">extraProperties</a> is set to <code>allow</code>, you will need to have defined these attributes in <code>props</code> or <code>session</code>.</p>
+<p><code>AmpersandState.extend</code> does more than just copy attributes from one prototype to another. As such it is incompatible with Coffeescript&#39;s class-based extend. TypeScript users may have similar issues. </p>
+<p>For instance, this will not work since it never actually calls <code>AmpersandState.extend</code>:</p>
+<pre><code>class Foo extends AmpersandView
+     constructor: (options)-&gt;
+         @special = options.special
+         super
+</code></pre><a name="ampersand-state-constructorinitialize" class="anchor" href="#ampersand-state-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new AmpersandState([attrs], [options])</code></h3></a><p>When creating an instance of a state object, you can pass in the initial values of the <strong>attributes</strong> which will be <a href="#ampersand-state-set">set</a> on the state. Unless <a href="#amperand-state-extra-properties">extraProperties</a> is set to <code>allow</code>, you will need to have defined these attributes in <code>props</code> or <code>session</code>.</p>
 <p>If you have defined an <strong>initialize</strong> function for your subclass of State, it will be invoked at creation time.</p>
 <pre><code class="javascript">var me = new Person({
     firstName: &#39;Phil&#39;
@@ -424,6 +431,7 @@ console.log(me.color) //=&gt; &#39;red&#39;
 <a name="ampersand-state-previousattributes" class="anchor" href="#ampersand-state-previousattributes"><h3><span class="header-link"></span>previousAttributes <code>state.previousAttributes()</code></h3></a><p>Return a copy of the object&#39;s previous attributes (the state before the last <code>&quot;change&quot;</code> event). Useful for getting a diff between versions of a state, or getting back to a valid state after an error occurs.</p>
 <a name="ampersand-state-haschanged" class="anchor" href="#ampersand-state-haschanged"><h3><span class="header-link"></span>hasChanged <code>state.hasChanged([attribute])</code></h3></a><p>Determine if the state has been modified since the last <code>&quot;change&quot;</code> event. If an attribute name is passed, determine if that one attribute has changed.</p>
 <a name="ampersand-state-changedattributes" class="anchor" href="#ampersand-state-changedattributes"><h3><span class="header-link"></span>changedAttributes <code>state.changedAttributes([objectToDiff])</code></h3></a><p>Return an object containing all the attributes that have changed, or false if there are no changed attributes. Useful for determining what parts of a view need to be updated and/or what attributes need to be persisted to the server. Unset attributes will be set to undefined.  You can also pass an attributes object to diff against the state, determining if there <em>would be</em> a change.</p>
+<p>Note that if passing an attributes object to diff against, only changes to properties defined on the model will be detected. This means that changes to children or collections will <em>not</em> be returned as changes by this method.</p>
 <a name="ampersand-state-tojson" class="anchor" href="#ampersand-state-tojson"><h3><span class="header-link"></span>toJSON <code>state.toJSON()</code></h3></a><p>Return a shallow copy of the state&#39;s attributes for JSON stringification. This can be used for persistence, serialization, or for augmentation before being sent to the server. The name of this method is a bit confusing, as it doesn&#39;t actually return a JSON string — but I&#39;m afraid that it&#39;s the way that the JavaScript API for JSON.stringify works.</p>
 <p>Calls <a href="#ampersand-state-serialize">serialize</a> to determine which values to return in the object. Will be called implicitly by JSON.stringify.</p>
 <pre><code class="javascript">var me = new Person({ firstName: &#39;Phil&#39;, lastName: &#39;Roberts&#39; });
@@ -915,7 +923,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v7.1.5</p>
+            <p class="module-version">latest v7.1.6</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -1581,7 +1589,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
             <h1><span class="header-link"></span>ampersand-dom-bindings</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-dom-bindings</h4>
-            <p class="module-version">latest v3.3.2</p>
+            <p class="module-version">latest v3.3.3</p>
             <p class="module-description">Takes binding declarations and returns key-tree-store of functions that can be used to apply those bindings.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-dom-bindings">github</a><a href="https://www.npmjs.org/package/ampersand-dom-bindings">npm</a></p>
           </div>
@@ -1680,7 +1688,8 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 }
 </code></pre>
 <a name="ampersand-dom-bindings-custom-functions" class="anchor" href="#ampersand-dom-bindings-custom-functions"><h3><span class="header-link"></span>custom functions</h3></a><p><code>type</code> can also be a function. It will be run for each matching <code>el</code> with the
-<code>value</code> and <code>previousValue</code> of the property.</p>
+<code>value</code> and <code>previousValue</code> of the property. The function is bound to the view
+declaring the bindings, so <code>this</code> refers to the view.</p>
 <pre><code class="javascript">&#39;model.key&#39;: {
     type: function (el, value, previousValue) {
         // Do something custom to el
@@ -1779,7 +1788,7 @@ module.exports = View.extend({
     </div>
     <script src="/public/js/setup.js"></script>
     <footer class="footer-main">
-      <nav class="nav-footer"><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a></nav>
+      <nav class="nav-footer"><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="/contribute" class="nav-item">Contribute</a><a href="/security" class="nav-item">Security</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></nav>
       <p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br>with the help of our <a href="/contribute">contributors</a></p><a href="/" class="logo logo-ampersand-gray">&amp;</a>
     </footer>
     <script>
