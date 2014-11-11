@@ -226,7 +226,7 @@ If you're doing it this way, you may find [watchify](https://github.com/substack
 
 #### as part of grunt/gulp
 
-If you use grunt or gulp, there are plenty of browserify plugins for each to run browserify as part of your build. e.g: [grunt-browserify](https://github.com/jmreidy/grunt-browserify) and [gulp-browserify](https://github.com/deepak1556/gulp-browserify)
+If you use [grunt](http://gruntjs.com/) or [gulp](http://gulpjs.com/), there are plenty of browserify plugins for each to run browserify as part of your build. e.g: [grunt-browserify](https://github.com/jmreidy/grunt-browserify) and [gulp-browserify](https://github.com/deepak1556/gulp-browserify)
 
 #### beefy
 
