@@ -230,10 +230,10 @@ If you use [grunt](http://gruntjs.com/) or [gulp](http://gulpjs.com/), there are
 
 #### beefy
 
-[beefy](https://github.com/chrisdickinson/beefy) is a great little tool for developing small apps or modules. It's basically a simple static web-server that will browserify your source on the fly. From the docs:
+[beefy](https://github.com/chrisdickinson/beefy) is a great little tool for developing small apps or modules. It's basically a simple static web-server that will browserify your source on the fly. From the docs, beefy:
 
 * can live reload your browser when your code changes (if you want)
-* works with whatever version of browserify or watchify; globally installed or locally installed to `node\_modules/`.
+* works with whatever version of browserify or watchify; globally installed or locally installed to `node_modules`.
 * will spit compile errors out into the browser so you don't have that 1-2 seconds of cognitive dissonance and profound ennui that follows refreshing the page only to get a blank screen.
 * will spit out a default index.html for missing routes so you don't need to even muck about with HTML to get started
 
