@@ -1,0 +1,20 @@
+block vars
+  - var pageTitle = "Security"
+  - var description = "Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5"
+
+extends templates/layout
+
+block content
+
+  header.hero
+    .illustration.beach
+      img(src="/public/images/ampersand-at-the-beach.svg")
+    h1 Security is a core value
+
+
+  hr
+
+  section.splash
+
+    .container.cf
+      include:md ./SECURITY.md
