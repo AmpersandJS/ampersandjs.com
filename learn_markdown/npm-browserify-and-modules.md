@@ -181,7 +181,7 @@ A few things to note about the examples:
 Requiring modules is easy. From a file, just use require, like so:
 
 ```js
-//require a module from npm, by specifying it's module name
+//require a module from npm, by specifying its module name
 var _ = require('underscore');
 _.each([1,2,3], function () { /*...*/ });
 
