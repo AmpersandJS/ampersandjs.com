@@ -39,16 +39,20 @@ html(lang="en")
     block content
 
     footer.footer-main
-      nav.nav-footer
-        a.nav-item(href="/learn") Learn
-        a.nav-item(href="/docs") Docs
-        a.nav-item(href="http://tools.ampersandjs.com") Find Modules
-        a.nav-item.external(href="https://gitter.im/AmpersandJS/AmpersandJS") Chatroom
-        a.nav-item.external(href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap") Roadmap
-        a.nav-item(href="/contribute") Contribute
-        a.nav-item(href="/security") Security
-        a.nav-item(href="https://github.com/ampersandjs") Github
-        a.nav-item(href="https://twitter.com/ampersandjs") Twitter
+      nav.nav-footer.cf
+        //- Three columns of links
+        div
+          a.nav-item(href="/learn") Learn
+          a.nav-item(href="/docs") Docs
+          a.nav-item(href="http://tools.ampersandjs.com") Modules
+        div
+          a.nav-item.external(href="https://gitter.im/AmpersandJS/AmpersandJS") Chatroom
+          a.nav-item.external(href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap") Roadmap
+          a.nav-item(href="/contribute") Contribute
+        div
+          a.nav-item(href="/security") Security
+          a.nav-item(href="https://github.com/ampersandjs") Github
+          a.nav-item(href="https://twitter.com/ampersandjs") Twitter
       p Sponsored by 
         a(href="https://andyet.com") &amp;yet 
         br

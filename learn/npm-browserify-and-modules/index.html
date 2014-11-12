@@ -149,7 +149,7 @@ module.exports.each = function (list, fn) { ... }
 <li>Within a module, attaching code to <code>module.exports</code> allows it to be accessible by any other module that <code>require()</code>&#39;s your module. By default <code>module.exports</code> is an empty object. You can either set properties on it to properties/functions, like the last example above; or replace it with a function/constructor like the first two.</li>
 </ul>
 <a name="requiring-commonjs-modules" class="anchor" href="#requiring-commonjs-modules"><h3><span class="header-link"></span>Requiring commonjs modules</h3></a><p>Requiring modules is easy. From a file, just use require, like so:</p>
-<pre><code class="undefinedjs">//require a module from npm, by specifying it&#39;s module name
+<pre><code class="undefinedjs">//require a module from npm, by specifying its module name
 var _ = require(&#39;underscore&#39;);
 _.each([1,2,3], function () { /*...*/ });
 
@@ -164,7 +164,7 @@ console.log(package.version);
 <p>Everything that was <code>module.export</code>ed will be available as the result of the <code>require()</code> statement in the parent file.</p>
 <a name="browserify" class="anchor" href="#browserify"><h2><span class="header-link"></span>Browserify</h2></a><p>Npm and commonjs modules are how almost all backend node.js developers write and manage JavaScript code. Unfortunately for browsers we can&#39;t just point our index.html at the main <code>app.js</code> file, as browser&#39;s don&#39;t understand how <code>require()</code> works. And even if they did, if it had to grab a file over the network every time it got to a <code>require</code> statement, your application would take forever to load.</p>
 <p>Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.</p>
-<p>It also provides shims for most of the core node.js functionality, so that <em>in theory</em> you can use any npm module in the browser, even if it was initially written for backend code. However, in general, we use it more for it&#39;s ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.</p>
+<p>It also provides shims for most of the core node.js functionality, so that <em>in theory</em> you can use any npm module in the browser, even if it was initially written for backend code. However, in general, we use it more for its ability to make possible using commonjs modules in the browser, and we generally will use modules written specifically for the browser.</p>
 <p>Browserify itself is an npm module, which installs a command-line script (<code>browserify</code>), so using it is something like this:</p>
 <pre><code class="undefinedbash">    npm install -g browserify #installs browserify as a globally available command line script
     browserify path/to/app.js -o path/to/app.bundle.js
@@ -173,11 +173,11 @@ console.log(package.version);
 <a name="how-and-when-to-run-browserify" class="anchor" href="#how-and-when-to-run-browserify"><h3><span class="header-link"></span>How and when to run browserify?</h3></a><p>There are a number of different way to run browserify, depending on your setup.</p>
 <a name="browserifywatchify-cli" class="anchor" href="#browserifywatchify-cli"><h4><span class="header-link"></span>browserify/watchify cli</h4></a><p>The simplest, as explained above is just to install <a href="http://browserify.org">browserify</a>, and run something like: <code>browserify path/to/main/app/file.js -o path/to/output/bundle.js</code>.</p>
 <p>If you&#39;re doing it this way, you may find <a href="https://github.com/substack/watchify">watchify</a> useful, which watches your source files, and automatically rebuilds you browserify bundle when necessary.</p>
-<a name="as-part-of-gruntgulp" class="anchor" href="#as-part-of-gruntgulp"><h4><span class="header-link"></span>as part of grunt/gulp</h4></a><p>If you use grunt or gulp, there are plenty of browserify plugins for each to run browserify as part of your build. e.g: <a href="https://github.com/jmreidy/grunt-browserify">grunt-browserify</a> and <a href="https://github.com/deepak1556/gulp-browserify">gulp-browserify</a></p>
-<a name="beefy" class="anchor" href="#beefy"><h4><span class="header-link"></span>beefy</h4></a><p><a href="https://github.com/chrisdickinson/beefy">beefy</a> is a great little tool for developing small apps or modules. It&#39;s basically a simple static web-server that will browserify your source on the fly. From the docs:</p>
+<a name="as-part-of-gruntgulp" class="anchor" href="#as-part-of-gruntgulp"><h4><span class="header-link"></span>as part of grunt/gulp</h4></a><p>If you use <a href="http://gruntjs.com/">grunt</a> or <a href="http://gulpjs.com/">gulp</a>, there are plenty of browserify plugins for each to run browserify as part of your build. e.g: <a href="https://github.com/jmreidy/grunt-browserify">grunt-browserify</a> and <a href="https://github.com/deepak1556/gulp-browserify">gulp-browserify</a></p>
+<a name="beefy" class="anchor" href="#beefy"><h4><span class="header-link"></span>beefy</h4></a><p><a href="https://github.com/chrisdickinson/beefy">beefy</a> is a great little tool for developing small apps or modules. It&#39;s basically a simple static web-server that will browserify your source on the fly. From the docs, beefy:</p>
 <ul>
 <li>can live reload your browser when your code changes (if you want)</li>
-<li>works with whatever version of browserify or watchify; globally installed or locally installed to <code>node\_modules/</code>.</li>
+<li>works with whatever version of browserify or watchify; globally installed or locally installed to <code>node_modules</code>.</li>
 <li>will spit compile errors out into the browser so you don&#39;t have that 1-2 seconds of cognitive dissonance and profound ennui that follows refreshing the page only to get a blank screen.</li>
 <li>will spit out a default index.html for missing routes so you don&#39;t need to even muck about with HTML to get started</li>
 </ul>
@@ -188,7 +188,11 @@ console.log(package.version);
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
     <footer class="footer-main">
-      <nav class="nav-footer"><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="/contribute" class="nav-item">Contribute</a><a href="/security" class="nav-item">Security</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></nav>
+      <nav class="nav-footer cf">
+        <div><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Modules</a></div>
+        <div><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="/contribute" class="nav-item">Contribute</a></div>
+        <div><a href="/security" class="nav-item">Security</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></div>
+      </nav>
       <p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br>with the help of our <a href="/contribute">contributors</a></p><a href="/" class="logo logo-ampersand-gray">&amp;</a>
     </footer>
     <script>
