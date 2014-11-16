@@ -33,7 +33,7 @@ var ListItem = AmpersandView.extend({
     template: function (context) {
         var html = [
             '<li>',
-            '  <span data-hook="name">' + context.model.name + '</span>'
+            '  <span data-hook="name">' + context.model.name + '</span>',
             '</li>'
         ].join('\n');
 
