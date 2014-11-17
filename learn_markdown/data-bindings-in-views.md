@@ -11,13 +11,13 @@ We may want to render the page and get pixels on the screen as soon as possible,
 
 Ampersand-view handles this with declarative bindings. The binding declarations are *completely* decoupled from the data models.
 
-ampersand-view, like Backbone.View, accepts a hash of events to listen to from the DOM, but ampersand-view also lets you declare a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data.
+Ampersand-view accepts a [hash of events](http://ampersandjs.com/docs#ampersand-view-events) to listen to from the DOM, as well as a hash of bindings to go the other way: from your models to the DOM. You explicitly describe the relationship and then the view handles the rest, no matter when you get your models or data.
 
 This gives you complete flexibility over what, how, and when you render.
 
 You can use whatever template engine you want with ampersand-view bindings, or **no template engine at all**!
 
-You can simply have an HTML string as your `template` property and declare your bindings and Everything Just Works™.
+You can simply have an HTML string as your `template` property and declare your bindings and everything Just Works™.
 
 ### Example
 
