@@ -92,7 +92,7 @@ my-model-collection.js
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.3.15</p>
+            <p class="module-version">latest v4.4.0</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
@@ -378,7 +378,7 @@ console.log(me.widgets instanceof WidgetCollection); //=&gt; true
     }
 });
 
-var me = new Person({ personID: 123, name: &#39;Phil&#39; });
+var me = new Person({ personID: 123, name: &#39;Phil&#39; },{ parse: true});
 
 console.log(me.id) //=&gt; 123
 console.log(me.personID) //=&gt; undefined
@@ -923,7 +923,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v7.1.6</p>
+            <p class="module-version">latest v7.1.7</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -938,7 +938,7 @@ var alphabetical = books.sortBy(function(book) {
 </ol>
 <a name="ampersand-view-install" class="anchor" href="#ampersand-view-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-view
 </code></pre><a name="ampersand-view-api-reference" class="anchor" href="#ampersand-view-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><p>Note that this is a fork of Backbone&#39;s view so most of the public methods/properties here still exist: <a href="http://backbonejs.org/#View">http://backbonejs.org/#View</a>.</p>
-<a name="ampersand-view-extend" class="anchor" href="#ampersand-view-extend"><h3><span class="header-link"></span>extend <code>AmpersandView.extend([properties])</code></h3></a><p>Get started with views by creating a custom view class. Ampersand views have a sane default render function, which you don&#39;t necessarily have to override, but you probably will wish to specify a <a href="#ampersand-view-template"><code>template</code></a>, your declarative <a href="#ampersand-view-events">event handlers</a> and your <a href="#ampersand-view-bindings">view bindings</a>.</p>
+<a name="ampersand-view-extend" class="anchor" href="#ampersand-view-extend"><h3><span class="header-link"></span>extend <code>AmpersandView.extend([properties])</code></h3></a><p>Get started with views by creating a custom view class. Ampersand views have a sane default render function, which you don&#39;t necessarily have to override, but you probably will wish to specify a <a href="http://ampersandjs.com/docs#ampersand-view-template"><code>template</code></a>, your declarative <a href="http://ampersandjs.com/docs#ampersand-view-events">event handlers</a> and your <a href="http://ampersandjs.com/docs#ampersand-view-bindings">view bindings</a>.</p>
 <pre><code class="javascript">var PersonRowView = AmpersandView.extend({
     template: &quot;&lt;li&gt; &lt;span data-hook=&#39;name&#39;&gt;&lt;/span&gt; &lt;span data-hook=&#39;age&#39;&gt;&lt;/span&gt; &lt;a data-hook=&#39;edit&#39;&gt;edit&lt;/a&gt; &lt;/li&gt;&quot;,
 
@@ -966,7 +966,7 @@ var alphabetical = books.sortBy(function(book) {
 <a name="ampersand-view-template" class="anchor" href="#ampersand-view-template"><h3><span class="header-link"></span>template <code>AmpersandView.extend({ template: &quot;&lt;div&gt;&lt;input&gt;&lt;/div&gt;&quot; })</code></h3></a><p>The <code>.template</code> is a property for the view prototype. It should either be a string of HTML or a function that returns a string of HTML or a DOM element. It isn&#39;t required, but it is used as a default for calling <code>renderWithTemplate</code>.</p>
 <p>The important thing to note is that <strong><em>the returned string/HTML should not have more than one root element</em></strong>. This is because the view code assumes that it has one and only one root element that becomes the <code>.el</code> property of the instantiated view.</p>
 <p>For more information about creating, and compiling templates, <a href="http://ampersandjs.com/learn/templates">read the templating guide</a>.</p>
-<a name="ampersand-view-autorender" class="anchor" href="#ampersand-view-autorender"><h3><span class="header-link"></span>autoRender <code>AmpersandView.extend({ autoRender: true })</code></h3></a><p>The <code>.autoRender</code> property lets you optionally specify that the view should just automatically render with all the defaults. This requires that you at minimum specify a <a href="#template">template</a> string or function.</p>
+<a name="ampersand-view-autorender" class="anchor" href="#ampersand-view-autorender"><h3><span class="header-link"></span>autoRender <code>AmpersandView.extend({ autoRender: true })</code></h3></a><p>The <code>.autoRender</code> property lets you optionally specify that the view should just automatically render with all the defaults. This requires that you at minimum specify a <a href="http://ampersandjs.com/docs#ampersand-view-template">template</a> string or function.</p>
 <p>By setting <code>autoRender: true</code> the view will simply call <code>.renderWithTemplate</code> for you (after your <code>initialize</code> method if present). So for simple views, if you&#39;ve got a few bindings and a template your whole view could just be really declarative like this:</p>
 <pre><code class="javascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 
@@ -993,7 +993,7 @@ module.exports = AmpersandView.extend({
 <ul>
 <li>All attached callbacks are bound to the view before being handed off to the event handler, so when the callbacks are invoked, <code>this</code> continues to refer to the view object.</li>
 <li>All event handlers are delegated to the view&#39;s root el, meaning elements changed when the view is updated don&#39;t need to be unbound and rebound.</li>
-<li>All events handlers are cleanly removed when the view is <a href="#ampersand-view-remove">removed</a>.</li>
+<li>All events handlers are cleanly removed when the view is <a href="http://ampersandjs.com/docs#ampersand-view-remove">removed</a>.</li>
 </ul>
 <pre><code>var DocumentView = AmpersandView.extend({
 
@@ -1021,8 +1021,15 @@ module.exports = AmpersandView.extend({
   //...
 
 });
+</code></pre><p>Note that the <code>events</code> definition is not merged with the superclass definition. If you want to merge
+<code>events</code> from a superclass, you have to do it explicitly:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  events: _.extend({}, PersonRowView.prototype.events, {
+    &#39;click [data-hook=edit-secret-identitiy]&#39;: &#39;editSecretIdentity&#39;
+  })
+});
 </code></pre><a name="ampersand-view-bindings" class="anchor" href="#ampersand-view-bindings"><h3><span class="header-link"></span>bindings</h3></a><p>The bindings hash gives you a declarative way of specifying which elements in your view should be updated when the view&#39;s model is changed.</p>
-<p>For a full reference of available binding types see the <a href="#ampersand-dom-bindings">ampersand-dom-bindings</a> section.</p>
+<p>For a full reference of available binding types see the <a href="http://ampersandjs.com/docs#ampersand-dom-bindings">ampersand-dom-bindings</a> section.</p>
 <p>For example, with a model like this:</p>
 <pre><code class="javascript">var Person = AmpersandModel.extend({
     props: {
@@ -1069,7 +1076,14 @@ module.exports = AmpersandView.extend({
     }
 });
 </code></pre>
-<a name="ampersand-view-el" class="anchor" href="#ampersand-view-el"><h3><span class="header-link"></span>el <code>view.el</code></h3></a><p>All rendered views have a single DOM node which they manage, which is acessible from the <code>.el</code> property on the view. Allowing you to insert it into the DOM from the parent context.</p>
+<p>Note that the <code>bindings</code> definition is not merged with the superclass definition. If you want to merge
+<code>bindings</code> from a superclass, you have to do it explicitly:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  bindings: _.extend({}, PersonRowView.prototype.bindings, {
+    &#39;model.secretIdentity&#39;: &#39;[data-hook=secret-identity]&#39;
+  })
+});
+</code></pre><a name="ampersand-view-el" class="anchor" href="#ampersand-view-el"><h3><span class="header-link"></span>el <code>view.el</code></h3></a><p>All rendered views have a single DOM node which they manage, which is acessible from the <code>.el</code> property on the view. Allowing you to insert it into the DOM from the parent context.</p>
 <pre><code>var view = new PersonView({ model: me });
 view.render();
 
@@ -1098,7 +1112,15 @@ document.querySelector(&#39;#viewContainer&#39;).appendChild(view.el);
 var view = new MyView({ foo: &#39;bar&#39; });
 //=&gt; logs &#39;The options are: {foo: &quot;bar&quot;}&#39;
 </code></pre>
-<a name="ampersand-view-render" class="anchor" href="#ampersand-view-render"><h3><span class="header-link"></span>render <code>view.render()</code></h3></a><p>Render is a part of the <a href="???">Ampersand View conventions</a>. You can override the default view method when extending AmpersandView if you wish, but as part of the conventions, calling render should:</p>
+<p>If you want to extend the <code>initialize</code> function of a superclass instead of redefining it completely, you can 
+explicitly call the <code>initialize</code> of the superclass at the right time:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  initialize: function () {
+    PersonRowView.prototype.initialize.apply(this, arguments);
+    doSomeOtherStuffHere();
+  })
+});
+</code></pre><a name="ampersand-view-render" class="anchor" href="#ampersand-view-render"><h3><span class="header-link"></span>render <code>view.render()</code></h3></a><p>Render is a part of the <a href="http://ampersandjs.com/learn/view-conventions">Ampersand View conventions</a>. You can override the default view method when extending AmpersandView if you wish, but as part of the conventions, calling render should:</p>
 <ul>
 <li>Create a <code>this.el</code> property if the view doesn&#39;t already have one, and populate it with your view template</li>
 <li>or if the view already has a <code>this.el</code> attribute, render should either populate it with your view template, or create a new element and replace the existing <code>this.el</code> if it&#39;s in the DOM tree.</li>
@@ -1110,7 +1132,15 @@ var view = new MyView({ foo: &#39;bar&#39; });
     return this;
 }
 </code></pre>
-<a name="ampersand-view-rendercollection" class="anchor" href="#ampersand-view-rendercollection"><h3><span class="header-link"></span>renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></h3></a><ul>
+<p>If you want to extend the <code>render</code> function of a superclass instead of redefining it completely, you can 
+explicitly call the <code>render</code> of the superclass at the right time:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  render: function () {
+    PersonRowView.prototype.render.apply(this, arguments);
+    doSomeOtherStuffHere();
+  })
+});
+</code></pre><a name="ampersand-view-rendercollection" class="anchor" href="#ampersand-view-rendercollection"><h3><span class="header-link"></span>renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></h3></a><ul>
 <li><code>collection</code> {Backbone Collection} The instantiated collection we wish to render.</li>
 <li><code>ItemView</code> {View Constructor | Function} The view constructor that will be instantiated for each model in the collection or a function that will return an instance of a given constructor. <code>options</code> object is passed as a first argument to a function, which can be used to access <code>options.model</code> and determine which view should be instantiated. This view will be used with a reference to the model and collection and the item view&#39;s <code>render</code> method will be called with an object containing a reference to the containerElement as follows: <code>.render({containerEl: &lt;&lt; element &gt;&gt;})</code>.</li>
 <li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the collection of views. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
@@ -1162,10 +1192,10 @@ var AlternativeMainView = AmpersandView.extend({
         this.renderWithTemplate(this);
         this.renderCollection(this.collection, function (options) {
             if (options.model.isAlternative) {
-                return new AlternativeMainView(options);
+                return new AlternativeItemView(options);
             }
 
-            return new MainView(options);
+            return new ItemView(options);
         }, this.el.querySelector(&#39;.itemContainer&#39;), opts);
         return this;
     }
@@ -1293,7 +1323,7 @@ var AlternativeMainView = AmpersandView.extend({
 });
 </code></pre>
 <a name="ampersand-view-subviews" class="anchor" href="#ampersand-view-subviews"><h3><span class="header-link"></span>subviews <code>view.subviews</code></h3></a><p>You can declare subviews that you want to render within a view, much like you would bindings. Useful for cases where the data you need for a subview may not be available on first render. Also, simplifies cases where you have lots of subviews.</p>
-<p>When the parent view is removed the <code>remove</code> method of all subviews will be called as well. </p>
+<p>When the parent view is removed the <code>remove</code> method of all subviews will be called as well.</p>
 <p>You declare them as follows:</p>
 <pre><code class="javascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 var CollectionRenderer = require(&#39;ampersand-collection-view&#39;);
