@@ -21,7 +21,7 @@ This is just for "simple" single-line text entry.
 
 On the developer side, it's hard to do forms right. No matter what library we use, it seems to never *quite* do what we want it to. 
 
-On the other hand for simple cases if we've got a model that describes exactly what data we ultimately need in order to talk to the API, it's annoying to have to write a bunch of form fields each time to just be able to request that data from the users.
+On the other hand, for simple cases if we've got a model that describes exactly what data the API expects, it's annoying to have to write a bunch of form fields each time to just be able to request that data from the users.
 
 
 ## So what do we do in ampersand for this?
@@ -43,10 +43,10 @@ So, how does this work? Well, in addition to following [the contract for what a 
 - It must also store a `value` property if passed in as part of the config/options object when the view is created.
 - It maintains a `valid` property that is a boolean. The parent form checks this property on each field to determine whether the form as a whole is valid.
 - It has a `name` property that is a string of the name of the field.
-- When rendered by a form-view it the form view creates a `parent` property that is a reference to the containing form view.
+- A form-view that creates an input view also sets a `parent` property on the input view, a reference to the containing form-view.
 - It reports changes to its parent when it deems appropriate by calling `this.parent.update(this)` **note that it passes itself to the parent. You would typically do this when the `this.value` has changed or the `this.valid` has changed.
-- It has a `setValue` method, that can be used to programmatically set the value. 
-- If a field as a `beforeSubmit` method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as `invalid` as a result of some other condition that only matters pre-submit.
+- It has a `setValue` method that can be used to programmatically set the value. 
+- If a field has a `beforeSubmit` method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as `invalid` as a result of some other condition that only matters pre-submit.
 
 
 ## Creating a form view
@@ -112,7 +112,7 @@ module.exports = FormView.extend({
 });
 ```
 
-Each one of field views inside the form follow the rules above. But, as a whole, you've now got a form that knows how to create valid data with those fields. 
+Each of field views inside the form follows the rules above. But, as a whole, you've now got a form that knows how to create valid data with those fields.
 
 Rather than creating a form that posts using traditional methods, you'll have a form that produces data that you can use to create and save, or edit an existing model, with the same form!
 
@@ -133,9 +133,8 @@ module.exports = PageView.extend({
             model: this.model,
             el: el,
             submitCallback: function (data) {
-                // here you'll get clean data object with
-                // keyed by field name with the `value` for
-                // that field. So for the sample form the
+                // here you'll get a clean data object keyed
+                // by field name. So for the sample form
                 // data might look like this:
                 // {
                 //    name: "holly", 
