@@ -34,7 +34,7 @@
 <p>Also, if the field value has ever been valid, and they make it invalid, even if they&#39;re still focused on the field, we should probably tell them.</p>
 <p>This is just for &quot;simple&quot; single-line text entry. </p>
 <p>On the developer side, it&#39;s hard to do forms right. No matter what library we use, it seems to never <em>quite</em> do what we want it to. </p>
-<p>On the other hand for simple cases if we&#39;ve got a model that describes exactly what data we ultimately need in order to talk to the API, it&#39;s annoying to have to write a bunch of form fields each time to just be able to request that data from the users.</p>
+<p>On the other hand, for simple cases if we&#39;ve got a model that describes exactly what data the API expects, it&#39;s annoying to have to write a bunch of form fields each time to just be able to request that data from the users.</p>
 <a name="so-what-do-we-do-in-ampersand-for-this" class="anchor" href="#so-what-do-we-do-in-ampersand-for-this"><h2><span class="header-link"></span>So what do we do in ampersand for this?</h2></a><p>In order to be flexible enough to support any type of form control you can think up, while keeping the simple stuff relatively simple to do, we handle this with several different tools working together. First, there&#39;s <a href="https://github.com/ampersandjs/ampersand-form-view">ampersand-form-view</a> which manages the form as a whole. It follows the <a href="/learn/view-conventions">view conventions of ampersand</a> so we can easily use it as a subview within a page. </p>
 <p>The form view is made up of subviews, one for each value you&#39;re trying to get from the user.</p>
 <p>So, the nice thing about that is now we&#39;ve decoupled <code>&lt;input&gt;</code>s from values. So if you wanted a password from the user, you would have a single &quot;password-view&quot; that actually rendered <em>two</em> <code>&lt;input&gt;</code>s, for password and validation of that password, but ultimately just produced a single value. </p>
@@ -45,10 +45,10 @@
 <li>It must also store a <code>value</code> property if passed in as part of the config/options object when the view is created.</li>
 <li>It maintains a <code>valid</code> property that is a boolean. The parent form checks this property on each field to determine whether the form as a whole is valid.</li>
 <li>It has a <code>name</code> property that is a string of the name of the field.</li>
-<li>When rendered by a form-view it the form view creates a <code>parent</code> property that is a reference to the containing form view.</li>
+<li>A form-view that creates an input view also sets a <code>parent</code> property on the input view, a reference to the containing form-view.</li>
 <li>It reports changes to its parent when it deems appropriate by calling <code>this.parent.update(this)</code> **note that it passes itself to the parent. You would typically do this when the <code>this.value</code> has changed or the <code>this.valid</code> has changed.</li>
-<li>It has a <code>setValue</code> method, that can be used to programmatically set the value. </li>
-<li>If a field as a <code>beforeSubmit</code> method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as <code>invalid</code> as a result of some other condition that only matters pre-submit.</li>
+<li>It has a <code>setValue</code> method that can be used to programmatically set the value. </li>
+<li>If a field has a <code>beforeSubmit</code> method, it will be called by the parent form-view when the form is otherwise ready to submit, before it runs a final validation check. This gives a field a chance to mark itself as <code>invalid</code> as a result of some other condition that only matters pre-submit.</li>
 </ul>
 <a name="creating-a-form-view" class="anchor" href="#creating-a-form-view"><h2><span class="header-link"></span>Creating a form view</h2></a><p>You end up a creating a form view that looks something like this.</p>
 <pre><code class="undefinedjs">var FormView = require(&#39;ampersand-form-view&#39;);
@@ -108,7 +108,7 @@ module.exports = FormView.extend({
     }
 });
 </code></pre>
-<p>Each one of field views inside the form follow the rules above. But, as a whole, you&#39;ve now got a form that knows how to create valid data with those fields. </p>
+<p>Each of field views inside the form follows the rules above. But, as a whole, you&#39;ve now got a form that knows how to create valid data with those fields.</p>
 <p>Rather than creating a form that posts using traditional methods, you&#39;ll have a form that produces data that you can use to create and save, or edit an existing model, with the same form!</p>
 <p>Then, in a page you might use the form as follows:</p>
 <pre><code class="undefinedjs">var PageView = require(&#39;./base&#39;);
@@ -125,9 +125,8 @@ module.exports = PageView.extend({
             model: this.model,
             el: el,
             submitCallback: function (data) {
-                // here you&#39;ll get clean data object with
-                // keyed by field name with the `value` for
-                // that field. So for the sample form the
+                // here you&#39;ll get a clean data object keyed
+                // by field name. So for the sample form
                 // data might look like this:
                 // {
                 //    name: &quot;holly&quot;, 
