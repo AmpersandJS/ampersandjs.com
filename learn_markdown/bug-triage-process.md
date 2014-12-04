@@ -45,7 +45,7 @@ In which case a judgement call will be made by core team whether to just merge t
 
 We do our best to adhere strictly to [semver](http://semver.org/) throughout the project. This is crucial to the architectural approach we're taking with Ampersand.
 
-Most merged pull requests will be published to [npm](http://npmjs.org/) immediately unless we're bundling up a few fixes for releases.
+Most merged pull requests will be published to [npm](http://www.npmjs.org/) immediately unless we're bundling up a few fixes for releases.
 
 Many small documentation fixes don't justify a release, in which case we'll just merge them to the master branch and leave them there. We'll leave a comment with the version number of the npm release that contains the merged code.
 
