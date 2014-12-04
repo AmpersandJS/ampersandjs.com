@@ -181,7 +181,7 @@ A few things to note about the examples:
 Requiring modules is easy. From a file, just use require, like so:
 
 ```js
-//require a module from npm, by specifying it's module name
+//require a module from npm, by specifying its module name
 var _ = require('underscore');
 _.each([1,2,3], function () { /*...*/ });
 
@@ -203,7 +203,7 @@ Npm and commonjs modules are how almost all backend node.js developers write and
 
 Browserify is a tool that takes an application written with commonjs and npm modules, and bundles it up into a single file, that you can then use in a browser.
 
-It also provides shims for most of the core node.js functionality, so that _in theory_ you can use any npm module in the browser, even if it was initially written for backend code. However, in general, we use it more for it's ability to make using commonjs modules in the browser, and we generally will use modules written specifically for the browser.
+It also provides shims for most of the core node.js functionality, so that _in theory_ you can use any npm module in the browser, even if it was initially written for backend code. However, in general, we use it more for its ability to make possible using commonjs modules in the browser, and we generally will use modules written specifically for the browser.
 
 Browserify itself is an npm module, which installs a command-line script (`browserify`), so using it is something like this:
 
@@ -226,14 +226,14 @@ If you're doing it this way, you may find [watchify](https://github.com/substack
 
 #### as part of grunt/gulp
 
-If you use grunt or gulp, there are plenty of browserify plugins for each to run browserify as part of your build. e.g: [grunt-browserify](https://github.com/jmreidy/grunt-browserify) and [gulp-browserify](https://github.com/deepak1556/gulp-browserify)
+If you use [grunt](http://gruntjs.com/) or [gulp](http://gulpjs.com/), there are plenty of browserify plugins for each to run browserify as part of your build. e.g: [grunt-browserify](https://github.com/jmreidy/grunt-browserify) and [gulp-browserify](https://github.com/deepak1556/gulp-browserify)
 
 #### beefy
 
-[beefy](https://github.com/chrisdickinson/beefy) is a great little tool for developing small apps or modules. It's basically a simple static web-server that will browserify your source on the fly. From the docs:
+[beefy](https://github.com/chrisdickinson/beefy) is a great little tool for developing small apps or modules. It's basically a simple static web-server that will browserify your source on the fly. From the docs, beefy:
 
 * can live reload your browser when your code changes (if you want)
-* works with whatever version of browserify or watchify; globally installed or locally installed to `node\_modules/`.
+* works with whatever version of browserify or watchify; globally installed or locally installed to `node_modules`.
 * will spit compile errors out into the browser so you don't have that 1-2 seconds of cognitive dissonance and profound ennui that follows refreshing the page only to get a blank screen.
 * will spit out a default index.html for missing routes so you don't need to even muck about with HTML to get started
 

@@ -13,11 +13,14 @@
     margin: 0 auto
     padding-right: 60px
     padding-left: 340px
-    border-top: none
 
-    .nav-footer
-      border-top: 1px solid $border-color
-      padding-top: 40px
+    //- Changes border so it doesn't overlap side nav
+    @media (min-width: 769px)
+      border-top: none
+
+      .nav-footer
+        border-top: 1px solid $border-color
+        padding-top: 40px
 
 .docs
   max-width: 1100px

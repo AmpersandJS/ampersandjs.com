@@ -23,7 +23,7 @@
   <body class="docs-page">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item active">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="#intro" class="section-top">Introduction</a><a href="#ampersand" class="section-top">The Ampersand CLI</a><a href="#ampersand-installation" class="section-sub">Installation</a><a href="#ampersand-starting-a-new-app" class="section-sub">Starting a new app</a><a href="#ampersand-generating-stuff" class="section-sub">Generating stuff</a><a href="#ampersand-generating-models-from-json" class="section-sub">Generating models (from JSON)</a><a href="#ampersand-generating-forms-from-models" class="section-sub">Generating forms from models</a><a href="#ampersand-configuring-the-generated-code" class="section-sub">Configuring the generated code</a><a href="#ampersand-state" class="section-top">ampersand-state</a><a href="#ampersand-state-install" class="section-sub">Install</a><a href="#ampersand-state-api-reference" class="section-sub">API Reference</a><a href="#ampersand-state-extend" class="section-sub-sub">extend <code>AmpersandState.extend({ })</code></a><a href="#ampersand-state-constructorinitialize" class="section-sub-sub">constructor/initialize <code>new AmpersandState([attrs], [options])</code></a><a href="#ampersand-state-idattribute" class="section-sub-sub">idAttribute <code>state.idAttribute</code></a><a href="#ampersand-state-getid" class="section-sub-sub">getId <code>state.getId()</code></a><a href="#ampersand-state-namespaceattribute" class="section-sub-sub">namespaceAttribute <code>state.namespaceAttribute</code></a><a href="#ampersand-state-getnamespace" class="section-sub-sub">getNamespace <code>state.getNamespace()</code></a><a href="#ampersand-state-typeattribute" class="section-sub-sub">typeAttribute</a><a href="#ampersand-state-gettype" class="section-sub-sub">getType <code>state.getType()</code></a><a href="#ampersand-state-extraproperties" class="section-sub-sub">extraProperties <code>AmpersandState.extend({ extraProperties: &#39;allow&#39; })</code></a><a href="#ampersand-state-collection" class="section-sub-sub">collection <code>state.collection</code></a><a href="#ampersand-state-cid" class="section-sub-sub">cid <code>state.cid</code></a><a href="#ampersand-state-isnew" class="section-sub-sub">isNew <code>state.isNew()</code></a><a href="#ampersand-state-escape" class="section-sub-sub">escape <code>state.escape()</code></a><a href="#ampersand-state-isvalid" class="section-sub-sub">isValid <code>state.isValid()</code></a><a href="#ampersand-state-datatypes" class="section-sub-sub">dataTypes</a><a href="#ampersand-state-props" class="section-sub-sub">props <code>AmpersandView.extend({ props: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-session" class="section-sub-sub">session <code>AmpersandView.extend({ session: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-derived" class="section-sub-sub">derived</a><a href="#ampersand-state-children" class="section-sub-sub">children <code>AmpersandState.extend({ children: { profile: Profile } })</code></a><a href="#ampersand-state-collections" class="section-sub-sub">collections <code>AmpersandState.extend({ collections: { widgets: Widgets } })</code></a><a href="#ampersand-state-parse" class="section-sub-sub">parse</a><a href="#ampersand-state-serialize" class="section-sub-sub">serialize <code>state.serialize()</code></a><a href="#ampersand-state-get" class="section-sub-sub">get <code>state.get(attribute); state[attribute]; state.firstName</code></a><a href="#ampersand-state-set" class="section-sub-sub">set <code>state.set(attributes, [options]); state.firstName = &#39;Henrik&#39;;</code></a><a href="#ampersand-state-unset" class="section-sub-sub">unset <code>state.unset(attribute, [options])</code></a><a href="#ampersand-state-toggle" class="section-sub-sub">toggle <code>state.toggle(&#39;active&#39;)</code></a><a href="#ampersand-state-previousattributes" class="section-sub-sub">previousAttributes <code>state.previousAttributes()</code></a><a href="#ampersand-state-haschanged" class="section-sub-sub">hasChanged <code>state.hasChanged([attribute])</code></a><a href="#ampersand-state-changedattributes" class="section-sub-sub">changedAttributes <code>state.changedAttributes([objectToDiff])</code></a><a href="#ampersand-state-tojson" class="section-sub-sub">toJSON <code>state.toJSON()</code></a><a href="#ampersand-model" class="section-top">ampersand-model</a><a href="#ampersand-model-installing" class="section-sub">Installing</a><a href="#ampersand-model-observing" class="section-sub">Observing</a><a href="#ampersand-model-api-reference" class="section-sub">API Reference</a><a href="#ampersand-model-extend" class="section-sub-sub">extend <code>AmpersandModel.extend({ })</code></a><a href="#ampersand-model-constructorinitialize" class="section-sub-sub">constructor/initialize <code>new ExtendedAmpersandModel([attrs], [options])</code></a><a href="#ampersand-model-save" class="section-sub-sub">save <code>model.save([attributes], [options])</code></a><a href="#ampersand-model-fetch" class="section-sub-sub">fetch <code>model.fetch([options])</code></a><a href="#ampersand-model-destroy" class="section-sub-sub">destroy <code>model.destroy([options])</code></a><a href="#ampersand-model-sync" class="section-sub-sub">sync <code>model.sync(method, model, [options])</code></a><a href="#ampersand-model-ajaxconfig" class="section-sub-sub">ajaxConfig <code>model.ajaxConfig or model.ajaxConfig()</code></a><a href="#ampersand-model-configuring" class="section-top">Configuring</a><a href="#ampersand-model-url" class="section-sub-sub">url <code>model.url or model.url()</code></a><a href="#ampersand-model-urlroot" class="section-sub-sub">urlRoot <code>model.urlRoot or model.urlRoot()</code></a><a href="#ampersand-collection" class="section-top">ampersand-collection</a><a href="#ampersand-collection-installation" class="section-sub">Installation</a><a href="#ampersand-collection-api-reference" class="section-sub">API Reference</a><a href="#ampersand-collection-extend" class="section-sub-sub">extend <code>AmpersandCollection.extend([attributes])</code></a><a href="#ampersand-collection-model" class="section-sub-sub">model <code>collection.model</code></a><a href="#ampersand-collection-constructorinitialize" class="section-sub-sub">constructor/initialize <code>new AmpersandCollection([models], [options])</code></a><a href="#ampersand-collection-mainindex" class="section-sub-sub">mainIndex <code>collection.mainIndex</code></a><a href="#ampersand-collection-indexes" class="section-sub-sub">indexes <code>collections.indexes</code></a><a href="#ampersand-collection-length" class="section-sub-sub">length <code>collection.length</code></a><a href="#ampersand-collection-iscollectioninstanceof" class="section-sub-sub">isCollection/instanceof <code>collection.isCollection</code></a><a href="#ampersand-collection-add" class="section-sub-sub">add <code>collection.add(modelOrObject, [options])</code></a><a href="#ampersand-collection-serialize" class="section-sub-sub">serialize <code>collection.serialize()</code></a><a href="#ampersand-collection-tojson" class="section-sub-sub">toJSON <code>collection.toJSON()</code></a><a href="#ampersand-collection-set" class="section-sub-sub">set <code>collection.set(models, [options])</code></a><a href="#ampersand-collection-get" class="section-sub-sub">get <code>collection.get(query, [indexName])</code></a><a href="#ampersand-collection-at" class="section-sub-sub">at <code>collection.at(index)</code></a><a href="#ampersand-collection-remove" class="section-sub-sub">remove <code>collection.remove(models, [options])</code></a><a href="#ampersand-collection-reset" class="section-sub-sub">reset <code>collection.reset(models, [options])</code></a><a href="#ampersand-collection-sort" class="section-sub-sub">sort <code>collection.sort([options])</code></a><a href="#ampersand-collection-models" class="section-sub-sub">models <code>collection.models</code></a><a href="#ampersand-collection-comparator" class="section-sub-sub">comparator</a><a href="#ampersand-collection-proxied-es5-array-methods-9" class="section-sub-sub">proxied ES5 array methods (9)</a><a href="#ampersand-rest-collection" class="section-top">ampersand-rest-collection</a><a href="#ampersand-rest-collection-install" class="section-sub">Install</a><a href="#ampersand-rest-collection-api-reference" class="section-sub">API Reference</a><a href="#ampersand-rest-collection-ajaxconfig" class="section-sub-sub">ajaxConfig <code>AmpersandRestCollection.extend({ ajaxConfig: function () { ... } })</code></a><a href="#ampersand-rest-collection-fetch" class="section-sub-sub">fetch <code>collection.fetch([options])</code></a><a href="#ampersand-rest-collection-getorfetch" class="section-sub-sub">getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></a><a href="#ampersand-rest-collection-fetchbyid" class="section-sub-sub">fetchById <code>collection.fetchById(&#39;id&#39;, callback)</code></a><a href="#ampersand-rest-collection-create" class="section-sub-sub">create <code>collection.create(model, [options])</code></a><a href="#ampersand-rest-collection-sync" class="section-sub-sub">sync <code>model.sync(method, collection, [options])</code></a><a href="#ampersand-rest-collection-underscore-methods-42" class="section-sub-sub">underscore methods (42)</a><a href="#ampersand-view" class="section-top">ampersand-view</a><a href="#ampersand-view-install" class="section-sub">Install</a><a href="#ampersand-view-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-extend" class="section-sub-sub">extend <code>AmpersandView.extend([properties])</code></a><a href="#ampersand-view-template" class="section-sub-sub">template <code>AmpersandView.extend({ template: &quot;&lt;div&gt;&lt;input&gt;&lt;/div&gt;&quot; })</code></a><a href="#ampersand-view-autorender" class="section-sub-sub">autoRender <code>AmpersandView.extend({ autoRender: true })</code></a><a href="#ampersand-view-events" class="section-sub-sub">events <code>AmpersandView.extend({ events: { /* ...events hash... */ } })</code></a><a href="#ampersand-view-bindings" class="section-sub-sub">bindings</a><a href="#ampersand-view-el" class="section-sub-sub">el <code>view.el</code></a><a href="#ampersand-view-constructor" class="section-sub-sub">constructor <code>new AmpersandView([options])</code></a><a href="#ampersand-view-initialize" class="section-sub-sub">initialize <code>new AmpersandView([options])</code></a><a href="#ampersand-view-render" class="section-sub-sub">render <code>view.render()</code></a><a href="#ampersand-view-rendercollection" class="section-sub-sub">renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></a><a href="#ampersand-view-renderwithtemplate" class="section-sub-sub">renderWithTemplate <code>view.renderWithTemplate([context], [template])</code></a><a href="#ampersand-view-query" class="section-sub-sub">query <code>view.query(&#39;.classname&#39;)</code></a><a href="#ampersand-view-querybyhook" class="section-sub-sub">queryByHook <code>view.queryByHook(&#39;hookname&#39;)</code></a><a href="#ampersand-view-queryall" class="section-sub-sub">queryAll <code>view.queryAll(&#39;.classname&#39;)</code></a><a href="#ampersand-view-cacheelements" class="section-sub-sub">cacheElements <code>view.cacheElements(hash)</code></a><a href="#ampersand-view-listentoandrun" class="section-sub-sub">listenToAndRun <code>view.listenToAndRun(object, eventsString, callback)</code></a><a href="#ampersand-view-remove" class="section-sub-sub">remove <code>view.remove()</code></a><a href="#ampersand-view-registersubview" class="section-sub-sub">registerSubview <code>view.registerSubview(viewInstance)</code></a><a href="#ampersand-view-rendersubview" class="section-sub-sub">renderSubview <code>view.renderSubview(viewInstance, containerEl)</code></a><a href="#ampersand-view-subviews" class="section-sub-sub">subviews <code>view.subviews</code></a><a href="#ampersand-view-delegateevents" class="section-sub-sub">delegateEvents <code>view.delegateEvents([events])</code></a><a href="#ampersand-view-undelegateevents" class="section-sub-sub">undelegateEvents <code>view.undelegateEvents()</code></a><a href="#ampersand-view-switcher" class="section-top">ampersand-view-switcher</a><a href="#ampersand-view-switcher-install" class="section-sub">Install</a><a href="#ampersand-view-switcher-example" class="section-sub">Example</a><a href="#ampersand-view-switcher-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-switcher-constructor" class="section-sub-sub">constructor <code>new ViewSwitcher(element, [options])</code></a><a href="#ampersand-view-switcher-set" class="section-sub-sub">set <code>switcher.set(viewInstance)</code></a><a href="#ampersand-view-switcher-clear" class="section-sub-sub">clear <code>switcher.clear(callback)</code></a><a href="#ampersand-router" class="section-top">ampersand-router</a><a href="#ampersand-router-install" class="section-sub">install</a><a href="#ampersand-router-api-reference" class="section-sub">API Reference</a><a href="#ampersand-router-extend" class="section-sub-sub">extend <code>AmpersandRouter.extend(properties)</code></a><a href="#ampersand-router-routes" class="section-sub-sub">routes <code>router.routes</code></a><a href="#ampersand-router-constructor-initialize" class="section-sub-sub">constructor / initialize <code>new Router([options])</code></a><a href="#ampersand-router-route" class="section-sub-sub">route <code>router.route(route, name, [callback])</code></a><a href="#ampersand-router-navigate" class="section-sub-sub">navigate <code>router.navigate(fragment, [options])</code></a><a href="#ampersand-router-redirectto" class="section-sub-sub">redirectTo <code>router.redirectTo(fragment)</code></a><a href="#ampersand-router-execute" class="section-sub-sub">execute <code>router.execute(callback, args)</code></a><a href="#ampersand-router-historystart" class="section-sub-sub">history.start <code>router.history.start([options])</code></a><a href="#ampersand-dom-bindings" class="section-top">ampersand-dom-bindings</a><a href="#ampersand-dom-bindings-install" class="section-sub">install</a><a href="#ampersand-dom-bindings-binding-types" class="section-sub">Binding types</a><a href="#ampersand-dom-bindings-text" class="section-sub-sub">text</a><a href="#ampersand-dom-bindings-class" class="section-sub-sub">class</a><a href="#ampersand-dom-bindings-attribute" class="section-sub-sub">attribute</a><a href="#ampersand-dom-bindings-value" class="section-sub-sub">value</a><a href="#ampersand-dom-bindings-booleanclass" class="section-sub-sub">booleanClass</a><a href="#ampersand-dom-bindings-booleanattribute" class="section-sub-sub">booleanAttribute</a><a href="#ampersand-dom-bindings-toggle" class="section-sub-sub">toggle</a><a href="#ampersand-dom-bindings-switch" class="section-sub-sub">switch</a><a href="#ampersand-dom-bindings-switchclass" class="section-sub-sub">switchClass</a><a href="#ampersand-dom-bindings-innerhtml" class="section-sub-sub">innerHTML</a><a href="#ampersand-dom-bindings-custom-functions" class="section-sub-sub">custom functions</a><a href="#ampersand-dom-bindings-handling-multiple-bindings-for-a-given-key" class="section-sub">Handling multiple bindings for a given key</a><a href="#ampersand-dom-bindings-binding-using-attribute" class="section-sub">binding using <code>data-hook</code> attribute</a><a href="#ampersand-dom-bindings-handling-simplest-cases-text" class="section-sub">handling simplest cases: text</a><a href="#ampersand-dom-bindings-real-life-example" class="section-sub">real life example</a><a href="#ampersand-dom-bindings-other-benefits" class="section-sub">other benefits</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="#intro" class="section-top">Introduction</a><a href="#ampersand" class="section-top">The Ampersand CLI</a><a href="#ampersand-installation" class="section-sub">Installation</a><a href="#ampersand-starting-a-new-app" class="section-sub">Starting a new app</a><a href="#ampersand-generating-stuff" class="section-sub">Generating stuff</a><a href="#ampersand-generating-models-from-json" class="section-sub">Generating models (from JSON)</a><a href="#ampersand-generating-forms-from-models" class="section-sub">Generating forms from models</a><a href="#ampersand-configuring-the-generated-code" class="section-sub">Configuring the generated code</a><a href="#ampersand-state" class="section-top">ampersand-state</a><a href="#ampersand-state-install" class="section-sub">Install</a><a href="#ampersand-state-api-reference" class="section-sub">API Reference</a><a href="#ampersand-state-extend" class="section-sub-sub">extend <code>AmpersandState.extend({ })</code></a><a href="#ampersand-state-constructorinitialize" class="section-sub-sub">constructor/initialize <code>new AmpersandState([attrs], [options])</code></a><a href="#ampersand-state-idattribute" class="section-sub-sub">idAttribute <code>state.idAttribute</code></a><a href="#ampersand-state-getid" class="section-sub-sub">getId <code>state.getId()</code></a><a href="#ampersand-state-namespaceattribute" class="section-sub-sub">namespaceAttribute <code>state.namespaceAttribute</code></a><a href="#ampersand-state-getnamespace" class="section-sub-sub">getNamespace <code>state.getNamespace()</code></a><a href="#ampersand-state-typeattribute" class="section-sub-sub">typeAttribute</a><a href="#ampersand-state-gettype" class="section-sub-sub">getType <code>state.getType()</code></a><a href="#ampersand-state-extraproperties" class="section-sub-sub">extraProperties <code>AmpersandState.extend({ extraProperties: &#39;allow&#39; })</code></a><a href="#ampersand-state-collection" class="section-sub-sub">collection <code>state.collection</code></a><a href="#ampersand-state-cid" class="section-sub-sub">cid <code>state.cid</code></a><a href="#ampersand-state-isnew" class="section-sub-sub">isNew <code>state.isNew()</code></a><a href="#ampersand-state-escape" class="section-sub-sub">escape <code>state.escape()</code></a><a href="#ampersand-state-isvalid" class="section-sub-sub">isValid <code>state.isValid()</code></a><a href="#ampersand-state-datatypes" class="section-sub-sub">dataTypes  <code>AmpersandState.extend({ datatypes: myCustomTypes })</code></a><a href="#ampersand-state-props" class="section-sub-sub">props <code>AmpersandState.extend({ props: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-session" class="section-sub-sub">session <code>AmpersandState.extend({ session: { name: &#39;string&#39; } })</code></a><a href="#ampersand-state-derived" class="section-sub-sub">derived</a><a href="#ampersand-state-children" class="section-sub-sub">children <code>AmpersandState.extend({ children: { profile: Profile } })</code></a><a href="#ampersand-state-collections" class="section-sub-sub">collections <code>AmpersandState.extend({ collections: { widgets: Widgets } })</code></a><a href="#ampersand-state-parse" class="section-sub-sub">parse</a><a href="#ampersand-state-serialize" class="section-sub-sub">serialize <code>state.serialize()</code></a><a href="#ampersand-state-get" class="section-sub-sub">get <code>state.get(attribute); state[attribute]; state.firstName</code></a><a href="#ampersand-state-set" class="section-sub-sub">set <code>state.set(attributes, [options]); state.firstName = &#39;Henrik&#39;;</code></a><a href="#ampersand-state-unset" class="section-sub-sub">unset <code>state.unset(attribute, [options])</code></a><a href="#ampersand-state-toggle" class="section-sub-sub">toggle <code>state.toggle(&#39;active&#39;)</code></a><a href="#ampersand-state-previousattributes" class="section-sub-sub">previousAttributes <code>state.previousAttributes()</code></a><a href="#ampersand-state-haschanged" class="section-sub-sub">hasChanged <code>state.hasChanged([attribute])</code></a><a href="#ampersand-state-changedattributes" class="section-sub-sub">changedAttributes <code>state.changedAttributes([objectToDiff])</code></a><a href="#ampersand-state-tojson" class="section-sub-sub">toJSON <code>state.toJSON()</code></a><a href="#ampersand-model" class="section-top">ampersand-model</a><a href="#ampersand-model-installing" class="section-sub">Installing</a><a href="#ampersand-model-observing" class="section-sub">Observing</a><a href="#ampersand-model-api-reference" class="section-sub">API Reference</a><a href="#ampersand-model-extend" class="section-sub-sub">extend <code>AmpersandModel.extend({ })</code></a><a href="#ampersand-model-constructorinitialize" class="section-sub-sub">constructor/initialize <code>new ExtendedAmpersandModel([attrs], [options])</code></a><a href="#ampersand-model-save" class="section-sub-sub">save <code>model.save([attributes], [options])</code></a><a href="#ampersand-model-fetch" class="section-sub-sub">fetch <code>model.fetch([options])</code></a><a href="#ampersand-model-destroy" class="section-sub-sub">destroy <code>model.destroy([options])</code></a><a href="#ampersand-model-sync" class="section-sub-sub">sync <code>model.sync(method, model, [options])</code></a><a href="#ampersand-model-ajaxconfig" class="section-sub-sub">ajaxConfig <code>model.ajaxConfig or model.ajaxConfig()</code></a><a href="#ampersand-model-configuring" class="section-top">Configuring</a><a href="#ampersand-model-url" class="section-sub-sub">url <code>model.url or model.url()</code></a><a href="#ampersand-model-urlroot" class="section-sub-sub">urlRoot <code>model.urlRoot or model.urlRoot()</code></a><a href="#ampersand-collection" class="section-top">ampersand-collection</a><a href="#ampersand-collection-installation" class="section-sub">Installation</a><a href="#ampersand-collection-api-reference" class="section-sub">API Reference</a><a href="#ampersand-collection-extend" class="section-sub-sub">extend <code>AmpersandCollection.extend([attributes])</code></a><a href="#ampersand-collection-model" class="section-sub-sub">model <code>collection.model</code></a><a href="#ampersand-collection-constructorinitialize" class="section-sub-sub">constructor/initialize <code>new AmpersandCollection([models], [options])</code></a><a href="#ampersand-collection-mainindex" class="section-sub-sub">mainIndex <code>collection.mainIndex</code></a><a href="#ampersand-collection-indexes" class="section-sub-sub">indexes <code>collections.indexes</code></a><a href="#ampersand-collection-length" class="section-sub-sub">length <code>collection.length</code></a><a href="#ampersand-collection-iscollectioninstanceof" class="section-sub-sub">isCollection/instanceof <code>collection.isCollection</code></a><a href="#ampersand-collection-add" class="section-sub-sub">add <code>collection.add(modelOrObject, [options])</code></a><a href="#ampersand-collection-serialize" class="section-sub-sub">serialize <code>collection.serialize()</code></a><a href="#ampersand-collection-tojson" class="section-sub-sub">toJSON <code>collection.toJSON()</code></a><a href="#ampersand-collection-set" class="section-sub-sub">set <code>collection.set(models, [options])</code></a><a href="#ampersand-collection-get" class="section-sub-sub">get <code>collection.get(query, [indexName])</code></a><a href="#ampersand-collection-at" class="section-sub-sub">at <code>collection.at(index)</code></a><a href="#ampersand-collection-remove" class="section-sub-sub">remove <code>collection.remove(models, [options])</code></a><a href="#ampersand-collection-reset" class="section-sub-sub">reset <code>collection.reset(models, [options])</code></a><a href="#ampersand-collection-sort" class="section-sub-sub">sort <code>collection.sort([options])</code></a><a href="#ampersand-collection-models" class="section-sub-sub">models <code>collection.models</code></a><a href="#ampersand-collection-comparator" class="section-sub-sub">comparator</a><a href="#ampersand-collection-proxied-es5-array-methods-9" class="section-sub-sub">proxied ES5 array methods (9)</a><a href="#ampersand-rest-collection" class="section-top">ampersand-rest-collection</a><a href="#ampersand-rest-collection-install" class="section-sub">Install</a><a href="#ampersand-rest-collection-api-reference" class="section-sub">API Reference</a><a href="#ampersand-rest-collection-ajaxconfig" class="section-sub-sub">ajaxConfig <code>AmpersandRestCollection.extend({ ajaxConfig: function () { ... } })</code></a><a href="#ampersand-rest-collection-fetch" class="section-sub-sub">fetch <code>collection.fetch([options])</code></a><a href="#ampersand-rest-collection-getorfetch" class="section-sub-sub">getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></a><a href="#ampersand-rest-collection-fetchbyid" class="section-sub-sub">fetchById <code>collection.fetchById(&#39;id&#39;, callback)</code></a><a href="#ampersand-rest-collection-create" class="section-sub-sub">create <code>collection.create(model, [options])</code></a><a href="#ampersand-rest-collection-sync" class="section-sub-sub">sync <code>model.sync(method, collection, [options])</code></a><a href="#ampersand-rest-collection-underscore-methods-42" class="section-sub-sub">underscore methods (42)</a><a href="#ampersand-view" class="section-top">ampersand-view</a><a href="#ampersand-view-install" class="section-sub">Install</a><a href="#ampersand-view-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-extend" class="section-sub-sub">extend <code>AmpersandView.extend([properties])</code></a><a href="#ampersand-view-template" class="section-sub-sub">template <code>AmpersandView.extend({ template: &quot;&lt;div&gt;&lt;input&gt;&lt;/div&gt;&quot; })</code></a><a href="#ampersand-view-autorender" class="section-sub-sub">autoRender <code>AmpersandView.extend({ autoRender: true })</code></a><a href="#ampersand-view-events" class="section-sub-sub">events <code>AmpersandView.extend({ events: { /* ...events hash... */ } })</code></a><a href="#ampersand-view-bindings" class="section-sub-sub">bindings</a><a href="#ampersand-view-el" class="section-sub-sub">el <code>view.el</code></a><a href="#ampersand-view-constructor" class="section-sub-sub">constructor <code>new AmpersandView([options])</code></a><a href="#ampersand-view-initialize" class="section-sub-sub">initialize <code>new AmpersandView([options])</code></a><a href="#ampersand-view-render" class="section-sub-sub">render <code>view.render()</code></a><a href="#ampersand-view-rendercollection" class="section-sub-sub">renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></a><a href="#ampersand-view-renderwithtemplate" class="section-sub-sub">renderWithTemplate <code>view.renderWithTemplate([context], [template])</code></a><a href="#ampersand-view-query" class="section-sub-sub">query <code>view.query(&#39;.classname&#39;)</code></a><a href="#ampersand-view-querybyhook" class="section-sub-sub">queryByHook <code>view.queryByHook(&#39;hookname&#39;)</code></a><a href="#ampersand-view-queryall" class="section-sub-sub">queryAll <code>view.queryAll(&#39;.classname&#39;)</code></a><a href="#ampersand-view-cacheelements" class="section-sub-sub">cacheElements <code>view.cacheElements(hash)</code></a><a href="#ampersand-view-listentoandrun" class="section-sub-sub">listenToAndRun <code>view.listenToAndRun(object, eventsString, callback)</code></a><a href="#ampersand-view-remove" class="section-sub-sub">remove <code>view.remove()</code></a><a href="#ampersand-view-registersubview" class="section-sub-sub">registerSubview <code>view.registerSubview(viewInstance)</code></a><a href="#ampersand-view-rendersubview" class="section-sub-sub">renderSubview <code>view.renderSubview(viewInstance, containerEl)</code></a><a href="#ampersand-view-subviews" class="section-sub-sub">subviews <code>view.subviews</code></a><a href="#ampersand-view-delegateevents" class="section-sub-sub">delegateEvents <code>view.delegateEvents([events])</code></a><a href="#ampersand-view-undelegateevents" class="section-sub-sub">undelegateEvents <code>view.undelegateEvents()</code></a><a href="#ampersand-view-switcher" class="section-top">ampersand-view-switcher</a><a href="#ampersand-view-switcher-install" class="section-sub">Install</a><a href="#ampersand-view-switcher-example" class="section-sub">Example</a><a href="#ampersand-view-switcher-api-reference" class="section-sub">API Reference</a><a href="#ampersand-view-switcher-constructor" class="section-sub-sub">constructor <code>new ViewSwitcher(element, [options])</code></a><a href="#ampersand-view-switcher-set" class="section-sub-sub">set <code>switcher.set(viewInstance)</code></a><a href="#ampersand-view-switcher-clear" class="section-sub-sub">clear <code>switcher.clear(callback)</code></a><a href="#ampersand-router" class="section-top">ampersand-router</a><a href="#ampersand-router-install" class="section-sub">install</a><a href="#ampersand-router-api-reference" class="section-sub">API Reference</a><a href="#ampersand-router-extend" class="section-sub-sub">extend <code>AmpersandRouter.extend(properties)</code></a><a href="#ampersand-router-routes" class="section-sub-sub">routes <code>router.routes</code></a><a href="#ampersand-router-constructor-initialize" class="section-sub-sub">constructor / initialize <code>new Router([options])</code></a><a href="#ampersand-router-route" class="section-sub-sub">route <code>router.route(route, name, [callback])</code></a><a href="#ampersand-router-navigate" class="section-sub-sub">navigate <code>router.navigate(fragment, [options])</code></a><a href="#ampersand-router-redirectto" class="section-sub-sub">redirectTo <code>router.redirectTo(fragment)</code></a><a href="#ampersand-router-execute" class="section-sub-sub">execute <code>router.execute(callback, args)</code></a><a href="#ampersand-router-historystart" class="section-sub-sub">history.start <code>router.history.start([options])</code></a><a href="#ampersand-dom-bindings" class="section-top">ampersand-dom-bindings</a><a href="#ampersand-dom-bindings-install" class="section-sub">install</a><a href="#ampersand-dom-bindings-binding-types" class="section-sub">Binding types</a><a href="#ampersand-dom-bindings-text" class="section-sub-sub">text</a><a href="#ampersand-dom-bindings-class" class="section-sub-sub">class</a><a href="#ampersand-dom-bindings-attribute" class="section-sub-sub">attribute</a><a href="#ampersand-dom-bindings-value" class="section-sub-sub">value</a><a href="#ampersand-dom-bindings-booleanclass" class="section-sub-sub">booleanClass</a><a href="#ampersand-dom-bindings-booleanattribute" class="section-sub-sub">booleanAttribute</a><a href="#ampersand-dom-bindings-toggle" class="section-sub-sub">toggle</a><a href="#ampersand-dom-bindings-switch" class="section-sub-sub">switch</a><a href="#ampersand-dom-bindings-switchclass" class="section-sub-sub">switchClass</a><a href="#ampersand-dom-bindings-innerhtml" class="section-sub-sub">innerHTML</a><a href="#ampersand-dom-bindings-custom-functions" class="section-sub-sub">custom functions</a><a href="#ampersand-dom-bindings-handling-multiple-bindings-for-a-given-key" class="section-sub">Handling multiple bindings for a given key</a><a href="#ampersand-dom-bindings-binding-using-attribute" class="section-sub">binding using <code>data-hook</code> attribute</a><a href="#ampersand-dom-bindings-handling-simplest-cases-text" class="section-sub">handling simplest cases: text</a><a href="#ampersand-dom-bindings-real-life-example" class="section-sub">real life example</a><a href="#ampersand-dom-bindings-other-benefits" class="section-sub">other benefits</a>
       </nav>
       <div class="docs-content">
         <section><a name="intro" href="#intro" class="anchor">
@@ -35,7 +35,7 @@
             <h1><span class="header-link"></span>The Ampersand CLI</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand</h4>
-            <p class="module-version">latest v2.0.1</p>
+            <p class="module-version">latest v2.0.4</p>
             <p class="module-description">CLI tool for generating single page apps a. la. http://humanjavascript.com</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand">github</a><a href="https://www.npmjs.org/package/ampersand">npm</a></p>
           </div>
@@ -62,6 +62,7 @@ my-model-collection.js
 <p>Those files can be JSON or ini format.</p>
 <p>The available options and defaults are as follows:</p>
 <pre><code class="javascript">{
+    // default framework to be prompted with, options are express or hapi
     framework: &#39;hapi&#39;,
     indent: 4,
     view: &#39;&#39;, // default template
@@ -91,7 +92,7 @@ my-model-collection.js
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.3.14</p>
+            <p class="module-version">latest v4.4.1</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
@@ -121,7 +122,13 @@ my-model-collection.js
     }
 });
 </code></pre>
-<a name="ampersand-state-constructorinitialize" class="anchor" href="#ampersand-state-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new AmpersandState([attrs], [options])</code></h3></a><p>When creating an instance of a state object, you can pass in the initial values of the <strong>attributes</strong> which will be <a href="#ampersand-state-set">set</a> on the state. Unless <a href="#amperand-state-extra-properties">extraProperties</a> is set to <code>allow</code>, you will need to have defined these attributes in <code>props</code> or <code>session</code>.</p>
+<p><code>AmpersandState.extend</code> does more than just copy attributes from one prototype to another. As such it is incompatible with Coffeescript&#39;s class-based extend. TypeScript users may have similar issues. </p>
+<p>For instance, this will not work since it never actually calls <code>AmpersandState.extend</code>:</p>
+<pre><code>class Foo extends AmpersandView
+     constructor: (options)-&gt;
+         @special = options.special
+         super
+</code></pre><a name="ampersand-state-constructorinitialize" class="anchor" href="#ampersand-state-constructorinitialize"><h3><span class="header-link"></span>constructor/initialize <code>new AmpersandState([attrs], [options])</code></h3></a><p>When creating an instance of a state object, you can pass in the initial values of the <strong>attributes</strong> which will be <a href="#ampersand-state-set">set</a> on the state. Unless <a href="#amperand-state-extra-properties">extraProperties</a> is set to <code>allow</code>, you will need to have defined these attributes in <code>props</code> or <code>session</code>.</p>
 <p>If you have defined an <strong>initialize</strong> function for your subclass of State, it will be invoked at creation time.</p>
 <pre><code class="javascript">var me = new Person({
     firstName: &#39;Phil&#39;
@@ -211,7 +218,74 @@ console.log(userB.cid) //=&gt; &quot;state-2&quot;
 
 document.body.innerHTML = hacker.escape(&#39;name&#39;);
 </code></pre><a name="ampersand-state-isvalid" class="anchor" href="#ampersand-state-isvalid"><h3><span class="header-link"></span>isValid <code>state.isValid()</code></h3></a><p>Check if the state is currently in a valid state, it does this by calling the <code>validate</code> method, of your state if you&#39;ve provided one.</p>
-<a name="ampersand-state-datatypes" class="anchor" href="#ampersand-state-datatypes"><h3><span class="header-link"></span>dataTypes</h3></a><a name="ampersand-state-props" class="anchor" href="#ampersand-state-props"><h3><span class="header-link"></span>props <code>AmpersandView.extend({ props: { name: &#39;string&#39; } })</code></h3></a><p>Pass <strong>props</strong> as an object to extend, describing the observable properties of your state class. The props properties should not be set on an instance, as this won&#39;t define new properties, they should only be passed to extend.</p>
+<a name="ampersand-state-datatypes" class="anchor" href="#ampersand-state-datatypes"><h3><span class="header-link"></span>dataTypes  <code>AmpersandState.extend({ datatypes: myCustomTypes })</code></h3></a><p>ampersand-state defines several built-in datatypes:  <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code>, <code>date</code>, or <code>any</code>.  Of these, <code>object</code>, <code>array</code> and <code>any</code> allow for a lot of extra flexibility.  However sometimes it may be useful to define your own custom datatypes.  Then you can use these types in the <code>props</code> below with all their features (like <code>required</code>, <code>default</code>, etc).  </p>
+<p>To define a type, you generally will provide an object with 4 member functions (though only 2 are usually necessary)  <code>get</code>, <code>set</code>, <code>default</code>, and <code>compare</code>.  </p>
+<p><code>set : function(newVal){};  returns {type : type, val : newVal};</code>:  Called on every set, returns an object with two members : <code>val</code> and <code>type</code>.  If the &#39;type&#39; value does not equal the name of the dataType you defined, a <code>TypeError</code> will be thrown.</p>
+<p><code>compare : function(currentVal, newVal, attributeName){}; returns boolean</code>:  Called on every set, Should return true if <code>oldVal</code> and <code>newVal</code> are equal.  Non-equal values will eventually trigger <code>change</code> events (unless <code>{silent : true}</code> is an option sent to the state&#39;s <code>set</code> method (not to be confused with the <code>set</code> method of the dataType).</p>
+<p><code>get : function(val){} returns val;</code>:  Overrides the default getter of this type.  Useful if you want to make defensive copies.  For example, the <code>date</code> dataType returns a clone of the internally saved <code>date</code> to keep the internal state consistent. </p>
+<p><code>default : function(){} returns val;</code>:  The returns the default value for this type.  </p>
+<p>For example, let&#39;s say your application uses a special type of date, &quot;JulianDate&quot;.  You&#39;d like to setup this as a type in state, but don&#39;t want to just use <code>any</code> or <code>object</code> as the type.  To define it:</p>
+<pre><code class="javascript">// Julian Date is a &#39;class&#39; defined elsewhere: 
+// it has an &#39;equals&#39; method and takes `{julianDays : number}` as a constructor
+
+var Person = AmpersandState.extend({
+   dataTypes : {
+        julianDate : {
+           // set called every time someone tried to set a property of this datatype
+           set : function(newVal){                 
+               if(newVal instanceof JulianDate){
+                   return {
+                       val : newVal,
+                       type : &#39;julianDate&#39;
+                   };
+               }
+               try{
+                   // try to parse it from passed in value:
+                   var newDate = new JulianDate(newVal);
+
+                   return {
+                       val : newDate,
+                       type : &#39;julianDate&#39;
+                   };
+               }catch(parseError){
+                   // return the value with what we think it&#39;s type is
+                   return {
+                       val : newVal,
+                       type : typeof newVal
+                   };
+               }
+           },
+           compare : function(currentVal, newVal, attributeName){
+               return currentVal.equals(newVal);
+           }
+       }
+
+   }
+   props : {
+       bornOn : &#39;julianDate&#39;,
+       retiresOn : {
+           type : &#39;julianDate&#39;,
+           required : &#39;true&#39;,
+           default : function(){
+                  // assuming an &#39;add&#39; function on julian date which returns a new JulianDate
+                  return this.bornOn.add(&#39;60&#39;,&#39;years&#39;);               
+               }
+           }
+   }
+});
+
+var person = new Person({ bornOn : new JulianDate({julianDays : 1000}); }
+// this will also work and will build a new JulianDate
+var person = new Person({bornOn : {julianDays : 1000}});
+
+// will construct a new julian date for us
+// and will also trigger a change event
+person.bornOn = {julianDays : 1001}; 
+
+// but this will not trigger a change event since the equals method would return true
+person.bornOn = {julianDays : 1001};
+</code></pre>
+<a name="ampersand-state-props" class="anchor" href="#ampersand-state-props"><h3><span class="header-link"></span>props <code>AmpersandState.extend({ props: { name: &#39;string&#39; } })</code></h3></a><p>Pass <strong>props</strong> as an object to extend, describing the observable properties of your state class. The props properties should not be set on an instance, as this won&#39;t define new properties, they should only be passed to extend.</p>
 <p>Properties can be defined in three different ways:</p>
 <ul>
 <li>As a string with the expected dataType. One of <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code>, <code>date</code>, or <code>any</code>. Eg: <code>name: &#39;string&#39;</code>. Can also be set to the name of a custom <code>dataTypes</code> if any are defined for the class.</li>
@@ -250,7 +324,7 @@ document.body.innerHTML = hacker.escape(&#39;name&#39;);
 });
 </code></pre>
 <p>It&#39;s worth noting that both <code>array</code> and <code>object</code> do this already: they default to empty versions of themselves.  You would only need to do this if you wanted to default to an array/object that wasn&#39;t empty.</p>
-<a name="ampersand-state-session" class="anchor" href="#ampersand-state-session"><h3><span class="header-link"></span>session <code>AmpersandView.extend({ session: { name: &#39;string&#39; } })</code></h3></a><p>Session properties are defined and work in exactly the same way as <a href="#ampersand-state-props">props</a>, but generally only exist for the lifetime of the page. They would not typically be persisted to the server, and are not returned by calls to <code>toJSON()</code> or <code>serialize()</code>.</p>
+<a name="ampersand-state-session" class="anchor" href="#ampersand-state-session"><h3><span class="header-link"></span>session <code>AmpersandState.extend({ session: { name: &#39;string&#39; } })</code></h3></a><p>Session properties are defined and work in exactly the same way as <a href="#ampersand-state-props">props</a>, but generally only exist for the lifetime of the page. They would not typically be persisted to the server, and are not returned by calls to <code>toJSON()</code> or <code>serialize()</code>.</p>
 <pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         name: &#39;string&#39;,
@@ -371,7 +445,7 @@ console.log(me.widgets instanceof WidgetCollection); //=&gt; true
     }
 });
 
-var me = new Person({ personID: 123, name: &#39;Phil&#39; });
+var me = new Person({ personID: 123, name: &#39;Phil&#39; },{ parse: true});
 
 console.log(me.id) //=&gt; 123
 console.log(me.personID) //=&gt; undefined
@@ -424,6 +498,7 @@ console.log(me.color) //=&gt; &#39;red&#39;
 <a name="ampersand-state-previousattributes" class="anchor" href="#ampersand-state-previousattributes"><h3><span class="header-link"></span>previousAttributes <code>state.previousAttributes()</code></h3></a><p>Return a copy of the object&#39;s previous attributes (the state before the last <code>&quot;change&quot;</code> event). Useful for getting a diff between versions of a state, or getting back to a valid state after an error occurs.</p>
 <a name="ampersand-state-haschanged" class="anchor" href="#ampersand-state-haschanged"><h3><span class="header-link"></span>hasChanged <code>state.hasChanged([attribute])</code></h3></a><p>Determine if the state has been modified since the last <code>&quot;change&quot;</code> event. If an attribute name is passed, determine if that one attribute has changed.</p>
 <a name="ampersand-state-changedattributes" class="anchor" href="#ampersand-state-changedattributes"><h3><span class="header-link"></span>changedAttributes <code>state.changedAttributes([objectToDiff])</code></h3></a><p>Return an object containing all the attributes that have changed, or false if there are no changed attributes. Useful for determining what parts of a view need to be updated and/or what attributes need to be persisted to the server. Unset attributes will be set to undefined.  You can also pass an attributes object to diff against the state, determining if there <em>would be</em> a change.</p>
+<p>Note that if passing an attributes object to diff against, only changes to properties defined on the model will be detected. This means that changes to children or collections will <em>not</em> be returned as changes by this method.</p>
 <a name="ampersand-state-tojson" class="anchor" href="#ampersand-state-tojson"><h3><span class="header-link"></span>toJSON <code>state.toJSON()</code></h3></a><p>Return a shallow copy of the state&#39;s attributes for JSON stringification. This can be used for persistence, serialization, or for augmentation before being sent to the server. The name of this method is a bit confusing, as it doesn&#39;t actually return a JSON string — but I&#39;m afraid that it&#39;s the way that the JavaScript API for JSON.stringify works.</p>
 <p>Calls <a href="#ampersand-state-serialize">serialize</a> to determine which values to return in the object. Will be called implicitly by JSON.stringify.</p>
 <pre><code class="javascript">var me = new Person({ firstName: &#39;Phil&#39;, lastName: &#39;Roberts&#39; });
@@ -751,7 +826,7 @@ people.filter(function (person) {
             <h1><span class="header-link"></span>ampersand-rest-collection</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-rest-collection</h4>
-            <p class="module-version">latest v2.0.3</p>
+            <p class="module-version">latest v2.0.4</p>
             <p class="module-description">ampersand-collection with REST and Underscore mixins.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-rest-collection">github</a><a href="https://www.npmjs.org/package/ampersand-rest-collection">npm</a></p>
           </div>
@@ -805,8 +880,8 @@ collection.fetch();
 <li><code>merge</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{merge: false}</code> prevents the call to <code>set</code> from updating models in the local collection which have changed on the server. <em>Defaults to false</em></li>
 </ul>
 <p>You can also pass any options that <a href="https://github.com/Raynos/xhr">xhr</a> expects to modify the query. For example: to fetch a specific page of a paginated collection: <code>collection.fetch({ data: { page: 3 } })</code></p>
-<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method for gets a model from the server or from the collection if it&#39;s already has a model with that id.</p>
-<p>By default it will only fetch and add the model with the ID you pass in.</p>
+<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method. Gets a model from the server or from the collection if a model with that id already exists.</p>
+<p>By default it will only fetch and add the model with the id you pass in.</p>
 <pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, function (err, model) {
     if (err) {
         console.log(&#39;handle&#39;);
@@ -818,7 +893,7 @@ collection.fetch();
     }
 });
 </code></pre>
-<p>If you pass <code>{all: true}</code> it will fetch the entire collection (by calling its <code>fetch</code> method) and then do a <code>get</code> to attempt to pull out the model by the <code>id</code> you specified.</p>
+<p>If you pass <code>{all: true}</code> it will fetch the entire collection (by calling its <code>fetch</code> method) and then do a <code>get</code> to attempt to pull out the model by the id you specified.</p>
 <pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, {all: true}, function (err, model) {
     if (err) {
         console.log(&#39;handle&#39;);
@@ -915,7 +990,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v7.1.4</p>
+            <p class="module-version">latest v7.2.0</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -930,7 +1005,7 @@ var alphabetical = books.sortBy(function(book) {
 </ol>
 <a name="ampersand-view-install" class="anchor" href="#ampersand-view-install"><h2><span class="header-link"></span>Install</h2></a><pre><code>npm install ampersand-view
 </code></pre><a name="ampersand-view-api-reference" class="anchor" href="#ampersand-view-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><p>Note that this is a fork of Backbone&#39;s view so most of the public methods/properties here still exist: <a href="http://backbonejs.org/#View">http://backbonejs.org/#View</a>.</p>
-<a name="ampersand-view-extend" class="anchor" href="#ampersand-view-extend"><h3><span class="header-link"></span>extend <code>AmpersandView.extend([properties])</code></h3></a><p>Get started with views by creating a custom view class. Ampersand views have a sane default render function, which you don&#39;t necessarily have to override, but you probably will wish to specify a <a href="#ampersand-view-template"><code>template</code></a>, your declarative <a href="#ampersand-view-events">event handlers</a> and your <a href="#ampersand-view-bindings">view bindings</a>.</p>
+<a name="ampersand-view-extend" class="anchor" href="#ampersand-view-extend"><h3><span class="header-link"></span>extend <code>AmpersandView.extend([properties])</code></h3></a><p>Get started with views by creating a custom view class. Ampersand views have a sane default render function, which you don&#39;t necessarily have to override, but you probably will wish to specify a <a href="http://ampersandjs.com/docs#ampersand-view-template"><code>template</code></a>, your declarative <a href="http://ampersandjs.com/docs#ampersand-view-events">event handlers</a> and your <a href="http://ampersandjs.com/docs#ampersand-view-bindings">view bindings</a>.</p>
 <pre><code class="javascript">var PersonRowView = AmpersandView.extend({
     template: &quot;&lt;li&gt; &lt;span data-hook=&#39;name&#39;&gt;&lt;/span&gt; &lt;span data-hook=&#39;age&#39;&gt;&lt;/span&gt; &lt;a data-hook=&#39;edit&#39;&gt;edit&lt;/a&gt; &lt;/li&gt;&quot;,
 
@@ -958,7 +1033,7 @@ var alphabetical = books.sortBy(function(book) {
 <a name="ampersand-view-template" class="anchor" href="#ampersand-view-template"><h3><span class="header-link"></span>template <code>AmpersandView.extend({ template: &quot;&lt;div&gt;&lt;input&gt;&lt;/div&gt;&quot; })</code></h3></a><p>The <code>.template</code> is a property for the view prototype. It should either be a string of HTML or a function that returns a string of HTML or a DOM element. It isn&#39;t required, but it is used as a default for calling <code>renderWithTemplate</code>.</p>
 <p>The important thing to note is that <strong><em>the returned string/HTML should not have more than one root element</em></strong>. This is because the view code assumes that it has one and only one root element that becomes the <code>.el</code> property of the instantiated view.</p>
 <p>For more information about creating, and compiling templates, <a href="http://ampersandjs.com/learn/templates">read the templating guide</a>.</p>
-<a name="ampersand-view-autorender" class="anchor" href="#ampersand-view-autorender"><h3><span class="header-link"></span>autoRender <code>AmpersandView.extend({ autoRender: true })</code></h3></a><p>The <code>.autoRender</code> property lets you optionally specify that the view should just automatically render with all the defaults. This requires that you at minimum specify a <a href="#template">template</a> string or function.</p>
+<a name="ampersand-view-autorender" class="anchor" href="#ampersand-view-autorender"><h3><span class="header-link"></span>autoRender <code>AmpersandView.extend({ autoRender: true })</code></h3></a><p>The <code>.autoRender</code> property lets you optionally specify that the view should just automatically render with all the defaults. This requires that you at minimum specify a <a href="http://ampersandjs.com/docs#ampersand-view-template">template</a> string or function.</p>
 <p>By setting <code>autoRender: true</code> the view will simply call <code>.renderWithTemplate</code> for you (after your <code>initialize</code> method if present). So for simple views, if you&#39;ve got a few bindings and a template your whole view could just be really declarative like this:</p>
 <pre><code class="javascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 
@@ -985,7 +1060,7 @@ module.exports = AmpersandView.extend({
 <ul>
 <li>All attached callbacks are bound to the view before being handed off to the event handler, so when the callbacks are invoked, <code>this</code> continues to refer to the view object.</li>
 <li>All event handlers are delegated to the view&#39;s root el, meaning elements changed when the view is updated don&#39;t need to be unbound and rebound.</li>
-<li>All events handlers are cleanly removed when the view is <a href="#ampersand-view-remove">removed</a>.</li>
+<li>All events handlers are cleanly removed when the view is <a href="http://ampersandjs.com/docs#ampersand-view-remove">removed</a>.</li>
 </ul>
 <pre><code>var DocumentView = AmpersandView.extend({
 
@@ -1013,8 +1088,15 @@ module.exports = AmpersandView.extend({
   //...
 
 });
+</code></pre><p>Note that the <code>events</code> definition is not merged with the superclass definition. If you want to merge
+<code>events</code> from a superclass, you have to do it explicitly:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  events: _.extend({}, PersonRowView.prototype.events, {
+    &#39;click [data-hook=edit-secret-identitiy]&#39;: &#39;editSecretIdentity&#39;
+  })
+});
 </code></pre><a name="ampersand-view-bindings" class="anchor" href="#ampersand-view-bindings"><h3><span class="header-link"></span>bindings</h3></a><p>The bindings hash gives you a declarative way of specifying which elements in your view should be updated when the view&#39;s model is changed.</p>
-<p>For a full reference of available binding types see the <a href="#ampersand-dom-bindings">ampersand-dom-bindings</a> section.</p>
+<p>For a full reference of available binding types see the <a href="http://ampersandjs.com/docs#ampersand-dom-bindings">ampersand-dom-bindings</a> section.</p>
 <p>For example, with a model like this:</p>
 <pre><code class="javascript">var Person = AmpersandModel.extend({
     props: {
@@ -1061,7 +1143,14 @@ module.exports = AmpersandView.extend({
     }
 });
 </code></pre>
-<a name="ampersand-view-el" class="anchor" href="#ampersand-view-el"><h3><span class="header-link"></span>el <code>view.el</code></h3></a><p>All rendered views have a single DOM node which they manage, which is acessible from the <code>.el</code> property on the view. Allowing you to insert it into the DOM from the parent context.</p>
+<p>Note that the <code>bindings</code> definition is not merged with the superclass definition. If you want to merge
+<code>bindings</code> from a superclass, you have to do it explicitly:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  bindings: _.extend({}, PersonRowView.prototype.bindings, {
+    &#39;model.secretIdentity&#39;: &#39;[data-hook=secret-identity]&#39;
+  })
+});
+</code></pre><a name="ampersand-view-el" class="anchor" href="#ampersand-view-el"><h3><span class="header-link"></span>el <code>view.el</code></h3></a><p>All rendered views have a single DOM node which they manage, which is acessible from the <code>.el</code> property on the view. Allowing you to insert it into the DOM from the parent context.</p>
 <pre><code>var view = new PersonView({ model: me });
 view.render();
 
@@ -1090,7 +1179,15 @@ document.querySelector(&#39;#viewContainer&#39;).appendChild(view.el);
 var view = new MyView({ foo: &#39;bar&#39; });
 //=&gt; logs &#39;The options are: {foo: &quot;bar&quot;}&#39;
 </code></pre>
-<a name="ampersand-view-render" class="anchor" href="#ampersand-view-render"><h3><span class="header-link"></span>render <code>view.render()</code></h3></a><p>Render is a part of the <a href="???">Ampersand View conventions</a>. You can override the default view method when extending AmpersandView if you wish, but as part of the conventions, calling render should:</p>
+<p>If you want to extend the <code>initialize</code> function of a superclass instead of redefining it completely, you can 
+explicitly call the <code>initialize</code> of the superclass at the right time:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  initialize: function () {
+    PersonRowView.prototype.initialize.apply(this, arguments);
+    doSomeOtherStuffHere();
+  })
+});
+</code></pre><a name="ampersand-view-render" class="anchor" href="#ampersand-view-render"><h3><span class="header-link"></span>render <code>view.render()</code></h3></a><p>Render is a part of the <a href="http://ampersandjs.com/learn/view-conventions">Ampersand View conventions</a>. You can override the default view method when extending AmpersandView if you wish, but as part of the conventions, calling render should:</p>
 <ul>
 <li>Create a <code>this.el</code> property if the view doesn&#39;t already have one, and populate it with your view template</li>
 <li>or if the view already has a <code>this.el</code> attribute, render should either populate it with your view template, or create a new element and replace the existing <code>this.el</code> if it&#39;s in the DOM tree.</li>
@@ -1102,7 +1199,15 @@ var view = new MyView({ foo: &#39;bar&#39; });
     return this;
 }
 </code></pre>
-<a name="ampersand-view-rendercollection" class="anchor" href="#ampersand-view-rendercollection"><h3><span class="header-link"></span>renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></h3></a><ul>
+<p>If you want to extend the <code>render</code> function of a superclass instead of redefining it completely, you can 
+explicitly call the <code>render</code> of the superclass at the right time:</p>
+<pre><code>var SuperheroRowView = PersonRowView.extend({
+  render: function () {
+    PersonRowView.prototype.render.apply(this, arguments);
+    doSomeOtherStuffHere();
+  })
+});
+</code></pre><a name="ampersand-view-rendercollection" class="anchor" href="#ampersand-view-rendercollection"><h3><span class="header-link"></span>renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></h3></a><ul>
 <li><code>collection</code> {Backbone Collection} The instantiated collection we wish to render.</li>
 <li><code>ItemView</code> {View Constructor | Function} The view constructor that will be instantiated for each model in the collection or a function that will return an instance of a given constructor. <code>options</code> object is passed as a first argument to a function, which can be used to access <code>options.model</code> and determine which view should be instantiated. This view will be used with a reference to the model and collection and the item view&#39;s <code>render</code> method will be called with an object containing a reference to the containerElement as follows: <code>.render({containerEl: &lt;&lt; element &gt;&gt;})</code>.</li>
 <li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the collection of views. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
@@ -1154,10 +1259,10 @@ var AlternativeMainView = AmpersandView.extend({
         this.renderWithTemplate(this);
         this.renderCollection(this.collection, function (options) {
             if (options.model.isAlternative) {
-                return new AlternativeMainView(options);
+                return new AlternativeItemView(options);
             }
 
-            return new MainView(options);
+            return new ItemView(options);
         }, this.el.querySelector(&#39;.itemContainer&#39;), opts);
         return this;
     }
@@ -1285,7 +1390,7 @@ var AlternativeMainView = AmpersandView.extend({
 });
 </code></pre>
 <a name="ampersand-view-subviews" class="anchor" href="#ampersand-view-subviews"><h3><span class="header-link"></span>subviews <code>view.subviews</code></h3></a><p>You can declare subviews that you want to render within a view, much like you would bindings. Useful for cases where the data you need for a subview may not be available on first render. Also, simplifies cases where you have lots of subviews.</p>
-<p>When the parent view is removed the <code>remove</code> method of all subviews will be called as well. </p>
+<p>When the parent view is removed the <code>remove</code> method of all subviews will be called as well.</p>
 <p>You declare them as follows:</p>
 <pre><code class="javascript">var AmpersandView = require(&#39;ampersand-view&#39;);
 var CollectionRenderer = require(&#39;ampersand-collection-view&#39;);
@@ -1338,7 +1443,7 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
             <h1><span class="header-link"></span>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v1.1.0</p>
+            <p class="module-version">latest v1.1.2</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
@@ -1581,7 +1686,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
             <h1><span class="header-link"></span>ampersand-dom-bindings</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-dom-bindings</h4>
-            <p class="module-version">latest v3.3.1</p>
+            <p class="module-version">latest v3.3.3</p>
             <p class="module-description">Takes binding declarations and returns key-tree-store of functions that can be used to apply those bindings.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-dom-bindings">github</a><a href="https://www.npmjs.org/package/ampersand-dom-bindings">npm</a></p>
           </div>
@@ -1638,7 +1743,7 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
     name: &#39;checked&#39;
 }
 </code></pre>
-<a name="ampersand-dom-bindings-toggle" class="anchor" href="#ampersand-dom-bindings-toggle"><h3><span class="header-link"></span>toggle</h3></a><p>toggles existence of entire element (uses a comment node as placeholder if gone) based on boolean interpretation of property name.</p>
+<a name="ampersand-dom-bindings-toggle" class="anchor" href="#ampersand-dom-bindings-toggle"><h3><span class="header-link"></span>toggle</h3></a><p>toggles visibility (using display: none) of entire element based on boolean interpretation of property.</p>
 <pre><code class="javascript">// simple show/hide of single element
 &#39;model.key&#39;: {
     type: &#39;toggle&#39;,
@@ -1680,7 +1785,8 @@ app.navigate(&quot;help/troubleshooting&quot;, {trigger: true, replace: true});
 }
 </code></pre>
 <a name="ampersand-dom-bindings-custom-functions" class="anchor" href="#ampersand-dom-bindings-custom-functions"><h3><span class="header-link"></span>custom functions</h3></a><p><code>type</code> can also be a function. It will be run for each matching <code>el</code> with the
-<code>value</code> and <code>previousValue</code> of the property.</p>
+<code>value</code> and <code>previousValue</code> of the property. The function is bound to the view
+declaring the bindings, so <code>this</code> refers to the view.</p>
 <pre><code class="javascript">&#39;model.key&#39;: {
     type: function (el, value, previousValue) {
         // Do something custom to el
@@ -1779,7 +1885,11 @@ module.exports = View.extend({
     </div>
     <script src="/public/js/setup.js"></script>
     <footer class="footer-main">
-      <nav class="nav-footer"><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Find Modules</a><a href="/contribute" class="nav-item">Contribute</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a></nav>
+      <nav class="nav-footer cf">
+        <div><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Modules</a></div>
+        <div><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="/contribute" class="nav-item">Contribute</a></div>
+        <div><a href="/security" class="nav-item">Security</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></div>
+      </nav>
       <p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br>with the help of our <a href="/contribute">contributors</a></p><a href="/" class="logo logo-ampersand-gray">&amp;</a>
     </footer>
     <script>
