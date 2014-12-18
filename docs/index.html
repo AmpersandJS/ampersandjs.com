@@ -1361,7 +1361,7 @@ var AlternativeMainView = AmpersandView.extend({
 </ul>
 <a name="ampersand-view-rendersubview" class="anchor" href="#ampersand-view-rendersubview"><h3><span class="header-link"></span>renderSubview <code>view.renderSubview(viewInstance, containerEl)</code></h3></a><ul>
 <li>viewInstance {Object} Any object with a <code>.remove()</code>, <code>.render()</code> and an <code>.el</code> property that is the DOM element for that view. Typically this is just an instantiated view.</li>
-<li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the sub view. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
+<li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that will be replaced with the sub view. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
 </ul>
 <p>This method is just sugar for the common use case of instantiating a view and putting in an element within the parent.</p>
 <p>It will:</p>
@@ -1369,7 +1369,7 @@ var AlternativeMainView = AmpersandView.extend({
 <li>fetch your container (if you gave it a selector string)</li>
 <li>register your subview so it gets cleaned up if parent is removed and so <code>view.parent</code> will be available when your subview&#39;s <code>render</code> method gets called</li>
 <li>call the subview&#39;s <code>render()</code> method</li>
-<li>append it to the container</li>
+<li>replace the container with the rendered subview content</li>
 <li>return the subview</li>
 </ol>
 <pre><code class="javascript">var view = AmpersandView.extend({
@@ -1419,7 +1419,7 @@ module.exports = AmpersandView.extend({
 </code></pre>
 <p>subview declarations consist of:</p>
 <ul>
-<li>container {String} Selector that describes the element within the view that should hold the subview.</li>
+<li>container {String} Selector that describes the element within the view that will be replaced with the subview.</li>
 <li>hook {String} Alternate method for specifying a container element using its <code>data-hook</code> attribute. Equivalent to <code>selector: &#39;[data-hook=some-hook]&#39;</code>.</li>
 <li>constructor {ViewConstructor} Any <a href="http://ampersandjs.com/learn/view-conventions">view conventions compliant</a> view constructor. It will be initialized with <code>{el: [Element grabbed from selector], parent: [reference to parent view instance]}</code>. So if you don&#39;t need to do any custom setup, you can just provide the constructor.</li>
 <li>waitFor {String} String specifying they &quot;key-path&quot; (i.e. &#39;model.property&#39;) of the view that must be &quot;truthy&quot; before it should consider the subview ready.</li>
