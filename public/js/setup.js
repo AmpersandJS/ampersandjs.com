@@ -23,6 +23,21 @@ function fallback(fn) {
 }
 
 
+// fix scrollbar issues in Safari
+var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
+var isSafari = navigator.userAgent.indexOf('Safari') > -1;
+if (isChrome && isSafari) {
+    isSafari=false;
+}
+if (isSafari) {
+    var navStyle = document.querySelector('.nav-docs').style;
+    navStyle.position = 'relative';
+    navStyle.float = 'left';
+    navStyle.top = '-40px';
+    document.querySelector('.nav-docs .logo-ampersand').style.display = 'none';
+}
+
+
 // grab all our h* tags
 var aTags = document.querySelectorAll('.nav-docs a')
 var hTags = document.querySelector('.docs-content').querySelectorAll('a.anchor');
@@ -61,8 +76,16 @@ function selectCurrent() {
   if (found) markActive(found);
 }
 
-window.onscroll = function () {
-  window.requestAnimationFrame(selectCurrent);
-};
+if (isSafari) {
+  var navStyle = document.querySelector('.nav-docs').style;
+  navStyle.position = 'relative';
+  navStyle.float = 'left';
+  navStyle.top = '-40px';
+  document.querySelector('.nav-docs .logo-ampersand').style.display = 'none';
+} else {
+  window.onscroll = function () {
+    window.requestAnimationFrame(selectCurrent);
+  };
 
-selectCurrent();
+  selectCurrent();
+}

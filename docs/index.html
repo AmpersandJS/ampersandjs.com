@@ -92,7 +92,7 @@ my-model-collection.js
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.4.1</p>
+            <p class="module-version">latest v4.4.4</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
@@ -203,7 +203,7 @@ var badWidget = widgets.get(&#39;47&#39;);
 // when calling destroy
 badWidget.destroy(); // does a DELETE /api/widgets/47
 </code></pre>
-<a name="ampersand-state-cid" class="anchor" href="#ampersand-state-cid"><h3><span class="header-link"></span>cid <code>state.cid</code></h3></a><p>A special property of states, the <strong>cid</strong>, or a client id, is a unique identifier automatically assigned to all states when they are first created. Client ids are handy when the state has not been saved to the server, and so does not yet have it&#39;s true <strong>id</strong> but needs a unique id so it can be rendered in the UI etc.</p>
+<a name="ampersand-state-cid" class="anchor" href="#ampersand-state-cid"><h3><span class="header-link"></span>cid <code>state.cid</code></h3></a><p>A special property of states, the <strong>cid</strong>, or a client id, is a unique identifier automatically assigned to all states when they are first created. Client ids are handy when the state has not been saved to the server, and so does not yet have its true <strong>id</strong> but needs a unique id so it can be rendered in the UI etc.</p>
 <pre><code class="javascript">var userA = new User();
 console.log(userA.cid) //=&gt; &quot;state-1&quot;
 
@@ -248,7 +248,7 @@ var Person = AmpersandState.extend({
                        type : &#39;julianDate&#39;
                    };
                }catch(parseError){
-                   // return the value with what we think it&#39;s type is
+                   // return the value with what we think its type is
                    return {
                        val : newVal,
                        type : typeof newVal
@@ -294,7 +294,11 @@ person.bornOn = {julianDays : 1001};
 <li><code>default</code> will be the value that the property will be set to if it is undefined, either by not being set during initialization, or by being explicit set to undefined.</li>
 <li>If <code>required</code> is true, one of two things will happen.  If a <code>default</code> is set for the property, the property will start with that value, and revert to it after a call to <code>unset(propertyName)</code>.  If a <code>default</code> is not set for the property, an error will be thrown after a call to <code>unset(propertyName)</code>.</li>
 <li>If <code>values</code> array is passed, then you&#39;ll be able to change a property to one of those values only.</li>
-<li>If <code>setOnce</code> is true, then you&#39;ll be able to set property only once.</li>
+<li>If <code>setOnce</code> is true, then you&#39;ll be able to set property only once.<ul>
+<li>If used in combination with a <code>default</code> and you instantiate without that value, the default becomes the first value <code>set</code>. Thus cannot be set again. </li>
+<li>If you don&#39;t have a default and don&#39;t set the value initially it can be set later, but only once.</li>
+</ul>
+</li>
 <li><p>Trying to set a property to an invalid type will raise an exception.</p>
 </li>
 <li><p>See <a href="#ampersand-state-get">get</a> and <a href="#ampersand-state-set">set</a> for more information about getting and setting properties.</p>
@@ -473,7 +477,7 @@ person.firstName = &#39;Phil&#39;;
 <p>If the attribute being unset is <code>required</code> and has a <code>default</code> value as defined in either <code>props</code> or <code>session</code>, it will be set to that value, otherwise it will be <code>undefined</code>.</p>
 <pre><code class="javascript">person.unset(&#39;firstName&#39;)
 </code></pre>
-<a name="ampersand-state-toggle" class="anchor" href="#ampersand-state-toggle"><h3><span class="header-link"></span>toggle <code>state.toggle(&#39;active&#39;)</code></h3></a><p>Shortcut to toggle boolean properties, or cycle through &quot;ENUM&quot; type properties that have a <code>values</code> array in it&#39;s definition. Fires change events as you would expect from set.</p>
+<a name="ampersand-state-toggle" class="anchor" href="#ampersand-state-toggle"><h3><span class="header-link"></span>toggle <code>state.toggle(&#39;active&#39;)</code></h3></a><p>Shortcut to toggle boolean properties, or cycle through &quot;ENUM&quot; type properties that have a <code>values</code> array in its definition. Fires change events as you would expect from set.</p>
 <pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         active: &#39;boolean&#39;,
