@@ -3,7 +3,7 @@ pagetitle: Events in Ampersand
 order: 6
 ---
 
-# Using events within ampersand
+# Using events in ampersand
 
 Separating application state from everything that cares about what the current state is, can only be done if it's possible to observe changes to that state.
 
@@ -30,7 +30,7 @@ model.on('change:name', function () {
 });
 ```
 
-But, the neat thing about ampersand-state (which both ampersand-view and ampersand-model are built on) is how you can also efficiently listen to changes to derived properties.
+But, the neat thing about `ampersand-state` (which both `ampersand-view` and `ampersand-model` are built on) is how you can also efficiently listen to changes to derived properties.
 
 For example, if we have a model like this:
 
@@ -85,42 +85,42 @@ Read more about it in the [ampersand-state guide](http://ampersandjs.com/learn/s
 
 ## Event Catalog
 
-In addition to the specified events, all event emitters emit the "all" event:
+In addition to the specified events, all event emitters emit the `"all"` event:
 
-* "all" — this special event fires for any triggered event, passing the event name as the first argument.
+* `"all"` — this special event fires for any triggered event, passing the event name as the first argument.
 
 ### ampersand-state
 
-* "change:[attribute]" (model, value, options) — when a specific attribute has been updated.
-* "invalid" (model, error, options) — when a model's validation fails on the client.
-* "remove" (model, collection, options) — when a model is removed from a collection.
-* "add" (model, collection, options) — when a model is added to a collection.
+* `"change:[attribute]" (model, value, options)` — when a specific attribute has been updated.
+* `"invalid" (model, error, options)` — when a model's validation fails on the client.
+* `"remove" (model, collection, options)` — when a model is removed from a collection.
+* `"add" (model, collection, options)` — when a model is added to a collection.
 
 ### ampersand-model
 
-* "change" (model, options) — when a model's attributes have changed.
-* "change:[attribute]" (model, value, options) — when a specific attribute has been updated.
-* "remove" (model, collection, options) — when a model is removed from a collection.
-* "add" (model, collection, options) — when a model is added to a collection.
-* "destroy" (model, collection, options) — when a model is destroyed.
-* "request" (model\_or\_collection, xhr, options) — when a model or collection has started a request to the server.
-* "sync" (model\_or\_collection, resp, options) — when a model or collection has been successfully synced with the server.
-* "error" (model\_or\_collection, resp, options) — when model's or collection's request to remote server has failed.
-* "invalid" (model, error, options) — when a model's validation fails on the client.
+* `"change" (model, options)` — when a model's attributes have changed.
+* `"change:[attribute]" (model, value, options)` — when a specific attribute has been updated.
+* `"remove" (model, collection, options)` — when a model is removed from a collection.
+* `"add" (model, collection, options)` — when a model is added to a collection.
+* `"destroy" (model, collection, options)` — when a model is destroyed.
+* `"request" (model\_or\_collection, xhr, options)` — when a model or collection has started a request to the server.
+* `"sync" (model\_or\_collection, resp, options)` — when a model or collection has been successfully synced with the server.
+* `"error" (model\_or\_collection, resp, options)` — when model's or collection's request to remote server has failed.
+* `"invalid" (model, error, options)` — when a model's validation fails on the client.
 
 ### ampersand-collection
 
-* Proxies all of the model events, and additionally:
+Proxies all of the model events, and additionally:
 
-* "sort" (collection, options) — when the collection has been re-sorted.
-* "reset" (collection, options) — when the collection's entire contents have been replaced.
+* `"sort" (collection, options)` — when the collection has been re-sorted.
+* `"reset" (collection, options)` — when the collection's entire contents have been replaced.
 
 ### ampersand-view
 
-* "remove" (view) - Fired when the view is removed from the DOM.
+* `"remove" (view)` - Fired when the view is removed from the DOM.
 
 ### ampersand-router
 
-* "route:[name]" (params) — Fired by the router when a specific route is matched.
-* "route" (route, params) — Fired by the router when any route has been matched.
-* "route" (router, route, params) — Fired by history when any route has been matched.
+* `"route:[name]" (params)` — Fired by the router when a specific route is matched.
+* `"route" (route, params)` — Fired by the router when any route has been matched.
+* `"route" (router, route, params)` — Fired by history when any route has been matched.
