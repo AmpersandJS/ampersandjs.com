@@ -1522,7 +1522,7 @@ this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
     },
     // here we provide a few things we&#39;d like to do each time
     // we switch pages in the app.
-    show: function (newView, oldView) {
+    show: function (newView, oldView, cb) {
         // it&#39;s inserted and rendered for me
         document.title = newView.pageTitle || &#39;app name&#39;;
         document.body.scrollTop = 0;
