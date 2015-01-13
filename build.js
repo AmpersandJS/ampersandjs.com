@@ -15,6 +15,7 @@ var getModules = require('./lib/get-modules');
 var _ = require('underscore');
 var contributors = require('./contributors.json');
 var coreContributors = require('./core-contributors.json');
+var communityTeam = require('./community-team.json');
 var stripMarkdownMetadata = require('./lib/strip-markdown-metadata');
 
 
@@ -104,12 +105,13 @@ function build() {
 
     // filter out core
     contributors = contributors.filter(function (member) {
-        return !coreContributors[member.user];
+        return !coreContributors[member.user] && !communityTeam[member.user];
     });
 
     renderJade(__dirname + '/contribute/index.jade', {
         contributors: contributors,
-        coreContributors: coreContributors
+        coreContributors: coreContributors,
+        communityTeam: communityTeam
     });
 
     // Render security page

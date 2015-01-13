@@ -65,6 +65,24 @@
       "twitter": "kamilogorek"
     }
   ],
+  "communityTeam": [
+    {
+      "gh": "bear",
+      "twitter": "codebear"
+    },
+    {
+      "gh": "fyockm",
+      "twitter": "drewfyock"
+    },
+    {
+      "gh": "aaronmccall",
+      "twitter": "aaronmccall"
+    },
+    {
+      "gh": "remko",
+      "twitter": "remko"
+    }
+  ],
   "coreModules": [
     "ampersand",
     "ampersand-state",

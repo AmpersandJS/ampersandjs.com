@@ -32,6 +32,14 @@ block content
               img(src= member.avatar_url + 's=300')
             a(href= 'http://twitter.com/' + member.twitter) @#{member.twitter}
 
+      h2 Community Team
+      .core-team.cf
+        for member, name in globals.communityTeam
+          .member
+            a(href= 'http://twitter.com/' + member.twitter)
+              img(src= member.avatar_url + 's=300')
+            a(href= 'http://twitter.com/' + member.twitter) @#{member.twitter}
+
       h2 With contributions from
 
       p This list is fetched from GitHub's API and lists users who have contributed to repos in the <a href="https://github.com/ampersandjs">AmpersandJS Organization</a>.
