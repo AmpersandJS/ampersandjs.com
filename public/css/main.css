@@ -663,7 +663,7 @@ nav.nav-main .button {
   height: 40px;
   margin: 30px 40px 0;
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .splash .users-list .logo img {
   height: 100%;
@@ -677,6 +677,9 @@ nav.nav-main .button {
 }
 .splash .users-list .logo.logo-otalk {
   width: 100px;
+}
+.splash .users-list .logo.tall {
+  height: 60px;
 }
 .splash .users-list .logo:hover {
   opacity: 0.6;
