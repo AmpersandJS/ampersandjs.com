@@ -1456,11 +1456,11 @@ You usually don&#39;t need to use this, but may wish to if you have multiple vie
             <h1><span class="header-link"></span>ampersand-view-switcher</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view-switcher</h4>
-            <p class="module-version">latest v1.1.2</p>
+            <p class="module-version">latest v2.0.0</p>
             <p class="module-description">A utility for swapping out views inside a container element.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view-switcher">github</a><a href="https://www.npmjs.org/package/ampersand-view-switcher">npm</a></p>
           </div>
-          <div><p>This module does one thing: <em>it helps you swap out views inside of an element</em>. It&#39;s compatible with ampersand-view, backbone views and any view that has an <code>.el</code>, <code>.render</code> and <code>.remove()</code></p>
+          <div><p>This module does one thing: <em>it helps you swap out views inside of an element</em>. It&#39;s compatible with ampersand-view, backbone views and any view that has an <code>.el</code>, <code>.render()</code> and <code>.remove()</code></p>
 <p>What might you do with it?</p>
 <ul>
 <li>build a page container for your app.</li>
@@ -1502,14 +1502,14 @@ module.exports = AmpersandView.extend({
         this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
             // here we provide a few things we&#39;d like to do each time
             // we switch pages in the app.
-            show: function (newView, oldView) {
+            show: function (view) {
                 // set our document title
-                document.title = newView.pageTitle || &#39;my awesome app&#39;;
+                document.title = view.pageTitle || &#39;my awesome app&#39;;
                 // scroll to the top
                 document.body.scrollTop = 0;
                 // perhaps store a reference to our current page on our
                 // app global for easy access from the browser console.
-                app.currentPage = newView;
+                app.currentPage = view;
             }
         });
     } 
@@ -1522,7 +1522,7 @@ this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
     waitForRemove: true,
     // here we provide a few things to do before the element gets
     // removed from the DOM.
-    hide: function (oldView, newView, cb) {
+    hide: function (oldView, cb) {
         // it&#39;s inserted and rendered for me so we&#39;ll add a class 
         // that has a corresponding CSS transition.
         oldView.el.classList.add(&#39;animateOut&#39;);
@@ -1531,7 +1531,7 @@ this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
     },
     // here we provide a few things we&#39;d like to do each time
     // we switch pages in the app.
-    show: function (newView, oldView) {
+    show: function (newView) {
         // it&#39;s inserted and rendered for me
         document.title = newView.pageTitle || &#39;app name&#39;;
         document.body.scrollTop = 0;
@@ -1540,15 +1540,14 @@ this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
         app.currentPage = newView;
 
         newView.el.classList.add(&#39;animateIn&#39;);
-        setTimeout(cb, 2000)
     }
 });
 </code></pre>
 <a name="ampersand-view-switcher-api-reference" class="anchor" href="#ampersand-view-switcher-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-view-switcher-constructor" class="anchor" href="#ampersand-view-switcher-constructor"><h3><span class="header-link"></span>constructor <code>new ViewSwitcher(element, [options])</code></h3></a><ul>
 <li><code>element</code> {Element} The DOM element that should contain the views.</li>
 <li><code>options</code> {Object} [optinal]<ul>
-<li><code>show</code> {Function} [optional] A function that gets called when a view is being shown. It&#39;s passed the new view, the previous view (if relevant), and a callback. If you name 3 incoming arguments for example <code>function (newView, oldView, callback) { ... }</code> the view switcher will wait for you to call the callback before it&#39;s considered ready. If you only use one or two like this: <code>function (newView, oldView) { ... }</code> it won&#39;t wait for you to call a callback.</li>
-<li><code>hide</code> {Function} [optional] A function that gets called when a view is being removed. It&#39;s passed the old view, the new view (if relevant), and a callback. If you name 3 incoming arguments for example <code>function (oldView, newView, callback) { ... }</code> the view switcher will wait for you to call the callback before it&#39;s considered ready. If you only use one or two like this: <code>function (oldView, newView) { ... }</code> it won&#39;t wait for you to call a callback.</li>
+<li><code>show</code> {Function} [optional] A function that gets called when a view is being shown. It&#39;s passed the new view.</li>
+<li><code>hide</code> {Function} [optional] A function that gets called when a view is being removed. It&#39;s passed the old view and a callback. If you name 2 incoming arguments for example <code>function (oldView, callback) { ... }</code> the view switcher will wait for you to call the callback before it&#39;s considered ready. If you only use one like this: <code>function (oldView) { ... }</code> it won&#39;t wait for you to call a callback.</li>
 <li><code>waitForRemove</code> {Boolean} [default: <code>false</code>] Whether or not to wait until your <code>hide</code> animation callback gets called before starting your <code>show</code> animation.</li>
 <li><code>empty</code> {Function} [optional] A function that gets called any time the view switcher is empty. Including when you instantiate it without giving it a view to start with.</li>
 <li><code>view</code> {View} [optional] A view instance to start with.</li>
