@@ -96,6 +96,7 @@
     "ampersand-view",
     "ampersand-view-switcher",
     "ampersand-router",
+    "ampersand-events",
     "ampersand-dom-bindings"
   ],
   "formModules": [
