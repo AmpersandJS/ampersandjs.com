@@ -26,21 +26,10 @@
     "bio": null,
     "public_repos": 116,
     "public_gists": 17,
-    "followers": 554,
+    "followers": 571,
     "following": 51,
     "created_at": "2009-03-27T17:36:36Z",
-    "updated_at": "2015-01-13T17:36:27Z",
-    "private_gists": 26,
-    "total_private_repos": 14,
-    "owned_private_repos": 13,
-    "disk_usage": 88014,
-    "collaborators": 10,
-    "plan": {
-      "name": "medium",
-      "space": 2516582,
-      "collaborators": 0,
-      "private_repos": 20
-    },
+    "updated_at": "2015-01-30T17:11:29Z",
     "twitter": "henrikjoreteg"
   },
   "latentflip": {
@@ -68,12 +57,12 @@
     "email": "phil@latentflip.com",
     "hireable": false,
     "bio": null,
-    "public_repos": 235,
-    "public_gists": 107,
-    "followers": 224,
+    "public_repos": 239,
+    "public_gists": 109,
+    "followers": 233,
     "following": 35,
     "created_at": "2009-04-27T07:29:09Z",
-    "updated_at": "2015-01-13T11:09:37Z",
+    "updated_at": "2015-01-30T17:18:05Z",
     "twitter": "philip_roberts"
   },
   "legastero": {
@@ -101,12 +90,12 @@
     "email": "lancestout@gmail.com",
     "hireable": false,
     "bio": null,
-    "public_repos": 49,
-    "public_gists": 68,
-    "followers": 73,
+    "public_repos": 51,
+    "public_gists": 69,
+    "followers": 74,
     "following": 5,
     "created_at": "2008-12-05T01:34:29Z",
-    "updated_at": "2015-01-12T21:56:28Z",
+    "updated_at": "2015-01-29T19:00:48Z",
     "twitter": "lancestout"
   },
   "lynnandtonic": {
@@ -139,7 +128,7 @@
     "followers": 36,
     "following": 10,
     "created_at": "2011-06-23T17:17:51Z",
-    "updated_at": "2015-01-13T16:46:57Z",
+    "updated_at": "2015-01-30T16:47:25Z",
     "twitter": "lynnandtonic"
   },
   "lukekarrys": {
@@ -167,12 +156,12 @@
     "email": "luke@lukekarrys.com",
     "hireable": false,
     "bio": null,
-    "public_repos": 54,
+    "public_repos": 56,
     "public_gists": 34,
-    "followers": 42,
-    "following": 80,
+    "followers": 43,
+    "following": 81,
     "created_at": "2010-12-30T22:10:09Z",
-    "updated_at": "2015-01-13T14:52:43Z",
+    "updated_at": "2015-01-30T16:29:49Z",
     "twitter": "lukekarrys"
   },
   "wraithgar": {
@@ -200,12 +189,12 @@
     "email": "gar@andyet.net",
     "hireable": false,
     "bio": null,
-    "public_repos": 21,
-    "public_gists": 5,
-    "followers": 15,
+    "public_repos": 25,
+    "public_gists": 8,
+    "followers": 17,
     "following": 0,
     "created_at": "2008-11-25T16:44:27Z",
-    "updated_at": "2015-01-13T00:02:50Z",
+    "updated_at": "2015-01-30T17:11:29Z",
     "twitter": "wraithgar"
   },
   "kamilogorek": {
@@ -233,12 +222,12 @@
     "email": "kamil.ogorek@gmail.com",
     "hireable": false,
     "bio": null,
-    "public_repos": 78,
-    "public_gists": 34,
-    "followers": 25,
+    "public_repos": 80,
+    "public_gists": 36,
+    "followers": 27,
     "following": 2,
     "created_at": "2012-03-10T15:02:51Z",
-    "updated_at": "2015-01-13T01:47:33Z",
+    "updated_at": "2015-01-29T18:31:53Z",
     "twitter": "kamilogorek"
   }
 }
