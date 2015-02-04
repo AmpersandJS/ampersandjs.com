@@ -889,7 +889,7 @@ collection.fetch();
 <li><code>error</code> {Function} [optional] - callback to be called if the request was not successful, will be passed <code>(collection, response, options)</code> as arguments.</li>
 <li><code>reset</code> {Boolean} [optional] - call <a href="#ampersand-collection-reset">reset</a> instead of set with the models returned from the server, <em>defaults to false</em>.</li>
 <li><code>add</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{add: false}</code> prevents the call to <code>set</code> from adding new models retrieved from the server that aren&#39;t in the local collection. <em>Defaults to false</em></li>
-<li><code>remove</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{remove: false}</code> prevents the call to <code>set</code> from removing models that are in the local collection but aren&#39;t returned by the server. <em>Defaults to false</em></li>
+<li><code>remove</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{remove: false}</code> prevents the call to <code>set</code> from removing models that are in the local collection but aren&#39;t returned by the server. <em>Defaults to true</em></li>
 <li><code>merge</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{merge: false}</code> prevents the call to <code>set</code> from updating models in the local collection which have changed on the server. <em>Defaults to false</em></li>
 </ul>
 <p>You can also pass any options that <a href="https://github.com/Raynos/xhr">xhr</a> expects to modify the query. For example: to fetch a specific page of a paginated collection: <code>collection.fetch({ data: { page: 3 } })</code></p>
