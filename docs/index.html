@@ -893,7 +893,7 @@ collection.fetch();
 <li><code>merge</code> {Boolean} [optional] - (assuming <code>reset</code> is false), <code>{merge: false}</code> prevents the call to <code>set</code> from updating models in the local collection which have changed on the server. <em>Defaults to false</em></li>
 </ul>
 <p>You can also pass any options that <a href="https://github.com/Raynos/xhr">xhr</a> expects to modify the query. For example: to fetch a specific page of a paginated collection: <code>collection.fetch({ data: { page: 3 } })</code></p>
-<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>Convenience method. Gets a model from the server or from the collection if a model with that id already exists.</p>
+<a name="ampersand-rest-collection-getorfetch" class="anchor" href="#ampersand-rest-collection-getorfetch"><h3><span class="header-link"></span>getOrFetch <code>collection.getOrFetch(&#39;id&#39;, [options], callback)</code></h3></a><p>A convenience method for getting a model from the server or from the collection if a model with that id already exists.</p>
 <p>By default it will only fetch and add the model with the id you pass in.</p>
 <pre><code class="javascript">collection.getOrFetch(&#39;42&#39;, function (err, model) {
     if (err) {
@@ -922,7 +922,7 @@ collection.fetch();
     // or an error object.
 });
 </code></pre>
-<a name="ampersand-rest-collection-create" class="anchor" href="#ampersand-rest-collection-create"><h3><span class="header-link"></span>create <code>collection.create(model, [options])</code></h3></a><p>Convenience to create a new instance of a model within a collection. Equivalent to instantiating a model with a hash of attributes, saving the model to the server, and adding the model to the set after being successfully created. Returns the new model. If client-side validation failed, the model will be unsaved, with validation errors. In order for this to work, you should set the <code>model</code> property of the collection. The create method can accept either an attributes hash or an existing, unsaved model object.</p>
+<a name="ampersand-rest-collection-create" class="anchor" href="#ampersand-rest-collection-create"><h3><span class="header-link"></span>create <code>collection.create(model, [options])</code></h3></a><p>A convenience method for creating a new instance of a model within a collection. Equivalent to instantiating a model with a hash of attributes, saving the model to the server, and adding the model to the set after being successfully created. Returns the new model. If client-side validation failed, the model will be unsaved, with validation errors. In order for this to work, you should set the <code>model</code> property of the collection. The create method can accept either an attributes hash or an existing, unsaved model object.</p>
 <p>Creating a model will cause an immediate <code>&quot;add&quot;</code> event to be triggered on the collection, a <code>&quot;request&quot;</code> event as the new model is sent to the server, as well as a <code>&quot;sync&quot;</code> event, once the server has responded with the successful creation of the model. Pass <code>{wait: true}</code> if you&#39;d like to wait for the server before adding the new model to the collection.</p>
 <pre><code>var Library = AmpersandRestCollection.extend({
   model: Book
