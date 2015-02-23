@@ -93,6 +93,7 @@
   ],
   "coreModules": [
     "ampersand",
+    "ampersand-app",
     "ampersand-state",
     "ampersand-model",
     "ampersand-collection",
