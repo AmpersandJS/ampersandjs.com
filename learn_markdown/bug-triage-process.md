@@ -31,15 +31,15 @@ It's recommended, though not required, to [jump into chat](https://gitter.im/Amp
 
 PRs are issues too and thus will receive a similar treatment.
 
-Changes to repos should all happen via pull requests, even from core contributors.
+Changes to repos should all happen via pull requests, even from project leads and core contributors.
 
-All PRs should have 2 +1's from core contributors unless:
+All PRs should have 2 +1's from core contributors or project lead unless:
 
 - They're for documentation or typo fixes
 - They're just adding tests
 - They're updating dev dependencies
 
-In which case a judgement call will be made by core team whether to just merge them.
+In which case a judgement call will be made by core team / project lead whether to just merge them.
 
 ## Releases
 
