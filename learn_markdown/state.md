@@ -174,7 +174,7 @@ myDescription.linkified;
 
 ```
 
-With the model above the description will only be run through that linkifier method once, unless of course the description changes.
+With the model above, the description will only be run through that linkifier method once, unless of course the description changes.
 
 
 ## Derived properties are intelligently triggered
