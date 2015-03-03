@@ -15,7 +15,7 @@ Often times it'd be easier if we could just declare: "this thing is dependent on
 
 Turns out tracking relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not or whether it has all the data it needs or not.
 
-It is for this purpose, that ampersand state was created.
+It is for this purpose that ampersand state was created.
 
 
 ## In pursuit of the ultimate observable JavaScript object.
@@ -95,14 +95,14 @@ element.on('change:dragged', function (model, val) {
 ```
 
 
-Derived properties aren't a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, the fact that they can be accessed without calling a method keeps things clean. For example, using the draggable example above, the derived property is just `element.dragged`.
+Derived properties aren't a new idea. But being able to clearly declare and derive watchable properties from a model is super useful, and in our case the fact that they can be accessed without calling a method keeps things clean. For example, using the draggable example above, the derived property is just `element.dragged`.
 
 Note that these can be read but not set directly (trying to set a value of a derived property throws an error).
 
 
 ## Handling relationships between objects/models with derived properties
 
-Say you've got an observable that you're using to model data from a RESTful API. Say that you've got a `/users` endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we've already fetched and have created local models for. From our user model we want to be able to easily access the related group model so that when rendering a template we can just access related group information.
+Say you've got an observable that you're using to model data from a RESTful API. Say that you've got a `/users` endpoint and, when fetching a user, the user data includes a groupID that links them to another collection of groups we've already fetched and created local models for. From our user model we want to be able to easily access the related group model so that when rendering a template we can just access related group information.
 
 Cached, derived properties are perfect for handling this relationship:
 
@@ -140,7 +140,7 @@ user.on('change:groupModel', function (model, newGroupModel) {
 
 ## Cached, derived properties are awesome
 
-So, say you have a more "expensive" computation in a model. Maybe you're parsing a long string for URLs, turning them into HTML, then wanting to reference that later. Again, this is built in.
+So say you have a more "expensive" computation in a model. Maybe you're parsing a long string for URLs, turning them into HTML, then wanting to reference that later. Again, this is built in.
 
 By default, derived properties are cached.
 
@@ -179,15 +179,15 @@ With the model above, the description will only be run through that linkifier me
 
 ## Derived properties are intelligently triggered
 
-Just because an underlying property has changed, *doesn't mean the derived property has*.
+Just because an underlying property has changed *doesn't mean the derived property has*.
 
-Cached derived properties will *only* trigger a `change` if the resulting calculated value has changed.
+Cached, derived properties will *only* trigger a `change` if the resulting calculated value has changed.
 
 This is *super* useful if you've bound a derived property to a DOM property. This ensures that you won't ever touch the DOM unless the resulting value is *actually* different. Avoiding unnecessary DOM changes is a huge boon for performance.
 
 This is also important for cases where you're dealing with fast changing attributes.
 
-Say you're drawing a realtime graph of tweets from the Twitter firehose, instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.
+Say you're drawing a realtime graph of tweets from the Twitter firehose. Instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.
 
 ```js
 var MyGraphDataModel = State.extend({
@@ -381,6 +381,6 @@ me.profile.name = 'henrik';
 
 ## A quick note about instanceof checks
 
-With npm and browserify for module deps you can sometimes end up with a situation where, the same `state` constructor wasn't used to build a `state` object. As a result `instanceof` checks will fail.
+With npm and browserify for module deps you can sometimes end up with a situation where the same `state` constructor wasn't used to build a `state` object. As a result `instanceof` checks will fail.
 
 In order to deal with this (because sometimes this is a legitimate scenario), `state` simply creates a read-only `isState` property on all state objects that can be used to check
