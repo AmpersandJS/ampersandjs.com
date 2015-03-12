@@ -383,4 +383,21 @@ me.profile.name = 'henrik';
 
 With npm and browserify for module deps you can sometimes end up with a situation where the same `state` constructor wasn't used to build a `state` object. As a result `instanceof` checks will fail.
 
-In order to deal with this (because sometimes this is a legitimate scenario), `state` simply creates a read-only `isState` property on all state objects that can be used to check
+In order to deal with this (because sometimes this is a legitimate scenario), `state` simply creates a read-only `isState` property on all state objects that can be used instead of an instance check to verify whether or not a given object is an `ampersand-state` object. 
+
+```js
+var State = require('ampersand-state');
+
+// rather than
+if (unknownObject instanceof State) {
+    // do something
+}
+
+// do this:
+if (unknownObject.isState) {
+    // do something
+}
+
+```
+
+Similarly collection instances have an `isCollection` property. 

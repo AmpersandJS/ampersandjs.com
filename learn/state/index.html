@@ -31,7 +31,7 @@
 <p>Stringing together a spaghetti bowl of <code>if</code> statements is a painful way to build a state machine that handles this.</p>
 <p>Often times it&#39;d be easier if we could just declare: &quot;this thing is dependent on these two other things&quot; and from those two other values calculate a value.</p>
 <p>Turns out tracking relationships between values is useful not just for state that comes from a server, but also for lots of other things. For example, in views we want to know if the view is rendered or not or whether it has all the data it needs or not.</p>
-<p>It is for this purpose, that ampersand state was created.</p>
+<p>It is for this purpose that ampersand state was created.</p>
 <a name="in-pursuit-of-the-ultimate-observable-javascript-object" class="anchor" href="#in-pursuit-of-the-ultimate-observable-javascript-object"><h2><span class="header-link"></span>In pursuit of the ultimate observable JavaScript object.</h2></a><p>Your app needs a single unadulterated <em>source of truth</em> for each piece of data it cares about. But in order to fully de-couple the state from everything that cares about it, our state needs to be observable.</p>
 <p>That&#39;s done by allowing you to register handlers on the state object to let you know when things change.</p>
 <p>In our case it looks like this:</p>
@@ -91,9 +91,9 @@ element.on(&#39;change:dragged&#39;, function (model, val) {
     }
 });
 </code></pre>
-<p>Derived properties aren&#39;t a new idea. But, being able to clearly declare and derive watchable properties from a model is super useful and in our case, the fact that they can be accessed without calling a method keeps things clean. For example, using the draggable example above, the derived property is just <code>element.dragged</code>.</p>
+<p>Derived properties aren&#39;t a new idea. But being able to clearly declare and derive watchable properties from a model is super useful, and in our case the fact that they can be accessed without calling a method keeps things clean. For example, using the draggable example above, the derived property is just <code>element.dragged</code>.</p>
 <p>Note that these can be read but not set directly (trying to set a value of a derived property throws an error).</p>
-<a name="handling-relationships-between-objectsmodels-with-derived-properties" class="anchor" href="#handling-relationships-between-objectsmodels-with-derived-properties"><h2><span class="header-link"></span>Handling relationships between objects/models with derived properties</h2></a><p>Say you&#39;ve got an observable that you&#39;re using to model data from a RESTful API. Say that you&#39;ve got a <code>/users</code> endpoint and when fetching a user, the user data includes a groupID that links them to another collection of groups that we&#39;ve already fetched and have created local models for. From our user model we want to be able to easily access the related group model so that when rendering a template we can just access related group information.</p>
+<a name="handling-relationships-between-objectsmodels-with-derived-properties" class="anchor" href="#handling-relationships-between-objectsmodels-with-derived-properties"><h2><span class="header-link"></span>Handling relationships between objects/models with derived properties</h2></a><p>Say you&#39;ve got an observable that you&#39;re using to model data from a RESTful API. Say that you&#39;ve got a <code>/users</code> endpoint and, when fetching a user, the user data includes a groupID that links them to another collection of groups we&#39;ve already fetched and created local models for. From our user model we want to be able to easily access the related group model so that when rendering a template we can just access related group information.</p>
 <p>Cached, derived properties are perfect for handling this relationship:</p>
 <pre><code class="undefinedjs">var UserModel = State.extend({
     props: {
@@ -123,7 +123,7 @@ user.on(&#39;change:groupModel&#39;, function (model, newGroupModel) {
     console.log(&#39;group changed!&#39;, newGroupModel);
 });
 </code></pre>
-<a name="cached-derived-properties-are-awesome" class="anchor" href="#cached-derived-properties-are-awesome"><h2><span class="header-link"></span>Cached, derived properties are awesome</h2></a><p>So, say you have a more &quot;expensive&quot; computation in a model. Maybe you&#39;re parsing a long string for URLs, turning them into HTML, then wanting to reference that later. Again, this is built in.</p>
+<a name="cached-derived-properties-are-awesome" class="anchor" href="#cached-derived-properties-are-awesome"><h2><span class="header-link"></span>Cached, derived properties are awesome</h2></a><p>So say you have a more &quot;expensive&quot; computation in a model. Maybe you&#39;re parsing a long string for URLs, turning them into HTML, then wanting to reference that later. Again, this is built in.</p>
 <p>By default, derived properties are cached.</p>
 <pre><code class="undefinedjs">// assume this linkifies strings
 var linkify = require(&#39;urlify&#39;);
@@ -153,11 +153,11 @@ var myDescription = new MySmartDescriptionModel({
 myDescription.linkified;
 </code></pre>
 <p>With the model above, the description will only be run through that linkifier method once, unless of course the description changes.</p>
-<a name="derived-properties-are-intelligently-triggered" class="anchor" href="#derived-properties-are-intelligently-triggered"><h2><span class="header-link"></span>Derived properties are intelligently triggered</h2></a><p>Just because an underlying property has changed, <em>doesn&#39;t mean the derived property has</em>.</p>
-<p>Cached derived properties will <em>only</em> trigger a <code>change</code> if the resulting calculated value has changed.</p>
+<a name="derived-properties-are-intelligently-triggered" class="anchor" href="#derived-properties-are-intelligently-triggered"><h2><span class="header-link"></span>Derived properties are intelligently triggered</h2></a><p>Just because an underlying property has changed <em>doesn&#39;t mean the derived property has</em>.</p>
+<p>Cached, derived properties will <em>only</em> trigger a <code>change</code> if the resulting calculated value has changed.</p>
 <p>This is <em>super</em> useful if you&#39;ve bound a derived property to a DOM property. This ensures that you won&#39;t ever touch the DOM unless the resulting value is <em>actually</em> different. Avoiding unnecessary DOM changes is a huge boon for performance.</p>
 <p>This is also important for cases where you&#39;re dealing with fast changing attributes.</p>
-<p>Say you&#39;re drawing a realtime graph of tweets from the Twitter firehose, instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.</p>
+<p>Say you&#39;re drawing a realtime graph of tweets from the Twitter firehose. Instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.</p>
 <pre><code class="undefinedjs">var MyGraphDataModel = State.extend({
     props: {
         numberOfTweets: &#39;number&#39;
@@ -318,8 +318,21 @@ me.on(&#39;change:childsName&#39;, function (model, newValue) {
 // above will be fired (if the resulting derived property is different)
 me.profile.name = &#39;henrik&#39;;
 </code></pre>
-<a name="a-quick-note-about-instanceof-checks" class="anchor" href="#a-quick-note-about-instanceof-checks"><h2><span class="header-link"></span>A quick note about instanceof checks</h2></a><p>With npm and browserify for module deps you can sometimes end up with a situation where, the same <code>state</code> constructor wasn&#39;t used to build a <code>state</code> object. As a result <code>instanceof</code> checks will fail.</p>
-<p>In order to deal with this (because sometimes this is a legitimate scenario), <code>state</code> simply creates a read-only <code>isState</code> property on all state objects that can be used to check</p>
+<a name="a-quick-note-about-instanceof-checks" class="anchor" href="#a-quick-note-about-instanceof-checks"><h2><span class="header-link"></span>A quick note about instanceof checks</h2></a><p>With npm and browserify for module deps you can sometimes end up with a situation where the same <code>state</code> constructor wasn&#39;t used to build a <code>state</code> object. As a result <code>instanceof</code> checks will fail.</p>
+<p>In order to deal with this (because sometimes this is a legitimate scenario), <code>state</code> simply creates a read-only <code>isState</code> property on all state objects that can be used instead of an instance check to verify whether or not a given object is an <code>ampersand-state</code> object. </p>
+<pre><code class="undefinedjs">var State = require(&#39;ampersand-state&#39;);
+
+// rather than
+if (unknownObject instanceof State) {
+    // do something
+}
+
+// do this:
+if (unknownObject.isState) {
+    // do something
+}
+</code></pre>
+<p>Similarly collection instances have an <code>isCollection</code> property.</p>
 </section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
