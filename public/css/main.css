@@ -595,15 +595,8 @@ nav.nav-main .button {
   margin: 0 auto 70px;
   padding: 0 20px;
 }
-.splash .splash-intro {
-  width: 70%;
-  padding-right: 130px;
-  float: left;
-  text-align: left;
-}
-.splash .releases-list {
-  width: 30%;
-  float: left;
+.splash .intro {
+  max-width: 700px;
 }
 .splash .callout {
   text-align: center;
@@ -691,22 +684,6 @@ nav.nav-main .button {
   }
 }
 @media (max-width: 700px) {
-  .splash .splash-intro {
-    width: 100%;
-    padding-right: 0;
-  }
-  .splash .splash-intro .button {
-    max-width: 250px;
-    margin: 30px auto 20px;
-    display: block;
-  }
-  .splash .releases-list {
-    width: 100%;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #f7f7f7;
-    text-align: center;
-  }
   .splash .logo-humanjs {
     width: 280px;
     height: 52px;

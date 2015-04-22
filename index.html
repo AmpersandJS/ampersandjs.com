@@ -28,22 +28,22 @@
     </header>
     <hr>
     <section class="splash">
-      <div class="container cf">
+      <div class="intro container cf">
         <h2>What is Ampersand.js?</h2>
         <p>Imagine a version of <a href="http://backbonejs.org/">Backbone.js</a> where each piece (model, view, collection, etc) is its own <a href="http://github.com/ampersandjs">GitHub repository</a> and <a href="https://www.npmjs.com/search?q=ampersand">npm module</a> with good, unified <a href="/docs">documentation</a> (and yes, npm is <em>wonderful</em> for frontend code).</p>
-        <p><em>But</em>, it's not just that. We added features to some of those pieces and <a href="http://ampersandjs.com/docs#ampersand-state">replaced others entirely</a> but if you know Backbone.js you'll feel at home.</p>
+        <p><em>But</em>, it’s not just that. We added features to some of those pieces and <a href="http://ampersandjs.com/docs#ampersand-state">replaced others entirely</a> but if you know Backbone.js you’ll feel at home.</p>
         <p>Companies like <a href="https://www.whatsapp.com/">WhatsApp</a>, <a href="http://www.flipkart.com/">FlipKart</a>, and <a href="#who">others</a> have shipped apps at incredible scale using various Ampersand modules.</p>
-        <p>There is no "core" module. You <code>npm install</code> only what you need.</p>
-        <p>We didn't set out to make a framework. <a href="http://andyet.com/">&yet</a> has been using this toolset to build apps for clients and ourselves for years (i.e. <a href="http://talky.io/">Talky</a>). Eventually we documented <a href="https://blog.andyet.com/2014/06/25/introducing-ampersand-js">and released</a> it with an MIT license.</p>
+        <p>There is no “core” module. You <code>npm install</code> only what you need.</p>
+        <p>We didn’t set out to make a framework. <a href="http://andyet.com/">&yet</a> has been using this toolset to build apps for clients and ourselves for years (i.e. <a href="http://talky.io/">Talky</a>). Eventually we documented <a href="https://blog.andyet.com/2014/06/25/introducing-ampersand-js">and released</a> it with an MIT license.</p>
         <p>Ampersand.js was heavily influenced by the Node.js community and <a href="https://blog.andyet.com/2015/04/14/frontend-frameworks-to-pair-with-node">pairs well</a> with teams that already use Node.js.</p>
         <p>We support modern browsers (for IE that means IE9+).</p>
         <h3>Maximize simplicity</h3>
         <p><em>If you don’t actively fight for simplicity in software, complexity will win, and it will suck.</em></p>
         <h2>Key items to understand</h2>
         <ul>
-          <li>Ampersand.js is designed to be used with a module bundler like <a href="http://browserify.org/">Browserify</a> or <a href="http://webpack.github.io/">Webpack</a>. If you've never used one of those read our <a href="http://ampersandjs.com/learn/npm-browserify-and-modules">intro to npm, Browserify, and Modules</a>.</li>
-          <li>Ampersand.js is optimized for mixing-and-matching with other stuff. Financial Times used ampersand-state an ampersand-view combined with <a href="http://d3js.org/">D3.js</a> to make a <a href="http://www.ft.com/ig/sites/2014/debt-to-gdp-ratio/#usa">world debt visualizer</a>. Both <a href="https://www.whatsapp.com/">WhatsApp</a> and <a href="http://www.flipkart.com/">FlipKart</a> use React as the view layer. Having that level of flexibility is one of the main reasons we created Ampersand.js to begin with.</li>
-          <li>Everything is installed via npm. If you need to install from bower + npm that's possible with <a href="http://jspm.io/">jspm.io</a>, but most our users just use npm.</li>
+          <li>Ampersand.js is designed to be used with a module bundler like <a href="http://browserify.org/">Browserify</a> or <a href="http://webpack.github.io/">Webpack</a>. If you’ve never used one of those read our <a href="http://ampersandjs.com/learn/npm-browserify-and-modules">intro to npm, Browserify, and Modules</a>.</li>
+          <li>Ampersand.js is optimized for mixing-and-matching with other stuff. Financial Times used ampersand-state and ampersand-view combined with <a href="http://d3js.org/">D3.js</a> to make a <a href="http://www.ft.com/ig/sites/2014/debt-to-gdp-ratio/#usa">world debt visualizer</a>. Both <a href="https://www.whatsapp.com/">WhatsApp</a> and <a href="http://www.flipkart.com/">FlipKart</a> use React as the view layer. Having that level of flexibility is one of the main reasons we created Ampersand.js to begin with.</li>
+          <li>Everything is installed via npm. If you need to install from bower + npm that’s possible with <a href="http://jspm.io/">jspm.io</a>, but most our users just use npm.</li>
           <li>Everything is MIT licensed.</li>
           <li>We use strict <a href="http://semver.org/">semver</a> for versioning.</li>
           <li>Ampersand.js is built and maintained by <a href="http://ampersandjs.com/contribute">a great community of friendly folks</a>.</li>
@@ -57,7 +57,7 @@
         <h2>More reading</h2>
         <ul>
           <li>Great intro post <a href="http://silvdb.github.io/2015/04/20/ampersand-js-in-a-nutshell/">Ampersand.js in a nutshell</a> by a community member, <a href="https://twitter.com/Silvdb">Silke Van den Broeck</a>.</li>
-          <li><a href="#book">Human JavaScript</a> free online book by Ampersand's instigator <a href="https://twitter.com/henrikjoreteg">Henrik Joreteg</a>.</li>
+          <li><a href="#book">Human JavaScript</a> free online book by Ampersand’s instigator <a href="https://twitter.com/henrikjoreteg">Henrik Joreteg</a>.</li>
         </ul><a href="/learn" class="button button-primary">Discover Ampersand.js</a>
       </div>
       <hr>
@@ -69,7 +69,8 @@
       <hr>
       <div id="book" class="callout human-javascript">
         <h2>A foundation for building simple but powerful JS apps with Ampersand.js</h2><img src="/public/images/human-javascript.png" class="humanjs-ipad"><a href="http://humanjavascript.com/" class="logo logo-humanjs">Human JavaScript</a>
-        <p>Henrik Joreteg introduces practical patterns for powerfully simple application development.<a href="http://humanjavascript.com/"><em>Human Javascript</em></a>is a saner way to write JS.</p><a href="https://gumroad.com/l/humanjs" class="button button-secondary">Buy the book for $39</a><a href="http://read.humanjavascript.com/" class="button button-secondary">Read it free online</a>
+        <p>Henrik Joreteg introduces practical patterns for powerfully simple application development.<a href="http://humanjavascript.com/"><em>Human Javascript</em></a> is a saner way to write JS.
+        </p><a href="https://gumroad.com/l/humanjs" class="button button-secondary">Buy the book for $39</a><a href="http://read.humanjavascript.com/" class="button button-secondary">Read it free online</a>
       </div>
       <hr>
       <div class="callout modules-list">
