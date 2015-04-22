@@ -33,7 +33,9 @@
   },
   "scripts": {
     "build": "make build",
-    "start": "make serve"
+    "start": "make serve",
+    "commit": "git add --all && git commit -m \"nightly build: $(date)\" && git push origin gh-pages",
+    "nightly": "make update-contributors && make build && npm run commit"
   },
   "coreContributors": [
     {

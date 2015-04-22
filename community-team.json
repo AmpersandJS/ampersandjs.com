@@ -24,12 +24,12 @@
     "email": "bear@bear.im",
     "hireable": false,
     "bio": null,
-    "public_repos": 35,
+    "public_repos": 37,
     "public_gists": 14,
-    "followers": 133,
+    "followers": 134,
     "following": 7,
     "created_at": "2008-02-27T23:00:31Z",
-    "updated_at": "2015-04-01T14:30:01Z",
+    "updated_at": "2015-04-22T04:53:22Z",
     "twitter": "codebear"
   },
   "fyockm": {
@@ -57,12 +57,12 @@
     "email": "",
     "hireable": true,
     "bio": null,
-    "public_repos": 50,
+    "public_repos": 53,
     "public_gists": 0,
-    "followers": 18,
+    "followers": 19,
     "following": 6,
     "created_at": "2011-07-29T20:10:03Z",
-    "updated_at": "2015-04-01T12:26:55Z",
+    "updated_at": "2015-04-22T04:13:09Z",
     "twitter": "drewfyock"
   },
   "aaronmccall": {
@@ -90,12 +90,12 @@
     "email": "aaron@andyet.net",
     "hireable": false,
     "bio": null,
-    "public_repos": 47,
+    "public_repos": 49,
     "public_gists": 22,
     "followers": 30,
     "following": 1,
     "created_at": "2010-11-02T17:27:18Z",
-    "updated_at": "2015-04-01T03:47:43Z",
+    "updated_at": "2015-04-22T00:33:03Z",
     "twitter": "aaronmccall"
   },
   "remko": {
@@ -124,11 +124,11 @@
     "hireable": false,
     "bio": null,
     "public_repos": 44,
-    "public_gists": 4,
+    "public_gists": 5,
     "followers": 27,
     "following": 1,
     "created_at": "2008-06-02T12:20:02Z",
-    "updated_at": "2015-03-31T22:51:00Z",
+    "updated_at": "2015-04-19T17:42:51Z",
     "twitter": "remko"
   },
   "thefoxis": {
@@ -156,12 +156,12 @@
     "email": "hi@thefox.is",
     "hireable": false,
     "bio": null,
-    "public_repos": 11,
+    "public_repos": 12,
     "public_gists": 2,
-    "followers": 319,
+    "followers": 327,
     "following": 51,
     "created_at": "2010-08-25T13:51:15Z",
-    "updated_at": "2015-03-31T00:38:34Z",
+    "updated_at": "2015-04-21T05:06:06Z",
     "twitter": "fox"
   },
   "mmacaula": {
@@ -191,10 +191,10 @@
     "bio": null,
     "public_repos": 17,
     "public_gists": 7,
-    "followers": 3,
+    "followers": 4,
     "following": 0,
     "created_at": "2013-01-04T14:51:21Z",
-    "updated_at": "2015-03-23T19:50:01Z",
+    "updated_at": "2015-04-20T13:26:21Z",
     "twitter": "mmacaula"
   },
   "cdaringe": {
@@ -222,12 +222,12 @@
     "email": "",
     "hireable": false,
     "bio": null,
-    "public_repos": 41,
-    "public_gists": 20,
+    "public_repos": 50,
+    "public_gists": 23,
     "followers": 3,
     "following": 3,
     "created_at": "2011-08-25T05:30:37Z",
-    "updated_at": "2015-03-31T23:37:51Z",
+    "updated_at": "2015-04-21T16:52:03Z",
     "twitter": "cdaringe"
   },
   "klaemo": {
@@ -255,12 +255,12 @@
     "email": null,
     "hireable": true,
     "bio": null,
-    "public_repos": 62,
+    "public_repos": 67,
     "public_gists": 19,
-    "followers": 11,
+    "followers": 12,
     "following": 4,
     "created_at": "2011-05-10T08:32:49Z",
-    "updated_at": "2015-04-01T15:43:07Z",
+    "updated_at": "2015-04-21T14:55:51Z",
     "twitter": "klaemo"
   }
 }
