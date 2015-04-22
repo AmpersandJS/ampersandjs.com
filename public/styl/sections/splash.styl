@@ -13,15 +13,8 @@
 
   //- Introduction section
 
-  .splash-intro
-    width: 70%
-    padding-right: 130px
-    float: left
-    text-align: left
-
-  .releases-list
-    width: 30%
-    float: left
+  .intro
+    max-width: 700px
 
   //- Callout sections
 
@@ -70,7 +63,7 @@
   .modules-list
     .module-card
       float: left
-      min-height: 230px
+      min-height: 150px
       width: 32%
       &:not(:last-child)
         margin-right: 2%
@@ -110,22 +103,6 @@
 @media (max-width: 700px)
 
   .splash
-
-    .splash-intro
-      width: 100%
-      padding-right: 0
-
-      .button
-        max-width: 250px
-        margin: 30px auto 20px
-        display: block
-
-    .releases-list
-      width: 100%
-      margin-top: 40px
-      padding-top: 20px
-      border-top: 1px solid $border-color
-      text-align: center
 
     .logo-humanjs
       width: 280px
