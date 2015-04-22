@@ -93,7 +93,7 @@ my-model-collection.js
             <h1><span class="header-link"></span>ampersand-app</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-app</h4>
-            <p class="module-version">latest v1.0.3</p>
+            <p class="module-version">latest v1.0.4</p>
             <p class="module-description">Simple instance store for managing instances without circular dependency issues in ampersand apps.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-app">github</a><a href="https://www.npmjs.org/package/ampersand-app">npm</a></p>
           </div>
@@ -213,7 +213,7 @@ test(&#39;next test&#39;, function () {
 <p>Doing so makes assumptions about how you want it to be used.</p>
 <p>Say you want to make an <code>error</code> event handling module, that requires <code>ampersand-app</code> listens for <code>error</code> events from that <code>app</code> and shows a nice error dialog. </p>
 <p>Rather than make all those assumptions about how its going to be used, just make the nice error dialog view and suggest in the readme how someone might use <code>ampersand-app</code> as an event channel to trigger them.</p>
-<p>This allows people who don&#39;t use this particular applicaition pattern to still use your npm module and leaves the event names, and application architecture up to the person building the app.</p>
+<p>This allows people who don&#39;t use this particular application pattern to still use your npm module and leaves the event names, and application architecture up to the person building the app.</p>
 <a name="ampersand-app-install" class="anchor" href="#ampersand-app-install"><h2><span class="header-link"></span>install</h2></a><pre><code>npm install ampersand-app
 </code></pre><a name="ampersand-app-api-reference" class="anchor" href="#ampersand-app-api-reference"><h2><span class="header-link"></span>API Reference</h2></a><a name="ampersand-app-event-methods" class="anchor" href="#ampersand-app-event-methods"><h3><span class="header-link"></span>event methods</h3></a><p>The <code>app</code> object is an event object so it contains all the methods as described in the <a href="http://ampersandjs.com/docs#ampersand-events">ampersand-events docs</a>.</p>
 <p>The <code>app</code> object becomes a handy way to communicate within your app so various modules can notify each other about &quot;app-level&quot; events such as user navigation, etc.</p>
