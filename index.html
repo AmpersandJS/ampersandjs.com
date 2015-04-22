@@ -29,30 +29,52 @@
     <hr>
     <section class="splash">
       <div class="container cf">
-        <div class="splash-intro">
-          <h2>Why Ampersand.js?</h2>
-          <p>We <3 <a href="http://backbonejs.org/">Backbone.js</a> at <a href="http://andyet.com">&yet</a>. It’s brilliantly simple and solves many common problems in developing clientside applications.</p>
-          <p>But we missed the focused simplicity of tiny modules in node-land. </p>
-          <p>We wanted something similar in style and philosophy, but that fully embraced tiny modules, npm, and browserify.</p>
-          <p>Ampersand.js is a well-defined approach to combining (get it?) a series of intentionally tiny modules.</p>
-          <p>Read <a href="http://blog.andyet.com/2014/06/25/introducing-ampersand-js">the post introducing ampersand.js</a> on our blog for more background.</p>
-          <h3>Maximize simplicity</h3>
-          <p><em>If you don’t actively fight for simplicity in software, complexity will win, and it will suck.</em></p>
-          <ul>
-            <li>Everything is a CommonJS module.</li>
-            <li>Everything is installed via npm.</li>
-            <li>Everything is MIT licensed.</li>
-            <li>Trusted versioning with semver.</li>
-          </ul>
-          <h3>Designed for rich “app” experiences</h3>
-          <ul>
-            <li>Modern browsers by default. Unapologetically supporting only IE9+.</li>
-            <li>The browser is a runtime, not a document viewer.</li>
-            <li><3s realtime apps</li>
-          </ul><a href="/learn" class="button button-primary">Discover Ampersand.js</a>
-        </div>
-        <div class="releases-list">
-          <h3>Recent releases</h3>
+        <h2>What is Ampersand.js?</h2>
+        <p>Imagine a version of <a href="http://backbonejs.org/">Backbone.js</a> where each piece (model, view, collection, etc) is its own <a href="http://github.com/ampersandjs">GitHub repository</a> and <a href="https://www.npmjs.com/search?q=ampersand">npm module</a> with good, unified <a href="/docs">documentation</a> (and yes, npm is <em>wonderful</em> for frontend code).</p>
+        <p><em>But</em>, it's not just that. We added features to some of those pieces and <a href="http://ampersandjs.com/docs#ampersand-state">replaced others entirely</a> but if you know Backbone.js you'll feel at home.</p>
+        <p>Companies like <a href="https://www.whatsapp.com/">WhatsApp</a>, <a href="http://www.flipkart.com/">FlipKart</a>, and <a href="#who">others</a> have shipped apps at incredible scale using various Ampersand modules.</p>
+        <p>There is no "core" module you <code>npm install</code> only what you need.</p>
+        <p>We didn't set out to make framework. <a href="http://andyet.com/">&yet</a> has been using this toolset to build apps for years for clients and for ourselves (i.e. <a href="http://talky.io/">Talky</a>). Eventually we documented <a href="https://blog.andyet.com/2014/06/25/introducing-ampersand-js">and released</a> it with an MIT license.</p>
+        <p>Ampersand.js was heavily influenced by the Node.js community and <a href="https://blog.andyet.com/2015/04/14/frontend-frameworks-to-pair-with-node">pairs well</a> with teams that already use Node.js.</p>
+        <p>We support modern browsers (for IE that means IE9+).</p>
+        <h3>Maximize simplicity</h3>
+        <p><em>If you don’t actively fight for simplicity in software, complexity will win, and it will suck.</em></p>
+        <h2>Key items to understand</h2>
+        <ul>
+          <li>Ampersand.js is designed to be used with module bundler like <a href="http://browserify.org/">Browserify</a> or <a href="http://webpack.github.io/">Webpack</a>. If you've never used one of those read our <a href="http://ampersandjs.com/learn/npm-browserify-and-modules">intro to npm, Browserify, and Modules</a>.</li>
+          <li>Ampersand.js is optimized for mixing-and-matching with other stuff. Financial Times used ampersand-state an ampersand-view combined with <a href="http://d3js.org/">D3.js</a> to make a <a href="http://www.ft.com/ig/sites/2014/debt-to-gdp-ratio/#usa">world debt visualizer</a>. Both <a href="https://www.whatsapp.com/">WhatsApp</a> and <a href="http://www.flipkart.com/">FlipKart</a> use React as the view layer. Having that level of flexibility is one of the main reasons we created Ampersand.js to begin with.</li>
+          <li>Everything is installed via npm. If you need to install from bower + npm that's possible with <a href="http://jspm.io/">jspm.io</a>, but most our users just use npm.</li>
+          <li>Everything is MIT licensed.</li>
+          <li>We us strict <a href="http://semver.org/">semver</a> for versioning.</li>
+          <li>Ampersand.js is built and maintained by <a href="http://ampersandjs.com/contribute">a great community of friendly folks</a>.</li>
+        </ul>
+        <h2>Where do I start?</h2>
+        <ul>
+          <li><a href="http://ampersandjs.com/learn">the guides</a></li>
+          <li><a href="http://ampersandjs.com/docs">the documentation</a></li>
+          <li><a href="https://gitter.im/AmpersandJS/AmpersandJS">the community chat room</a></li>
+        </ul>
+        <h2>More reading</h2>
+        <ul>
+          <li>Great intro post <a href="http://silvdb.github.io/2015/04/20/ampersand-js-in-a-nutshell/">Ampersand.js in a nutshell</a> by a community member, <a href="https://twitter.com/Silvdb">Silke Van den Broeck</a>.</li>
+          <li><a href="#book">Human JavaScript</a> free online book by Ampersand's instigator <a href="https://twitter.com/henrikjoreteg">Henrik Joreteg</a>.</li>
+        </ul><a href="/learn" class="button button-primary">Discover Ampersand.js</a>
+      </div>
+      <hr>
+      <div id="who" class="callout community">
+        <h2>See who is using Ampersand.js today</h2>
+        <div class="users-list"><a href="https://otalk.im/login" class="logo andyet logo-otalk">Otalk</a><a href="https://yahoo.com/" class="logo"><img src="/public/images/logo-yahoo.png"></a><a href="https://talky.io/" class="logo andyet logo-talky">Talky</a><a href="http://www.ft.com/home/us" class="logo"><img src="/public/images/logo-financial-times.png"></a><a href="http://aviture.us.com/" class="logo"><img src="/public/images/logo-aviture.png"></a><a href="https://teamweek.com/" class="logo"><img src="/public/images/logo-teamweek.png"></a><a href="http://www.sinfo.org/" class="logo"><img src="/public/images/logo-sinfo.png"></a><a href="http://www.mrn.org/" class="logo tall"><img src="/public/images/logo-mind-research-network.png"></a><a href="http://www.pnnl.gov/" class="logo tall"><img src="/public/images/logo-pnnl.png"></a><a href="https://www.whatsapp.com/" class="logo"><img src="/public/images/logo-whatsapp.png"></a><a href="http://www.flipkart.com/" class="logo"><img src="/public/images/logo-flipkart.png"></a><a href="http://www.shutterfly.com" class="logo"><img src="/public/images/logo-shutterfly.png"></a></div>
+        <p>Is your team using Ampersand.js? Let us know!</p><a href="https://github.com/ampersandjs/ampersandjs.com/issues/new?title=Add%20my%20logo%20to%20the%20homepage&amp;body=We%20use%20Ampersand.js%20for%20____%20and%20you%20can%20find%20our%20logo%20____." class="button button-primary">Submit your logo</a>
+      </div>
+      <hr>
+      <div id="book" class="callout human-javascript">
+        <h2>A foundation for building simple but powerful JS apps with Ampersand.js</h2><img src="/public/images/human-javascript.png" class="humanjs-ipad"><a href="http://humanjavascript.com/" class="logo logo-humanjs">Human JavaScript</a>
+        <p>Henrik Joreteg introduces practical patterns for powerfully simple application development.<a href="http://humanjavascript.com/"><em>Human Javascript</em></a>is a saner way to write JS.</p><a href="https://gumroad.com/l/humanjs" class="button button-secondary">Buy the book for $39</a><a href="http://read.humanjavascript.com/" class="button button-secondary">Read it free online</a>
+      </div>
+      <hr>
+      <div class="callout modules-list">
+        <h2>Recent Releases</h2>
+        <div class="cf">
           <div class="module-card">
             <h4 class="module-name">ampersand</h4>
             <p class="module-version">v3.0.1 – Apr 21, 2015</p>
@@ -67,46 +89,8 @@
             <h4 class="module-name">ampersand-select-view</h4>
             <p class="module-version">v3.0.1 – Apr 08, 2015</p>
             <p class="module-links"><a href="https://github.com/AmpersandJS/ampersand-select-view">github</a><a href="https://www.npmjs.org/package/ampersand-select-view">npm</a></p>
-          </div><a href="/contribute" class="button button-primary">How to contribute</a>
-        </div>
-      </div>
-      <hr>
-      <div class="callout community">
-        <h2>See who is using Ampersand.js today</h2>
-        <div class="users-list"><a href="https://otalk.im/login" class="logo andyet logo-otalk">Otalk</a><a href="https://yahoo.com/" class="logo"><img src="/public/images/logo-yahoo.png"></a><a href="https://talky.io/" class="logo andyet logo-talky">Talky</a><a href="http://www.ft.com/home/us" class="logo"><img src="/public/images/logo-financial-times.png"></a><a href="http://aviture.us.com/" class="logo"><img src="/public/images/logo-aviture.png"></a><a href="https://teamweek.com/" class="logo"><img src="/public/images/logo-teamweek.png"></a><a href="http://www.sinfo.org/" class="logo"><img src="/public/images/logo-sinfo.png"></a><a href="http://www.mrn.org/" class="logo tall"><img src="/public/images/logo-mind-research-network.png"></a><a href="http://www.pnnl.gov/" class="logo tall"><img src="/public/images/logo-pnnl.png"></a><a href="https://www.whatsapp.com/" class="logo"><img src="/public/images/logo-whatsapp.png"></a><a href="http://www.flipkart.com/" class="logo"><img src="/public/images/logo-flipkart.png"></a><a href="http://www.shutterfly.com" class="logo"><img src="/public/images/logo-shutterfly.png"></a></div>
-        <p>Is your team using Ampersand.js? Let us know!</p><a href="https://github.com/ampersandjs/ampersandjs.com/issues/new?title=Add%20my%20logo%20to%20the%20homepage&amp;body=We%20use%20Ampersand.js%20for%20____%20and%20you%20can%20find%20our%20logo%20____." class="button button-primary">Submit your logo</a>
-      </div>
-      <hr>
-      <div class="callout human-javascript">
-        <h2>A foundation for building simple but powerful JS apps with Ampersand.js</h2><img src="/public/images/human-javascript.png" class="humanjs-ipad"><a href="http://humanjavascript.com/" class="logo logo-humanjs">Human JavaScript</a>
-        <p>Henrik Joreteg introduces practical patterns for powerfully simple application development. <a href="http://humanjavascript.com/"><em>Human Javascript </em></a>is a saner way to write JS.</p><a href="https://gumroad.com/l/humanjs" class="button button-secondary">Buy the book for $39</a><a href="http://read.humanjavascript.com/" class="button button-secondary">Read it free online</a>
-      </div>
-      <hr>
-      <div class="callout modules-list">
-        <h2>Useful modules</h2>
-        <div class="cf">
-          <div class="module-card">
-            <h4 class="module-name">bows</h4>
-            <p class="module-author">by Philip Roberts</p>
-            <p class="module-description">Rainbowed console logs for chrome, opera and firefox in development.</p>
-            <p class="module-links"><a href="https://github.com/latentflip/bows">github</a><a href="https://www.npmjs.org/package/bows">npm</a>
-            </p>
           </div>
-          <div class="module-card">
-            <h4 class="module-name">bind-transforms</h4>
-            <p class="module-author">by Henrik Joreteg</p>
-            <p class="module-description">Bind models properties to properly prefixed CSS transforms in backbone/humanjs views.</p>
-            <p class="module-links"><a href="https://github.com/HenrikJoreteg/bind-transforms">github</a><a href="https://www.npmjs.org/package/bind-transforms">npm</a>
-            </p>
-          </div>
-          <div class="module-card">
-            <h4 class="module-name">getusermedia</h4>
-            <p class="module-author">by Henrik Joreteg</p>
-            <p class="module-description">cross-browser getUserMedia shim with node.js style error-first API.</p>
-            <p class="module-links"><a href="https://github.com/HenrikJoreteg/getUserMedia">github</a><a href="https://www.npmjs.org/package/getusermedia">npm</a>
-            </p>
-          </div>
-        </div><a href="http://tools.ampersandjs.com" class="button button-primary">View all modules</a>
+        </div><a href="/contribute" class="button button-primary">How to contribute</a>
       </div>
     </section>
     <footer class="footer-main">

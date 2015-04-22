@@ -17,45 +17,48 @@ block content
   section.splash
 
     .container.cf
-      .splash-intro
-        h2 Why Ampersand.js?
-        p We <3 <a href="http://backbonejs.org/">Backbone.js</a> at <a href="http://andyet.com">&yet</a>. It’s brilliantly simple and solves many common problems in developing clientside applications.
-        p But we missed the focused simplicity of tiny modules in node-land. 
-        p We wanted something similar in style and philosophy, but that fully embraced tiny modules, npm, and browserify.
-        p Ampersand.js is a well-defined approach to combining (get it?) a series of intentionally tiny modules.
-        p Read <a href="http://blog.andyet.com/2014/06/25/introducing-ampersand-js">the post introducing ampersand.js</a> on our blog for more background.
-        h3 Maximize simplicity
-        p
-          em If you don’t actively fight for simplicity in software, complexity will win, and it will suck.
-        ul
-          li Everything is a CommonJS module.
-          li Everything is installed via npm.
-          li Everything is MIT licensed.
-          li Trusted versioning with semver.
-        h3 Designed for rich “app” experiences
-        ul
-          li Modern browsers by default. Unapologetically supporting only IE9+.
-          li The browser is a runtime, not a document viewer.
-          li <3s realtime apps
 
-        a.button.button-primary(href="/learn") Discover Ampersand.js
-      .releases-list
-        h3 Recent releases
-        for module in globals.recent
-          - var split = new Date(module.time[module['dist-tags'].latest]).toDateString().split(' ');
-          - var dateString = split.slice(1, 3).join(' ') + ', ' + split[3];
-          .module-card
-            h4.module-name= module.name
-            p.module-version= 'v' + module['dist-tags'].latest + ' – ' + dateString
-            p.module-links
-              a(href= module.homepage) github
-              a(href= module.npmlink) npm
-        
-        a.button.button-primary(href="/contribute") How to contribute
+      h2 What is Ampersand.js?
+      p Imagine a version of <a href="http://backbonejs.org/">Backbone.js</a> where each piece (model, view, collection, etc) is its own <a href="http://github.com/ampersandjs">GitHub repository</a> and <a href="https://www.npmjs.com/search?q=ampersand">npm module</a> with good, unified <a href="/docs">documentation</a> (and yes, npm is <em>wonderful</em> for frontend code).
+      p <em>But</em>, it's not just that. We added features to some of those pieces and <a href="http://ampersandjs.com/docs#ampersand-state">replaced others entirely</a> but if you know Backbone.js you'll feel at home.
+      p Companies like <a href="https://www.whatsapp.com/">WhatsApp</a>, <a href="http://www.flipkart.com/">FlipKart</a>, and <a href="#who">others</a> have shipped apps at incredible scale using various Ampersand modules.
+      p There is no "core" module you <code>npm install</code> only what you need.
+      p We didn't set out to make framework. <a href="http://andyet.com/">&yet</a> has been using this toolset to build apps for years for clients and for ourselves (i.e. <a href="http://talky.io/">Talky</a>). Eventually we documented <a href="https://blog.andyet.com/2014/06/25/introducing-ampersand-js">and released</a> it with an MIT license.
+      p Ampersand.js was heavily influenced by the Node.js community and <a href="https://blog.andyet.com/2015/04/14/frontend-frameworks-to-pair-with-node">pairs well</a> with teams that already use Node.js.
+      p We support modern browsers (for IE that means IE9+).
+
+      h3 Maximize simplicity
+      p
+        em If you don’t actively fight for simplicity in software, complexity will win, and it will suck.
+
+      h2 Key items to understand
+
+      ul
+        li Ampersand.js is designed to be used with module bundler like <a href="http://browserify.org/">Browserify</a> or <a href="http://webpack.github.io/">Webpack</a>. If you've never used one of those read our <a href="http://ampersandjs.com/learn/npm-browserify-and-modules">intro to npm, Browserify, and Modules</a>.
+        li Ampersand.js is optimized for mixing-and-matching with other stuff. Financial Times used ampersand-state an ampersand-view combined with <a href="http://d3js.org/">D3.js</a> to make a <a href="http://www.ft.com/ig/sites/2014/debt-to-gdp-ratio/#usa">world debt visualizer</a>. Both <a href="https://www.whatsapp.com/">WhatsApp</a> and <a href="http://www.flipkart.com/">FlipKart</a> use React as the view layer. Having that level of flexibility is one of the main reasons we created Ampersand.js to begin with.
+        li Everything is installed via npm. If you need to install from bower + npm that's possible with <a href="http://jspm.io/">jspm.io</a>, but most our users just use npm.
+        li Everything is MIT licensed.
+        li We us strict <a href="http://semver.org/">semver</a> for versioning.
+        li Ampersand.js is built and maintained by <a href="http://ampersandjs.com/contribute">a great community of friendly folks</a>.
+
+      h2 Where do I start?
+
+      ul
+        li <a href="http://ampersandjs.com/learn">the guides</a>
+        li <a href="http://ampersandjs.com/docs">the documentation</a>
+        li <a href="https://gitter.im/AmpersandJS/AmpersandJS">the community chat room</a>
+
+      h2 More reading
+
+      ul
+        li Great intro post <a href="http://silvdb.github.io/2015/04/20/ampersand-js-in-a-nutshell/">Ampersand.js in a nutshell</a> by a community member, <a href="https://twitter.com/Silvdb">Silke Van den Broeck</a>.
+        li <a href="#book">Human JavaScript</a> free online book by Ampersand's instigator <a href="https://twitter.com/henrikjoreteg">Henrik Joreteg</a>.
+
+      a.button.button-primary(href="/learn") Discover Ampersand.js
 
     hr
 
-    .callout.community
+    #who.callout.community
       h2 See who is using Ampersand.js today
       .users-list
         a.logo.andyet.logo-otalk(href="https://otalk.im/login") Otalk
@@ -84,14 +87,14 @@ block content
       a.button.button-primary(href="https://github.com/ampersandjs/ampersandjs.com/issues/new?title=Add%20my%20logo%20to%20the%20homepage&body=We%20use%20Ampersand.js%20for%20____%20and%20you%20can%20find%20our%20logo%20____.") Submit your logo
 
     hr
-    .callout.human-javascript
+    #book.callout.human-javascript
       h2 A foundation for building simple but powerful JS apps with Ampersand.js
       img.humanjs-ipad(src="/public/images/human-javascript.png")
       //- Needs svg and png fallback
       a.logo.logo-humanjs(href="http://humanjavascript.com/") Human JavaScript
-      p Henrik Joreteg introduces practical patterns for powerfully simple application development. 
+      p Henrik Joreteg introduces practical patterns for powerfully simple application development.
         a(href="http://humanjavascript.com/")
-          em Human Javascript 
+          em Human Javascript
         | is a saner way to write JS.
       a.button.button-secondary(href="https://gumroad.com/l/humanjs") Buy the book for $39
       a.button.button-secondary(href="http://read.humanjavascript.com/") Read it free online
@@ -99,15 +102,15 @@ block content
     hr
 
     .callout.modules-list
-      h2 Useful modules
+      h2 Recent Releases
       .cf
-        for module in globals.featured
+        for module in globals.recent
+          - var split = new Date(module.time[module['dist-tags'].latest]).toDateString().split(' ');
+          - var dateString = split.slice(1, 3).join(' ') + ', ' + split[3];
           .module-card
             h4.module-name= module.name
-            p.module-author by #{module.author.name}
-            p.module-description= module.description
+            p.module-version= 'v' + module['dist-tags'].latest + ' – ' + dateString
             p.module-links
-              if module.homepage
-                a(href= module.homepage) github
+              a(href= module.homepage) github
               a(href= module.npmlink) npm
-      a.button.button-primary(href="http://tools.ampersandjs.com") View all modules
+      a.button.button-primary(href="/contribute") How to contribute
