@@ -927,11 +927,12 @@ nav.nav-main .button {
 .contribute .core-team {
   margin: 40px auto;
   max-width: 600px;
+  font-size: 14px;
 }
 .contribute .core-team .member {
-  width: 33.33%;
+  width: 25%;
 }
-.contribute .core-team .member:nth-child(3n+1) {
+.contribute .core-team .member:nth-child(4n+1) {
   clear: left;
 }
 .contribute .core-team .member img {
@@ -957,7 +958,7 @@ nav.nav-main .button {
   .contribute .core-team .member:nth-child(2n+1) {
     clear: left;
   }
-  .contribute .core-team .member:nth-child(3n+1) {
+  .contribute .core-team .member:nth-child(4n+1) {
     clear: none;
   }
   .contribute .contributors-list .member {
