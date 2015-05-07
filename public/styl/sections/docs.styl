@@ -42,10 +42,19 @@
   padding-left: 280px
   min-height: 350px
 
+  section
+    padding-bottom: 40px
+    margin-bottom: 50px
+    position: relative
+
+    &:not(:last-child)
+      border-bottom: 1px solid $border-color
+
   .anchor
+    margin-top: 45px
+    padding-right: 160px
     position: relative
     display: block
-    margin-top: 45px
 
     .header-link
       width: 20px
@@ -64,15 +73,17 @@
       .header-link
         display: block
 
-  .anchor:focus
-    outline: none
+    &:focus
+      outline: none
 
-  section
-    padding-bottom: 40px
-    margin-bottom: 50px
-
-    &:not(:last-child)
-      border-bottom: 1px solid $border-color
+  .button-small.button-edit
+    margin: 0
+    position: absolute
+    top: 2px
+    right: 0
+    z-index: 10
+    font-size: $font-size-smaller
+    font-weight: $font-weight-normal
 
   h1, h2, h3
     code
