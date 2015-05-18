@@ -34,7 +34,7 @@ block content
 
       for module, key in globals.modules
         section.module
-          a.button.button-small.button-edit(href='') Suggest an edit
+          a.button.button-small.button-edit(href= module.homepage + '/edit/master/README.md') Suggest an edit
           a.anchor(name= module.name, href= '#' + module.name)
             h1
               span.header-link
