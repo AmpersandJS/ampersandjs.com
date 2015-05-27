@@ -61,17 +61,19 @@ module.exports = AmpersandModel.extend({
 We can listen to it like this:
 
 ```js
-// we create a model
-var model = new Model({name: 'audry', greetingType: 'short'});
+// we create a model (note greetingType starts as 'long')
+var model = new Model({name: 'audry', greetingType: 'long'});
 
 // We can listen to a change to the derived property
-model.on('change:greeting', function (model, val) { console.log('greeting is now: ', val) });
+model.on('change:greeting', function (model, val) {
+  console.log('greeting is now: ', val)
+});
 
-// Note that in our model definition the value of derived property will not change
-// as long as the greeting type is `short`.
+// When we first set it to 'short' the new derived value becomes 'hi'
 model.greetingType = 'short'; // callback runs and prints: "greeting is now: hi"
 
-// so now if we change the name that callback would never fire
+// As long as greeting type is 'short' the derived property is always 'hi'
+// so changing the name here won't trigger the change callback above.
 model.name = 'something else'; // callback doesn't run
 model.name = 'you'; // still no
 
