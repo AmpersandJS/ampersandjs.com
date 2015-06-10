@@ -33,7 +33,7 @@ PRs are issues too and thus will receive a similar treatment.
 
 Changes to repos should all happen via pull requests, even from project leads and core contributors.
 
-All PRs should have 2 +1's from core contributors or project lead unless:
+All PRs should have 2 +1's contributors or project lead unless:
 
 - They're for documentation or typo fixes
 - They're just adding tests

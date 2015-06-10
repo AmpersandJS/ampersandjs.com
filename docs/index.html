@@ -1250,7 +1250,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v7.4.1</p>
+            <p class="module-version">latest v7.4.2</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -1439,7 +1439,7 @@ document.querySelector(&#39;#viewContainer&#39;).appendChild(view.el);
 var view = new MyView({ foo: &#39;bar&#39; });
 //=&gt; logs &#39;The options are: {foo: &quot;bar&quot;}&#39;
 </code></pre>
-<p>If you want to extend the <code>initialize</code> function of a superclass instead of redefining it completely, you can 
+<p>If you want to extend the <code>initialize</code> function of a superclass instead of redefining it completely, you can
 explicitly call the <code>initialize</code> of the superclass at the right time:</p>
 <pre><code>var SuperheroRowView = PersonRowView.extend({
   initialize: function () {
@@ -1459,7 +1459,7 @@ explicitly call the <code>initialize</code> of the superclass at the right time:
     return this;
 }
 </code></pre>
-<p>If you want to extend the <code>render</code> function of a superclass instead of redefining it completely, you can 
+<p>If you want to extend the <code>render</code> function of a superclass instead of redefining it completely, you can
 explicitly call the <code>render</code> of the superclass at the right time:</p>
 <pre><code>var SuperheroRowView = PersonRowView.extend({
   render: function () {
@@ -1471,7 +1471,7 @@ explicitly call the <code>render</code> of the superclass at the right time:</p>
 <li><code>collection</code> {Backbone Collection} The instantiated collection we wish to render.</li>
 <li><code>ItemView</code> {View Constructor | Function} The view constructor that will be instantiated for each model in the collection or a function that will return an instance of a given constructor. <code>options</code> object is passed as a first argument to a function, which can be used to access <code>options.model</code> and determine which view should be instantiated. This view will be used with a reference to the model and collection and the item view&#39;s <code>render</code> method will be called with an object containing a reference to the containerElement as follows: <code>.render({containerEl: &lt;&lt; element &gt;&gt;})</code>.</li>
 <li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the collection of views. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
-<li><code>viewOptions</code> {Object} [optional] Additional options <ul>
+<li><code>viewOptions</code> {Object} [optional] Additional options<ul>
 <li><code>viewOptions</code> {Object} Options object that will get passed to the <code>initialize</code> method of the individual item views.</li>
 <li><code>filter</code> {Function} [optional] Function that will be used to determine if a model should be rendered in this collection view. It will get called with a model and you simply return <code>true</code> or <code>false</code>.</li>
 <li><code>reverse</code> {Boolean} [optional] Convenience for reversing order in which the items are rendered.</li>
@@ -1552,7 +1552,7 @@ var AlternativeMainView = AmpersandView.extend({
 });
 </code></pre>
 <a name="ampersand-view-query" class="anchor" href="#ampersand-view-query"><h3><span class="header-link"></span>query <code>view.query(&#39;.classname&#39;)</code></h3></a><p>Runs a <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector"><code>querySelector</code></a> scoped within the view&#39;s current element (<code>view.el</code>), returning the first matching element in the dom-tree.</p>
-<p>notes: </p>
+<p>notes:</p>
 <ul>
 <li>It will also match agains the root element.</li>
 <li>It will return the root element if you pass <code>&#39;&#39;</code> as the selector.</li>
@@ -1571,10 +1571,10 @@ var AlternativeMainView = AmpersandView.extend({
 });
 </code></pre>
 <a name="ampersand-view-querybyhook" class="anchor" href="#ampersand-view-querybyhook"><h3><span class="header-link"></span>queryByHook <code>view.queryByHook(&#39;hookname&#39;)</code></h3></a><p>A convenience method for retrieving an element from the current view by it&#39;s <code>data-hook</code> attribute. Using this approach is a nice way to separate javascript view hooks/bindings from class/id selectors that are being used by CSS.</p>
-<p>notes: </p>
+<p>notes:</p>
 <ul>
 <li>It also works if you&#39;re using multiple space-separated hooks. So something like <code>&lt;img data-hook=&quot;avatar user-image&quot;/&gt;</code> would still match for <code>queryByHook(&#39;avatar&#39;)</code>.</li>
-<li>It simply uses <code>.query()</code> under the hood. So <code>.queryByHook(&#39;avatar&#39;)</code> is equivalent to <code>.query(&#39;[data-hook~=avatar]&#39;)</code> </li>
+<li>It simply uses <code>.query()</code> under the hood. So <code>.queryByHook(&#39;avatar&#39;)</code> is equivalent to <code>.query(&#39;[data-hook~=avatar]&#39;)</code></li>
 <li>It will also match to root elements.</li>
 <li>If no match is found it returns <code>undefined</code>.</li>
 </ul>
@@ -1616,7 +1616,7 @@ var AlternativeMainView = AmpersandView.extend({
 </code></pre>
 <p>Then later you can access elements by reference like so: <code>this.pages</code>, or <code>this.chat</code>.</p>
 <a name="ampersand-view-listentoandrun" class="anchor" href="#ampersand-view-listentoandrun"><h3><span class="header-link"></span>listenToAndRun <code>view.listenToAndRun(object, eventsString, callback)</code></h3></a><p>Shortcut for registering a listener for a model and also triggering it right away.</p>
-<a name="ampersand-view-remove" class="anchor" href="#ampersand-view-remove"><h3><span class="header-link"></span>remove <code>view.remove()</code></h3></a><p>Removes a view from the DOM, and calls <code>stopListening</code> to remove any bound events that the view has <code>listenTo</code>&#39;d.  This method also triggers a <code>remove</code> event on the view, allowing for listeners (or the view itself) to listen to it and do some action, like cleanup some other resources being used.  </p>
+<a name="ampersand-view-remove" class="anchor" href="#ampersand-view-remove"><h3><span class="header-link"></span>remove <code>view.remove()</code></h3></a><p>Removes a view from the DOM, and calls <code>stopListening</code> to remove any bound events that the view has <code>listenTo</code>&#39;d.  This method also triggers a <code>remove</code> event on the view, allowing for listeners (or the view itself) to listen to it and do some action, like cleanup some other resources being used.</p>
 <pre><code class="javascript">initialize : function() {
   this.listenTo(this,&#39;remove&#39;,this.cleanup);
   // OR this, either statements will call &#39;cleanup&#39; when `remove` is called

@@ -24,12 +24,12 @@
     "email": "hjoreteg@gmail.com",
     "hireable": false,
     "bio": null,
-    "public_repos": 121,
-    "public_gists": 22,
-    "followers": 619,
-    "following": 51,
+    "public_repos": 125,
+    "public_gists": 24,
+    "followers": 675,
+    "following": 50,
     "created_at": "2009-03-27T17:36:36Z",
-    "updated_at": "2015-04-22T07:19:40Z",
+    "updated_at": "2015-06-01T14:43:34Z",
     "twitter": "henrikjoreteg"
   },
   "latentflip": {
@@ -57,12 +57,12 @@
     "email": "phil@latentflip.com",
     "hireable": false,
     "bio": null,
-    "public_repos": 257,
+    "public_repos": 266,
     "public_gists": 109,
-    "followers": 275,
+    "followers": 311,
     "following": 34,
     "created_at": "2009-04-27T07:29:09Z",
-    "updated_at": "2015-04-22T04:30:36Z",
+    "updated_at": "2015-06-05T19:09:04Z",
     "twitter": "philip_roberts"
   },
   "legastero": {
@@ -92,10 +92,10 @@
     "bio": null,
     "public_repos": 52,
     "public_gists": 69,
-    "followers": 78,
+    "followers": 83,
     "following": 5,
     "created_at": "2008-12-05T01:34:29Z",
-    "updated_at": "2015-04-21T22:56:21Z",
+    "updated_at": "2015-06-02T18:55:44Z",
     "twitter": "lancestout"
   },
   "lynnandtonic": {
@@ -125,10 +125,10 @@
     "bio": null,
     "public_repos": 8,
     "public_gists": 1,
-    "followers": 47,
+    "followers": 49,
     "following": 10,
     "created_at": "2011-06-23T17:17:51Z",
-    "updated_at": "2015-04-22T03:30:51Z",
+    "updated_at": "2015-06-04T18:51:07Z",
     "twitter": "lynnandtonic"
   },
   "lukekarrys": {
@@ -156,12 +156,12 @@
     "email": "luke@lukekarrys.com",
     "hireable": false,
     "bio": null,
-    "public_repos": 60,
-    "public_gists": 38,
-    "followers": 46,
-    "following": 84,
+    "public_repos": 66,
+    "public_gists": 39,
+    "followers": 50,
+    "following": 83,
     "created_at": "2010-12-30T22:10:09Z",
-    "updated_at": "2015-04-22T07:19:40Z",
+    "updated_at": "2015-06-08T03:08:36Z",
     "twitter": "lukekarrys"
   },
   "wraithgar": {
@@ -189,12 +189,12 @@
     "email": "gar@andyet.net",
     "hireable": false,
     "bio": null,
-    "public_repos": 19,
-    "public_gists": 14,
-    "followers": 17,
+    "public_repos": 20,
+    "public_gists": 16,
+    "followers": 18,
     "following": 0,
     "created_at": "2008-11-25T16:44:27Z",
-    "updated_at": "2015-04-20T16:56:13Z",
+    "updated_at": "2015-05-22T21:07:54Z",
     "twitter": "wraithgar"
   },
   "kamilogorek": {
@@ -223,11 +223,11 @@
     "hireable": false,
     "bio": null,
     "public_repos": 85,
-    "public_gists": 37,
-    "followers": 33,
+    "public_gists": 38,
+    "followers": 34,
     "following": 2,
     "created_at": "2012-03-10T15:02:51Z",
-    "updated_at": "2015-04-20T11:55:40Z",
+    "updated_at": "2015-05-06T12:43:47Z",
     "twitter": "kamilogorek"
   }
 }
