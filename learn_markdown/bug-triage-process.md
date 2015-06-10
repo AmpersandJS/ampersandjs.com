@@ -85,3 +85,16 @@ We use the following labels on issues, these will get programmatically applied b
 
 `test`: Fixing/improving test coverage
 
+## Publishing
+
+If you have publish rights (which if you're on the core or community teams you can have at your request).
+
+Here's the scripts we've been using to publish, just add something like this to your bash profile or equivalent. Then it's pretty simple just run `patch`, `minor`, or `major`. 
+
+Eventually this may become part of some official release script. But anyway, here it is for your copy/paste enjoyment:
+
+```
+alias patch='git pull && npm version patch && git push && git push --tags && npm publish --registry https://registry.npmjs.org'
+alias minor='git pull && npm version minor && git push && git push --tags && npm publish --registry https://registry.npmjs.org'
+alias major='git pull && npm version major && git push && git push --tags && npm publish --registry https://registry.npmjs.org'
+```

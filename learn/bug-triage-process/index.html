@@ -75,7 +75,13 @@
 <p><code>request</code>: This is a request for help or a for a feature.</p>
 <p><code>security</code>: This is a security related fix or concern.</p>
 <p><code>test</code>: Fixing/improving test coverage</p>
-</section>
+<a name="publishing" class="anchor" href="#publishing"><h2><span class="header-link"></span>Publishing</h2></a><p>If you have publish rights (which if you&#39;re on the core or community teams you can have at your request).</p>
+<p>Here&#39;s the scripts we&#39;ve been using to publish, just add something like this to your bash profile or equivalent. Then it&#39;s pretty simple just run <code>patch</code>, <code>minor</code>, or <code>major</code>. </p>
+<p>Eventually this may become part of some official release script. But anyway, here it is for your copy/paste enjoyment:</p>
+<pre><code>alias patch=&#39;git pull &amp;&amp; npm version patch &amp;&amp; git push &amp;&amp; git push --tags &amp;&amp; npm publish --registry https://registry.npmjs.org&#39;
+alias minor=&#39;git pull &amp;&amp; npm version minor &amp;&amp; git push &amp;&amp; git push --tags &amp;&amp; npm publish --registry https://registry.npmjs.org&#39;
+alias major=&#39;git pull &amp;&amp; npm version major &amp;&amp; git push &amp;&amp; git push --tags &amp;&amp; npm publish --registry https://registry.npmjs.org&#39;
+</code></pre></section>
       </div><a href="/learn" class="back">Back to Guides</a>
     </div>
     <footer class="footer-main">
