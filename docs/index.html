@@ -1250,7 +1250,7 @@ var alphabetical = books.sortBy(function(book) {
             <h1><span class="header-link"></span>ampersand-view</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-view</h4>
-            <p class="module-version">latest v7.4.2</p>
+            <p class="module-version">latest v8.0.0</p>
             <p class="module-description">A smart base view for Backbone apps, to make it easy to bind collections and properties to the DOM.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-view">github</a><a href="https://www.npmjs.org/package/ampersand-view">npm</a></p>
           </div>
@@ -1467,7 +1467,8 @@ explicitly call the <code>render</code> of the superclass at the right time:</p>
     doSomeOtherStuffHere();
   })
 });
-</code></pre><a name="ampersand-view-rendercollection" class="anchor" href="#ampersand-view-rendercollection"><h3><span class="header-link"></span>renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></h3></a><ul>
+</code></pre><p>ampersand-view triggers a <code>&#39;render&#39;</code> event for your convenience, too, if you want to set listeners for it.  The <code>&#39;render&#39;</code> and <code>&#39;remove&#39;</code> events emitted by this module are merely convenience events, as you may listen solely to <code>change:rendered</code> in order to capture the render/remove events in just one listener.</p>
+<a name="ampersand-view-rendercollection" class="anchor" href="#ampersand-view-rendercollection"><h3><span class="header-link"></span>renderCollection <code>view.renderCollection(collection, ItemView, containerEl, [viewOptions])</code></h3></a><ul>
 <li><code>collection</code> {Backbone Collection} The instantiated collection we wish to render.</li>
 <li><code>ItemView</code> {View Constructor | Function} The view constructor that will be instantiated for each model in the collection or a function that will return an instance of a given constructor. <code>options</code> object is passed as a first argument to a function, which can be used to access <code>options.model</code> and determine which view should be instantiated. This view will be used with a reference to the model and collection and the item view&#39;s <code>render</code> method will be called with an object containing a reference to the containerElement as follows: <code>.render({containerEl: &lt;&lt; element &gt;&gt;})</code>.</li>
 <li>containerEl {Element | String} This can either be an actual DOM element or a CSS selector string such as <code>.container</code>. If a string is passed ampersand-view runs <code>this.query(&#39;YOUR STRING&#39;)</code> to try to grab the element that should contain the collection of views. If you don&#39;t supply a <code>containerEl</code> it will default to <code>this.el</code>.</li>
@@ -1616,7 +1617,7 @@ var AlternativeMainView = AmpersandView.extend({
 </code></pre>
 <p>Then later you can access elements by reference like so: <code>this.pages</code>, or <code>this.chat</code>.</p>
 <a name="ampersand-view-listentoandrun" class="anchor" href="#ampersand-view-listentoandrun"><h3><span class="header-link"></span>listenToAndRun <code>view.listenToAndRun(object, eventsString, callback)</code></h3></a><p>Shortcut for registering a listener for a model and also triggering it right away.</p>
-<a name="ampersand-view-remove" class="anchor" href="#ampersand-view-remove"><h3><span class="header-link"></span>remove <code>view.remove()</code></h3></a><p>Removes a view from the DOM, and calls <code>stopListening</code> to remove any bound events that the view has <code>listenTo</code>&#39;d.  This method also triggers a <code>remove</code> event on the view, allowing for listeners (or the view itself) to listen to it and do some action, like cleanup some other resources being used.</p>
+<a name="ampersand-view-remove" class="anchor" href="#ampersand-view-remove"><h3><span class="header-link"></span>remove <code>view.remove()</code></h3></a><p>Removes a view from the DOM, and calls <code>stopListening</code> to remove any bound events that the view has <code>listenTo</code>&#39;d.  This method also triggers a <code>remove</code> event on the view, allowing for listeners (or the view itself) to listen to it and do some action, like cleanup some other resources being used.  The view will trigger the <code>remove</code> event if <code>remove()</code> is overridden.</p>
 <pre><code class="javascript">initialize : function() {
   this.listenTo(this,&#39;remove&#39;,this.cleanup);
   // OR this, either statements will call &#39;cleanup&#39; when `remove` is called
@@ -1672,7 +1673,7 @@ module.exports = AmpersandView.extend({
     template: &#39;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;ul data-hook=&quot;collection-container&quot;&gt;&lt;/ul&gt;&lt;/div&gt;&#39;,
     subviews: {
         myStuff: {
-            container: &#39;[data-hook=collection-container]&#39;,
+            selector: &#39;[data-hook=collection-container]&#39;,
             waitFor: &#39;model.stuffCollection&#39;,
             prepareView: function (el) {
                 return new CollectionRenderer({
@@ -1682,7 +1683,7 @@ module.exports = AmpersandView.extend({
             }
         },
         tab: {
-            container: &#39;[data-hook=switcher]&#39;,
+            hook: &#39;switcher&#39;,
             constructor: ViewSwitcher
         }
     }
@@ -1690,7 +1691,7 @@ module.exports = AmpersandView.extend({
 </code></pre>
 <p>subview declarations consist of:</p>
 <ul>
-<li>container {String} Selector that describes the element within the view that should hold the subview.</li>
+<li>selector {String} Selector that describes the element within the view that should hold the subview.</li>
 <li>hook {String} Alternate method for specifying a container element using its <code>data-hook</code> attribute. Equivalent to <code>selector: &#39;[data-hook=some-hook]&#39;</code>.</li>
 <li>constructor {ViewConstructor} Any <a href="http://ampersandjs.com/learn/view-conventions">view conventions compliant</a> view constructor. It will be initialized with <code>{el: [Element grabbed from selector], parent: [reference to parent view instance]}</code>. So if you don&#39;t need to do any custom setup, you can just provide the constructor.</li>
 <li>waitFor {String} String specifying they &quot;key-path&quot; (i.e. &#39;model.property&#39;) of the view that must be &quot;truthy&quot; before it should consider the subview ready.</li>
