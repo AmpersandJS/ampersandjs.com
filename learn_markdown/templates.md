@@ -76,17 +76,6 @@ Here are a few templating engines as examples:
     </div>
     ```
 
-* [domthing](http://github.com/latentflip/domthing) - a variant of mustache that makes it really easy to setup bindings to ampersand-state/ampersand-model's automagically in your template:
-    ```mustache
-    <div class="entry">
-      <h1>{{title}}</h1>
-      <div class="body">
-        {{body}}
-      </div>
-    </div>
-    ```
-
-
 ### Compilation
 
 Compiling your template is the process of taking a template and converting it into (typically) a normal JavaScript function that will return the template string when called.
