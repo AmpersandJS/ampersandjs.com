@@ -65,6 +65,14 @@
     {
       "gh": "kamilogorek",
       "twitter": "kamilogorek"
+    },
+    {
+      "gh": "pgilad",
+      "twitter": "giladpeleg"
+    },
+    {
+      "gh": "naugtur",
+      "twitter": "naugtur"
     }
   ],
   "communityTeam": [
@@ -99,10 +107,6 @@
     {
       "gh": "klaemo",
       "twitter": "klaemo"
-    },
-    {
-      "gh": "pgilad",
-      "twitter": "giladpeleg"
     }
   ],
   "coreModules": [
