@@ -5,7 +5,7 @@ order: 11
 
 # Bug Triage Process
 
-We use github issues for bugs, issues, concerns, questions from users. We also have a [public trello board](https://trello.com/b/UxylNzHr/ampersand-js-roadmap) to track higher level items and to let people vote on issues.
+We use github issues for bugs, issues, concerns, questions from users.
 
 When reporting bugs, they should be opened as a new issue *on the individual repository where the issue is believed to be.*
 
