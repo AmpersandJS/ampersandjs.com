@@ -255,7 +255,7 @@ app.extend({
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.7.0</p>
+            <p class="module-version">latest v4.8.2</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
@@ -385,7 +385,8 @@ console.log(userB.cid) //=&gt; &quot;state-2&quot;
 document.body.innerHTML = hacker.escape(&#39;name&#39;);
 </code></pre>
 <a name="ampersand-state-isvalid" class="anchor" href="#ampersand-state-isvalid"><h3><span class="header-link"></span>isValid <code>state.isValid()</code></h3></a><p>Check if the state is currently valid. It does this by calling the state&#39;s <code>validate</code> method (if you&#39;ve provided one).</p>
-<a name="ampersand-state-datatypes" class="anchor" href="#ampersand-state-datatypes"><h3><span class="header-link"></span>dataTypes  <code>AmpersandState.extend({ datatypes: myCustomTypes })</code></h3></a><p>ampersand-state defines several built-in datatypes:  <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code>, <code>date</code>, <code>state</code>, or <code>any</code>.  Of these, <code>object</code>, <code>array</code> and <code>any</code> allow for a lot of extra flexibility.  However sometimes it may be useful to define your own custom datatypes.  Then you can use these types in the <code>props</code> below with all their features (like <code>required</code>, <code>default</code>, etc).</p>
+<a name="ampersand-state-datatypes" class="anchor" href="#ampersand-state-datatypes"><h3><span class="header-link"></span>dataTypes  <code>AmpersandState.extend({ datatypes: myCustomTypes })</code></h3></a><p>ampersand-state defines several built-in datatypes:  <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code>, <code>date</code>, <code>state</code>, or <code>any</code>.  Of these, <code>object</code>, <code>array</code> and <code>any</code> allow for a lot of extra flexibility.  However sometimes it may be useful to define your own custom datatypes. Then you can use these types in the <code>props</code> below with all their features (like <code>required</code>, <code>default</code>, etc).</p>
+<p>Setting <code>type</code> is required and <code>typeError</code> will be thrown if it&#39;s missing or has not been choosen either from default types or your custom ones.</p>
 <p>To define a type, you generally will provide an object with 4 member functions (though only 2 are usually necessary)  <code>get</code>, <code>set</code>, <code>default</code>, and <code>compare</code>.</p>
 <ul>
 <li><code>set : function(newVal){};  returns {type : type, val : newVal};</code>:  Called on every set. Should return an object with two members: <code>val</code> and <code>type</code>.  If the <code>type</code> value does not equal the name of the dataType you defined, a <code>TypeError</code> should be thrown.</li>
@@ -679,7 +680,9 @@ person.unset([&#39;firstName&#39;, &#39;lastName&#39;])
 <a name="ampersand-state-clear" class="anchor" href="#ampersand-state-clear"><h3><span class="header-link"></span>clear <code>state.clear([options])</code></h3></a><p>Clear all the attributes from the state object, by calling the <code>unset</code> function for each attribute, with the options provided.</p>
 <pre><code class="javascript">person.clear()
 </code></pre>
-<a name="ampersand-state-toggle" class="anchor" href="#ampersand-state-toggle"><h3><span class="header-link"></span>toggle <code>state.toggle(&#39;a&#39;)</code></h3></a><p>Shortcut to toggle boolean properties, or cycle through “ENUM” type properties with a <code>values</code> array in their definition. Fires <code>&quot;change&quot;</code> events, as you would expect from <code>set()</code>.</p>
+<a name="ampersand-state-toggle" class="anchor" href="#ampersand-state-toggle"><h3><span class="header-link"></span>toggle <code>state.toggle(&#39;a&#39;)</code></h3></a><p>Shortcut to toggle boolean properties, or cycle through array of specified property&#39;s <code>values</code> (see <code>values</code> option section and example below).
+When you reach the last available value from given array, <code>toggle</code> will go back to the beginning and use first one.</p>
+<p>Fires <code>&quot;change&quot;</code> events, as you would expect from <code>set()</code>.</p>
 <pre><code class="javascript">var Person = AmpersandState.extend({
     props: {
         active: &#39;boolean&#39;,
