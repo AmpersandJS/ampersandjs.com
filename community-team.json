@@ -24,12 +24,12 @@
     "email": "bear@bear.im",
     "hireable": null,
     "bio": null,
-    "public_repos": 54,
+    "public_repos": 57,
     "public_gists": 17,
     "followers": 159,
     "following": 7,
     "created_at": "2008-02-27T23:00:31Z",
-    "updated_at": "2015-12-24T10:05:54Z",
+    "updated_at": "2016-01-17T10:01:38Z",
     "twitter": "codebear"
   },
   "fyockm": {
@@ -90,7 +90,7 @@
     "email": "aaron@andyet.net",
     "hireable": null,
     "bio": null,
-    "public_repos": 60,
+    "public_repos": 61,
     "public_gists": 25,
     "followers": 29,
     "following": 1,
@@ -125,7 +125,7 @@
     "bio": null,
     "public_repos": 61,
     "public_gists": 6,
-    "followers": 28,
+    "followers": 29,
     "following": 1,
     "created_at": "2008-06-02T12:20:02Z",
     "updated_at": "2015-12-12T22:36:48Z",
@@ -156,12 +156,12 @@
     "email": "hi@thefox.is",
     "hireable": true,
     "bio": null,
-    "public_repos": 10,
+    "public_repos": 11,
     "public_gists": 5,
     "followers": 407,
     "following": 43,
     "created_at": "2010-08-25T13:51:15Z",
-    "updated_at": "2016-01-11T10:01:24Z",
+    "updated_at": "2016-01-19T00:26:14Z",
     "twitter": "fox"
   },
   "mmacaula": {
@@ -227,7 +227,7 @@
     "followers": 15,
     "following": 6,
     "created_at": "2011-05-10T08:32:49Z",
-    "updated_at": "2015-12-22T10:14:30Z",
+    "updated_at": "2016-01-22T10:05:20Z",
     "twitter": "klaemo"
   }
 }
