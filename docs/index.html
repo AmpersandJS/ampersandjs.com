@@ -255,7 +255,7 @@ app.extend({
             <h1><span class="header-link"></span>ampersand-state</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-state</h4>
-            <p class="module-version">latest v4.9.0</p>
+            <p class="module-version">latest v5.0.0</p>
             <p class="module-description">An observable, extensible state object with derived watchable properties.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-state">github</a><a href="https://www.npmjs.org/package/ampersand-state">npm</a></p>
           </div>
@@ -716,6 +716,7 @@ person.firstName = &#39;Phil&#39;;
 <li><code>silent</code> {Boolean} - prevents triggering of any change events as a result of the set operation.</li>
 <li><code>unset</code> {Boolean} - <code>unset</code> the attributes keyed in the attributes object instead of setting them.</li>
 </ul>
+<p><em>Note: when passing an object as the <code>attributes</code> argument, only that object&#39;s own enumerable properties (i.e. those that can be accessed with <code>Object.keys(object)</code>) are read and set. This behaviour is new as of v5.0.0, as prior version relied on <code>for...in</code> to access an object&#39;s properties, both owned by that object and those inherited through the prototypal chain.</em></p>
 <a name="ampersand-state-unset" class="anchor" href="#ampersand-state-unset"><h3><span class="header-link"></span>unset <code>state.unset(attribute|attributes[], [options])</code></h3></a><p>Clear the named attribute or an array of named attributes from the state object. Fires a <code>&quot;change&quot;</code> event and a <code>&quot;change:attributeName&quot;</code> event unless <code>silent</code> is passed as an option.</p>
 <p>If the attribute being unset is <code>required</code> and has a <code>default</code> value as defined in either <code>props</code> or <code>session</code>, it will be set to that value, otherwise it will be <code>undefined</code>.</p>
 <pre><code class="javascript">// unset a single attribute
@@ -2173,7 +2174,7 @@ eventObj.stopListening(null, null, callback);
             <h1><span class="header-link"></span>ampersand-dom-bindings</h1></a>
           <div class="module-card">
             <h4 class="module-name">ampersand-dom-bindings</h4>
-            <p class="module-version">latest v3.7.1</p>
+            <p class="module-version">latest v3.8.0</p>
             <p class="module-description">Takes binding declarations and returns key-tree-store of functions that can be used to apply those bindings.</p>
             <p class="module-links"><a href="https://github.com/ampersandjs/ampersand-dom-bindings#readme">github</a><a href="https://www.npmjs.org/package/ampersand-dom-bindings">npm</a></p>
           </div>
@@ -2211,7 +2212,7 @@ eventObj.stopListening(null, null, callback);
     selector: &#39;#something&#39;, // or hook
 }
 </code></pre>
-<a name="ampersand-dom-bindings-booleanclass" class="anchor" href="#ampersand-dom-bindings-booleanclass"><h3><span class="header-link"></span>booleanClass</h3></a><p>add/removes class based on boolean interpretation of property name. <code>name</code>, <code>yes</code>, or <code>no</code> can also be an array of class names where all the values will be toggled.</p>
+<a name="ampersand-dom-bindings-booleanclass" class="anchor" href="#ampersand-dom-bindings-booleanclass"><h3><span class="header-link"></span>booleanClass</h3></a><p>add/removes class based on boolean interpretation of property name. <code>name</code>, <code>yes</code>, or <code>no</code> can also be an array of class names where all the values will be toggled. If you need the opposite effect, (<code>false</code> adds class, <code>true</code> removes class), specify <code>invert: true</code>.</p>
 <pre><code class="javascript">&#39;model.active&#39;: {
     type: &#39;booleanClass&#39;,
     selector: &#39;#something&#39;, // or hook
@@ -2221,9 +2222,11 @@ eventObj.stopListening(null, null, callback);
     // or a yes/no case
     yes: &#39;active&#39;,
     no: &#39;not-active&#39;
+    // if you need inverse interpretation
+    invert: true
 }
 </code></pre>
-<a name="ampersand-dom-bindings-booleanattribute" class="anchor" href="#ampersand-dom-bindings-booleanattribute"><h3><span class="header-link"></span>booleanAttribute</h3></a><p>toggles whole attribute on the element (think <code>checked</code>) based on boolean interpretation of property name. <code>name</code> can also be an array of attribute names where all the values will be toggled.</p>
+<a name="ampersand-dom-bindings-booleanattribute" class="anchor" href="#ampersand-dom-bindings-booleanattribute"><h3><span class="header-link"></span>booleanAttribute</h3></a><p>toggles whole attribute on the element (think <code>checked</code>) based on boolean interpretation of property name. <code>name</code> can also be an array of attribute names where all the values will be toggled. If you need the opposite effect, (<code>false</code> adds attribute, <code>true</code> removes attribute), specify <code>invert: true</code>.</p>
 <pre><code class="javascript">&#39;model.isAwesome&#39;: {
     type: &#39;booleanAttribute&#39;,
     selector: &#39;#something&#39;, // or hook
@@ -2233,6 +2236,8 @@ eventObj.stopListening(null, null, callback);
     // or a yes/no case
     yes: &#39;data-is-awesome&#39;,
     no: &#39;data-is-not-awesome&#39;
+    // if you need inverse interpretation
+    invert: true
 }
 </code></pre>
 <a name="ampersand-dom-bindings-toggle" class="anchor" href="#ampersand-dom-bindings-toggle"><h3><span class="header-link"></span>toggle</h3></a><p>toggles visibility (using display: none by default) of entire element based on boolean interpretation of property.</p>
@@ -2240,6 +2245,13 @@ eventObj.stopListening(null, null, callback);
 &#39;model.key&#39;: {
     type: &#39;toggle&#39;,
     selector: &#39;#something&#39; // or hook
+}
+
+// Inverse interpretation of value
+&#39;model.key&#39;: {
+    type: &#39;toggle&#39;,
+    invert: true,
+    hook: &#39;some-element&#39;
 }
 
 // toggle visibility property instead
@@ -2373,7 +2385,7 @@ module.exports = View.extend({
     }
 });
 </code></pre>
-<a name="ampersand-dom-bindings-other-benefits" class="anchor" href="#ampersand-dom-bindings-other-benefits"><h2><span class="header-link"></span>other benefits</h2></a><p>Previously after having given views the ability to have their own properties (since view inherits from state) it was awkward to bind those to the DOM. Also, for binding things that were not just <code>this.model</code> the syntax had to change. </p>
+<a name="ampersand-dom-bindings-other-benefits" class="anchor" href="#ampersand-dom-bindings-other-benefits"><h2><span class="header-link"></span>other benefits</h2></a><p>Previously after having given views the ability to have their own properties (since view inherits from state) it was awkward to bind those to the DOM. Also, for binding things that were not just <code>this.model</code> the syntax had to change.</p>
 <p>Now this is fairly simple/obvious:</p>
 <pre><code class="javascript">module.exports = View.extend({
     template: templates.includes.app,
