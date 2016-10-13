@@ -11,7 +11,7 @@
     "marked": "0.3.2",
     "meta-marked": "^0.3.1",
     "module-details": "^2.0.0",
-    "request": "~2.33.0",
+    "request": "~2.74.0",
     "rimraf": "^2.2.8",
     "slugger": "^1.0.0",
     "underscore": "^1.6.0"
