@@ -74,6 +74,10 @@
 
   //- List of users & companies using Ampersand.js
 
+
+  .callout.community
+    max-width: 960px
+
   .users-list
     padding-bottom: 20px
 
@@ -97,8 +101,19 @@
         opacity: .6
       //- Adjusting margin between logos
       @media (max-width: 768px)
-        margin-left: 20px
-        margin-right: 20px
+        margin: 20px
+      //- For small screens
+      @media (max-width: 540px)
+        height: 20px
+        margin: 15px 10px
+        &.andyet
+          background-size: auto 20px
+        &.logo-talky
+          width: 33px
+        &.logo-otalk
+          width: 50px
+        &.tall
+          height: 30px
 
   //- Consulting section
 

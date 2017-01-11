@@ -652,6 +652,9 @@ nav.nav-main .button {
   margin-left: 0;
   margin-right: 0;
 }
+.splash .callout.community {
+  max-width: 960px;
+}
 .splash .users-list {
   padding-bottom: 20px;
 }
@@ -682,8 +685,25 @@ nav.nav-main .button {
 }
 @media (max-width: 768px) {
   .splash .users-list .logo {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 20px;
+  }
+}
+@media (max-width: 540px) {
+  .splash .users-list .logo {
+    height: 20px;
+    margin: 15px 10px;
+  }
+  .splash .users-list .logo.andyet {
+    background-size: auto 20px;
+  }
+  .splash .users-list .logo.logo-talky {
+    width: 33px;
+  }
+  .splash .users-list .logo.logo-otalk {
+    width: 50px;
+  }
+  .splash .users-list .logo.tall {
+    height: 30px;
   }
 }
 .splash .logo-andyet {
