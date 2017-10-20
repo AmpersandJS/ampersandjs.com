@@ -857,7 +857,14 @@ me.firstName //=&gt; Phil
 <a name="ampersand-model-save" class="anchor" href="#ampersand-model-save"><h3><span class="header-link"></span>save <code>model.save([attributes], [options])</code></h3></a><p>Save a model to your database (or alternative persistence layer) by delegating to <a href="https://github.com/ampersandjs/ampersand-sync">ampersand-sync</a>. Returns a <a href="https://github.com/Raynos/xhr">xhr</a> object if validation is successful and false otherwise. The attributes hash (as in <a href="http://ampersandjs.com/docs#ampersand-state-set">set</a>) should contain the attributes you&#39;d like to change — keys that aren&#39;t mentioned won&#39;t be altered — but, a <em>complete representation</em> of the resource will be sent to the server. As with <code>set</code>, you may pass individual keys and values instead of a hash. If the model has a validate method, and validation fails, the model will not be saved. If the model <code>isNew</code>, the save will be a &quot;create&quot; (HTTP POST).  If the model already exists on the server, the save will be an &quot;update&quot; (HTTP PUT).</p>
 <p>If you only want the changed attributes to be sent to the server, call <code>model.save(attrs, {patch: true})</code>. You&#39;ll get an HTTP PATCH request to the server with just the passed-in attributes.</p>
 <p>Calling save with new attributes will cause a <code>&quot;change&quot;</code> event immediately, a <code>&quot;request&quot;</code> event as the Ajax request begins to go to the server, and a <code>&quot;sync&quot;</code> event after the server has acknowledged the successful change. Pass <code>{wait: true}</code> if you&#39;d like to wait for the server before setting the new attributes on the model.</p>
-<pre><code class="javascript">var book = new Backbone.Model({
+<pre><code class="javascript">var Book = AmpersandModel.extend({
+  props: {
+    title: 'string',
+    author: 'string'
+  }
+});
+
+var book = new Book({
   title: &quot;The Rough Riders&quot;,
   author: &quot;Theodore Roosevelt&quot;
 });
