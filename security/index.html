@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
-    <meta name="author" content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5">
     <title>Ampersand.js - Security</title>
     <link rel="stylesheet" href="//cloud.typography.com/7773252/613684/css/fonts.css">
     <link rel="stylesheet" href="/public/css/normalize.min.css">
@@ -20,19 +19,19 @@
       _gs('track');
     </script>
   </head>
-  <body class="undefined">
-    <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Ampersand.js</a><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Find Modules</a><a href="http://amp.ampersandjs.com/" class="nav-item external">Amp</a><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="/contribute" class="nav-item">Contribute</a><a href="/learn/quick-start-guide/" class="button button-primary">Get Started</a></nav>
+  <body>
+    <nav class="nav-main cf"><a class="logo logo-ampersand" href="/">Ampersand.js</a><a class="nav-item" href="/learn">Learn</a><a class="nav-item" href="/docs">Docs</a><a class="nav-item external" href="http://tools.ampersandjs.com">Find Modules</a><a class="nav-item external" href="http://amp.ampersandjs.com/">Amp</a><a class="nav-item external" href="https://gitter.im/AmpersandJS/AmpersandJS">Chatroom</a><a class="nav-item" href="/contribute">Contribute</a><a class="button button-primary" href="/learn/quick-start-guide/">Get Started</a></nav>
     <header class="hero">
       <div class="illustration lock"><img src="/public/images/ampersand-lock.svg"></div>
       <h1>Security is a core value</h1>
     </header>
     <hr>
     <section class="splash">
-      <div class="container cf"><h1 id="reporting-a-security-bug">Reporting a Security Bug</h1>
+      <div class="container cf"><h1>Reporting a Security Bug</h1>
 <p>All security bugs in AmpersandJS are taken seriously and should be reported by email to <strong><a href="mailto:security@ampersandjs.com">security@ampersandjs.com</a></strong>. This will be delivered to a subset of the core team who handle security issues.</p>
 <p>Your email will be acknowledged within 24 hours, and you’ll receive a more detailed response to your email within 48 hours indicating the next steps in handling your report.</p>
 <p>After the initial reply to your report, the security team will endeavor to keep you informed of the progress being made towards a fix and full announcement, and may ask for additional information or guidance surrounding the reported issue. These updates will be sent at least every five days, in practice, this is more likely to be every 24-48 hours.</p>
-<p>If we have not responded promptly we ask that you give us the benefit of the doubt as it is possible the email went to spam or we have been so focused on something else we haven&#39;t seen it yet.  Please send us a quick message, <em>without detail</em> at one of the following.</p>
+<p>If we have not responded promptly we ask that you give us the benefit of the doubt as it is possible the email went to spam or we have been so focused on something else we haven't seen it yet.  Please send us a quick message, <em>without detail</em> at one of the following.</p>
 <ul>
 <li>Contact the current security coordinator (<a href="mailto:baldwin@andyet.net">Adam Baldwin</a>) directly.</li>
 <li>Give a heads up in the <a href="https://gitter.im/AmpersandJS/AmpersandJS">chatroom</a></li>
@@ -40,40 +39,45 @@
 </ul>
 <p>Security bugs in third party modules should be reported to their respective maintainers and can also be coordinated through the <a href="https://nodesecurity.io">Node Security Project</a>.</p>
 <p>Thank you for improving the security of AmpersandJS. Your efforts and coordinated disclosure are greatly appreciated and will be acknowledged.</p>
-<h2 id="disclosure-policy">Disclosure Policy</h2>
+<h2>Disclosure Policy</h2>
 <p>Here is the security disclosure policy for AmpersandJS</p>
 <ul>
-<li><p>The security report is received and is assigned a primary handler. This person will coordinate the fix and release process. The problem is confirmed and a list of all affected versions is determined. Code is audited to find any potential similar problems. Fixes are prepared for all releases which are still under maintenance. These fixes are not committed to the public repository but rather held locally pending the announcement.</p>
+<li>
+<p>The security report is received and is assigned a primary handler. This person will coordinate the fix and release process. The problem is confirmed and a list of all affected versions is determined. Code is audited to find any potential similar problems. Fixes are prepared for all releases which are still under maintenance. These fixes are not committed to the public repository but rather held locally pending the announcement.</p>
 </li>
-<li><p>A suggested embargo date for this vulnerability is chosen and a CVE (Common Vulnerabilities and  Exposures (CVE®)) is requested for the vulnerability.</p>
+<li>
+<p>A suggested embargo date for this vulnerability is chosen and a CVE (Common Vulnerabilities and  Exposures (CVE®)) is requested for the vulnerability.</p>
 </li>
-<li><p>On the embargo date, the Node Securty Project will publish the advisory. The changes are pushed to the public repository. </p>
+<li>
+<p>On the embargo date, the Node Securty Project will publish the advisory. The changes are pushed to the public repository.</p>
 </li>
-<li><p>Typically the embargo date will be set 72 hours from the time the CVE is issued. However, this may vary depending on the severity of the bug or difficulty in applying a fix.</p>
+<li>
+<p>Typically the embargo date will be set 72 hours from the time the CVE is issued. However, this may vary depending on the severity of the bug or difficulty in applying a fix.</p>
 </li>
-<li><p>This process can take some time, especially when coordination is required with maintainers of other projects. Every effort will be made to handle the bug in as timely a manner as possible, however, it’s important that we follow the release process above to ensure that the disclosure is handled in a consistent manner.</p>
+<li>
+<p>This process can take some time, especially when coordination is required with maintainers of other projects. Every effort will be made to handle the bug in as timely a manner as possible, however, it’s important that we follow the release process above to ensure that the disclosure is handled in a consistent manner.</p>
 </li>
 </ul>
-<h2 id="receiving-security-updates">Receiving Security Updates</h2>
+<h2>Receiving Security Updates</h2>
 <p>Security notifications will be distributed via the following methods.</p>
 <ul>
 <li>A message will be posted in the <a href="https://gitter.im/AmpersandJS/AmpersandJS">chatroom</a></li>
 <li>A security advisory will be published at nodesecurity.io and will be identifiable by the <a href="https://www.npmjs.org/package/nsp">nsp</a> utility.</li>
 </ul>
-<h2 id="comments-on-this-policy">Comments on this Policy</h2>
+<h2>Comments on this Policy</h2>
 <p>If you have suggestions on how this process could be improved please submit a <a href="https://github.com/AmpersandJS/ampersandjs.com">pull request</a> or email <a href="mailto:security@ampersandjs.com">security@ampersandjs.com</a> to discuss.</p>
-<h2 id="history">History</h2>
+<h2>History</h2>
 <p>No security issues have been reported for this project yet.</p>
 
       </div>
     </section>
     <footer class="footer-main">
       <nav class="nav-footer cf">
-        <div><a href="/learn" class="nav-item">Learn</a><a href="/docs" class="nav-item">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item">Modules</a></div>
-        <div><a href="http://amp.ampersandjs.com/" class="nav-item external">Amp</a><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="/contribute" class="nav-item">Contribute</a></div>
-        <div><a href="/security" class="nav-item">Security</a><a href="https://github.com/ampersandjs" class="nav-item">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item">Twitter</a></div>
+        <div><a class="nav-item" href="/learn">Learn</a><a class="nav-item" href="/docs">Docs</a><a class="nav-item" href="http://tools.ampersandjs.com">Modules</a></div>
+        <div><a class="nav-item external" href="http://amp.ampersandjs.com/">Amp</a><a class="nav-item external" href="https://gitter.im/AmpersandJS/AmpersandJS">Chatroom</a><a class="nav-item" href="/contribute">Contribute</a></div>
+        <div><a class="nav-item" href="/security">Security</a><a class="nav-item" href="https://github.com/ampersandjs">Github</a><a class="nav-item" href="https://twitter.com/ampersandjs">Twitter</a></div>
       </nav>
-      <p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br>with the help of our <a href="/contribute">contributors</a></p><a href="/" class="logo logo-ampersand-gray">&amp;</a>
+      <p>Sponsored by<a href="https://andyet.com">&amp;yet</a><br>with the help of our<a href="/contribute">contributors</a></p><a class="logo logo-ampersand-gray" href="/">&amp;</a>
     </footer>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -88,7 +92,6 @@
     <script>
       hljs.configure({classPrefix: ''});
       hljs.initHighlightingOnLoad();
-      
     </script>
   </body>
 </html>

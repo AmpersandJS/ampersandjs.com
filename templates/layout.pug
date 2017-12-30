@@ -7,8 +7,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="description", content="Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5")
-    meta(name="author", content="#{description}")
+    meta(name="description", content=(description || 'Ampersand.js, Javascript, ampersand, Node.js, Apps, HTML5'))
 
     title Ampersand.js - #{pageTitle || globals.pageTitle}
 
@@ -24,7 +23,7 @@ html(lang="en")
       _gs('GSN-375569-B', false);
       _gs('set', 'cookieDomain', '.ampersandjs.com');
       _gs('track');
-  body(class="#{bodyClass}")
+  body(class=bodyClass)
 
     nav.nav-main.cf
       a.logo.logo-ampersand(href="/") Ampersand.js
@@ -53,10 +52,10 @@ html(lang="en")
           a.nav-item(href="/security") Security
           a.nav-item(href="https://github.com/ampersandjs") Github
           a.nav-item(href="https://twitter.com/ampersandjs") Twitter
-      p Sponsored by 
-        a(href="https://andyet.com") &amp;yet 
+      p Sponsored by
+        a(href="https://andyet.com") &amp;yet
         br
-        | with the help of our 
+        | with the help of our
         a(href="/contribute") contributors
       a.logo.logo-ampersand-gray(href="/") &amp;
 

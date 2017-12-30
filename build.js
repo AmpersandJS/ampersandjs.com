@@ -3,8 +3,8 @@ var slugger = require('slugger');
 var path = require('path');
 var rimraf = require('rimraf');
 var fs = require('fs');
-var jade = require('jade');
-var renderJade = require('./lib/render-jade');
+var pug = require('pug');
+var renderPug = require('./lib/render-pug');
 var marked = require('marked');
 var metaMarked = require('meta-marked')
 var templateGlobals = {};
@@ -24,7 +24,7 @@ function build() {
     // build docs pages from npm for core modules
     getModules(pack.coreModules, function (err, modules) {
         templateGlobals.modules = modules;
-        renderJade(__dirname + '/docs/index.jade', templateGlobals);
+        renderPug(__dirname + '/docs/index.pug', templateGlobals);
     });
 
     // grab "latest" updated modules for home page aside.
@@ -36,7 +36,7 @@ function build() {
         }).reverse().slice(0, 3);
 
         getModules(pack.featuredModules, function (err, modules) {
-            renderJade(__dirname + '/index.jade', {
+            renderPug(__dirname + '/index.pug', {
                 recent: recentlyUpdated,
                 featured: modules
             });
@@ -89,7 +89,7 @@ function build() {
     fs.mkdirSync(__dirname + '/learn');
 
     parsed.forEach(function (item) {
-        renderJade(__dirname + '/templates/learn-page.jade', {
+        renderPug(__dirname + '/templates/learn-page.pug', {
             currentPageUrl: item.url,
             content: item.html,
             pages: parsed,
@@ -98,7 +98,7 @@ function build() {
         }, __dirname + '/learn/' + item.url + '/index.html');
     });
 
-    renderJade(__dirname + '/templates/learn-index.jade', {
+    renderPug(__dirname + '/templates/learn-index.pug', {
         pages: parsed
     }, __dirname + '/learn/index.html');
 
@@ -107,14 +107,14 @@ function build() {
         return !coreContributors[member.user] && !communityTeam[member.user];
     });
 
-    renderJade(__dirname + '/contribute/index.jade', {
+    renderPug(__dirname + '/contribute/index.pug', {
         contributors: contributors,
         coreContributors: coreContributors,
         communityTeam: communityTeam
     });
 
     // Render security page
-    renderJade(__dirname + '/security.jade', {}, __dirname + '/security/index.html');
+    renderPug(__dirname + '/security.pug', {}, __dirname + '/security/index.html');
 }
 
 // optional watcher
@@ -122,7 +122,7 @@ if (process.argv.slice(2)[0] === '-w') {
     console.log('started watching');
     fs.watch('learn_markdown', build);
     fs.watch('docs', build);
-    fs.watch('index.jade', build);
+    fs.watch('index.pug', build);
 }
 
 build();
