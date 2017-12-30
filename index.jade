@@ -106,7 +106,7 @@ block content
       img.humanjs-ipad(src="/public/images/human-javascript.png")
       //- Needs svg and png fallback
       a.logo.logo-humanjs(href="http://humanjavascript.com/") Human JavaScript
-      p Henrik Joreteg introduces practical patterns for powerfully simple application development. 
+      p Henrik Joreteg introduces practical patterns for powerfully simple application development.
         a(href="http://humanjavascript.com/")
           em Human Javascript
         = ' '
@@ -119,7 +119,7 @@ block content
     .callout.modules-list
       h2 Recent Releases
       .cf
-        for module in globals.recent
+        for module in recent
           - var split = new Date(module.time[module['dist-tags'].latest]).toDateString().split(' ');
           - var dateString = split.slice(1, 3).join(' ') + ', ' + split[3];
           .module-card

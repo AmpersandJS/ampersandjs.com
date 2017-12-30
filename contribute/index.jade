@@ -27,7 +27,7 @@ block content
     .container
       h2 Core Contributors
       .core-team.cf
-        for member, name in globals.coreContributors
+        for member, name in coreContributors
           .member
             a(href= 'http://twitter.com/' + member.twitter)
               img(src= member.avatar_url + 's=300')
@@ -35,7 +35,7 @@ block content
 
       h2 Community Team
       .core-team.cf
-        for member, name in globals.communityTeam
+        for member, name in communityTeam
           .member
             a(href= 'http://twitter.com/' + member.twitter)
               img(src= member.avatar_url + 's=300')
@@ -45,9 +45,9 @@ block content
 
       p This list is fetched from GitHub’s API and lists users who have contributed to repos in the <a href='https://github.com/ampersandjs'>AmpersandJS Organization</a>.
 
-      p They’re sorted by total number of contributions (excluding core and community teams). 
-      
+      p They’re sorted by total number of contributions (excluding core and community teams).
+
       .contributors-list.cf
-        for member in globals.contributors
+        for member in contributors
           a.member(href= member.url)
             img(src= member.avatar + 's=200')

@@ -7,7 +7,6 @@ var jade = require('jade');
 var renderJade = require('./lib/render-jade');
 var marked = require('marked');
 var metaMarked = require('meta-marked')
-var async = require('async');
 var templateGlobals = {};
 var includes = [];
 var intro = marked(fs.readFileSync(__dirname + '/intro.md', 'utf8'));
