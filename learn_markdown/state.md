@@ -187,7 +187,7 @@ This is *super* useful if you've bound a derived property to a DOM property. Thi
 
 This is also important for cases where you're dealing with fast changing attributes.
 
-Say you're drawing a realtime graph of tweets from the Twitter firehose. Instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a property to watch.
+Say you're drawing a realtime graph of tweets from the Twitter firehose. Instead of binding your graph to increment with each tweet, if you know your graph only ticks with every thousand tweets you can easily create a derived property to watch.
 
 ```js
 var MyGraphDataModel = State.extend({
@@ -209,7 +209,7 @@ var data = new MyGraphDataModel({numberOfTweets: 555});
 
 // start adding 'em
 var increment = function () {
-    data.number += 1;
+    data.numberOfTweets += 1;
 }
 setInterval(increment, 50);
 
@@ -224,8 +224,25 @@ data.on('change:thousandTweets', function () {
 
 Say you want to calculate a value whenever it's accessed. Sure, you can create a non-cached derived property.
 
-If you say `cache: false` then it will fire a `change` event anytime any of the `deps` changes and it will be re-calculated each time its accessed.
+Set `cache: false` in the derived property object to fire a `change` event anytime any of the `deps` changes and re-calculate the derived property each time it is accessed.
 
+Same graph data model as the example above, but with `cache: false`:
+```js
+var MyGraphDataModel = State.extend({
+    props: {
+        numberOfTweets: 'number'
+    },
+    derived: {
+        thousandTweets: {
+            deps: ['numberOfTweets'],
+            fn: function () {
+                return Math.floor(this.numberOfTweets / 1000);
+            },
+            cache: false // fires change event every time
+        }
+    }
+});
+```
 
 ## State can be extended as many times as you want
 
@@ -343,7 +360,7 @@ Say you want a simple way to listen for any changes that are represented in a te
 
 Let's say you've got a `person` state object with a `profile` child. You want an easy way to listen for changes to either the base `person` object or the `profile`. In fact, you want to listen to anything related to the person object.
 
-Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble up the events up the chain.
+Rather than having to worry about watching the right thing, we do exactly what the browser does to solve this problem: we bubble events up the chain.
 
 Now we can listen for deeply nested changes to properties.
 
@@ -400,4 +417,4 @@ if (unknownObject.isState) {
 
 ```
 
-Similarly collection instances have an `isCollection` property. 
+Similarly, collection instances have an `isCollection` property. 
