@@ -224,7 +224,7 @@ data.on('change:thousandTweets', function () {
 
 Say you want to calculate a value whenever it's accessed. Sure, you can create a non-cached derived property.
 
-Set `cache: false` in the derived property object to fire a `change` event anytime any of the `deps` changes and re-calculate the derived property each time it is accessed.
+Set `cache: false` in the derived property object to fire a `change` event any time any of the `deps` changes and re-calculate the derived property each time it is accessed.
 
 Same graph data model as the example above, but with `cache: false`:
 ```js
@@ -400,7 +400,7 @@ me.profile.name = 'henrik';
 
 With npm and browserify for module deps you can sometimes end up with a situation where the same `state` constructor wasn't used to build a `state` object. As a result `instanceof` checks will fail.
 
-In order to deal with this (because sometimes this is a legitimate scenario), `state` simply creates a read-only `isState` property on all state objects that can be used instead of an instance check to verify whether or not a given object is an `ampersand-state` object. 
+In order to deal with this (because sometimes this is a legitimate scenario), `state` simply creates a read-only `isState` property on all state objects that can be used instead of an instance check to verify whether or not a given object is an `ampersand-state` object.
 
 ```js
 var State = require('ampersand-state');
@@ -417,4 +417,4 @@ if (unknownObject.isState) {
 
 ```
 
-Similarly, collection instances have an `isCollection` property. 
+Similarly, collection instances have an `isCollection` property.
