@@ -113,6 +113,8 @@ function build() {
         communityTeam: communityTeam
     });
 
+    renderPug(__dirname + '/404.pug');
+
     // Render security page
     renderPug(__dirname + '/security.pug', {}, __dirname + '/security/index.html');
 }
