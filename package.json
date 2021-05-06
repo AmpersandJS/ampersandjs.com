@@ -15,7 +15,7 @@
     "request": "^2.83.0",
     "rimraf": "^2.2.8",
     "slugger": "^1.0.0",
-    "underscore": "^1.6.0"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "http-server": "^0.10.0",
