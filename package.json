@@ -8,7 +8,7 @@
     "bluebird": "*",
     "fs-extra": "^5.0.0",
     "jstransformer-markdown-it": "^2.0.0",
-    "marked": "^0.3.9",
+    "marked": "^4.0.10",
     "meta-marked": "^0.4.2",
     "module-details": "^2.0.0",
     "pug": "^2.0.0-rc.4",
