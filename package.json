@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "author": "Henrik Joreteg",
   "dependencies": {
-    "async": "^2.6.0",
+    "async": "^2.6.4",
     "bluebird": "*",
     "fs-extra": "^5.0.0",
     "jstransformer-markdown-it": "^2.0.0",
