@@ -18,7 +18,7 @@
     "underscore": "^1.6.0"
   },
   "devDependencies": {
-    "http-server": "^0.10.0",
+    "http-server": "^14.1.1",
     "stylus": "^0.54.5"
   },
   "featuredModules": [
